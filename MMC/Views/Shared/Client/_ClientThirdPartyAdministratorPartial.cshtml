@@ -1,0 +1,214 @@
+﻿@using MMCApp.Infrastructure.Global;
+<div>
+    <input type="hidden" name="Skip" id="hidskipcTpa" data-bind="value: $root.cTpaSkip" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>TPA Name</th>
+                            <th>TPA Address</th>
+                            <th>TPA City </th>
+                            <th>TPA State </th>
+                            <th>TPA Zip</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:ClientThirdPartyAdministratorDetails()!= null-->
+                        <!-- ko foreach:ClientThirdPartyAdministratorDetails -->
+                        <tr>
+                            <td><span data-bind="text:TPAName" /></td>
+                            <td><span data-bind="text:TPAAddress" /></td>
+                            <td><span data-bind="text:TPACity" /></td>
+                            <td><span data-bind="text:TPAState" /></td>
+                            <td><span data-bind="text:TPAZip" /></td>
+                            <td> <a data-bind="click:$root.DeleteClientThirdPartyAdministratorByID" href="#">Delete</a> 
+                                <input type="hidden" name="TPAType" id="TPAType" data-bind="value:TPAType" />
+                            </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:ClientThirdPartyAdministratorDetails()==null || ClientThirdPartyAdministratorDetails().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    <!-- ko if:cTpaPager().cTpaTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: cTpaPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:cTpaFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: cTpaLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: cTpaTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:cTpaCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cTpaCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cTpaCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cTpaHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cTpaCurrentPage(cTpaCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cTpaHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:cTpaPages -->
+                            <!-- ko if:$data === $parent.cTpaCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.cTpaCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.cTpaCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:cTpaHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cTpaCurrentPage(cTpaCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cTpaHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cTpaCurrentPage() === cTpaLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cTpaCurrentPage(cTpaLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cTpaCurrentPage() === cTpaLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>                                                                                                                             
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" id="OpenPopUpClientThirdPartyAdministrator" data-toggle="modal" data-target="#addClientThirdPartyAdministrator" type="button">Add New</button>
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" id="OpenPopUpClientThirdPartyAdministratorBranch" data-toggle="modal" data-target="#addClientThirdPartyAdministratorBranch" type="button">Add New TPA Branch</button>
+
+    <!--Model-->
+    <div class="modal fade" id="addClientThirdPartyAdministrator" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            @using (Html.BeginForm(GlobalConst.Actions.Client.AddClientThirdPartyAdministrator, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddClientThirdPartyAdministrator",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientThirdPartyAdministratorDetailSuccess(responseText);},beforeSubmit: ClientThirdPartyAdministratorFormBeforeSubmit}"
+    }))
+            {
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add Client Third Party Administrator</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="divClaim">
+                            <div class="row">
+
+                                <div class="panel-wrapper">
+                                    <div class="panel-body">
+
+                                        <div class="col-md-4">
+                                            <label>Third Party Administrator:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="ClientID" id="TPAClientID" />
+                                            <select id="ThirdPartyAdministrator" class="form-control" name="TPAID" data-bind="options: ThirdPartyAdministratorList, optionsText: 'TPAName', optionsValue: 'TPAID',value:TpaSelectedValue,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-red ClosePop">Save </button>
+                        <button type="button" class="btn btn-default ClosePop" id="ClosePopUpThirdPartyAdministrator" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="modal fade" id="addClientThirdPartyAdministratorBranch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            @using (Html.BeginForm(GlobalConst.Actions.Client.AddClientThirdPartyAdministratorBranch, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddClientThirdPartyAdministratorBranch",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientThirdPartyAdministratorBranchDetailSuccess(responseText);},beforeSubmit: ClientThirdPartyAdministratorBranchFormBeforeSubmit}"
+    }))
+            {
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add Third Party Administrator Branch(s)</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="divClaim">
+                            <div class="row">
+
+                                <div class="panel-wrapper">
+                                    <div class="panel-body">
+
+                                        <div class="col-md-4">
+                                            <label>Third Party Administrator Branch:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="ClientID" id="TPABranchClientID" />
+                                            <input type="hidden" name="TPAID" id="HFTPAID" />
+                                            <select id="ThirdPartyAdministratorBranch" class="form-control" name="TPABranchID" data-bind="options: ThirdPartyAdministratorBranchList, optionsText: 'TPABranchName', optionsValue: 'TPABranchID',value:TpaBranchSelectedValue,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-red ClosePop">Save </button>
+                        <button type="button" class="btn btn-default ClosePop" id="ClosePopUpThirdPartyAdministratorBranch" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

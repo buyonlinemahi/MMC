@@ -1,0 +1,31 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/IMR/SearchRequestIMRViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+
+        var _model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _searchViewModel = new SearchRequestIMRViewModel();
+    
+        ko.applyBindings(_searchViewModel, $("#divRequestIMRRecordByPatientClaim").get(0));
+
+
+    </script>
+
+}
+
+
+
+
+<div id="divRequestIMRRecordByPatientClaim">
+
+    @{Html.RenderPartial("~/Views/Shared/IMR/_PatientClaimSearchPartial.cshtml");}
+
+    @{Html.RenderPartial("~/Views/Shared/IMR/_RequestIMRRecordByPatientClaimPartial.cshtml");}
+
+</div>
+

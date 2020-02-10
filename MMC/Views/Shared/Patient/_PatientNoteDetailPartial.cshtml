@@ -1,0 +1,160 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="white-background">
+            <table class="table table-bordered table-striped table-condensed home-table">
+                <thead>
+                    <tr>
+                        <th>Notes </th>
+                        <th>Claim </th>
+                        <th>Request</th>
+                        <th>User </th>
+                        <th>Date</th>
+                        <th>Time</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--ko if:NotesDetails()!= null-->
+                    <!-- ko foreach:NotesDetails -->
+                    <tr>
+                        <td class="col-lg-3"><a id="btneditNote" data-target="#UpdateNoteDiv " data-backdrop="static"
+   data-bind="click:$root.EditNotes" data-keyboard="false" data-toggle="modal"><span data-bind="text:ShortNotes"></span></a></td>
+                        <td class="col-lg-2"><span data-bind="text:PatClaimNumber"></span></td>
+                        <td class="col-lg-2"><span data-bind="text:RFARequestedTreatment"></span></td>
+                        <td class="col-lg-2"><span data-bind="text:Users"></span></td>
+                        <td class="col-lg-2"><span data-bind="text:NotesDate"></span></td>
+                        <td class="col-lg-3"><span data-bind="text:NotesTime"></span></td>
+                    </tr>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </tbody>
+                <tfoot>
+                    <!--ko if:NotesDetails()==null || NotesDetails().length==0-->
+                    <tr>
+                        <td colspan="6">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    &times;
+                                </button>
+                                No Result Found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                </tfoot>
+            </table>
+            <!-- ko if:pnPager().pnTotalItemCount() > 0 -->
+            <!--ko if:NotesDetails()!= null-->
+            @using MMCApp.Infrastructure.Global;
+            @using System.Web.Script.Serialization;
+@using (Html.BeginForm(GlobalConst.Actions.PatientController.PrintNotes, GlobalConst.Controllers.Patient, System.Web.Mvc.FormMethod.Post, new
+{
+    id = "frmVendorPartial",
+    enctype = "multipart/form-data",
+}))
+
+{
+            <div class="col-sm-12">
+               <input type="hidden" name="PatientID" id="hidPatientID" />
+                <button class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Print</button>
+                
+            </div>
+}
+            <!-- /ko -->
+            <nav class="margin-left">             
+                <div class="pagination" data-bind="with: pnPager">
+                    <div class="pagexofx">
+                        <span data-bind="text:pnFirstItemIndex"></span>
+                        -
+                        <span data-bind="text: pnLastItemIndex"></span>
+                        of
+                        <strong>
+                            <span data-bind="text: pnTotalItemCount"></span>
+                        </strong>
+                        total results.
+                    </div>
+                    <ul class="pagination">
+                        <!-- ko if:pnCurrentPage() === 1 -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:pnCurrentPage() === 1 -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ pnCurrentPage(1); }">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:pnHasPrevPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ pnCurrentPage(pnCurrentPage() - 1); }">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:pnHasPrevPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko foreach:pnPages -->
+                        <!-- ko if:$data === $parent.pnCurrentPage() -->
+                        <li class="active">
+                            <span class="currentPage" data-bind="text: $data"></span>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:$data !== $parent.pnCurrentPage() -->
+                        <li>
+                            <a href="#" data-bind="text: $data, click: function(){ $parent.pnCurrentPage($data); }"></a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!-- ko if:pnHasNextPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ pnCurrentPage(pnCurrentPage() + 1); }">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:pnHasNextPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:pnCurrentPage() === pnLastPage() -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ pnCurrentPage(pnLastPage()); }">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:pnCurrentPage() === pnLastPage() -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                </div>                
+            </nav>
+            <!-- /ko -->
+        </div>
+        <!-- white-background -->
+    </div>
+    <!-- col-sm-12 -->
+</div>
+<div class="modal fade bs-example-modal-lg" id="UpdateNoteDiv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog position-center modal-lg">
+        <div class="modal-content">
+            <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="modal" data-bind="click:CloseNotePop" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Add Notes </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="panel-body">
+                    <div class="row">
+                        <div id="divEditorNoteUpdate">
+                            @Html.Raw(ViewBag.EditorNoteUpdate)
+                            <input type="hidden" id="hidNoteID" name="NoteID" value="0" />
+                        </div>
+                        <br />
+                        <button class="btn btn-red padding-btn color-black pull-right margintop10" data-bind="click:UpdateNotes" type="button">Save</button>
+                    </div>
+                    <!-- row -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+@using (Html.BeginForm(GlobalConst.Actions.MedicalGroup.SaveMedicalGroupDetail, GlobalConst.Controllers.MedicalGroup, System.Web.Mvc.FormMethod.Post, new
+{
+    id = "frmVendorPartial",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddMedicalGroupSuccess(responseText);},beforeSubmit : MedicalGroupInfoFormBeforeSubmit}"
+}))
+{
+    <div class="row">
+        <div class="col-lg-12 client-accordian">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading11">
+                    <h4 class="panel-title">
+                        <a>
+                            Medical Group Demography
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse11" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading11">
+                    <div class="panel-body row">
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Name :</label>
+                                <div class="col-sm-9">
+                                    <input type="hidden" class="form-control" name="MedicalGroupID" id="MedicalGroupID" data-bind="value:MedicalGroupID">
+                                    <input type="text" class="form-control" name="MedicalGroupName" id="MedicalGroupName" required="required" maxlength="25" data-bind="value:MedicalGroupName,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Address :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="MGAddress" required="required" id="MGAddress" maxlength="50" data-bind="value:MGAddress,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Address 2 :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="MGAddress2" id="MGAddress2" maxlength="50" data-bind="value:MGAddress2,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>City :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" maxlength="50" name="MGCity" id="MGCity" required="required" data-bind="value:MGCity,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Zip :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control zipMaskformat" name="MGZip" id="MGZip" required="required" data-bind="value:MGZip,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>State :</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="MGStateID" data-bind="options: States, optionsText: 'StateName', optionsValue: 'StateId', value: selectedItem,jqBootstrapValidation:{}"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Notes :</label>
+                                <div class="col-sm-9">
+                                    <textarea type="text" class="form-control resize-none" id="MGNote" name="MGNote" rows="3" data-bind="value:MGNote,jqBootstrapValidation: {}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- col-lg-12 -->
+    </div><!-- row -->
+    <div class="row">
+        <div class="col-sm-12">
+            @*<button class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="button">Cancel</button>*@
+            <button class="btn btn-red padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Save</button>
+        </div>
+    </div>
+}

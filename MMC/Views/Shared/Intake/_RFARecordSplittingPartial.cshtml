@@ -1,0 +1,164 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+<div id="divRFARecordSplt">
+    <div class="panel-body row">
+
+        <div class="col-sm-12">
+            <div class="form-group row label-font clearfix">
+                <label class="col-sm-4 control-label"><span class="required-link">*</span>Upload file pages :</label>
+                <div class="col-sm-8">
+                    <span name="uploadFilePages" data-bind="text:uploadFilePages,jqBootstrapValidation: {},"></span>
+                </div>
+            </div>
+        </div>
+
+        @using (Html.BeginForm(GlobalConst.Actions.IntakeController.saveRFARecordSplitting, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+        {
+            id = "frmRFARecordSplitting",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdateRFARecordSplittingSuccess(responseText);},beforeSubmit : RFARecordSplittingInfoFormBeforeSubmit}"
+        }))
+        {
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Start Page :</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control diableInput" id="RFARecPageStart" name="RFARecPageStart" required="required" data-bind="jqBootstrapValidation: {}" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>End Page :</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control diableInput" id="RFARecPageEnd" name="RFARecPageEnd" required="required" data-bind="jqBootstrapValidation: {}" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Category :</label>
+                    <div class="col-sm-8">
+                        @*<select name="DocumentCategoryID" id="DocumentCategoryID" class="form-control" required="required" data-bind="options: documentCategories, optionsText: 'DocumentCategoryName', optionsValue: 'DocumentCategoryID',
+                                                                                                                                    jqBootstrapValidation: {}">
+                            </select>*@
+
+                        <select name="DocumentCategoryID" id="DocumentCategoryID" class="form-control diableInput" required="required" data-bind="options: documentCategories, optionsText: 'DocumentCategoryName', optionsValue: 'DocumentCategoryID',
+                                                                                                                                optionsCaption: 'Select Any Option', jqBootstrapValidation: {}"></select>
+
+
+                        <input type="hidden" class="form-control" name="RFAReferralID" data-bind="value:RFAReferralID">
+                        <input type="hidden" class="form-control" name="PatientClaimID" data-bind="value:PatientClaimID">
+                        <input type="hidden" class="form-control" id="HDPatientID" name="PatientID" data-bind="value:PatientID">
+                        <input style="display: none;" type="text" class="form-control" name="RFAReferralFileName" required="required" data-bind="value:RFAReferralFileName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Type :</label>
+                    <div class="col-sm-8">
+                        <select name="DocumentTypeID" id="DocumentTypeID" class="form-control marginbottom15 diableInput" required="required" data-bind="options: DocumentTypes, optionsText: 'DocumentTypeDesc', optionsValue: 'DocumentTypeID'"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Name :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control diableInput" name="RFARecDocumentName" id="RFARecDocumentName" maxlength="50" required="required" data-bind="jqBootstrapValidation: {},">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Date :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker diableInput" name="RFARecDocumentDate" id="RFARecDocumentDate" required="required" data-bind="jqBootstrapValidation: {}" maxlength="10" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Author :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control diableInput" name="AuthorName" id="AuthorName" maxlength="50" required="required" data-bind="jqBootstrapValidation: {}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <button class="btn btn-default padding-btn margin-btm-30 marginright20 margintop10 pull-right diableBtn" type="submit">Split</button>
+                </div>
+            </div>
+        }
+        @using (Html.BeginForm(GlobalConst.Actions.IntakeController.updateProcessLevelRecSplt, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+            {
+                id = "frmRFARecordSplittingProcessLvl"
+            }))
+        {
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+
+                    <button class="btn btn-default padding-btn margin-btm-30 pull-right diableBtn" type="submit" id="GoToPreprationbtn">Go To Preparation</button>
+                    <input type="hidden" class="form-control" name="_rfaReferralID" data-bind="value:RFAReferralID">
+                </div>
+            </div>
+        }
+
+    </div>
+
+                <h4>Record(s) Split</h4>
+                <table id="RecordSplit" class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Page Start</th>
+                            <th>Page End</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Author</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:rfaRecordSplitingDetails()!= null-->
+                        <!-- ko foreach:rfaRecordSplitingDetails -->
+                        <tr>
+                            <td><span data-bind="text :RFARecPageStart" /></td>
+                            <td><span data-bind="text :RFARecPageEnd" /></td>
+                            <td><span data-bind="text :DocumentCategoryName" /></td>
+                            <td><span data-bind="text :DocumentTypeDesc" /></td>
+                            <td><a href="#" data-bind='attr:{href:DocumentUrl},text:RFARecDocumentName'></a></td>
+                            <td><span data-bind="text :RFARecDocumentDate" /></td>
+                            <td><span data-bind="text :AuthorName" /></td>
+                            <td><a href="#" class="diableAnchor" data-bind='click: $root.deleteRFARecordSplitting'>Delete</a>
+                            <span class="spandisable">Delete</span>
+                            </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:rfaRecordSplitingDetails()==null || rfaRecordSplitingDetails().length==0-->
+                        <tr>
+                            <td colspan="8">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+
+            </div>

@@ -1,0 +1,12 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\MMC.Core.Data.SQLServer.dll.config
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\MMC.Core.Data.SQLServer.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\MMC.Core.Data.SQLServer.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\EntityFramework.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\MMC.Core.Data.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\MMC.Core.Data.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\EntityFramework.xml
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\obj\Debug\MMC.Core.Data.SQLServer.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\obj\Debug\MMC.Core.Data.SQLServer.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.SQLServer\obj\Debug\MMC.Core.Data.SQLServer.pdb

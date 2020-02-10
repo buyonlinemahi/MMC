@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bb7de646-f3cb-4e88-bf46-b8c2821ac417" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/MMC/IntakeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IntakeService4.xsd" MetadataType="Schema" ID="87acb07a-0a04-4f7c-a448-042561eea0ac" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="IntakeService.disco" MetadataType="Disco" ID="c7eb9f70-7124-4a7a-b98a-c5ed2cc3c593" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?disco" />
+    <MetadataFile FileName="IntakeService.xsd" MetadataType="Schema" ID="47e3d1c3-b7e4-4804-ab49-de2fa7c1c87b" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="IntakeService3.xsd" MetadataType="Schema" ID="9a90f696-e657-419b-ac0b-e338048b7687" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="IntakeService2.xsd" MetadataType="Schema" ID="003734db-03f4-42ba-8037-721e0f1e6301" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="IntakeService.wsdl" MetadataType="Wsdl" ID="cd0f5e4b-94de-4cf6-9e7b-4f64f7d65151" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?wsdl" />
+    <MetadataFile FileName="IntakeService1.xsd" MetadataType="Schema" ID="eb6f13e3-0233-4c9e-a647-61f832d0c24a" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

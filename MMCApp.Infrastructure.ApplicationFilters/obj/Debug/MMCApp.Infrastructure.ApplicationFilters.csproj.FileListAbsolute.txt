@@ -1,0 +1,13 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Infrastructure.ApplicationFilters.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Infrastructure.ApplicationFilters.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Domain.Models.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Infrastructure.Base.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Infrastructure.Global.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\System.Web.Mvc.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Domain.Models.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Infrastructure.Base.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\MMCApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\bin\Debug\System.Web.Mvc.xml
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\obj\Debug\MMCApp.Infrastructure.ApplicationFilters.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\obj\Debug\MMCApp.Infrastructure.ApplicationFilters.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationFilters\obj\Debug\MMCApp.Infrastructure.ApplicationFilters.pdb

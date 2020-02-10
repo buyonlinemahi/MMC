@@ -1,0 +1,220 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "IMRDecision";
+}
+
+@section scripts{
+    <link href="~/Content/css/multiple-emails.css" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/IMR/IMRDecisionViewModel.js")"></script>
+    <script src="~/Scripts/multiple-emails.js"></script>
+    <script src="@Url.Content("~/Scripts/datepicker/bootstrap-datepicker.min.js")"></script>
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _imrDecisionViewModel = new IMRDecisionViewModel(model);
+        ko.applyBindings(_imrDecisionViewModel, $("#IMRDecisionDiv").get(0));
+    </script>
+
+}
+<div id="IMRDecisionDiv">
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <tbody>
+                        <tr >
+                            <th class="col-lg-3">Patient :</th>
+                            <td colspan="2"><span data-bind="text:IMRReferralDetails().PatFirstName() +' ' + IMRReferralDetails().PatLastName() " /></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-3">IMR Decision Received Date :</th>
+                            <td colspan="2"> <input type="text" class="form-control datepicker" id="IMRDecisionReceivedDate" name="IMRDecisionReceivedDate" required="required"></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-3">Due Date :</th>
+                            <td colspan="2"><span data-bind="text:IMRReferralDetails().DueDate" /></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-3">IMR Upload :</th>
+                            <td>
+                                <input name="RFAReferralFileID" type="hidden" data-bind="value:IMRReferralDetails().RFAReferralID" />
+                                <input type="file" id="upldIMRDecision" class="fileuploadborder form-control" />
+                            </td>
+                            <td>
+                                <button class="btn btn-default padding-btn color-black" data-bind="click: UploadIMRDecisionFile">Upload</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-3">IMR Decision :</th>
+                            <td colspan="2">
+                                <select class="form-control" id="ddlIMRDecision" name="DecisionID" data-bind="event: { change: DecisionChanged.bind() },options: IMRDecision, optionsText: function(item) { return ko.unwrap(item.IMRDecisionDesc)}, optionsValue: 'IMRDecisionID', value: IMRReferralDetails().IMRDecisionID, jqBootstrapValidation:{}"></select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th class="col-lg-6">IMR Request</th>
+                            <th class="col-lg-2">Denied Unit</th>
+                            <th class="col-lg-2">Overturn</th>
+                            <th class="col-lg-2">IMR Approved Units</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if: IMRRequestsDetails() != null-->
+                        <!--ko foreach: IMRRequestsDetails-->
+                        <tr>
+                            <th><span data-bind="text:RFARequestedTreatment"></span></th>
+                            <td><span data-bind="text:RFAQuantity, attr:{id: 'Qty'+$index()}"></span></td>
+                            <td><input name="chkboxOverturn" type="checkbox" data-bind="checked:Overturn, attr:{id: 'Over'+$index()}, click: function(){ return $root.overturnChange($index()) }" /></td>
+                            <td>
+                                <input type="text" class="form-control" name="IMRApprovedUnits" data-bind="value:IMRApprovedUnits, event: {keyup: function(){ $root.approvedUnitFilter($index()) }}, valueUpdate: 'afterkeydown', attr:{id: 'App' + $index(), 'readonly': Overturn() ? false : true}" />
+                            </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-red padding-btn color-black pull-right marginright20 margin-btm-30" data-bind="click: SaveIMRDecisionRequestDetails">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="white-background margintop30">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <tbody>
+                        <tr>
+                            <td class="col-lg-6">
+                                <button id="btnIMRInitialNotification" class="btn btn-info padding-btn" data-bind="click:GenerateIMRInitialNotification">IMR Initial Notification</button>
+                            </td>
+                            <td class="col-lg-6">
+                                <a data-bind="attr:{href:IMRInitialNotificationDocumentPath() +'?a='+ Math.random(),target:'_blank'}" id="downloadReportIMRInitialNotification"><span data-bind="text:IMRInitialNotificationDocumentName"></span></a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-lg-6">
+                                <button id="btnIMRDecisionLetter" class="btn btn-info padding-btn" data-bind="click:GenerateIMRDecisionLetter">IMR Letter</button>
+                            </td>
+                            <td class="col-lg-6">
+                                <a data-bind="attr:{href:IMRDecisionLetterDocumentPath() +'?a='+ Math.random(),target:'_blank'}" id="downloadReportIMRDecisionLetter"><span data-bind="text:IMRDecisionLetterDocumentName"></span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-lg-6">
+                                <button id="btnIMRDecisionProofOfService" class="btn btn-info padding-btn" data-bind="click:GenerateIMRDecisionProofOfService">Proof of Service</button>
+                            </td>
+                            <td class="col-lg-6">
+                                <a data-bind="attr:{href:IMRDecisionProofOfServiceDocumentPath() +'?a='+ Math.random(),target:'_blank'}" id="downloadReportIMRDecisionProofOfService"><span data-bind="text:IMRDecisionProofOfServiceDocumentName"></span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="align-right">
+                                <button class="btn btn-default padding-btn color-black pull-right marginright20 margin-btm-30" id="OpenEmail" data-keyboard="false" data-backdrop="static" data-bind="click:$root.SendEmail" type="button">
+                                    Email
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-lg margin-top10" id="SendEmail" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" id="closeEmailPopup" data-bind="click:ClearPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Send Email</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm(GlobalConst.Actions.IMRController.SendEmailFromIMRDecision, GlobalConst.Controllers.IMR, System.Web.Mvc.FormMethod.Post, new
+                            {
+                                id = "frmEmailAction",
+                                enctype = "multipart/form-data",
+                                data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){IMRDecisionEmailActionSuccess(responseText);},beforeSubmit : IMRDecisionEmailActionInfoFormBeforeSubmit}"
+                            }))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12 client-accordian">
+                                <div class="panel panel-default">
+
+                                    <div id="collapse112" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading11">
+                                        <div class="panel-body row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>To :</label>
+                                                    <div id="divToEmail" class="col-sm-9">
+                                                        <input type="hidden" name="ReflID" data-bind="value:IMRReferralDetails().RFAReferralID">
+                                                        <input type="text" class="form-control" id="EMailTo" name="EMailTo" required data-bind="jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail13" class="col-sm-3 control-label">CC :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="EMailCc" name="EMailCc" data-bind="jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail13" class="col-sm-3 control-label">Attachment :</label>
+                                                    <div class="col-sm-9">
+                                                        <!--ko if:documentPath()!= null-->
+                                                        <div id="divAttachment" class="col-sm-3" style="background:#eee; border:2px solid #fff;">
+                                                            <input type="hidden" name="DocumentFullPath" data-bind="value:documentFullPath" />
+                                                            <a data-bind="attr:{href:documentPath,target:'_blank'}" id="downloadReport" style="float: left;padding:10px; width:90%">
+                                                                <div style="overflow: hidden; height: 20px" data-bind="text:documentName"></div>
+                                                            </a>
+                                                            <a href="#" data-bind="click: function(){removeAttachment();}" class="glyphicon glyphicon-remove margintop10">
+                                                            </a>
+                                                        </div>
+                                                        <!-- /ko-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Subject :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" maxlength="256" id="subject" required name="subject" data-bind="jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Content :</label>
+                                                    <div class="col-sm-9">
+                                                        <textarea rows="5" class="form-control" id="EmailText" required name="EmailText" data-bind="jqBootstrapValidation: {}"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- col-lg-12 -->
+                        </div>
+                            <!-- row -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button id="emailSend" class="btn btn-default padding-btn color-black pull-right  margin-btm-30" type="submit">Send</button>
+                                <button class="btn btn-default padding-btn color-black  pull-right marginright20 margin-btm-30 " type="button" id="additionRecordsBtn">Additional Records</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

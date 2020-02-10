@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:element name="getDetailsForBilling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDetailsForBillingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getDetailsForBillingResult" nillable="true" type="q1:PagedBilling" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestBilling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestBilling" nillable="true" type="q2:RFARequestBilling" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestBillingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFARequestBillingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestBilling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestBilling" nillable="true" type="q3:RFARequestBilling" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestBillingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARequestBillingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDetailsForBillingByClientName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDetailsForBillingByClientNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getDetailsForBillingByClientNameResult" nillable="true" type="q4:PagedBilling" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rRFAReferralInvoice" nillable="true" type="q5:RFAReferralInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFAReferralInvoiceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInvoiceNumberByClientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ClientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInvoiceNumberByClientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getInvoiceNumberByClientIDResult" nillable="true" type="q6:RFAReferralInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInvoiceIDByInvoiceNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInvoiceIDByInvoiceNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getInvoiceIDByInvoiceNumberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addClientStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_clientStatement" nillable="true" type="q7:ClientStatement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addClientStatementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addClientStatementResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStatementNumberByClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStatementNumberByClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getStatementNumberByClientResult" nillable="true" type="q8:ClientStatement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStatementNumberByStatementID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StatementID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStatementNumberByStatementIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getStatementNumberByStatementIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAccountReceivablesByClientName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAccountReceivablesByClientNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAccountReceivablesByClientNameResult" nillable="true" type="q9:PagedBillingAccountReceivables" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

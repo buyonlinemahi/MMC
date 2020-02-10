@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MMC.Core.Data.Model" />
+  <xs:element name="addRFAReferral">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferral" nillable="true" type="q1:RFAReferral" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFAReferralResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateClaimInReferral">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_claimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateClaimInReferralResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateClaimInReferralResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFAInReferral">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferral" nillable="true" type="q2:RFAReferral" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFAInReferralResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFAInReferralResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePhysicianInReferral">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_physicianID" type="xs:int" />
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePhysicianInReferralResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePhysicianInReferralResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getReferralByIDResult" nillable="true" type="q3:RFAReferral" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllIncompleteReferrals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllIncompleteReferralsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAllIncompleteReferralsResult" nillable="true" type="q4:PagedIncompleteReferrals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFASplittedReferralHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaSplittedReferralHistory" nillable="true" type="q5:RFASplittedReferralHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFASplittedReferralHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFASplittedReferralHistoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAMergedReferralHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaMergedReferralHistory" nillable="true" type="q6:RFAMergedReferralHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAMergedReferralHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFAMergedReferralHistoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferral" nillable="true" type="q7:RFAReferral" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadSignatureResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSignatureDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferral" nillable="true" type="q8:RFAReferral" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSignatureDescriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveSignatureDescriptionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addReferralFileIntake">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addReferralFileIntakeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="addReferralFileIntakeResult" nillable="true" type="q9:RFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addReferralFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralFile" nillable="true" type="q10:RFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addReferralFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addReferralFileResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateReferralFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralFile" nillable="true" type="q11:RFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateReferralFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateReferralFileResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralFileID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getReferralFileByIDResult" nillable="true" type="q12:RFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByIntake">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByIntakeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getReferralFileByIntakeResult" nillable="true" type="q13:RFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByRFAReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByRFAReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getReferralFileByRFAReferralIDResult" nillable="true" type="q14:ArrayOfRFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByRFAReferralIDandFileType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByRFAReferralIDandFileTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getReferralFileByRFAReferralIDandFileTypeResult" nillable="true" type="q15:ArrayOfRFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByRFAReferralIDAndFileTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="_fileTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralFileByRFAReferralIDAndFileTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getReferralFileByRFAReferralIDAndFileTypeIDResult" nillable="true" type="q16:ArrayOfRFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignaturePathAndDescriptionByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignaturePathAndDescriptionByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSignaturePathAndDescriptionByReferralIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFIReportAdditionalRecordByRFAReferralFileID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rFAReferralFileID" type="xs:int" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFIReportAdditionalRecordByRFAReferralFileIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFIReportAdditionalRecordByRFARequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rFAReferralFileID" type="xs:int" />
+        <xs:element minOccurs="0" name="_rFARequestID" type="xs:int" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFIReportAdditionalRecordByRFARequestIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPreviousReferralIDFromCurrentReferralInDuplicate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPreviousReferralIDFromCurrentReferralInDuplicateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPreviousReferralIDFromCurrentReferralInDuplicateResult" nillable="true" type="q17:ArrayOfPreviousReferralFromCurrentReferral" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAReferralFilesAccToReferralIDInPreparationCase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAReferralFilesAccToReferralIDInPreparationCaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFAReferralFilesAccToReferralIDInPreparationCaseResult" nillable="true" type="q18:ArrayOfRFAReferralFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequest" nillable="true" type="q19:RFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignNewReferralToRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequest" nillable="true" type="q20:RFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignNewReferralToRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignNewReferralToRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestAndDecision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequest" nillable="true" type="q21:RFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestAndDecisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFARequestAndDecisionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequest" nillable="true" type="q22:RFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFARequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFARequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFARequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFADelatedRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFADelatedRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARequestByIDResult" nillable="true" type="q23:RFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARequestByReferralIDResult" nillable="true" type="q24:ArrayOfRFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestAdditionalInfo" nillable="true" type="q25:RFARequestAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARequestAdditionalInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestAdditionalInfo" nillable="true" type="q26:RFARequestAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFARequestAdditionalInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralAdditionalInfo" nillable="true" type="q27:RFAReferralAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRFARequestAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRFARequestAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="GetRFARequestAdditionalInfoResult" nillable="true" type="q28:RFARequestAdditionalInfoDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRFARequestAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestAdditionalInfo" nillable="true" type="q29:RFARequestAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRFARequestAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveRFARequestAdditionalInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFAReqCertificationNumberByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFAReqCertificationNumberByIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFAReferralRequestDecisionByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFAReferralRequestDecisionByIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFARequestDecisionAndRFAStatusByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="DecisionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RFAStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFARequestDecisionAndRFAStatusByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFARequestLatestDueDateByRefferalID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_RFAReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="_AddDays" type="xs:int" />
+        <xs:element minOccurs="0" name="_UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFARequestLatestDueDateByRefferalIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateRFARequestLatestDueDateByRefferalIDResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralCPTCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralCPTCode" nillable="true" type="q30:RFARequestCPTCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAReferralCPTCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFAReferralCPTCodesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFAReferralCPTCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralCPTCode" nillable="true" type="q31:RFARequestCPTCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFAReferralCPTCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFAReferralCPTCodesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFAReferralCPTCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaCPTCodeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFAReferralCPTCodesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAReferralCPTCodesByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaCPTCodeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAReferralCPTCodesByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFAReferralCPTCodesByIDResult" nillable="true" type="q32:RFARequestCPTCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARecordSplitting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRecordSplitting" nillable="true" type="q33:RFARecordSplitting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARecordSplittingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARecordSplittingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateRFARecordSplitting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRecordSplitting" nillable="true" type="q34:RFARecordSplitting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateRFARecordSplittingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="udateRFARecordSplittingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateRFARecordSplittingClaimIDByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rfaReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="claimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateRFARecordSplittingClaimIDByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="udateRFARecordSplittingClaimIDByReferralIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateRFARecordSplittingRecordForMedicalRec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRecordSplitting" nillable="true" type="q35:RFARecordSplitting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateRFARecordSplittingRecordForMedicalRecResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="udateRFARecordSplittingRecordForMedicalRecResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFARecordSplitting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rfaRecSpltID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFARecordSplittingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARecordSplittingByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rfaRecSpltID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARecordSplittingByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARecordSplittingByIDResult" nillable="true" type="q36:RFARecordSplitting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARecordSplittingByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARecordSplittingByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARecordSplittingByReferralIDResult" nillable="true" type="q37:ArrayOfRFARecordSplitting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateReferralIntakePatientClaimByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_rfaReferralId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udateReferralIntakePatientClaimByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="udateReferralIntakePatientClaimByIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientDetailsByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientDetailsByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientDetailsByReferralIDResult" nillable="true" type="q38:PatientDetailsByReferralID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFADiagnosisByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralId" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFADiagnosisByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getRFADiagnosisByReferralIDResult" nillable="true" type="q39:PagedRFADiagnosis" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAPatMedicalRecordReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MMC.Core.Data.Model" minOccurs="0" name="_rfaPatMedicalRecordReview" nillable="true" type="q40:RFAPatMedicalRecordReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAPatMedicalRecordReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFAPatMedicalRecordReviewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAPatMedicalRecordReviewByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_PatientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_ReferralId" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAPatMedicalRecordReviewByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getRFAPatMedicalRecordReviewByPatientIDResult" nillable="true" type="q41:PagedRFAPatMedicalRecordReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientHistoryByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+        <xs:element minOccurs="0" name="sortBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="order" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientHistoryByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientHistoryByPatientIDResult" nillable="true" type="q42:PagedPatientHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRequestHistoryByRFARequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_requestID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRequestHistoryByRFARequestIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getRequestHistoryByRFARequestIDResult" nillable="true" type="q43:PagedRequestHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="saveRFARequestModify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestModify" nillable="true" type="q44:RFARequestModify" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="saveRFARequestModifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="saveRFARequestModifyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestModify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestModifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARequestModifyResult" nillable="true" type="q45:RFARequestModify" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequestForDuplicateDecision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_PatientClaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequestForDuplicateDecisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="GetRequestForDuplicateDecisionResult" nillable="true" type="q46:PagedRequestByReferralID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addNotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_note" nillable="true" type="q47:Note" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addNotesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateNotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_note" nillable="true" type="q48:Note" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateNotesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestBilling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaRequestBilling" nillable="true" type="q49:ArrayOfRFARequestBilling" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestBillingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARequestBillingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeterminationLetterDecisionDesc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaReferralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeterminationLetterDecisionDescResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getDeterminationLetterDecisionDescResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestTimeExtensionInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_RFARequestTimeExtension" nillable="true" type="q50:RFARequestTimeExtension" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestTimeExtensionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARequestTimeExtensionInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRFARequestTimeExtensionInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfarefferalId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRFARequestTimeExtensionInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralAdditionalLink" nillable="true" type="q51:RFAReferralAdditionalLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateRFAReferralAdditionalLinkStatementIDbyRefIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rfaReferralAdditionalLink" nillable="true" type="q52:RFAReferralAdditionalLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rFARequestBodyPart" nillable="true" type="q53:RFARequestBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFARequestBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFARequestBodyPartResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_rFARequestBodyPart" nillable="true" type="q54:RFARequestBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFARequestBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFARequestBodyPartResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestBodyPartByRequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_requestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestBodyPartByRequestIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARequestBodyPartByRequestIDResult" nillable="true" type="q55:ArrayOfRFARequestBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFARequestBodyPartByReqID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRFARequestBodyPartByReqIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

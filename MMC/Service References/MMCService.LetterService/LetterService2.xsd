@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="InitialNotificationLetter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adjuster" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CEReceivedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClaimAdministrator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Decision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysQualification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysStates" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysZip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InitialNotificationLetter" nillable="true" type="tns:InitialNotificationLetter" />
+  <xs:complexType name="ArrayOfRequestInitialNotificationLetter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestInitialNotificationLetter" nillable="true" type="tns:RequestInitialNotificationLetter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequestInitialNotificationLetter" nillable="true" type="tns:ArrayOfRequestInitialNotificationLetter" />
+  <xs:complexType name="RequestInitialNotificationLetter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
+      <xs:element minOccurs="0" name="DurationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Frequency" type="xs:int" />
+      <xs:element minOccurs="0" name="QTY" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Treatment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreatmentType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestInitialNotificationLetter" nillable="true" type="tns:RequestInitialNotificationLetter" />
+</xs:schema>

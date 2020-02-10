@@ -1,0 +1,227 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+<div id="divRFARequest">
+    <div class="panel-body row">
+        @using (Html.BeginForm(GlobalConst.Actions.IntakeController.SaveRFARequest, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+        {
+            id = "frmRFAReqeust",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdateRFARequestSuccess(responseText);},beforeSubmit : RFARequestInfoFormBeforeSubmit}"
+        }))
+        {
+            @*<div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Expedite Referral :</label>
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="form-control checkboxsize" id="RFAExpediteReferral" name="RFAExpediteReferral" value="True" data-bind="checked:rfaRequest.RFAExpediteReferral">
+                    </div>
+                </div>
+            </div>*@
+            
+            
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Request Type :</label>
+                    <div class="col-sm-8">
+                        <select name="RequestTypeID" id="RequestTypeID" class="form-control" required="required" data-bind="options: reqeustTypes, optionsText: 'RequestTypeDesc', optionsValue: 'RequestTypeID',
+                                                                                                                                value:rfaRequest.RequestTypeID, event: { change: CheckMultiSelectBind }, jqBootstrapValidation: {}"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Requested Treatment :</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="requestTreatmentName" class="form-control" name="RFARequestedTreatment" required="required" maxlength="250" data-bind="value:rfaRequest.RFARequestedTreatment, event: { change: CheckMultiSelectBind },jqBootstrapValidation: {}">
+                        <input type="hidden" class="form-control" name="RFARequestID" data-bind="value:rfaRequest.RFARequestID">
+                        <input type="hidden" class="form-control" name="RFAReferralID" data-bind="value:rfaRequest.RFAReferralID">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Treatment Category :</label>
+                    <div class="col-sm-8">
+                        <select name="TreatmentCategoryID" id="TreatmentCategoryID" class="form-control" required="required" data-bind="options: treatmentCategories, optionsText: 'TreatmentCategoryName', optionsValue: 'TreatmentCategoryID',
+                                                                                                                                optionsCaption: 'Select Any Option', event: { change: CheckMultiSelectBind }, jqBootstrapValidation: {},
+                                                                                                                                value:rfaRequest.TreatmentCategoryID,selectedOptions:rfaRequest.TreatmentCategoryID"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 margin-btm-30">
+        <div class="form-group row label-font clearfix">
+            <label class="col-sm-4 control-label"><span class="required-link">*</span> Treatment Type :</label>
+            <div class="col-sm-8">
+                <select name="TreatmentTypeID" id="TreatmentTypeID" class="form-control" data-bind="options: TreatmentTypesFiltered, optionsText: 'TreatmentTypeDesc', optionsValue: 'TreatmentTypeID',
+                                                                                                                                value:rfaRequest.TreatmentTypeID, event: { change: CheckMultiSelectBind }"></select>
+            </div>
+        </div>
+    </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label">Frequency :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="RFAFrequency" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number" maxlength="250" data-bind="value:rfaRequest.RFAFrequency, event: { change: CheckMultiSelectBind },jqBootstrapValidation: {}">
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label">Duration :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="RFADuration" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number" maxlength="50" data-bind="value:rfaRequest.RFADuration,event: { change: CheckMultiSelectBind }, jqBootstrapValidation: {}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Duration Type :</label>
+                    <div class="col-sm-8">
+                        <select name="RFADurationTypeID" id="RFADurationTypeID" class="form-control" required="required" data-bind="options: durationTypes, optionsText: 'DurationTypeName', optionsValue: 'DurationTypeID',
+                                                                                                                                value:rfaRequest.RFADurationTypeID,event: { change: CheckMultiSelectBind },jqBootstrapValidation: {}"></select>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label">Strength :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="RFAStrenght" disabled="disabled" name="RFAStrenght"  maxlength="50" data-bind="value:rfaRequest.RFAStrenght, jqBootstrapValidation: {}">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>QTY :</label>
+                    <div class="col-sm-8">
+                        <input type="text" disabled="disabled" class="form-control"  required="required" maxlength="10" data-bind="value: Qty(),jqBootstrapValidation: {}">
+                        <input type="hidden" name="RFAQuantity" data-bind="value: Qty(),jqBootstrapValidation: {}"/>
+                    </div>
+                </div>
+            </div>           
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-4 control-label"><span class="required-link">*</span>CPT / NDC :</label>
+                    <div class="col-sm-8"> 
+                        <textarea class="form-control tags" id="CPTTags" required name="RFACPT_NDC" data-bind="value:RFACPT_NDC,event: { change: CheckMultiSelectBind }, jqBootstrapValidation: {}"></textarea>
+                    </div>
+                </div>
+            </div>
+
+    <div class="col-sm-12">
+        <div class="form-group row label-font clearfix">
+            <label class="col-sm-4 control-label"><span class="required-link">*</span>Body Part :</label>
+            <div  class="col-sm-8">
+                <select id="bodyPart" multiple="multiple"  class="form-control" data-bind="options: BodyPartDetailsByClaim, optionsText: 'BodyPartName', optionsValue: function(item) { return ko.unwrap(item.BodyPartID) + '-' + ko.unwrap(item.TableName); },
+                 "></select>   
+                <input type="hidden" name="ReqBodyPart" data-bind="value: ReqBodyPart,jqBootstrapValidation: {}" />      
+            </div>
+        </div>
+    </div>
+
+            <div class="col-sm-12 clearfix">
+                <button class="btn  btn-default padding-btn margin-btm-30 pull-right" type="submit" id="btnRFARequestSave" >Save</button>
+                <button  type="button" style="display:none !important" id="btnRebind">Bind</button>
+            </div>
+   
+        }
+        <h4>Intake Verification</h4>
+        <table class="table table-bordered table-striped table-condensed home-table">
+            <thead>
+                <tr>
+                    <th>Requested Treatment</th>
+                    <th>Request Type</th>
+                    <th>QTY</th>
+                    <th>Treatment Category</th>
+                    <th>Treatment Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--ko if:rfaRequestsDetails()!= null-->
+                <!-- ko foreach:rfaRequestsDetails -->
+                <tr>
+                    <td><span data-bind="text :RFARequestedTreatment" /></td>
+                    <td><span data-bind="text :RequestTypeDesc" /></td>
+                    <td><span data-bind="text :RFAQuantity" /></td>
+                    <td><span data-bind="text :TreatmentCategoryName" /></td>
+                    <td><span data-bind="text :TreatmentTypeDesc" /></td>
+                    <td><a href='#' data-bind='click: $root.editRfaRequest'>Edit</a> / <a href="#" data-bind='click: $root.deleteRfaRequest'>Delete</a> </td>
+                </tr>
+                <!--/ko-->
+                <!--/ko-->
+            </tbody>
+             <tfoot>
+            <!--ko if:rfaRequestsDetails()==null || rfaRequestsDetails().length==0-->
+            <tr>
+                <td colspan="6">
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+                        No Result Found.
+                    </div>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </table>
+      @*  <h5>CPT Codes</h5>
+
+        @using (Html.BeginForm(GlobalConst.Actions.IntakeController.saveRFAReferralCPTCode, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+        {
+            id = "frmRFAReferralCPTCode",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdateRFAReferralCPTCodeSuccess(responseText);},beforeSubmit : RFAReferralCPTCodeInfoFormBeforeSubmit}"
+        }))
+        {
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control ui-autocomplete" name="icdICD9Number" id="icdICD9Number" required="required" data-bind="value:icdICD9Number,ko_autocomplete: { source: getICD9Codes,select:selectICD9},jqBootstrapValidation: {}" />
+                        <input type="text" class="form-control" id="icdICD9NumberID" data-bind="value:icdICD9NumberID" />
+                        <input type="hidden" class="form-control" name="RFACPTCodeID" data-bind="value:RFACPTCodeID" />
+                        <input type="hidden" class="form-control" name="RFAReferralID" data-bind="value:rfaRequest.RFAReferralID" />
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-default padding-btn margin-btm-30 pull-right " type="submit">Add</button>
+                    </div>
+                </div>
+            </div>
+        }
+        <table class="table table-bordered table-striped table-condensed home-table">
+            <thead>
+                <tr>
+                    <th>CPT Codes</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <!--ko if:rfaReferralCPTCodes()!= null-->
+                <!-- ko foreach:rfaReferralCPTCodes -->
+                <tr>
+                    <td><span data-bind="text :icdICD9Number" /></td>
+                    <td><a href='#' data-bind='click: $root.editRFAReferralCPTCode'>Edit</a> / <a href="#" data-bind='click: $root.deleteRFAReferralCPTCode'>Delete</a> </td>
+                </tr>
+                <!--/ko-->
+                <!--/ko-->
+            </tbody>
+             <tfoot>
+            <!--ko if:rfaReferralCPTCodes()==null || rfaReferralCPTCodes().length==0-->
+            <tr>
+                <td colspan="2">
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+                        No Result Found.
+                    </div>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </table>*@
+    </div>
+</div>

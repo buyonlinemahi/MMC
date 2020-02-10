@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:complexType name="PagedAdjuster">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="AdjusterDetails" nillable="true" type="q1:ArrayOfAdjuster" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedAdjuster" nillable="true" type="tns:PagedAdjuster" />
+  <xs:complexType name="PagedPhysician">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PhysicianDetails" nillable="true" type="q2:ArrayOfPhysician" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPhysician" nillable="true" type="tns:PagedPhysician" />
+  <xs:complexType name="PagedVendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="VendorDetails" nillable="true" type="q3:ArrayOfVendor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedVendor" nillable="true" type="tns:PagedVendor" />
+  <xs:complexType name="PagedInsurer">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="InsurerDetails" nillable="true" type="q4:ArrayOfInsurer" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedInsurer" nillable="true" type="tns:PagedInsurer" />
+  <xs:complexType name="PagedInsuranceBranch">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="InsuranceBranchDetails" nillable="true" type="q5:ArrayOfInsuranceBranch" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedInsuranceBranch" nillable="true" type="tns:PagedInsuranceBranch" />
+  <xs:complexType name="PagedEmployer">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="EmployerDetails" nillable="true" type="q6:ArrayOfEmployer" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedEmployer" nillable="true" type="tns:PagedEmployer" />
+  <xs:complexType name="PagedEmployerSubsidiary">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="EmployerSubsidiaryDetails" nillable="true" type="q7:ArrayOfEmployerSubsidiary" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedEmployerSubsidiary" nillable="true" type="tns:PagedEmployerSubsidiary" />
+  <xs:complexType name="PagedCaseManager">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="CaseManagerDetails" nillable="true" type="q8:ArrayOfCaseManager" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedCaseManager" nillable="true" type="tns:PagedCaseManager" />
+  <xs:complexType name="PagedThirdPartyAdministrator">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="ThirdPartyAdministratorDetails" nillable="true" type="q9:ArrayOfThirdPartyAdministrator" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedThirdPartyAdministrator" nillable="true" type="tns:PagedThirdPartyAdministrator" />
+  <xs:complexType name="PagedThirdPartyAdministratorBranch">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="ThirdPartyAdministratorBranchDetails" nillable="true" type="q10:ArrayOfThirdPartyAdministratorBranch" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedThirdPartyAdministratorBranch" nillable="true" type="tns:PagedThirdPartyAdministratorBranch" />
+  <xs:complexType name="PagedManagedCareCompany">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="ManagedCareCompanyDetails" nillable="true" type="q11:ArrayOfManagedCareCompany" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedManagedCareCompany" nillable="true" type="tns:PagedManagedCareCompany" />
+  <xs:complexType name="PagedMedicalGroup">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="MedicalGroupDetails" nillable="true" type="q12:ArrayOfMedicalGroup" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedMedicalGroup" nillable="true" type="tns:PagedMedicalGroup" />
+  <xs:complexType name="PagedAttorney">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="AttorneyDetails" nillable="true" type="q13:ArrayOfAttorney" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedAttorney" nillable="true" type="tns:PagedAttorney" />
+  <xs:complexType name="PagedAttorneyFirm">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="AttorneyFirmDetails" nillable="true" type="q14:ArrayOfAttorneyFirm" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedAttorneyFirm" nillable="true" type="tns:PagedAttorneyFirm" />
+  <xs:complexType name="PagedPeerReview">
+    <xs:sequence>
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PeerReviewDetails" nillable="true" type="q15:ArrayOfPeerReview" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPeerReview" nillable="true" type="tns:PagedPeerReview" />
+  <xs:complexType name="PagedADR">
+    <xs:sequence>
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="ADRDetails" nillable="true" type="q16:ArrayOfADR" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedADR" nillable="true" type="tns:PagedADR" />
+</xs:schema>

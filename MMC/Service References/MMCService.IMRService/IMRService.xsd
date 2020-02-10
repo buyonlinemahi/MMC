@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfRequestIMRRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestIMRRecord" nillable="true" type="tns:RequestIMRRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequestIMRRecord" nillable="true" type="tns:ArrayOfRequestIMRRecord" />
+  <xs:complexType name="RequestIMRRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DecisionDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalRFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessLevel" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestIMRID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestIMRRecord" nillable="true" type="tns:RequestIMRRecord" />
+  <xs:complexType name="ArrayOfRFAReferralFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RFAReferralFile" nillable="true" type="tns:RFAReferralFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRFAReferralFile" nillable="true" type="tns:ArrayOfRFAReferralFile" />
+  <xs:complexType name="RFAReferralFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAFileCreationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFAFileTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAFileUserID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralFileID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFAReferralFile" nillable="true" type="tns:RFAReferralFile" />
+  <xs:complexType name="RFAReferral">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Credentials" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InternalAppeal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PatientClaimID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysicianID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFACEDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFACETime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFADiscrepancies" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAHCRGDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFAIMRHistoryRationale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAIMRReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralCreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFAReferralDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFASignature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFASignatureDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFASignedByPhysician" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RFATreatmentRequestClear" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFAReferral" nillable="true" type="tns:RFAReferral" />
+  <xs:complexType name="IMRRFAReferral">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IMRApplicationReceivedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRCEReceivedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRDecisionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRDecisionReceivedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRInternalReceivedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRNoticeInformationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRPriority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRRFAClaimPhysicianID" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRRFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRReceivedVia" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRResponseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRResponseDueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRResponseType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMRRFAReferral" nillable="true" type="tns:IMRRFAReferral" />
+  <xs:complexType name="ArrayOfPhysician">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Physician" nillable="true" type="tns:Physician" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhysician" nillable="true" type="tns:ArrayOfPhysician" />
+  <xs:complexType name="Physician">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PhysAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysNPI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysQualification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysSpecialtyId" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysSpecialtyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysStateId" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysStateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysicianId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Physician" nillable="true" type="tns:Physician" />
+  <xs:complexType name="IMRDecisionReferralDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRDecisionID" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRDecisionReceivedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IMRRFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMRDecisionReferralDetails" nillable="true" type="tns:IMRDecisionReferralDetails" />
+  <xs:complexType name="ArrayOfIMRDecisionRequestDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IMRDecisionRequestDetails" nillable="true" type="tns:IMRDecisionRequestDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIMRDecisionRequestDetails" nillable="true" type="tns:ArrayOfIMRDecisionRequestDetails" />
+  <xs:complexType name="IMRDecisionRequestDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IMRApprovedUnits" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRRFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="Overturn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RFAQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMRDecisionRequestDetails" nillable="true" type="tns:IMRDecisionRequestDetails" />
+  <xs:complexType name="ArrayOfIMRRFARequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IMRRFARequest" nillable="true" type="tns:IMRRFARequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIMRRFARequest" nillable="true" type="tns:ArrayOfIMRRFARequest" />
+  <xs:complexType name="IMRRFARequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IMRApprovedUnits" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IMRRFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="Overturn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMRRFARequest" nillable="true" type="tns:IMRRFARequest" />
+  <xs:complexType name="ArrayOfIMRDecision">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IMRDecision" nillable="true" type="tns:IMRDecision" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIMRDecision" nillable="true" type="tns:ArrayOfIMRDecision" />
+  <xs:complexType name="IMRDecision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IMRDecisionDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IMRDecisionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMRDecision" nillable="true" type="tns:IMRDecision" />
+</xs:schema>

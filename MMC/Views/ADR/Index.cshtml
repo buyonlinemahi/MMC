@@ -1,0 +1,83 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/ADR/SearchViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _searchViewModel = new SearchViewModel();
+        ko.applyBindings(_searchViewModel, $("#ADRSearchDiv").get(0));
+    </script>
+}
+<div id="ADRSearchDiv">
+
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Search ADR :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="_SearchTextByName" placeholder="Enter the Keywords Here">
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.ADRSearchName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                    <div class="col-sm-1">
+                        <a href="/ADR/SaveADRDetail" class="btn btn-default padding-btn pull-right">Add New</a>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+            <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+        </div><!-- row -->
+    </div><!-- row -->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>ADR Name</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!--ko if:ADRSearchResults()!= null-->
+                        <!-- ko foreach:ADRSearchResults -->
+                        <tr>
+                            <td data-bind="text:ADRName"></td>
+                            <td> <a data-bind="attr:{href:'/ADR/SaveADRDetail/' + ADRID() }">View</a></td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if: ADRSearchResults()==null || ADRSearchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+
+                </table>
+
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+</div>

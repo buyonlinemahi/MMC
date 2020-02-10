@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EmailRecordAttachmentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/EmailRecordAttachmentService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/EmailRecordAttachmentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/EmailRecordAttachmentService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/EmailRecordAttachmentService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmailRecordAttachmentService_addEmailRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:addEmailRecord" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_addEmailRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addEmailRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_addEmailRecordAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:addEmailRecordAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_addEmailRecordAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addEmailRecordAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_getEmailRecordAttachmentByEmailRecordId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEmailRecordAttachmentByEmailRecordId" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_getEmailRecordAttachmentByEmailRecordId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEmailRecordAttachmentByEmailRecordIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFAReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmailRecordAndRFARequestLinkByRFAReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFAReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmailRecordAndRFARequestLinkByRFAReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFITimeExtension_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmailRecordAndRFARequestLinkByRFITimeExtension" />
+  </wsdl:message>
+  <wsdl:message name="IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFITimeExtension_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmailRecordAndRFARequestLinkByRFITimeExtensionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmailRecordAttachmentService">
+    <wsdl:operation name="addEmailRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/addEmailRecord" message="tns:IEmailRecordAttachmentService_addEmailRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/addEmailRecordResponse" message="tns:IEmailRecordAttachmentService_addEmailRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addEmailRecordAttachment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/addEmailRecordAttachment" message="tns:IEmailRecordAttachmentService_addEmailRecordAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/addEmailRecordAttachmentResponse" message="tns:IEmailRecordAttachmentService_addEmailRecordAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmailRecordAttachmentByEmailRecordId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/getEmailRecordAttachmentByEmailRecordId" message="tns:IEmailRecordAttachmentService_getEmailRecordAttachmentByEmailRecordId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/getEmailRecordAttachmentByEmailRecordIdResponse" message="tns:IEmailRecordAttachmentService_getEmailRecordAttachmentByEmailRecordId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailRecordAndRFARequestLinkByRFAReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/AddEmailRecordAndRFARequestLinkByRFAReferralID" message="tns:IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFAReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/AddEmailRecordAndRFARequestLinkByRFAReferralIDResponse" message="tns:IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFAReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailRecordAndRFARequestLinkByRFITimeExtension">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/AddEmailRecordAndRFARequestLinkByRFITimeExtension" message="tns:IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFITimeExtension_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailRecordAttachmentService/AddEmailRecordAndRFARequestLinkByRFITimeExtensionResponse" message="tns:IEmailRecordAttachmentService_AddEmailRecordAndRFARequestLinkByRFITimeExtension_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmailRecordAttachmentService" type="tns:IEmailRecordAttachmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addEmailRecord">
+      <soap:operation soapAction="http://tempuri.org/IEmailRecordAttachmentService/addEmailRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEmailRecordAttachment">
+      <soap:operation soapAction="http://tempuri.org/IEmailRecordAttachmentService/addEmailRecordAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmailRecordAttachmentByEmailRecordId">
+      <soap:operation soapAction="http://tempuri.org/IEmailRecordAttachmentService/getEmailRecordAttachmentByEmailRecordId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailRecordAndRFARequestLinkByRFAReferralID">
+      <soap:operation soapAction="http://tempuri.org/IEmailRecordAttachmentService/AddEmailRecordAndRFARequestLinkByRFAReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailRecordAndRFARequestLinkByRFITimeExtension">
+      <soap:operation soapAction="http://tempuri.org/IEmailRecordAttachmentService/AddEmailRecordAndRFARequestLinkByRFITimeExtension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmailRecordAttachmentService">
+    <wsdl:port name="BasicHttpBinding_IEmailRecordAttachmentService" binding="tns:BasicHttpBinding_IEmailRecordAttachmentService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/EmailRecordAttachmentService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

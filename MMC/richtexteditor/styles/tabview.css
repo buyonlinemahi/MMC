@@ -1,0 +1,24 @@
+﻿body
+{
+	margin:1px;
+}
+body,table
+{
+    font:normal 13px;
+    font-family: Calibri;
+    
+   }
+
+@font-face {
+   font-family: 'Calibri';
+    src: url('../../Content/fonts/Calibri.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p,div
+{
+	font:inherits;
+}
+
+

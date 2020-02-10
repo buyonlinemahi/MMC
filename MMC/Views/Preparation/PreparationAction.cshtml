@@ -1,0 +1,1448 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "PreparationAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <link href="~/Content/css/multiple-emails.css" rel="stylesheet" />
+    <script src="~/Scripts/multiple-emails.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Preparation/PreparationActionViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Notes/SaveDetailViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _preparationActionViewModel = new PreparationActionViewModel(model);
+        ko.applyBindings(_preparationActionViewModel, $("#PreparationActionDiv").get(0));
+        var _saveDetailViewModel = new SaveDetailViewModel();
+
+        _saveDetailViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model)),"Preparation")
+        ko.applyBindings(_saveDetailViewModel, $("#DivAddNotesBtn").get(0));
+        function RichTextEditor_OnExecUICommand(editor, arg) {
+            var a0 = arg.Arguments[1];
+            if (a0 == "FullScreen")
+            {
+                return false;
+            }
+        }
+
+        //$(window).load(function() {
+        //    setTimeout(function () { $('.datepicker').datepicker({ autoclose: true }); }, 1500);
+        //});
+       
+    </script>
+
+}
+<div id="DivAddNotesBtn">
+    <button class="btn btn-info padding-btn pull-right" id="btnAddNote" data-target="#NoteDiv " data-backdrop="static"
+        data-bind="click:OpenAddNotes('Triage')" data-keyboard="false" data-toggle="modal" type="button">
+        Add Notes
+    </button>
+    <div id="AddNote">
+        @Html.Partial("~/Views/Shared/Notes/_NotesPartial.cshtml")
+    </div>
+</div>
+<div id="PreparationActionDiv">
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+
+                <h4 style="padding: 5px; text-align: center;">Patient Summary</h4>
+
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Claim Number</th>
+                            <th>DOI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!--ko with:Patients-->
+                            <td class="col-lg-2"><span data-bind="text:PatFirstName() +' '+PatLastName()" /></td>
+                            <td class="col-lg-2"><span data-bind="text:PatClaimNumber" /></td>
+                            <td class="col-lg-2"><span data-bind="text:PatDOI"></span></td>
+                            <!--/ko-->
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <tbody>
+
+                        <tr>
+                            <th class="col-lg-2">Accepted Body Parts:</th>
+                            <td><span data-bind="text:AcceptedBodyParts" /></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Denied Body Parts:</th>
+                            <td><span data-bind="text:DeniedBodyParts" /></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Delayed Body Parts:</th>
+                            <td><span data-bind="text:DelayedBodyParts" /></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Comorbid Conditions:</th>
+                            <td><span data-bind="text:CombroidCondition" /></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Overall Diagnosis:</th>
+                            <td><span data-bind="text:Diagnosis" /></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- white-background -->
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    <input type="hidden" name="hidskip" data-bind="value:Skip" />
+    <input type="hidden" name="hidPatientID" data-bind="value:PatientID" />
+    <input type="hidden" name="RFARequestID" id="RFARequestID" />
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Author</th>
+                            <th>Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:PatientMedicalRecordByPatientIDDetails() != null-->
+                        <!--ko foreach:PatientMedicalRecordByPatientIDDetails-->
+                        <tr>
+                            <td class="col-lg-2">
+                                <a class="disableAnchor" data-bind="attr:{href:'/PatientMedicalRecord/updatePatientMedicalRecord/'+PatientMedicalRecordID(),target:'_blank'}"><span data-bind="text:PatMRDocumentName" /></a>
+
+                                <span class="spandisable" data-bind="text:PatMRDocumentName"></span>
+                            </td>
+                            <td class="col-lg-2"><span data-bind="text:PatMRDocumentDate" /></td>
+                            <td class="col-lg-2"><span data-bind="text:Author" /></td>
+                            <td class="col-lg-2">
+                                <div data-toggle="tooltip" style="overflow: hidden; height: 20px" data-bind="text:Summary,attr:{title:Summary}"></div>
+                            </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+
+                    </tbody>
+                </table>          
+                <div class="col-sm-12"><a class="btn btn-default padding-btn color-black pull-right margintop15 marginbottom5 disableBtn" data-bind=" attr:{href:'/Patient/PatientDemographics/'+PatientID()+'/'+ClaimID() +'/m',target:'_blank'}">See All</a></div>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div>
+            <!-- white-background -->
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    @using MMCApp.Infrastructure.Global;
+    @using System.Web.Script.Serialization;
+    @using (Html.BeginForm(GlobalConst.Actions.PreparationController.PreparationActionProcess, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+    {
+        id = "frmPreparationAction",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){PreparationActionSuccess(responseText);},beforeSubmit : PreparationActionInfoFormBeforeSubmit}"
+    }))
+    {
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div class="white-background">
+                    <h4 style="padding: 5px; text-align: center;">Preparation Triage</h4>
+                    <input type="hidden" name="RFAReferralID" data-bind="value:RFAReferralID" />
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <tbody>
+                            <tr>
+                                <th class="col-lg-2">Referral ID</th>
+                                <td class="col-lg-2" data-bind="text:RFAReferralID"></td>
+                                <th class="col-lg-2">Request Remaining</th>
+                                <td class="col-lg-2" data-bind="text:RemainingDecision"></td>
+                            </tr>
+                            <tr>
+                                <th class="col-lg-2">Request</th>
+                                <td colspan="3">
+                                    <select class="form-control disableSelect" id="selRequest" required="required" data-bind="foreach : RequestDetail,value:selectedRequest">
+                                        <!--ko if:DecisionID() != 0 || RFAStatus() == "SendToClinical" || RFAStatus() == "Peer Review"-->
+                                        <option style="background-color: #C0C0C0;" data-bind="value : RFARequestID, text : RFARequestedTreatment "></option>
+                                        <!--/ko-->
+                                        <!--ko if:DecisionID() == 0 && RFAStatus() != "SendToClinical" && RFAStatus() != "Peer Review" -->
+                                        <option data-bind="value : RFARequestID, text : RFARequestedTreatment "></option>
+                                        <!--/ko-->
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="col-lg-2">Due Date</th>
+                                <td colspan="3" data-bind="text:RFALatestDueDate()"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- white-background -->
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div class="white-background">
+                    <h4 style="padding: 5px;">Decision</h4>
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select class="form-control disableSelect" id="selStatus" name="StatusID" data-bind="options: Status, optionsText: 'StatusName',  optionsCaption:'Select Decision',  optionsValue: 'StatusID',value:selectedStatus,jqBootstrapValidation:{},event: { change: $root.DecisionChanged }"></select>
+                                    <select class="form-control disableSelect" id="selStatus2">
+                                        <option value="1">Modify</option>
+                                        <option value="2">Deny</option>
+                                    </select>
+
+                                    <button class="btn btn-default padding-btn  color-black" id="btnOpenRequestDetailPop" style="display: none" data-target="#myRequestDetail" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Open Request Detail Pop</button>
+                                    <button class="btn btn-default padding-btn  color-black" id="btnOpenDeferralPopUp" style="display: none" data-target="#myDeferralPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Open Request Detail Pop</button>
+                                    <button class="btn btn-default padding-btn  color-black" id="btnOpenUnabletoReviewPop" style="display: none" data-target="#myUnabletoReview" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Open Unable to Review PopUp</button>
+                                    <button class="btn btn-default padding-btn  color-black" id="btnOpenDulicatePopUP" style="display: none" data-target="#myDuplicatePopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Open Duplicate PopUp</button>
+                                    <button class="btn btn-default padding-btn  color-black" id="btnOpenWithdrawnPopUP" style="display: none" data-target="#myWithdrawnPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Open Withdrawn PopUp</button>
+                                    <button class="btn btn-default padding-btn  color-black" id="btnOpenClientAuthorizedPopUP" style="display: none" data-target="#myClientAuthorizedPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Open ClientAuthorized PopUp</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- white-background -->
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div class="white-background">
+                    <h4 style="padding: 5px;">Note to Clinical</h4>
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <!--ko with:selectedRequest -->
+                                    <textarea id="txtRFANotes" name="RFANotes" class="col-sm-12" rows="4" data-bind="value:$root.RFANotes"></textarea>
+                                    <!--/ko-->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- white-background -->
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <!--ko if:RemainingDecision() > 0-->
+                <button class="btn btn-red padding-btn color-black pull-right margin-left-20 margintop5 marginbottom25" data-bind="click:$root.updateRequestDecision" type="button">Save</button>
+                <!--/ko-->
+                <!--ko if:RemainingDecision() == 0-->
+                <button class="btn btn-red padding-btn color-black pull-right margin-left-20 margintop5 marginbottom25 disableBtn" type="submit" id="btnContinuePrep">Continue</button>
+                <button class="btn btn-red padding-btn color-black pull-right margin-left-20 margintop5 marginbottom25" data-bind="click:$root.updateRequestDecision" type="button">Save</button>
+                <!--/ko-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div class="white-background">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <h4 style="padding: 5px;">Additional Record(s) Required for Review</h4>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <button class="btn btn-default padding-btn color-black pull-right margintop15 marginbottom5 disableBtn" data-target="#myRFAAdditional" data-bind="click:$root.OpenAdditionalInfoPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Add New</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                <!-- white-background -->
+
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+
+    }
+    <div class="row">
+        <div class="col-sm-12 ">
+            <div class="white-background">
+                <input type="hidden" name="Skip" id="hidskipADD" data-bind="value: $root.ADDSkip" />
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th class="col-lg-2">Record Name</th>
+                            <th class="col-lg-2">Record Date</th>
+                            <th class="col-lg-2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:RFAAdditionalInfoDetail() != null -->
+                        <!--ko foreach:RFAAdditionalInfoDetail-->
+                        <tr>
+                            <td>
+                                <a class="disableAnchor" href="" data-bind="click:$root.OpenAdditionalInfoByID"><span data-bind="text:RFAAdditionalInfoRecord"></span></a>
+                                <span class="spandisable" data-bind="text:RFAAdditionalInfoRecord"></span>
+                            </td>
+
+                            <td>
+                                <!--ko if:RFAAdditionalInfoRecordDate == null-->
+                                <input type="text" class="form-control datepicker width50 RFAAdditionalInfoRecordDate" name="RFAAdditionalInfoRecordDate" required="required" data-bind="attr:{id:RFAAdditionalInfoID},jqBootstrapValidation: {},datepicker:RFAAdditionalInfoRecordDate" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                                <!--/ko-->
+                                <!--ko if:RFAAdditionalInfoRecordDate != null-->
+                                <span data-bind="text:RFAAdditionalInfoRecordDate"></span>
+                                <!--/ko-->
+
+                            </td>
+                            <td>
+                                <!--ko if:RFAAdditionalInfoRecordDate == null-->
+                                <button id="btnUpdateRFAAdditionalInfoRecordDate" data-bind="click:$root.UpdateRFAAdditionalInfoRecordDate" class="btn btn-default padding-btn color-black pull-left margin-left-10 UpdateBtn" type="submit">Update</button>
+                                <button id="btnUpdateRFAAdditionalInfoRecordDate2" data-bind="click:$root.UpdateRFAAdditionalInfoRecordDate2" class="btn btn-default padding-btn color-black pull-left margin-left-10 UpdateBtn2" type="submit">Update</button>
+                                <!--/ko-->
+                            </td>
+                        </tr>
+
+                        @*RFAAdditionalInfoRecordDate*@
+
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+
+                </table>
+
+                <nav class="margin-left">
+
+                    <!-- ko if:ADDPager().ADDTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: ADDPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:ADDFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: ADDLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: ADDTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:ADDCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:ADDCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ ADDCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:ADDHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ ADDCurrentPage(ADDCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:ADDHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:ADDPages -->
+                            <!-- ko if:$data === $parent.ADDCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.ADDCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.ADDCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:ADDHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ ADDCurrentPage(ADDCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:ADDHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:ADDCurrentPage() === ADDLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ ADDCurrentPage(ADDLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:ADDCurrentPage() === ADDLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+
+
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+
+
+            </div>
+            <!-- white-background -->
+
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+
+
+    @using (Html.BeginForm(GlobalConst.Actions.PreparationController.GenerateLetter, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+    {
+        id = "frmFileAction",
+        enctype = "multipart/form-data",
+
+    }))
+    {
+        <input type="hidden" name="_referralID" data-bind="value:RFAReferralID" />
+        <!--ko if:RFAAdditionalInfoDetail().length <= 0 -->
+        <button data-bind="click:$root.GenerateRequest" disabled="disabled" class="btn btn-info padding-btn pull-right disabled margin-left-20 marginbottom5 margintop15" type="button">Generate RFI</button>
+        <!--/ko-->
+        <!--ko if:RFAAdditionalInfoDetail().length > 0 -->
+        <button data-bind="click:$root.GenerateRequest" class="btn btn-default padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 disableBtn" type="button">Generate RFI</button>
+        <!--/ko-->
+        <input type="hidden" name="DownloadToken" id="download_token_value" />
+    }
+    <br/>
+    <br/>
+    <br/>
+    <!--ko if:ReferralFileNotification().length > 0 -->
+    <div class="row">
+        <div class="col-sm-12 ">
+            <div class="white-background">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-12">
+                            <h4 style="padding: 5px;">RFI Report(s)</h4>
+                        </div>
+                        <table class="table table-bordered table-striped table-condensed home-table">
+                            <thead>
+                                <tr>
+                                    <th>RFI</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--ko if:ReferralFileNotification() != null-->
+                                <!--ko foreach:ReferralFileNotification-->
+                                <tr>
+                                    <td class="col-lg-2">
+                                        <a class="disableAnchor" data-bind="attr:{href:RFAReferralFileFullPath(),target:'_blank'}"><span data-bind="text:'RFI_' + ($index()+1)" /></a>
+                                        <span class="spandisable" data-bind="text:'RFI_' + ($index()+1)"></span>
+                                        <input type="hidden" id="RFAReferralFileID" name="RFAReferralFileID" data-bind="value:RFAReferralFileID" />
+                                    </td>
+                                    <td class="col-lg-2">
+                                        <span data-bind="text:RFAFileCreationDate"></span>
+                                    </td>
+                                    <td class="col-lg-2">
+                                        <a id="OpenEmail" class="disableAnchor" href="#" data-bind="click:$root.SendEmail"><span data-bind="text:'Email'" /></a>
+                                        <span class="spandisable" data-bind="text:'Email'"></span>
+                                    </td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+
+    <div id="divemailbranch">
+        <div class="modal fade bs-example-modal-lg margin-top5" id="SendEmail" tabindex="-1" data-target="#SendEmail" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog position-center modal-lg">
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close" id="sectPayment" data-bind="click:$root.ClearEmailPopUp" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                        <h4 class="modal-title">Send Email</h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        @using (Html.BeginForm(GlobalConst.Actions.PreparationController.SendRFIReportEmailWithAttachment, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+                                {
+                                    id = "frmSendRFIReportEmailWithAttachment",
+                                    enctype = "multipart/form-data",
+                                    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){SendRFIReportEmailWithAttachmentSuccess(responseText);},beforeSubmit : SendRFIReportEmailWithAttachmentBeforeSubmit}"
+                                }))
+                            {
+
+
+                            <div class="row">
+                                <div class="col-lg-12 client-accordian">
+                                    <div class="panel panel-default">
+
+                                        <div id="collapse11" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading11">
+                                            <div class="panel-body row">
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group row label-font clearfix">
+                                                        <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>To :</label>
+                                                        <div class="col-sm-9">
+                                                            @*<input type="text" id="demo" name="email" value="[" hello@gmail.com","world@gmail.com"]">*@
+                                                            <input type="text" class="form-control" onkeydown="if (event.keyCode == 13) alert('enter');" required="required" data-bind="jqBootstrapValidation: {}" id="EMailTo" name="RFAReportEmailTo">
+                                                            <input type="hidden" id="popUpID" name="popUpID" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-group row label-font clearfix">
+                                                        <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>CC :</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="EMailCc" required="required" data-bind="jqBootstrapValidation: {}" name="RFAReportEmailCC">
+                                                            <input type="hidden" id="FileID" name="RFAReferralFileID" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-group row label-font clearfix">
+                                                        <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>Attachment :</label>
+                                                        <!-- ko if:documentPath() != null-->
+                                                        <div class="col-sm-3" style="background:#eee; border:2px solid #fff;">
+                                                            <a data-bind="attr:{href:documentPath,target:'_blank'}" style="float: left;padding:10px; width:90%;">
+                                                                <div style="overflow: hidden; height: 20px" data-bind="text:documentName"></div>
+                                                            </a>
+                                                            <input type="hidden" class="form-control" id="hfdocumentPath" name="RFAReportDocumentPath" data-bind="value:documentPath">
+                                                            <a href="#" data-bind="click: function(){removeAttachment()}" class="glyphicon glyphicon-remove margintop10">
+                                                            </a>
+                                                        </div>
+                                                        <!-- /ko-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-group row label-font clearfix">
+                                                        <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Subject :</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" maxlength="256" id="subject" required="required" data-bind="jqBootstrapValidation: {}" name="RFAReportSubject">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-group row label-font clearfix">
+                                                        <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Content :</label>
+                                                        <div class="col-sm-9">
+                                                            <textarea rows="5" class="form-control" id="EmailText" required="required" data-bind="jqBootstrapValidation: {}" name="RFAReportMailContent"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- col-lg-12 -->
+                            </div>
+                            <!-- row -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button id="emailSend" class="btn btn-default padding-btn color-black pull-right  margin-btm-30" type="submit">Send</button>
+                                    <button class="btn btn-default padding-btn color-black  pull-right marginright20 margin-btm-30" type="button" id="additionTimeExtensionRFIBtn">Additional Records</button>
+
+                                </div>
+                            </div>
+                            }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @using (Html.BeginForm(GlobalConst.Actions.PreparationController.UpdateRFARequestLatestDueDate, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+    {
+        id = "frmTimeExtension",
+        enctype = "multipart/form-data",
+        //data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdateRFARequestLatestDueDateSuccess(responseText);}}"
+    }))
+    {
+        <!--ko if:RemainingDecision() > 0-->
+        <input type="hidden" name="_rfaReferralId" data-bind="value:RFAReferralID" />
+        <input type="hidden" name="DownloadToken" id="downloadtokenvalue" />
+             <!--ko if:TimeExtensionPNAndProofOfService().length < 3 -->
+            <button id="btnProofOfService" disabled="disabled" class="btn btn-info padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 disableBtn" data-bind="click:$root.ProofOfService">Proof Of Service</button>
+            <button id="btnTimeExtension" disabled="disabled" class="btn btn-info padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 disableBtn" data-target="#myRFAPatientMedicalRecord" data-bind="click:$root.OpenMedicalRecordReviewInfoPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Time Extension</button>
+            <button id="btnTimeExtensionPN" class="btn btn-default padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 disableBtn" data-bind="click:$root.TimeExtentionRequest" type="button">Time Extension PN</button>
+            <!--/ko-->
+        <!--/ko-->
+
+       
+
+         <!--ko if:TimeExtensionPNAndProofOfService().length > 2 || RemainingDecision() <= 0-->
+        <button disabled="disabled" class="btn btn-info padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 " type="button">Proof Of Service</button>
+        <button  disabled="disabled" class="btn btn-info padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 "  type="button">Time Extension</button>
+        <button disabled="disabled" class="btn btn-info padding-btn color-black pull-right margin-left-20 margintop15 marginbottom5 " type="button">Time Extension PN</button>       
+         <!--/ko-->
+    }
+
+    @using (Html.BeginForm(GlobalConst.Actions.PreparationController.GenerateTimeExtensionLetter, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+      {
+          id = "frmTimeExtensionLetter",
+          enctype = "multipart/form-data",
+          //data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdateRFARequestLatestDueDateSuccess(responseText);}}"
+      }))
+    {
+        <input type="hidden" name="_referralID" data-bind="value:RFAReferralID" />
+        <input type="hidden" name="DownloadToken" id="downloadTimeExtensionLettertokenvalue" />
+
+    }
+
+    <!--ko if:TimeExtensionPNAndProofOfService().length > 0 -->
+    <div class="row">
+        <div class="col-sm-12 ">
+            <div class="white-background">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered table-striped table-condensed home-table">
+                            <tbody>
+                                <!--ko if:TimeExtensionPNAndProofOfService() != null-->
+                                <!--ko foreach:TimeExtensionPNAndProofOfService-->
+                                <tr>
+                                    <td class="col-lg-2">
+                                        <a class="disableAnchor" data-bind="attr:{href:RFAReferralFileFullPath()+'?a='+ Math.random(),target:'_blank'}"><span data-bind="text:RFAReferralFileName" /><span data-bind="text:RFAReferralFileName" /></a>
+                                        <span class="spandisable" data-bind="text:RFAReferralFileName"></span>
+                                        <input type="hidden" id="RFAReferralFileID" name="RFAReferralFileID" data-bind="value:RFAReferralFileID" />
+                                    </td>
+
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+
+
+    <div class="modal fade bs-example-modal-lg margin-top10" id="myRFAAdditional" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" data-bind="click:$root.btnclosepop" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Addtional Record Info</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm(GlobalConst.Actions.PreparationController.SaveAddtionalInfo, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmFRAAdditionalInfo",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){RFAAdditionalInfoSuccess(responseText);},beforeSubmit : RFAAdditionalInfoFormBeforeSubmit}"
+                        }))
+                        {
+                        <div class="row">
+                            <div class="col-lg-12 client-accordian">
+                                <div class="panel panel-default">
+                                    <div id="collapse11" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading11">
+                                        <div class="panel-body row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label">Name :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="hidden" name="RFAAdditionalInfo[0].RFAReferralID" data-bind="value:RFAReferralID" />
+                                                        <input type="hidden" name="RFAAdditionalInfo[0].RFAAdditionalInfoID" data-bind="value:RFAAdditionalInfoID" />
+                                                        <input type="text" class="form-control activateSaveBtn" name="RFAAdditionalInfo[0].RFAAdditionalInfoRecord" id="RFAAdditionalInfoRecord" maxlength="100" data-bind="value:RFAAdditionalInfoRecord,jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="divAddCaseName" class="col-sm-12">
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label">Name :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="hidden" name="RFAAdditionalInfo[1].RFAReferralID" data-bind="value:RFAReferralID" />
+                                                        <input type="hidden" name="RFAAdditionalInfo[1].RFAAdditionalInfoID" data-bind="value:RFAAdditionalInfoID" />
+                                                        <input type="text" class="form-control activateSaveBtn" name="RFAAdditionalInfo[1].RFAAdditionalInfoRecord" id="RFAAdditionalInfoRecord2" maxlength="100" data-bind="value:RFAAdditionalInfoRecord2,jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label">Name :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="hidden" name="RFAAdditionalInfo[2].RFAReferralID" data-bind="value:RFAReferralID" />
+                                                        <input type="hidden" name="RFAAdditionalInfo[2].RFAAdditionalInfoID" data-bind="value:RFAAdditionalInfoID" />
+                                                        <input type="text" class="form-control activateSaveBtn" name="RFAAdditionalInfo[2].RFAAdditionalInfoRecord" id="RFAAdditionalInfoRecord3" maxlength="100" data-bind="value:RFAAdditionalInfoRecord3,jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label">Name :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="hidden" name="RFAAdditionalInfo[3].RFAReferralID" data-bind="value:RFAReferralID" />
+                                                        <input type="hidden" name="RFAAdditionalInfo[3].RFAAdditionalInfoID" data-bind="value:RFAAdditionalInfoID" />
+                                                        <input type="text" class="form-control activateSaveBtn" name="RFAAdditionalInfo[3].RFAAdditionalInfoRecord" id="RFAAdditionalInfoRecord4" maxlength="100" data-bind="value:RFAAdditionalInfoRecord4,jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row label-font clearfix">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label">Name :</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="hidden" name="RFAAdditionalInfo[4].RFAReferralID" data-bind="value:RFAReferralID" />
+                                                        <input type="hidden" name="RFAAdditionalInfo[4].RFAAdditionalInfoID" data-bind="value:RFAAdditionalInfoID" />
+                                                        <input type="text" class="form-control activateSaveBtn" name="RFAAdditionalInfo[4].RFAAdditionalInfoRecord" id="RFAAdditionalInfoRecord5" maxlength="100" data-bind="value:RFAAdditionalInfoRecord5,jqBootstrapValidation: {}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="btnSaveAdditionalRecordName" class="btn btn-info btn-red padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Save</button>
+                            </div>
+                            <!-- col-lg-12 -->
+                        </div>
+                            <!-- row -->
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade top20 bs-example-modal-lg" id="myRequestDetail" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closeRequestDetailPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Request Detail</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Requested Treatment :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" required="required" id="txtRequestName" maxlength="250" data-bind="value:RequestName,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label">Frequency :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number" maxlength="250" data-bind="value:RFAFrequency,jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label">Duration :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number" maxlength="50" data-bind="value:RFADuration, jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Duration Type :</label>
+                                <div class="col-sm-8">
+                                    <select id="RFADurationTypeID" class="form-control" required="required" data-bind="options: durationTypes, optionsText: 'DurationTypeName', optionsValue: 'DurationTypeID',
+                                                                                                                                value:SelectedDurationTypeID,jqBootstrapValidation: {}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-red padding-btn color-black pull-right margintop10" data-dismiss="modal" data-toggle="modal" type="button" id="btnRequestDetailPopup">Save </button>
+                        </div>
+                        <!-- row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal top20 fade bs-example-modal-lg" id="myDeferralPopUp" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closeRationaleDetailPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Rationale Detail</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Denied Rationale :</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" id="txtRationaleDetail" required="required" data-bind="value:DeniedRationale,jqBootstrapValidation: {}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-red padding-btn color-black pull-right margintop10" data-dismiss="modal" data-toggle="modal" type="button" id="btnDeniedRationale">Save </button>
+                        </div>
+                        <!-- row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal top20 fade bs-example-modal-lg" id="myUnabletoReview" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closeUnabletoReviewPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Unable to Review</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <div class="col-sm-12">
+                                    @*  <div class="col-sm-4">
+                                            <input type="radio" data-bind="checked:$root.SelectedUnabletoReviewLetters" value="1" disabled>
+                                            Incomplete RFA Form
+                                        </div>*@
+                                    <div class="col-sm-4">
+                                        <input type="radio" data-bind="checked:$root.SelectedUnabletoReviewLetters" value="2">
+                                        No RFA Form
+                                    </div>
+                                    @*<div class="col-sm-4">
+                                            <input type="radio" data-bind="checked:$root.SelectedUnabletoReviewLetters" value="3"  disabled>
+                                            Decline Internal Appeal
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-red  padding-btn color-black pull-right margintop10" data-dismiss="modal" data-toggle="modal" type="button" id="btnUnabletoReview">Save </button>
+                        </div>
+                        <!-- row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade  top20 bs-example-modal-lg" id="myDuplicatePopUp" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closeDuplicateDetailPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">UR History</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+
+                        <table class="table  table-bordered table-striped table-condensed home-table">
+                            <thead>
+                                <tr>
+                                    <th>Request Name</th>
+                                    <th>ReferralID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--ko if:RequestForDuplicateDecision() != null-->
+                                <!--ko foreach:RequestForDuplicateDecision-->
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="PreviousRequestName" data-bind="value:RFARequestID,checked:$root.SelectedPreviousRequestID,click:$root.changePreviousRequest">
+                                        <span data-bind="text:RFARequestedTreatment" />
+                                    </td>
+                                    <td><span data-bind="text:RFAReferralID"></span></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                            <tfoot>
+                                <!--ko if:RequestForDuplicateDecision()==null || RequestForDuplicateDecision().length==0-->
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="alert alert-info">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                &times;
+                                            </button>
+                                            No Result Found.
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                            </tfoot>
+                        </table>
+
+                        <nav class="margin-left">
+                            <!-- ko if:drPager().drTotalItemCount() > 0 -->
+                            <div class="pagination" data-bind="with: drPager">
+                                <div class="pagexofx">
+                                    <span data-bind="text:drFirstItemIndex"></span>
+                                    -
+                                    <span data-bind="text: drLastItemIndex"></span>
+                                    of
+                                    <strong>
+                                        <span data-bind="text: drTotalItemCount"></span>
+                                    </strong>
+                                    total results.
+                                </div>
+                                <ul class="pagination">
+                                    <!-- ko if:drCurrentPage() === 1 -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:drCurrentPage() === 1 -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ drCurrentPage(1); }">&laquo;&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if:drHasPrevPage -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ drCurrentPage(drCurrentPage() - 1); }">&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:drHasPrevPage -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko foreach:drPages -->
+                                    <!-- ko if:$data === $parent.drCurrentPage() -->
+                                    <li class="active">
+                                        <span class="currentPage" data-bind="text: $data"></span>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if:$data !== $parent.drCurrentPage() -->
+                                    <li>
+                                        <a href="#" data-bind="text: $data, click: function(){ $parent.drCurrentPage($data); }"></a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                    <!-- ko if:drHasNextPage -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ drCurrentPage(drCurrentPage() + 1); }">&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:drHasNextPage -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:drCurrentPage() === drLastPage() -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ drCurrentPage(drLastPage()); }">&raquo;&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if:drCurrentPage() === drLastPage() -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                </ul>
+                            </div>
+                            <!-- /ko -->
+                        </nav>
+
+                        <div class="row">
+                            <button class="btn btn-red  padding-btn color-black pull-right margintop10" data-dismiss="modal" data-toggle="modal" type="button" id="btnDuplicate">Save </button>
+                        </div>
+                        <!-- row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-default padding-btn hidden color-black" id="btnRequestBillingPopUp" data-target="#myRequestBillingPopUp " data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button" data-bind="click:$root.OpenrichtextPopUp3 ">Request Billing </button>
+    <div class="modal fade bs-example-modal-lg" id="myRequestBillingPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <h4 class="modal-title">Request Billing</h4>
+                    <button type="button" id="closeRequestBillingPopUp" style="display:none" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="row panel-body">
+                    @using MMCApp.Infrastructure.Global;
+                    @using (Html.BeginForm(GlobalConst.Actions.PreparationController.SaveRFARequestBilling, GlobalConst.Controllers.Preparation, FormMethod.Post, new
+                    {
+                        id = "frmaddClientBilling",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddRequestBillingDetailSuccess(responseText);},beforeSubmit:RequestBillingFormBeforeSubmit}"
+                    }))
+                    {
+                    <div>
+                        <div class="col-sm-12 margintop30">
+                            <div class="white-background">
+                                <table class="table table-bordered table-striped table-condensed home-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Request Name</th>
+                                            <th>RN</th>
+                                            <th>MD</th>
+                                            <th>Speciality</th>
+                                            <th>Admin</th>
+                                            <th>Deferral</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!--ko if:RequestDetail!= null-->
+                                        <!-- ko foreach:RequestDetail -->
+                                        <!--ko if:DecisionID() == 9-->
+                                        <tr>
+                                            <td class="col-lg-2">
+                                                <span data-bind="text : RFARequestedTreatment" />
+                                            </td>
+                                            <td class="col-lg-2">
+                                                <div class="form-group">                                                  
+                                                    <input type="hidden" data-bind="jqBootstrapValidation: {},attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestID' },value:RFARequestID()" />
+                                                   
+                                                    <!--ko if:DecisionID() != 12-->
+                                                    <input disabled="disabled" class="form-control" />
+                                                    <!--/ko-->
+                                                </div>
+                                            </td>
+                                            <td class="col-lg-2">
+                                                <div class="form-group">
+                                                  
+                                                    <!--ko if:DecisionID() != 12-->
+                                                    <input disabled="disabled" class="form-control" />
+                                                    <!--/ko-->
+                                                </div>
+                                            </td>
+                                            <td class="col-lg-2">
+                                                <div class="form-group">                                                    
+                                                    <!--ko if:DecisionID() != 12-->
+                                                    <input disabled="disabled" class="form-control" />
+                                                    <!--/ko-->
+                                                </div>
+                                            </td>
+                                            <td class="col-lg-2">
+                                                <div class="form-group">                                                   
+                                                    <!--ko if:DecisionID() != 12-->
+                                                    <input disabled="disabled" class="form-control" />
+                                                    <!--/ko-->
+                                                </div>
+                                            </td>
+                                            <td class="col-lg-2">
+                                                <div class="form-group">
+                                                    <!--ko if:DecisionID() == 9-->
+                                                    <input data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" required class="form-control billingrange" data-bind="jqBootstrapValidation: {}, value: (DecisionID() == 9 ? $root.DeferralDefault() : ''), enable:(DecisionID() == 9?true:false),attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestBillingDeferral' }" />
+                                                    <!--/ko-->
+                                                    <!--ko if:DecisionID() != 9-->
+                                                    <input disabled="disabled" class="form-control" />
+                                                    <!--/ko-->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-red padding-btn color-black pull-right margin-btm-30" id="btnRequestBillingSave">Save</button>
+                    </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-lg margin-top10" id="myRFAPatientMedicalRecord" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closePatientMedicalRecord" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Medical Records Reviewed</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm("SaveTimeExtensionDetail", GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmSavePatMedicalRecordReviewInfo",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){RFARequestTimeExtentionInfoSuccess(responseText);},beforeSubmit :RFARequestTimeExtentionInfoFormBeforeSubmit}"
+                        }))
+                        {
+                        <div class="row">
+                            <div class="client-accordian">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <table id="myTable" class="table table-fixedheader myTable table-bordered table-striped table-condensed home-table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="25%">
+                                                        <input type="checkbox" id="chkSelectAll" data-bind="checked: SelectAll" />
+                                                    </th>
+                                                    <th class="myTable" width="25%">Name</th>
+                                                    <th class="myTable" width="25%">Date</th>
+                                                    <th width="25%">Physician</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="height: 150px" data-bind="event: { scroll: scrolled }">
+                                                <!--ko if:PatientMedicalAllRecords() != null-->
+                                                <!--ko foreach:PatientMedicalAllRecords-->
+                                                <tr>
+                                                    <td class="myTable" width="25%">
+                                                        <input type="hidden" data-bind="attr: { name: 'RFAPatMedicalRecordReview['+ $index() + '\].RFARecSpltID' },value:PatientMedicalRecordID" />
+                                                        <input type="hidden" data-bind="attr: { name: 'RFAPatMedicalRecordReview['+ $index() + '\].IsChecked' },value:IsChecked" />
+                                                        <input type="checkbox" name="RFAPatMedicalRecordReview[]" data-bind="checked: IsChecked" />
+                                                    </td>
+                                                    <td class="myTable" width="25%"><span data-bind="text:PatMRDocumentName" /></td>
+                                                    <td width="25%" class="myTable"><span data-bind="text:PatMRDocumentDate" /></td>
+                                                    <td width="25%" class="myTable"><span data-bind="text:PhysicianName" /></td>
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                            <tfoot>
+                                                <!--ko if:PatientMedicalAllRecords()==null || PatientMedicalAllRecords().length==0-->
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <div class="alert alert-info">
+                                                            <button type="button" class="close" data-dismiss="alert">
+                                                                &times;
+                                                            </button>
+                                                            No Result Found.
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <!-- /ko -->
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default col-sm-12">
+                                    <div class="panel-body">
+                                        <input type="hidden" data-bind="attr: { name: 'RFARequestTimeExtension.RFAReferralID' },value:$root.RFAReferralID" />
+                                        <label class="radio paddingleft10">
+                                            <input class="timeextention" required="required" type="radio" name="RFARequestTimeExtension.TimeExtension" value="1" data-bind="checked: IsSelectedTimeExtension">  RFI Records
+                                        </label>
+                                        <label class="radio paddingleft10">
+                                            <input class="timeextention" required="required" type="radio" name="RFARequestTimeExtension.TimeExtension" value="2" data-bind="checked: IsSelectedTimeExtension"> Additional Examination
+                                        </label>
+                                        <div class="" id="panel" data-bind="visible: IsSelectedTimeExtension() == '2'">
+                                            <input style="width:50%;" maxlength="100" name="RFARequestTimeExtension.AdditionalExamination" id="txtAdditionalExamination" class="form-control timeextention" type="text" />
+                                        </div>
+                                        <label class="radio paddingleft10">
+                                            <input type="radio" required="required" class="timeextention" name="RFARequestTimeExtension.TimeExtension" value="3" data-bind="checked: IsSelectedTimeExtension">  Specialty
+                                        </label>
+                                        <div id="panel1" data-bind="visible: IsSelectedTimeExtension() == '3'">
+                                            <input style="width:50%;" maxlength="100" name="RFARequestTimeExtension.SpecialtyConsult" id="txtSpecialtyConsult" class="form-control timeextention" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-red padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Save</button>
+                            </div>
+                            <!-- col-lg-12 -->
+                        </div>
+                            <!-- row -->
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-red padding-btn hidden color-black" id="btnEmailMahiPopUp" data-target="#SendEmailMahiPopUp " data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Send Multiple Email </button>
+
+    <div class="modal fade bs-example-modal-lg" id="SendEmailMahiPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+
+                <div class="panel-heading">
+
+                    <button type="button" id="closeEmailMahiPopUp" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Send Email</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm(GlobalConst.Actions.PreparationController.EmailSendMultipleDoc, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+                                            {
+                                                id = "frmMulitpleEmails",
+                                                enctype = "multipart/form-data",
+                                                data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){PreparationMultipleEmailSuccess(responseText);},beforeSubmit : PreparationMultipleEmailInfoFormBeforeSubmit}"
+                                            }))
+                        {
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>To :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" onkeydown="if (event.keyCode == 13) alert('enter')" required id="SendEMailTo" name="SendEMailTo" data-bind="jqBootstrapValidation: {}">
+                                    <input type="hidden" id="rID" name="rflID" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>CC :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="SendEMailCc" name="SendEMailCc">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>Attachment :</label>
+                                <div class="col-sm-9">
+                                    <!--ko if:AttachmentForEmailArray()!= null-->
+                                    <!-- ko foreach:AttachmentForEmailArray -->
+                                    <div class="col-sm-3" style="background:#eee; border:2px solid #fff;">
+                                        @*<button type="button" class="glyphicon glyphicon-remove btn" style="float: left;"></button>*@
+                                        <a data-bind="attr:{href:AttachmentDownload,target:'_blank'}" style="float: left;padding:10px; width:90%">
+                                            <div data-toggle="tooltip" style="overflow: hidden; height: 20px" data-bind="text: AttachmentShortName,attr:{title:AttachmentName}"></div>
+                                        </a>
+                                        <input type="hidden" data-bind="attr: { name: 'AttachmentForEmailArray['+ $index() + '\].AttachmentLink' },value:AttachmentLink" />
+                                        <a href="#" data-bind="click: function(){removeMultipleAttachment($index())}" class="glyphicon glyphicon-remove margintop10">
+                                        </a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Subject :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" maxlength="256" id="Sendsubject" required name="Sendsubject" data-bind="jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Content :</label>
+                                <div class="col-sm-9">
+                                    <textarea rows="5" class="form-control" id="SendEmailText" required name="SendEmailText" data-bind="jqBootstrapValidation: {}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button id="emailSendMultiple" class="btn btn-default padding-btn color-black pull-right  margin-btm-30" type="submit">Send</button>
+                                <button class="btn btn-default padding-btn color-black  pull-right marginright20 margin-btm-30" type="button" id="additionRecordsBtn">Additional Records</button>
+
+                            </div>
+                        </div>
+                        }
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal top20 fade bs-example-modal-lg" id="myWithdrawnPopUp" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closeWithdrawnPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Withdrawn</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm(GlobalConst.Actions.PreparationController.UploadFileOnWithdrawnORClientAuthorizedDecision, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmUploadWithdrawn",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UploadFileWithdrawnSuccess(responseText);},beforeSubmit : UploadFileWithdrawnInfoFormBeforeSubmit}"
+                        }))
+                        {
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group row">
+                                        <label for="exampleInputFile" class="col-sm-2 control-label ">File input</label>
+                                        <div class="col-sm-6 pull-left">
+                                            <input type="file" class="fileuploadborder form-control" name="rfaReferralFile" id="upLoadFileWithdrawnCase" required="required" data-bind="jqBootstrapValidation: {}">
+                                            <input type="hidden" id="uploadRfaReferralID" name="RFAReferralID" data-bind="value:RFAReferralID" />
+                                            <input type="hidden" id="uploadRFARequestID" name="uploadRFARequestID" />
+                                            <input type="hidden" id="uploadTypeWithdrawnCheck" name="uploadTypeCheck" />
+                                        </div>
+                                        <button class="btn btn-default padding-btn margin-btm-30 pull-right" type="submit" id="uploadButtonData">Upload</button>
+                                    </div>
+
+                                </div><!-- col-sm-2 -->
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        }
+                        <!-- row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal top20 fade bs-example-modal-lg" id="myClientAuthorizedPopUp" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-bind="click:$root.closeClientAuthorizedPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Client Authorized</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm(GlobalConst.Actions.PreparationController.UploadFileOnWithdrawnORClientAuthorizedDecision, GlobalConst.Controllers.Preparation, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmUploadWithdrawn",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UploadFileWithdrawnSuccess(responseText);},beforeSubmit : UploadFileWithdrawnInfoFormBeforeSubmit}"
+                        }))
+                        {
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group row">
+                                            <label for="exampleInputFile" class="col-sm-2 control-label ">File input</label>
+                                            <div class="col-sm-6 pull-left">
+                                                <input type="file" class="fileuploadborder form-control" name="rfaReferralFile" id="upLoadFileClientAuthorizedCase" required="required" data-bind="jqBootstrapValidation: {}">
+                                                <input type="hidden" id="uploadClientAuthorizedRfaReferralID" name="RFAReferralID" data-bind="value:RFAReferralID" />
+                                                <input type="hidden" id="uploadClientAuthorizedRFARequestID" name="uploadRFARequestID" />
+                                                <input type="hidden" id="uploadTypeCheck" name="uploadTypeCheck" />
+                                            </div>
+                                            <button class="btn btn-default padding-btn margin-btm-30 pull-right" type="submit" id="uploadButtonData">Upload</button>
+                                        </div>
+
+                                    </div><!-- col-sm-2 -->
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        }
+                        <!-- row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 ">
+            <input type="hidden" id="TimeExtensionPNFullPath" name="TimeExtensionPNForUrl" />
+            <input type="hidden" id="TimeExtensionFullPath" name="TimeExtensionForUrl" />
+            <input type="hidden" id="ProofOfServiceFullPath" name="ProofOfServiceForUrl" />
+         </div>
+    </div>
+
+        </div>
+
+
+
+        <style>
+                    /*
+            Force table width to 100%
+            */
+                    table.table-fixedheader {
+                        width: 100%;
+                    }
+                        /*
+            Set table elements to block mode.  (Normally they are inline).
+            This allows a responsive table, such as one where columns can be stacked
+            if the display is narrow.
+            */
+                        table.table-fixedheader, table.table-fixedheader > thead, table.table-fixedheader > tbody, table.table-fixedheader > thead > tr, table.table-fixedheader > tbody > tr, table.table-fixedheader > thead > tr > th, table.table-fixedheader > tbody > td {
+                            display: block;
+                            border: 0 none;
+                        }
+
+                    .btncolor {
+                        background-color: #C0C0C0 !important;
+                        color: black !important;
+                    }
+
+                    table.table-fixedheader > thead > tr:after, table.table-fixedheader > tbody > tr:after {
+                        content: ' ';
+                        display: block;
+                        visibility: hidden;
+                        clear: both;
+                    }
+
+                    #myTable > thead > tr > th, #myTable > thead > tr > td {
+                        border: 0 none !important;
+                    }
+
+                    .myTable {
+                        border: 0 none !important;
+                    }
+                    /*
+            When scrolling the table, actually it is only the tbody portion of the
+            table that scrolls (not the entire table: we want the thead to remain
+            fixed).  We must specify an explicit height for the tbody.  We include
+            100px as a default, but it can be overridden elsewhere.
+            Also, we force the scrollbar to always be displayed so that the usable
+            width for the table contents doesn't change (such as becoming narrower
+            when a scrollbar is visible and wider when it is not).
+            */
+                    table.table-fixedheader > tbody {
+                        overflow-y: scroll;
+                        height: 300px;
+                    }
+                    /*
+            We really don't want to scroll the thead contents, but we want to force
+            a scrollbar to be displayed anyway so that the usable width of the thead
+            will exactly match the tbody.
+            */
+                    /*
+            For browsers that support it (webkit), we set the background color of
+            the unneeded scrollbar in the thead to make it invisible.  (Setting
+            visiblity: hidden defeats the purpose, as this alters the usable width
+            of the thead.)
+            */
+                    table.table-fixedheader > thead::-webkit-scrollbar {
+                        background-color: inherit;
+                    }
+
+                    table.table-fixedheader > thead > tr > th:after, table.table-fixedheader > tbody > tr > td:after {
+                        content: ' ';
+                        display: table-cell;
+                        visibility: hidden;
+                        clear: both;
+                    }
+                    /*
+            We want to set <th> and <td> elements to float left.
+            We also must explicitly set the width for each column (both for the <th>
+            and the <td>).  We set to 20% here a default placeholder, but it can be
+            overridden elsewhere.
+            */
+                    table.table-fixedheader > thead tr th, table.table-fixedheader > tbody tr td {
+                        float: left;
+                        word-wrap: break-word;
+                    }
+
+                    .validation-error {
+                        border: 1px solid #a94442;
+                    }
+        </style>

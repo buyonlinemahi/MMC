@@ -1,0 +1,132 @@
+﻿<div id="divRequestIMRRecordResultSearch">
+   
+        
+            
+                    <div class="col-md-12">
+                        <input type="hidden" name="cdSkip" id="hidClaimskip" data-bind="value: $root.cdSkip" />
+                        <table class="table table-bordered table-striped table-condensed home-table">
+                            <thead>
+                                <tr>
+                                    <th>Referral ID</th>
+                                    <th>Request ID</th>
+                                    <th>Request Name</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!--ko if:RequestIMRRecordResults() != null-->
+                                <!--ko foreach:RequestIMRRecordResults-->
+                                <tr>
+                                    <td><span data-bind="text:RFAReferralID" /></td>
+                                    <td><span data-bind="text:RFARequestID"/></td>
+                                    <td><span data-bind="text:RFARequestedTreatment" /></td>
+                                    <td><span data-bind="text:DecisionDesc"/></td>
+                                    <td><input type="checkbox" class="unique" name="RFARequestID" data-bind="value:RFARequestID()+'/'+RFAReferralID(),attr: { 'id':RFARequestID(), 'data-group':RFAReferralID()},click:$root.SelectRefferalGroup"></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                            <tfoot>
+                                <!--ko if: RequestIMRRecordResults()==null || RequestIMRRecordResults().length==0-->
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="alert alert-info">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                &times;
+                                            </button>
+                                            No Result Found.
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                            </tfoot>
+
+                        </table>
+
+
+                        <nav class="margin-left">
+                            @*<!-- ko ifnot:cdPager().cdTotalItemCount() > 0 -->
+                            <p>
+                                No Record found
+                            </p>
+                        <!-- /ko -->*@
+                            <!-- ko if:cdPager().cdTotalItemCount() > 0 -->
+                            <div class="pagination" data-bind="with: cdPager">
+                                <div class="pagexofx">
+                                    <span data-bind="text:cdFirstItemIndex"></span>
+                                    -
+                            <span data-bind="text: cdLastItemIndex"></span>
+                                    of
+                            <strong>
+                                <span data-bind="text: cdTotalItemCount"></span>
+                            </strong>
+                                    total results.
+                                </div>
+                                <ul class="pagination">
+                                    <!-- ko if:cdCurrentPage() === 1 -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:cdCurrentPage() === 1 -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ cdCurrentPage(1); }">&laquo;&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if:cdHasPrevPage -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ cdCurrentPage(cdCurrentPage() - 1); }">&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:cdHasPrevPage -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&laquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko foreach:cdPages -->
+                                    <!-- ko if:$data === $parent.cdCurrentPage() -->
+                                    <li class="active">
+                                        <span class="currentPage" data-bind="text: $data"></span>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if:$data !== $parent.cdCurrentPage() -->
+                                    <li>
+                                        <a href="#" data-bind="text: $data, click: function(){ $parent.cdCurrentPage($data); }"></a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                    <!-- ko if:cdHasNextPage -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ cdCurrentPage(cdCurrentPage() + 1); }">&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:cdHasNextPage -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko ifnot:cdCurrentPage() === cdLastPage() -->
+                                    <li>
+                                        <a href="#" data-bind="click: function(){ cdCurrentPage(cdLastPage()); }">&raquo;&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if:cdCurrentPage() === cdLastPage() -->
+                                    <li class="disabled">
+                                        <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                                    </li>
+                                    <!-- /ko -->
+                                </ul>
+
+                            </div>
+                            <!-- /ko -->
+                        </nav>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="btn btn-default padding-btn pull-right marginbottom10 marginright5" id="btnSendToIMR" data-bind="click:$root.SendToIMEProcessLevel" type="submit" data-backdrop="static"  data-keyboard="false" data-toggle="modal">Send to IMR</button>
+                    </div>
+                </div>
+      
+  
+

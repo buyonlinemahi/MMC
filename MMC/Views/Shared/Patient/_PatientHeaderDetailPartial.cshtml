@@ -1,0 +1,37 @@
+﻿<div class="row">
+    <div class="col-sm-12 margintop30">
+        <div class="white-background">
+            <table class="table table-bordered table-striped table-condensed home-table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Patient SSN</th>
+                        <th>Patient DOB</th>
+                        <th>Patient Age</th>
+                        <th>Medicare Eligible</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span data-bind="text :(PatFirstName() + ' ' + PatLastName())" /></td>
+                        <td><span data-bind="text :PatSSN" /></td>
+                        <td><span data-bind="text :PatDOB" /></td>
+                        <td><span data-bind="text :PatAge" /></td>
+                        <td><span data-bind="text :PatMedicareEligible" /></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            Summary: <br />
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div><!-- white-background -->
+    </div><!-- col-sm-12 -->
+</div>

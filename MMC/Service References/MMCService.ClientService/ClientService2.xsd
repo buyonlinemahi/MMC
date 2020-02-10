@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Client">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClaimAdministratorID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClaimAdministratorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaimAdministratorType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+  <xs:complexType name="ArrayOfAdjusterByClientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdjusterByClientID" nillable="true" type="tns:AdjusterByClientID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdjusterByClientID" nillable="true" type="tns:ArrayOfAdjusterByClientID" />
+  <xs:complexType name="AdjusterByClientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdjusterID" type="xs:int" />
+      <xs:element minOccurs="0" name="AdjusterName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdjusterByClientID" nillable="true" type="tns:AdjusterByClientID" />
+  <xs:complexType name="ArrayOfClaimAdministratorAllByClientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClaimAdministratorAllByClientID" nillable="true" type="tns:ClaimAdministratorAllByClientID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClaimAdministratorAllByClientID" nillable="true" type="tns:ArrayOfClaimAdministratorAllByClientID" />
+  <xs:complexType name="ClaimAdministratorAllByClientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Ids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClaimAdministratorAllByClientID" nillable="true" type="tns:ClaimAdministratorAllByClientID" />
+  <xs:complexType name="ClientInsurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientInsurerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsurerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientInsurer" nillable="true" type="tns:ClientInsurer" />
+  <xs:complexType name="ArrayOfClientInsurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientInsurer" nillable="true" type="tns:ClientInsurer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientInsurer" nillable="true" type="tns:ArrayOfClientInsurer" />
+  <xs:complexType name="ClientInsuranceBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientInsuranceBranchID" type="xs:int" />
+      <xs:element minOccurs="0" name="InsBranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceBranchID" type="xs:int" />
+      <xs:element minOccurs="0" name="InsurerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientInsuranceBranch" nillable="true" type="tns:ClientInsuranceBranch" />
+  <xs:complexType name="ArrayOfClientInsuranceBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientInsuranceBranch" nillable="true" type="tns:ClientInsuranceBranch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientInsuranceBranch" nillable="true" type="tns:ArrayOfClientInsuranceBranch" />
+  <xs:complexType name="ClientEmployer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientEmployerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientEmployer" nillable="true" type="tns:ClientEmployer" />
+  <xs:complexType name="ArrayOfClientEmployer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientEmployer" nillable="true" type="tns:ClientEmployer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientEmployer" nillable="true" type="tns:ArrayOfClientEmployer" />
+  <xs:complexType name="ClientThirdPartyAdministrator">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientTPAID" type="xs:int" />
+      <xs:element minOccurs="0" name="TPAAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TPACity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TPAID" type="xs:int" />
+      <xs:element minOccurs="0" name="TPAName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TPAState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TPAType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TPAZip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientThirdPartyAdministrator" nillable="true" type="tns:ClientThirdPartyAdministrator" />
+  <xs:complexType name="ArrayOfClientThirdPartyAdministrator">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientThirdPartyAdministrator" nillable="true" type="tns:ClientThirdPartyAdministrator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientThirdPartyAdministrator" nillable="true" type="tns:ArrayOfClientThirdPartyAdministrator" />
+  <xs:complexType name="ClientThirdPartyAdministratorBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientTPABranchID" type="xs:int" />
+      <xs:element minOccurs="0" name="TPABranchID" type="xs:int" />
+      <xs:element minOccurs="0" name="TPABranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TPAID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientThirdPartyAdministratorBranch" nillable="true" type="tns:ClientThirdPartyAdministratorBranch" />
+  <xs:complexType name="ArrayOfClientThirdPartyAdministratorBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientThirdPartyAdministratorBranch" nillable="true" type="tns:ClientThirdPartyAdministratorBranch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientThirdPartyAdministratorBranch" nillable="true" type="tns:ArrayOfClientThirdPartyAdministratorBranch" />
+  <xs:complexType name="ClientManagedCareCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientCompanyID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientManagedCareCompany" nillable="true" type="tns:ClientManagedCareCompany" />
+  <xs:complexType name="ArrayOfClientManagedCareCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientManagedCareCompany" nillable="true" type="tns:ClientManagedCareCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientManagedCareCompany" nillable="true" type="tns:ArrayOfClientManagedCareCompany" />
+  <xs:complexType name="ClientBilling">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientAttentionToFreeText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientAttentionToID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBillingID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBillingRateTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientInvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientIsPrivateLabel" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientBilling" nillable="true" type="tns:ClientBilling" />
+  <xs:complexType name="ClientBillingRetailRate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientBillingID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateAdminFee" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateDeferral" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateIMRMD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateIMRPrep" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateIMRRush" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateMD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateRN" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRetailRateSpecialityReview" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientBillingRetailRate" nillable="true" type="tns:ClientBillingRetailRate" />
+  <xs:complexType name="ClientBillingWholesaleRate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientBillingID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateAdminFee" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateDeferral" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateIMRMD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateIMRPrep" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateIMRRush" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateMD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateRN" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingWholesaleRateSpecialityReview" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientBillingWholesaleRate" nillable="true" type="tns:ClientBillingWholesaleRate" />
+  <xs:complexType name="ClientPrivateLabel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientPrivateEmailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelLogoName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelStateID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelTax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPrivateLabelZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientStatementStart" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientPrivateLabel" nillable="true" type="tns:ClientPrivateLabel" />
+</xs:schema>

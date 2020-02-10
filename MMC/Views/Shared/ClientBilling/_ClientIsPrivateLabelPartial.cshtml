@@ -1,0 +1,114 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.Client.AddClientPrivateLabel, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddAddClientPrivateLabel",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientPrivateLabelDetailSuccess(responseText);},beforeSubmit: ClientPrivateLabelFormBeforeSubmit}"
+    }))
+{
+    <div class="modal fade bs-example-modal-lg  margin-top5" id="divPrivateLabelPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" data-bind="click:ClosePop">&times;</button>
+                    <h4 class="modal-title">Client Private Label Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row panel-body">
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="" class="col-sm-3 control-label marginbottom20"><span class="required-link">*</span>Name :</label>
+                            <div class="col-sm-9">
+                                <input type="hidden" name="ClientID" id="ClientID" class="form-control" data-bind="value:ClientID" />
+                                <input type="hidden" name="ClientPrivateLabelID" id="ClientPrivateLabelID" class="form-control" data-bind="value:ClientPrivateLabelID" />
+                                <input type="text" id="txtClientPrivateLabelName" name="ClientPrivateLabelName" required class="form-control required_removebdr" maxlength="50" data-bind="value:ClientPrivateLabelName,jqBootstrapValidation: {}" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="" class="col-sm-3 control-label"><span class="required-link">*</span>Address :</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="txtAddress" name="ClientPrivateLabelAddress" required class="form-control required_removebdr" maxlength="50" data-bind="value:ClientPrivateLabelAddress,jqBootstrapValidation: {}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="" class="col-sm-3 control-label"><span class="required-link">*</span>City :</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="txtCity" name="ClientPrivateLabelCity" required class="form-control required_removebdr" maxlength="50" data-bind="value:ClientPrivateLabelCity,jqBootstrapValidation: {}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="" class="col-sm-3 control-label"><span class="required-link">*</span>State :</label>
+                            <div class="col-sm-9">
+                                <select id="txtState" class="form-control required_removebdr" name="ClientPrivateLabelStateID" required data-bind="options: States, optionsText: 'StateName', optionsValue: 'StateId', value: selectedItem,jqBootstrapValidation: {}"></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="" class="col-sm-3 control-label"><span class="required-link">*</span>Zip :</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="txtZip" name="ClientPrivateLabelZip" maxlength="10" required class="form-control zipMaskformat required_removebdr" data-bind="value:ClientPrivateLabelZip,jqBootstrapValidation: {}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Phone :</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control phoneMaskformat" id="ClientPrivateLabelPhone" required name="ClientPrivateLabelPhone" data-bind="value:ClientPrivateLabelPhone,jqBootstrapValidation: {}">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Fax :</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control phoneMaskformat" id="ClientPrivateLabelFax" required name="ClientPrivateLabelFax" data-bind="value:ClientPrivateLabelFax,jqBootstrapValidation: {}">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="" class="col-sm-3 control-label marginbottom20"><span class="required-link">*</span>Email :</label>
+                            <div class="col-sm-9">
+                                <input type="email" id="ClientPrivateEmailID" name="ClientPrivateEmailID" class="form-control required_removebdr" data-bind="value:ClientPrivateEmailID,jqBootstrapValidation: {}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Tax ID :</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control tin" name="ClientPrivateLabelTax" id="ClientPrivateLabelTax" maxlength="25" data-bind="value:ClientPrivateLabelTax">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix margintop10">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Generate Statement :</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" onclick="enableClientStatementStart()" id="chkStatementStart">
+
+                            </div>
+                        
+                        </div>
+
+                        <div id="divStatementStart" style="display:none" class="col-sm-12 form-group label-font clearfix margintop10">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Statement Start :</label>
+                          
+                            <div class="col-sm-8">
+
+                                <input type="text" class="form-control" readonly name="ClientStatementStart" id="ClientStatementStart" data-bind="value:ClientStatementStart" maxlength="15">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix margintop10">
+                            <label for="" class="col-sm-3 control-label">Logo :</label>
+                            <div class="col-sm-9">
+                                <input type="hidden" name="ClientPrivateLabelLogoName" id="ClientPrivateLabelLogoName" data-bind="value:ClientPrivateLabelLogoName" />
+                                <input type="file" class="fileuploadborder form-control display-inline width50" id="ClientPrivateLabelLogo" name="ClientPrivateLabelLogo" />
+                                <img data-toggle="popover" class="signature-icon" data-bind="attr:{src: ClientPrivateLabelLogoName}" />
+                                <label id="lblFileValidation" style="color: red"></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-group label-font clearfix">
+                            <input type="submit" class="btn btn-info padding-btn color-black pull-right margin-btm-30" value="Update" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    
+</script>

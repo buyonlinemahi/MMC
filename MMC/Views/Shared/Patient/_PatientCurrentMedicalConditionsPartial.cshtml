@@ -1,0 +1,93 @@
+﻿<div>
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+        <div class="row">
+            <div class="col-sm-12 margintop30 top">
+                <div class="white-background">
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>Current Medical Conditions </th>
+                                <th>Action </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko if:CurrentConditionResults()!= null-->
+                            <!-- ko foreach:CurrentConditionResults -->
+                            <tr>
+                                <td>
+                                    <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatCurrentMedicalConditionsDetails['+ $index() + '\].PatCurrentMedicalConditionName' },value:PatCurrentMedicalConditionName" />
+                                    <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatCurrentMedicalConditionsDetails['+ $index() + '\].CurrentMedicalConditionId' },value:CurrentMedicalConditionId" />
+                                    <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatCurrentMedicalConditionsDetails['+ $index() + '\].PatCurrentMedicalConditionId' },value:PatCurrentMedicalConditionId" />
+                                    <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatCurrentMedicalConditionsDetails['+ $index() + '\].PatientID' },value:PatientID" />
+                                    <span data-bind="text:PatCurrentMedicalConditionName"></span>
+                                </td>
+                                <td> <a href="#" data-bind="click:$root.removeCurrentMedicalCondition">Delete</a> </td>
+
+                            </tr>
+                            <!--/ko-->
+                            <!--/ko-->
+                        </tbody>
+                        <tfoot>
+                            <!--ko if:CurrentConditionResults()==null || CurrentConditionResults().length==0-->
+                            <tr>
+                                <td colspan="6">
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            &times;
+                                        </button>
+                                        No Result Found.
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tfoot>
+                    </table>
+                    <nav class="margin-left">
+                        @Html.Partial("~/Views/Shared/_Paging.cshtml")
+
+                    </nav>
+                </div><!-- white-background -->
+
+            </div><!-- col-sm-12 -->
+        </div>
+        <!-- /ko -->        
+        <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30 OpenPop" tabindex="12" data-backdrop="static" data-toggle="modal" data-target="#addCurrentMedicalCondition" type="button">Add New</button>
+
+    <!--Model-->
+    <div class="modal fade" id="addCurrentMedicalCondition" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Current Medical Condition</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="divClaim">
+
+                        <div class="row">
+
+                            <div class="panel-wrapper">
+                                <div class="panel-body">
+
+                                    <div class="col-md-4">
+                                        <label>Current Medical Condition:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" id="CurrentMedicalConditionId" required data-bind="options: CurrentMedicalConditions, optionsText: 'CurrentMedicalConditionName', optionsValue: 'CurrentMedicalConditionId', value: selectedItemCurrentMedicalConditions,jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default ClosePop" data-bind="click:AddNewCurrentMedicalConditionCode">Add</button>
+                    <button type="button" class="btn btn-default  ClosePop" id="ClosePopUpCurrentMedicalConditions" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

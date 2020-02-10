@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2700B00-8073-43CC-84BD-9FE3800F0C88}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMC.Core.BL.Model</RootNamespace>
+    <AssemblyName>MMC.Core.BL.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdditionalDocument.cs" />
+    <Compile Include="Adjuster.cs" />
+    <Compile Include="AdjusterByClientID.cs" />
+    <Compile Include="ADR.cs" />
+    <Compile Include="Attorney.cs" />
+    <Compile Include="AttorneyFirm.cs" />
+    <Compile Include="Base\BasePaged.cs" />
+    <Compile Include="Billing.cs" />
+    <Compile Include="BillingAccountReceivables.cs" />
+    <Compile Include="BodyPartDetail.cs" />
+    <Compile Include="CaseManager.cs" />
+    <Compile Include="ClaimAdministratorAllByClientID.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ClientBilling.cs" />
+    <Compile Include="ClientBillingRetailRate.cs" />
+    <Compile Include="ClientBillingWholesaleRate.cs" />
+    <Compile Include="ClientEmployer.cs" />
+    <Compile Include="ClientInsurer.cs" />
+    <Compile Include="ClientInsuranceBranch.cs" />
+    <Compile Include="ClientManagedCareCompany.cs" />
+    <Compile Include="ClientPrivateLabel.cs" />
+    <Compile Include="ClientThirdPartyAdministrator.cs" />
+    <Compile Include="ClientThirdPartyAdministratorBranch.cs" />
+    <Compile Include="ClinicalTriage .cs" />
+    <Compile Include="EmailRecordAttachment.cs" />
+    <Compile Include="Employer.cs" />
+    <Compile Include="EmployerSubsidiary.cs" />
+    <Compile Include="ICD10Code.cs" />
+    <Compile Include="ICD9Code.cs" />
+    <Compile Include="ICDCode.cs" />
+    <Compile Include="IMRDecisionReferralDetails.cs" />
+    <Compile Include="IMRDecisionRequestDetails.cs" />
+    <Compile Include="Paged\AdditionalDocument.cs" />
+    <Compile Include="Paged\Billing.cs" />
+    <Compile Include="IncompleteReferrals.cs" />
+    <Compile Include="InitialNotificationLetter.cs" />
+    <Compile Include="InsuranceBranch.cs" />
+    <Compile Include="Insurer.cs" />
+    <Compile Include="ManagedCareCompany.cs" />
+    <Compile Include="MedicalGroup.cs" />
+    <Compile Include="NotesDetail.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="NotificationEmailSend.cs" />
+    <Compile Include="Paged\Adjuster.cs" />
+    <Compile Include="Paged\ADR.cs" />
+    <Compile Include="Paged\Attorney.cs" />
+    <Compile Include="Paged\AttorneyFirm.cs" />
+    <Compile Include="Paged\BillingAccountReceivables.cs" />
+    <Compile Include="Paged\BodyPartDetail.cs" />
+    <Compile Include="Paged\CaseManager.cs" />
+    <Compile Include="Paged\Client.cs" />
+    <Compile Include="Paged\ClientBilling.cs" />
+    <Compile Include="Paged\ClientBillingRetailRate.cs" />
+    <Compile Include="Paged\ClientBillingWholesaleRate.cs" />
+    <Compile Include="Paged\ClientEmployer.cs" />
+    <Compile Include="Paged\ClientInsurer.cs" />
+    <Compile Include="Paged\ClientManagedCareCompany.cs" />
+    <Compile Include="Paged\ClientThirdPartyAdministrator.cs" />
+    <Compile Include="Paged\ClinicalTriage.cs" />
+    <Compile Include="Paged\EmailRecordAttachment.cs" />
+    <Compile Include="Paged\Employer.cs" />
+    <Compile Include="Paged\EmployerSubsidiary.cs" />
+    <Compile Include="Paged\ICD9Code.cs" />
+    <Compile Include="Paged\ICDCode.cs" />
+    <Compile Include="Paged\IncompleteReferrals.cs" />
+    <Compile Include="Paged\InsuranceBranch.cs" />
+    <Compile Include="Paged\Insurer.cs" />
+    <Compile Include="Paged\ManagedCareCompany.cs" />
+    <Compile Include="Paged\MedicalGroup.cs" />
+    <Compile Include="Paged\NotesDetail.cs" />
+    <Compile Include="Paged\Notification.cs" />
+    <Compile Include="Paged\Patient.cs" />
+    <Compile Include="Paged\PatientClaimAddOnBodyPart.cs" />
+    <Compile Include="Paged\PatientClaim.cs" />
+    <Compile Include="Paged\PatientClaimBodyPartByBPStatusID.cs" />
+    <Compile Include="Paged\PatientClaimDiagnose.cs" />
+    <Compile Include="Paged\PatientClaimStatus.cs" />
+    <Compile Include="Paged\PatientCurrentMedicalCondition.cs" />
+    <Compile Include="Paged\PatientClaimPleadBodyPart.cs" />
+    <Compile Include="Paged\PatientHistory.cs" />
+    <Compile Include="Paged\PeerReview.cs" />
+    <Compile Include="Paged\Physician.cs" />
+    <Compile Include="Paged\PatientMedicalRecordByPatientID.cs" />
+    <Compile Include="Paged\RequestByReferralID.cs" />
+    <Compile Include="Paged\RequestHistory.cs" />
+    <Compile Include="Paged\RequestIMRRecord.cs" />
+    <Compile Include="Paged\RFAAdditionalInfo.cs" />
+    <Compile Include="Paged\RFADiagnosis.cs" />
+    <Compile Include="Paged\RFAPatMedicalRecordReview.cs" />
+    <Compile Include="Paged\RFAReferralFile.cs" />
+    <Compile Include="Paged\ThirdPartyAdministrator.cs" />
+    <Compile Include="Paged\ThirdPartyAdministratorBranch.cs" />
+    <Compile Include="Paged\User.cs" />
+    <Compile Include="Paged\Vendor.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="PatientAddUpdateDetails.cs" />
+    <Compile Include="PatientAndRequestModel.cs" />
+    <Compile Include="PatientByReferralID.cs" />
+    <Compile Include="PatientClaimAddOnBodyPart.cs" />
+    <Compile Include="PatientClaim.cs" />
+    <Compile Include="PatientClaimAddUpdateDetails.cs" />
+    <Compile Include="PatientClaimBodyPartByBPStatusID.cs" />
+    <Compile Include="PatientClaimDiagnose.cs" />
+    <Compile Include="PatientClaimStatus.cs" />
+    <Compile Include="PatientCurrentMedicalCondition.cs" />
+    <Compile Include="PatientClaimPleadBodyPart.cs" />
+    <Compile Include="PatientDetailsByReferralID.cs" />
+    <Compile Include="PatientHistory.cs" />
+    <Compile Include="PatientMedicalRecordTemplateByPatientID.cs" />
+    <Compile Include="PatientOccupationalAddUpdateDetails.cs" />
+    <Compile Include="Physician.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestByReferralID.cs" />
+    <Compile Include="PatientMedicalRecordByPatientID.cs" />
+    <Compile Include="RequestHistory.cs" />
+    <Compile Include="RequestIMRRecord.cs" />
+    <Compile Include="RequestInitialNotificationLetter.cs" />
+    <Compile Include="RFADiagnosis.cs" />
+    <Compile Include="RFAPatMedicalRecordReviewDetail.cs" />
+    <Compile Include="RFAReferralFile.cs" />
+    <Compile Include="RFARequest.cs" />
+    <Compile Include="RFARequestAdditionalInfoDetail.cs" />
+    <Compile Include="StorageModel.cs" />
+    <Compile Include="ThirdPartyAdministrator.cs" />
+    <Compile Include="ThirdPartyAdministratorBranch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MMC.Core.Data.Model\MMC.Core.Data.Model.csproj">
+      <Project>{32b62e25-36e9-42b4-95df-0c1306172af1}</Project>
+      <Name>MMC.Core.Data.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

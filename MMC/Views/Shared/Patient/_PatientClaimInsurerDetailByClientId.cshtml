@@ -1,0 +1,119 @@
+﻿<input type="hidden" name="Skip" id="hidskipIns" data-bind="value: $root.InsSkip" />
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-background">
+            <table class="table table-bordered table-striped table-condensed home-table">
+                <thead>
+                    <tr>
+                        <th>Insurer Name </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--ko if:ClientInsurerDetails()!= null-->
+                    <!-- ko foreach:ClientInsurerDetails -->
+                    <tr>
+                        <td>
+                            <span data-bind="text:InsName"></span>
+                        </td>
+
+
+                    </tr>
+                    <!--/ko-->
+                    <!--/ko-->
+                </tbody>
+                <tfoot>
+                    <!--ko if:ClientInsurerDetails()==null || ClientInsurerDetails().length==0-->
+                    <tr>
+                        <td colspan="6">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    &times;
+                                </button>
+                                No Result Found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                </tfoot>
+            </table>
+            <nav class="margin-left">
+
+                <!-- ko if:InsPager().InsTotalItemCount() > 0 -->
+                <div class="pagination" data-bind="with: InsPager">
+                    <div class="pagexofx">
+                        <span data-bind="text:InsFirstItemIndex"></span>
+                        -
+                        <span data-bind="text: InsLastItemIndex"></span>
+                        of
+                        <strong>
+                            <span data-bind="text: InsTotalItemCount"></span>
+                        </strong>
+                        total results.
+                    </div>
+                    <ul class="pagination">
+                        <!-- ko if:InsCurrentPage() === 1 -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:InsCurrentPage() === 1 -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ InsCurrentPage(1); }">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:InsHasPrevPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ InsCurrentPage(InsCurrentPage() - 1); }">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:InsHasPrevPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko foreach:InsPages -->
+                        <!-- ko if:$data === $parent.InsCurrentPage() -->
+                        <li class="active">
+                            <span class="currentPage" data-bind="text: $data"></span>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:$data !== $parent.InsCurrentPage() -->
+                        <li>
+                            <a href="#" data-bind="text: $data, click: function(){ $parent.InsCurrentPage($data); }"></a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!-- ko if:InsHasNextPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ InsCurrentPage(InsCurrentPage() + 1); }">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:InsHasNextPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:InsCurrentPage() === InsLastPage() -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ InsCurrentPage(InsLastPage()); }">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:InsCurrentPage() === InsLastPage() -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+
+                </div>
+                <!-- /ko -->
+            </nav>
+        </div><!-- white-background -->
+
+
+    </div><!-- col-sm-12 -->
+</div>
+
+

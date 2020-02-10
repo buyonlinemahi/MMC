@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5c709392-2896-440b-b354-508de1184da6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/MMC/PaticipantService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PaticipantService.wsdl" MetadataType="Wsdl" ID="c4d7503f-b1cc-463e-b1ee-4af155a01289" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?wsdl" />
+    <MetadataFile FileName="PaticipantService.xsd" MetadataType="Schema" ID="afba127b-1e90-46b9-87d4-644daf29d2ba" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PaticipantService1.xsd" MetadataType="Schema" ID="ccfaecf7-7ab0-4b87-a7f6-c1f1d0ded5b6" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PaticipantService2.xsd" MetadataType="Schema" ID="5bac28e8-3103-4f2f-b135-37105bb41c12" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PaticipantService3.xsd" MetadataType="Schema" ID="b7a38632-3881-4929-bcd6-ac1138fd327c" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PaticipantService.disco" MetadataType="Disco" ID="5d3b6d0d-5d91-4765-8258-cfc5b5124020" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,132 @@
+﻿@model MMCApp.Domain.ViewModels.IntakeViewModel.RFARecordSplittingViewModel
+@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "updatePatientMedicalRecord";
+}
+
+<div id="divIntake">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-5">
+                <div class="dummy float-left" id="divuploadFile">
+                    <iframe width="100%" height="100%" id="objectPDF"></iframe>
+                </div>
+            </div>
+            <!-- col-sm-2 -->
+
+            <div class="col-sm-7 panel-bg">
+                <h4>Patient Medical Record</h4>
+
+                <div id="divPatientMedRec">
+                    <div class="panel-body row">
+                        
+                        Current Diagnosis: <label><span data-bind="text:diagnosisAll"></span></label>
+                        
+                        @using (Html.BeginForm("updatePatientMedicalRecord", GlobalConst.Controllers.PatientMedicalRecord, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmpatientmedicalRec",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){PatientMedicalRecordSuccess(responseText);},beforeSubmit : PatientMedicalRecordFormBeforeSubmit}"
+                        }))
+                        {
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Type :</label>
+                                    <div class="col-sm-8">
+                                        <select name="DocumentTypeID" id="DocumentTypeID" class="form-control marginbottom15" required="required" data-bind="options: documentTypes, optionsText: 'DocumentTypeDesc', optionsValue: 'DocumentTypeID',
+                                                                                                                                              value:rfaRecordSpliting.DocumentTypeID">
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- ko with: rfaRecordSpliting -->
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Name :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="RFARecDocumentName" id="RFARecDocumentName" maxlength="50" required="required" data-bind="value:RFARecDocumentName, jqBootstrapValidation: {}" />
+                                        <input type="hidden" name="RFARecSpltID" data-bind="value:RFARecSpltID" />
+                                        <input type="hidden" name="oldRFARecDocumentName" data-bind="value:$root.oldRFARecDocumentName" />
+                                        <input type="hidden" name="PatientID" data-bind="value:PatientID" />
+                                        <input type="hidden" name="PatientClaimID" data-bind="value:PatientClaimID" />
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Author</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" required="required" name="AuthorName" id="AuthorName" aria-multiline="true" maxlength="50" data-bind="value:AuthorName, jqBootstrapValidation: {}" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Date :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control datepicker" name="RFARecDocumentDate" id="RFARecDocumentDate" required="required" data-bind="value:RFARecDocumentDate, jqBootstrapValidation: {}" maxlength="10" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label class="col-sm-4 control-label"><span class="required-link">*</span>Summary</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="RFARecSpltSummary" id="RFARecSpltSummary" rows="5" aria-multiline="true" required="required" data-bind="value:RFARecSpltSummary,jqBootstrapValidation: {}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+          
+                            <button class="btn btn-default padding-btn margin-btm-30 pull-right" type="submit">Update</button>
+                        }
+
+
+
+                    </div>
+
+                    <!-- ko with: rfaRecordSpliting -->
+                    <input type="hidden" id="HDPatientClaimID" data-bind="value:PatientClaimID" />
+                    <input type="hidden" id="PatientClaimID" data-bind="value:PatientClaimID" />
+                    <!-- /ko -->
+
+                </div>
+
+                <div class="row panel-body" id="claimDiag">
+                    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimDiagnose.cshtml");}
+                </div>
+
+            </div>
+            <!-- col-sm-2 -->
+
+        </div>
+        <!-- row -->
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/KnockoutViewModel/PatientMedicalRecord/updatePatientMedicalRecordViewModel.js"></script>
+    <script src="~/Scripts/KnockoutViewModel/Patient/SavePatientClaimViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _updatePatientMedicalRecordViewModel = new updatePatientMedicalRecordViewModel();
+        _updatePatientMedicalRecordViewModel.Init(_model);
+        ko.applyBindings(_updatePatientMedicalRecordViewModel, $("#divPatientMedRec").get(0));
+
+        var _savePatientClaimViewModel = new SavePatientClaimViewModel();
+        _savePatientClaimViewModel.bindDiagAllPatietMedRec();
+        ko.applyBindings(_savePatientClaimViewModel, $("#claimDiag").get(0));
+        
+        
+    </script>
+
+}
+

@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+
+<html>
+@using AutoMapper;
+@using System.Web.Optimization;
+@using MvcSiteMapProvider.Web.Html;
+@using MMCApp.Infrastructure.Global;
+@using MMCApp.Domain.Models.UserModel;
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MMC</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <link href="~/Content/css/simple-sidebar.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="background-main-div" class="popupbg hidden">
+    </div>
+    <div id="loader-main-div" class="hidden">
+        <div class="loaderbg">
+        </div>
+        <div id="loader"></div>
+    </div>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <div id="sidebar-wrapper">
+                <a style="height:200px;width:200px;" href="/user/Home"><img src="/Content/img/logo.png" class="logo"></a>
+                <div class="panel-group main-nav" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Processing</a>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="~/Intake/Index" class="list-group-item">Intake <span class="menucount">@ViewBag.IntakeCount</span></a>
+                                    <a href="~/Preparation/Index" class="list-group-item">Preparation <span class="menucount">@ViewBag.PreparationCount</span></a>
+                                    <a href="~/Preparation/ClinicalTriage" class="list-group-item">Clinical Triage <span class="menucount">@ViewBag.ClinicalTriageCount</span></a>
+                                    <a href="~/Preparation/ClinicalAudit" class="list-group-item">Clinical Audit <span class="menucount">@ViewBag.ClinicalAuditCount</span></a>
+                                    <a href="/Notification/Index" class="list-group-item">Notifications <span class="menucount">@ViewBag.NotificationCount</span></a>
+                                    <a href="/Billing/Index" class="list-group-item">Billing <span class="menucount">@ViewBag.BillingCount</span></a>
+                                    <a href="~/PeerReview/PeerReviewLanding" class="list-group-item">Peer Review <span class="menucount">@ViewBag.PeerReviewCount</span></a>
+                                    <a href="/IMR/Index" class="list-group-item">IMR <span class="menucount">@ViewBag.IMRCount</span></a>                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- panel-default -->
+                    <div class="panel panel-default">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Details</a>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                   
+                                    <a href="~/Patient/Index" class="list-group-item">Patient</a>
+                                    <a href="~/Physician/Index" class="list-group-item">Physician</a>
+                                    <a href="~/Vendor/Index" class="list-group-item">Vendor</a>
+                                    <a href="~/CaseManager/Index" class="list-group-item">Case Manager</a>
+                                    <a href="~/Adjuster/Index" class="list-group-item">Adjuster</a>
+                                    <a href="~/Insurer/Index" class="list-group-item">Insurer</a>
+                                    <a href="~/Employer/Index" class="list-group-item">Employer</a>
+                                    <a href="~/ManagedCareCompany/Index" class="list-group-item">Managed Care Company</a>
+                                    <a href="~/ThirdPartyAdministrator/Index" class="list-group-item">Third Party Administrator</a>
+                                    <a href="~/MedicalGroup/Index" class="list-group-item">Medical Group</a>
+                                    <a href="~/Attorney/Index" class="list-group-item">Attorney</a>
+                                    <a href="~/PeerReview/Index" class="list-group-item">Peer Review</a>
+                                    <a href="~/ADR/Index" class="list-group-item">ADR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- panel-default -->
+                    <div class="panel panel-default">
+                        <a class="collapsed" data-toggle="collapse" id="btnManagemnet" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Management</a>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="~/User/Index" class="list-group-item">User</a>
+                                    <a href="~/Client/Index" class="list-group-item"> Client Setup</a>
+                                    <a href="~/Billing/AccountReceivables" class="list-group-item"> Accounts Receviables</a>
+                                    <a href="" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Reports</a>
+                                    <ul><li style="list-style-type:none"><a href="~/CurrentWorkload/Index" class="list-group-item">Current Workload</a></li></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- panel-default -->
+                    @*<div class="panel panel-default">
+                            <a class="collapsed" data-parent="#accordion" href="resources.html" aria-expanded="false" aria-controls="collapseFive"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Resources</a>
+                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive"></div>
+                        </div>*@<!-- panel-default -->
+                </div><!-- panel-group -->
+            </div><!-- sidebar -->
+            <div class="marginbottom30 container-fluid">
+                <div class="header-bar clearfix">
+                    <div class="fleft"><img id="dash" class="cpointer" src="~/Content/img/dash_icn.png" /></div>
+                    <div class="form-group row clearfix col-sm-9">
+
+                        <div class="col-sm-5 col-md-7">
+                            <input type="text" class="form-control" id="txtsearchPat" placeholder="Enter the Keywords Here">
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="padding-btn pull-right grey-btn" onclick="searchPatClaim()" type="button" id="_SearchPatButton">Search</button>
+                        </div><!-- col-sm-2 -->
+
+                    </div>
+                
+                    <a href="@Url.Action(GlobalConst.Actions.UserController.LogOff, GlobalConst.Controllers.User, null)" class="pull-right logout-link paddingright-none">Logout <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+                    <span class="pull-right logout-link">/</span>
+                    @{
+                        if (Session[GlobalConst.SessionKeys.USER] == null)
+                        {
+
+                            @*<li><a href="~/User/">Register</a></li>*@
+                            <li><a href="~/User/">Login</a></li>
+                        }
+                        else
+                        {
+                                                        User user = new User();
+                            user = Mapper.Map<User>(Session[GlobalConst.SessionKeys.USER]);
+
+                                <a href="#" class="pull-right logout-link">@(user.UserFirstName + " " + user.UserLastName) </a>
+                           @Html.HiddenFor(model => user.UserManagementPermission, new { id = "hdnManagement" })
+     
+                        }
+}
+
+                 
+                </div><!-- header-bar -->
+                <div id="siteMap" class="col-sm-12 marginbottom30">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12 siteMap-background ">
+                                @Html.MvcSiteMap().SiteMapPath()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    @RenderBody()
+                </div>
+
+            </div><!-- main col-sm-12 -->
+        </div><!-- main col-sm-9 -->
+
+    </div><!--  row -->
+    <!-- container-fluid -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/alertify")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/MMCScripts")
+    <script src="~/Scripts/BootstrapValidation/jqBootstrapValidation.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    function searchPatClaim() {
+        if ($('#txtsearchPat').val() != "") {
+            window.location = "/Patient/Index?s=" + $('#txtsearchPat').val();
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+<script>        
+    $("#dash").click(function (e) {
+        e.preventDefault();
+        toggleMenu();
+        var mode
+        if ($("#wrapper").hasClass("toggled")) {
+            mode = "Full";
+        }
+        else { mode = "Normal"; }
+        $.post("/Common/setScreenMode", {
+            _mode: mode 
+        }, function (model) {
+            if (model != "" && model != null) {
+            }
+        });
+    });
+
+    function toggleMenu() {        
+        $("#wrapper").toggleClass("toggled");
+    }
+
+    $(document).ready(function () {
+        showLoader();
+        $.post("/Common/getScreenMode", function (model) {            
+            if (model != "" && model != null) {
+                if (model == "Full")
+                {
+                    toggleMenu();
+                }                
+            }
+            hideLoader();
+        });
+
+        if ($("#hdnManagement").val() == 'False' || $("#hdnManagement").val() == "") {
+            $("#btnManagemnet").prop('disabled', true);
+        }
+        else {
+            $("#btnManagemnet").prop('disabled', false);
+        }
+    }
+    
+    )
+</script>

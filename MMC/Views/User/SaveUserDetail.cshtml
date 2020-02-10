@@ -1,0 +1,19 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/User/SaveDetailViewModel.js")"></script>
+    <script type="text/javascript">
+        var saveModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _saveDetailResult = new SaveDetailViewModel(saveModel);
+        ko.applyBindings(_saveDetailResult, $("#UserSaveDetailDiv").get(0));
+
+
+    </script>
+
+}
+<div id="UserSaveDetailDiv">
+    @{Html.RenderPartial("~/Views/Shared/User/_UserPartial.cshtml");}
+</div>

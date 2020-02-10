@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BillingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBillingService_getDetailsForBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDetailsForBilling" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getDetailsForBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDetailsForBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_updateRFARequestBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestBilling" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_updateRFARequestBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_addRFARequestBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestBilling" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_addRFARequestBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getDetailsForBillingByClientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDetailsForBillingByClientName" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getDetailsForBillingByClientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDetailsForBillingByClientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_addRFAReferralInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_addRFAReferralInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getInvoiceNumberByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceNumberByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getInvoiceNumberByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceNumberByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getInvoiceIDByInvoiceNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceIDByInvoiceNumber" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getInvoiceIDByInvoiceNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceIDByInvoiceNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_addClientStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientStatement" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_addClientStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getStatementNumberByClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStatementNumberByClient" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getStatementNumberByClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStatementNumberByClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getStatementNumberByStatementID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStatementNumberByStatementID" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getStatementNumberByStatementID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStatementNumberByStatementIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getAccountReceivablesByClientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountReceivablesByClientName" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_getAccountReceivablesByClientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountReceivablesByClientNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBillingService">
+    <wsdl:operation name="getDetailsForBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getDetailsForBilling" message="tns:IBillingService_getDetailsForBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getDetailsForBillingResponse" message="tns:IBillingService_getDetailsForBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/updateRFARequestBilling" message="tns:IBillingService_updateRFARequestBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/updateRFARequestBillingResponse" message="tns:IBillingService_updateRFARequestBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/addRFARequestBilling" message="tns:IBillingService_addRFARequestBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/addRFARequestBillingResponse" message="tns:IBillingService_addRFARequestBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsForBillingByClientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getDetailsForBillingByClientName" message="tns:IBillingService_getDetailsForBillingByClientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getDetailsForBillingByClientNameResponse" message="tns:IBillingService_getDetailsForBillingByClientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFAReferralInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/addRFAReferralInvoice" message="tns:IBillingService_addRFAReferralInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/addRFAReferralInvoiceResponse" message="tns:IBillingService_addRFAReferralInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceNumberByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getInvoiceNumberByClientID" message="tns:IBillingService_getInvoiceNumberByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getInvoiceNumberByClientIDResponse" message="tns:IBillingService_getInvoiceNumberByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceIDByInvoiceNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getInvoiceIDByInvoiceNumber" message="tns:IBillingService_getInvoiceIDByInvoiceNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getInvoiceIDByInvoiceNumberResponse" message="tns:IBillingService_getInvoiceIDByInvoiceNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/addClientStatement" message="tns:IBillingService_addClientStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/addClientStatementResponse" message="tns:IBillingService_addClientStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStatementNumberByClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getStatementNumberByClient" message="tns:IBillingService_getStatementNumberByClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getStatementNumberByClientResponse" message="tns:IBillingService_getStatementNumberByClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStatementNumberByStatementID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getStatementNumberByStatementID" message="tns:IBillingService_getStatementNumberByStatementID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getStatementNumberByStatementIDResponse" message="tns:IBillingService_getStatementNumberByStatementID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountReceivablesByClientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/getAccountReceivablesByClientName" message="tns:IBillingService_getAccountReceivablesByClientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/getAccountReceivablesByClientNameResponse" message="tns:IBillingService_getAccountReceivablesByClientName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBillingService" type="tns:IBillingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDetailsForBilling">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getDetailsForBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestBilling">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/updateRFARequestBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestBilling">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/addRFARequestBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsForBillingByClientName">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getDetailsForBillingByClientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFAReferralInvoice">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/addRFAReferralInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceNumberByClientID">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getInvoiceNumberByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceIDByInvoiceNumber">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getInvoiceIDByInvoiceNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientStatement">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/addClientStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatementNumberByClient">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getStatementNumberByClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatementNumberByStatementID">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getStatementNumberByStatementID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountReceivablesByClientName">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/getAccountReceivablesByClientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillingService">
+    <wsdl:port name="BasicHttpBinding_IBillingService" binding="tns:BasicHttpBinding_IBillingService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/BillingService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

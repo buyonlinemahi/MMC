@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:element name="getReferralByProcessLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="processLevel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralByProcessLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getReferralByProcessLevelResult" nillable="true" type="q1:PagedClinicalTriage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientAndRequestByReferralId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientAndRequestByReferralIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientAndRequestByReferralIdResult" nillable="true" type="q2:PatientAndRequestModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllRequestByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllRequestByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAllRequestByReferralIDResult" nillable="true" type="q3:ArrayOfRequestByReferralID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientAndRequestForNotificationByReferralId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientAndRequestForNotificationByReferralIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientAndRequestForNotificationByReferralIdResult" nillable="true" type="q4:PatientAndRequestModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateProcessLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+        <xs:element minOccurs="0" name="_processLevel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateProcessLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateProcessLevelResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFANewReferralIDFromRFAOldReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="DecisionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFANewReferralIDFromRFAOldReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getRFANewReferralIDFromRFAOldReferralIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRFAReferralIDFromReferralFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="RFAFileTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRFAReferralIDFromReferralFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRFAReferralIDFromReferralFilesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="rfaAddiotionalInfo" nillable="true" type="q5:RFAAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRFAAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRFAAdditionalInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFAAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="rfaAddiotionalInfo" nillable="true" type="q6:RFAAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRFAAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateRFAAdditionalInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllRFAAdditionalInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllRFAAdditionalInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAllRFAAdditionalInfoResult" nillable="true" type="q7:PagedRFAAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAAdditionalInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFAAdditionalInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFAAdditionalInfoByIdResult" nillable="true" type="q8:RFAAdditionalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRemainingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRemainingRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getRemainingRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFAAdditionalInfoDetailByRequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldRFAReferralID" type="xs:int" />
+        <xs:element minOccurs="0" name="rFARequestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRFAAdditionalInfoDetailByRequestIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateDecisionByRequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="rfaRequest" nillable="true" type="q9:RFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateDecisionByRequestIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateDecisionByRequestIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFITemplateRecordByRFARequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rFAReferralFileID" type="xs:int" />
+        <xs:element minOccurs="0" name="_userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFITemplateRecordByRFARequestIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFARequestTimeExtensionRecordByRFARequestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rFAReferralFileID" type="xs:int" />
+        <xs:element minOccurs="0" name="_userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRFARequestTimeExtensionRecordByRFARequestIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAcceptedBodyPartsByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAcceptedBodyPartsByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getAcceptedBodyPartsByReferralIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeniedBodyPartsByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeniedBodyPartsByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getDeniedBodyPartsByReferralIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDignosisByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDignosisByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getDignosisByReferralIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDelayedBodyPartByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDelayedBodyPartByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getDelayedBodyPartByReferralIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralMedicalRecordByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReferralMedicalRecordByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getReferralMedicalRecordByPatientIDResult" nillable="true" type="q10:PagedPatientMedicalRecordByPatientID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

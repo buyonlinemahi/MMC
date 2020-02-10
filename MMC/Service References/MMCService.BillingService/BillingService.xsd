@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBilling">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Billing" nillable="true" type="tns:Billing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBilling" nillable="true" type="tns:ArrayOfBilling" />
+  <xs:complexType name="Billing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientBillingRateTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DecisionID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestBillingAdmin" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingDeferral" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestBillingMD" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingRN" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingSpeciality" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Billing" nillable="true" type="tns:Billing" />
+  <xs:complexType name="RFARequestBilling">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RFARequestBillingAdmin" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingDeferral" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestBillingMD" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingRN" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestBillingSpeciality" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFARequestBilling" nillable="true" type="tns:RFARequestBilling" />
+  <xs:complexType name="RFAReferralInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralInvoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFAReferralInvoice" nillable="true" type="tns:RFAReferralInvoice" />
+  <xs:complexType name="ClientStatement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientStatementFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientStatementID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientStatementNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientStatement" nillable="true" type="tns:ClientStatement" />
+  <xs:complexType name="ArrayOfBillingAccountReceivables">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingAccountReceivables" nillable="true" type="tns:BillingAccountReceivables" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingAccountReceivables" nillable="true" type="tns:ArrayOfBillingAccountReceivables" />
+  <xs:complexType name="BillingAccountReceivables">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientStatementFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientStatementID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientStatementNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralInvoiceID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingAccountReceivables" nillable="true" type="tns:BillingAccountReceivables" />
+</xs:schema>

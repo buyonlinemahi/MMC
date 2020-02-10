@@ -1,0 +1,136 @@
+﻿<div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Referral')}">Referral<span id="spanOrderIcoReferral" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Request')}">Request<span id="spanOrderIcoRequest" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('RequestDate')}">Request Date<span id="spanOrderIcoRequestDate" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Physician')}">Physician<span id="spanOrderIcoPhysician" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>                            
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('RequestName')}">Request Name<span id="spanOrderIcoRequestName" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('DecisionDate')}">Referral<span id="spanOrderIcoDecisionDate" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Status')}">Status<span id="spanOrderIcoStatus" class="orderIco glyphicon glyphicon-chevron-up fright"></span></div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:PatientHistoryDetails()!= null-->
+                        <!-- ko foreach:PatientHistoryDetails -->
+                        <tr>
+                            <td><span data-bind="text:RFAReferralID"></span></td>
+                            <td><span data-bind="text:RFARequestID"></span></td>
+                            <td><span data-bind="text:RFARequestDate"></span></td>
+                            <td><span data-bind="text:Physician"></span></td>
+                             <!--ko if:Status() != 'Preparation1'-->
+                                <td><a href="#" data-backdrop="static" data-bind="text:RFARequestedTreatment,click:$root.OpenRequestHistory"></a></td>
+                            <!-- /ko -->
+
+                            <!--ko if:Status() == 'Preparation1'-->
+                                <td><span data-bind="text:RFARequestedTreatment"></span></td>
+                            <!-- /ko -->
+                            <td><span data-bind="text:DecisionDate"></span></td>
+                            <!--ko if:Status() != 'Preparation1'-->
+                                <td><span data-bind="text:Status"></span></td>
+                            <!-- /ko -->
+
+                            <!--ko if:Status() == 'Preparation1'-->
+                                <td>Preparation</td>
+                            <!-- /ko -->
+                            
+                        </tr>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:PatientHistoryDetails()==null || PatientHistoryDetails().length==0-->
+                        <tr>
+                            <td colspan="7">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    <!-- ko if:phPager().phTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: phPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:phFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: phLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: phTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:phCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:phCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ phCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:phHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ phCurrentPage(phCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:phHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:phPages -->
+                            <!-- ko if:$data === $parent.phCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.phCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.phCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:phHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ phCurrentPage(phCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:phHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:phCurrentPage() === phLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ phCurrentPage(phLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:phCurrentPage() === phLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div>
+            <!-- white-background -->
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientRequestHistoryByRequestId.cshtml");}
+</div>

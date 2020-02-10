@@ -1,0 +1,217 @@
+﻿<div class="modal fade" id="PatientSplitting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index:9">
+    <div class="modal-dialog modal-lg " style="top:5%;">
+        <div class="modal-content">
+            <div class="modal-header  panel-heading">
+                <button type="button" id="buttonClosePatientSplitting" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Medical Upload Splits</h4>
+                <br />
+
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <div id="FileUpload">
+                    @using MMCApp.Infrastructure.Global;
+                    @using System.Web.Script.Serialization
+                    @using (Html.BeginForm(GlobalConst.Actions.MedicalRecordController.UploadPatientMedicalRecord, GlobalConst.Controllers.PatientMedicalRecord, FormMethod.Post, new
+                    {
+                        id = "frmPatientMedicalRecordPartial1",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){PatientMedicalRecordUploadSuccess(responseText);},beforeSubmit : PatientMedicalRecordFileInfoFormBeforeSubmit}"
+                    }))
+                        {
+                                        <div class="col-sm-12">
+                                            <div class="form-group row">
+                                                <label for="exampleInputFile" class="col-sm-2 control-label ">File input</label>
+                                                <div class="col-sm-6 pull-left">
+                                                    <input type="file" class="fileuploadborder form-control" name="rfaReferralFile" id="upMedicalRecordFile" required="required" data-bind="jqBootstrapValidation: {}">
+                                                </div>
+                                                <button class="btn btn-default padding-btn margin-btm-30 pull-right" type="submit" id="uploadButtonData">Upload</button>
+                                            </div>
+
+                                        </div><!-- col-sm-2 -->
+
+                                        <div class="clearfix"></div>
+
+                        }
+                    </div>
+                    <div id="divMedicalSpilliting" style="display:none">
+                        <input type="hidden" class="form-control" name="PatientID" id="PatientID" data-bind="value:PatientID">
+                        <input type="hidden" class="form-control" name="RFAReferralFileName" id="RFAReferralFileName" data-bind="value:RFAReferralFileName">
+                        <input type="hidden" id="GreaterFromThisNum" class="form-control" name="GreaterFromThisNum" data-bind="value:GreaterFromThisNum">
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Upload Page Total :</label>
+                                <div class="col-sm-8">
+                                    <span name="PageTotal" data-bind="text:PageTotal,jqBootstrapValidation: {},"></span>
+                                    <input type="hidden" id="PageTotal" class="form-control" name="PageTotal" data-bind="value:PageTotal">
+                                </div>
+                            </div>
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Pages Remaining :</label>
+                                <div class="col-sm-8">
+                                    <span name="PageRemaining" data-bind="text:PageRemaining,jqBootstrapValidation: {},"></span>
+                                    <input type="hidden" id="PageRemaining" class="form-control" name="PageRemaining" data-bind="value:PageRemaining">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Start Page :</label>
+                                <div class="col-sm-8">
+                                    <input type="hidden" id="EditMode" class="form-control" name="EditMode" data-bind="value:EditMode">
+                                    <input type="number" class="form-control" id="RFARecPageStart" name="RFARecPageStart" required="required" data-bind="jqBootstrapValidation: {}" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>End Page :</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="RFARecPageEnd" name="RFARecPageEnd" required="required" data-bind="jqBootstrapValidation: {}" data-validation-regex-regex="^[0-9]*$" data-validation-regex-message="Must be a number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Claim Number :</label>
+                                <div class="col-sm-8">
+                                    <select name="PatientClaimID" id="PatientClaimIDtt" class="form-control" required="required" data-bind="options: ClaimCategories, optionsText: 'PatClaimNumber', optionsValue: 'PatientClaimID',jqBootstrapValidation: {},event:{ change: PatientClaimChanged}"></select>
+
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label">Request Name:</label>
+                                <div class="col-sm-8">
+                                    <select name="RFARequestID" id="RFARequestID" class="form-control"  data-bind="options: RequestCategories, optionsText: 'RFARequestedTreatment', optionsValue: 'RFARequestID', optionsCaption: 'Select Any Option',jqBootstrapValidation: {}"></select>
+
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Category :</label>
+                                <div class="col-sm-8">
+                                    @*<select name="DocumentCategoryID" id="DocumentCategoryID" class="form-control" required="required" data-bind="options: DocumentCategories, optionsText: 'DocumentCategoryName', optionsValue: 'DocumentCategoryID',jqBootstrapValidation: {}"></select>*@
+                                    <select name="DocumentCategoryID" id="DocumentCategoryID" class="form-control" required="required" data-bind="options: DocumentCategories, optionsText: 'DocumentCategoryName', optionsValue: 'DocumentCategoryID',
+                                                                                                                                optionsCaption: 'Select Any Option', jqBootstrapValidation: {}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Type :</label>
+                                <div class="col-sm-8">
+                                    @*<select name="DocumentTypeID" id="DocumentTypeID" class="form-control" required="required" data-bind="options: DocumentTypes, optionsText: 'DocumentTypeDesc', optionsValue: 'DocumentTypeID',jqBootstrapValidation: {}"></select>*@
+                                    <select name="DocumentTypeID" id="DocumentTypeID" class="form-control marginbottom15" required="required" data-bind="options: DocumentTypes, optionsText: 'DocumentTypeDesc', optionsValue: 'DocumentTypeID'"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Name :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="RFARecDocumentName" id="RFARecDocumentName" maxlength="50" required="required" data-bind="jqBootstrapValidation: {},">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Document Date :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control datepicker" name="RFARecDocumentDate" id="RFARecDocumentDate" required="required" data-bind="jqBootstrapValidation: {}" maxlength="10" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label class="col-sm-4 control-label"><span class="required-link">*</span>Author :</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="AuthorName" id="AuthorName" maxlength="50" required="required" data-bind="jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="btn btn-default padding-btn margin-btm-30 margintop10 pull-right" data-bind="click:$root.PatientMedicalRecordSplitSuccess">Add New</button>
+                        </div>
+                    </div>
+                    <br/>
+                    <div id="DivMedicalSpillitingGrid" style="display:none">
+                        <h5>Record Split</h5>
+ @using (Html.BeginForm(GlobalConst.Actions.MedicalRecordController.SavePatientMedicalRecordSplitting, GlobalConst.Controllers.PatientMedicalRecord, FormMethod.Post, new
+{
+    id = "PatientMecdicalRecordSpiltGrid",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){PatientMedicalRecordGridSuccess(responseText);}}"
+}))
+                    {
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>Page Start</th>
+                                <th>Page End</th>
+                                <th>Claim</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Author</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!--ko if:PatientMedicalRecordSpilt()!= null-->
+                            <!-- ko foreach:PatientMedicalRecordSpilt -->
+                            <tr>
+                                <td>
+                                    <label><span data-bind="text :RFARecPageStart" /></label>  
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFARecSpltID' },value:RFARecSpltID" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].PatientID' },value:PatientID" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].DocumentCategoryID' },value:DocumentCategoryID" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].DocumentTypeID' },value:DocumentTypeID" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFARecDocumentName' },value:RFARecDocumentName" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFARecDocumentDate' },value:RFARecDocumentDate" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFARecPageStart' },value:RFARecPageStart" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFARecPageEnd' },value:RFARecPageEnd" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFAReferralFileName' },value:RFAReferralFileName" />
+                                    <input type="hidden" data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].AuthorName' },value:AuthorName" />
+                                    <input type="hidden"   data-bind="attr: { name: 'rfaRecordSplitingDetails['+ $index() + '\].RFARequestID' },value:RFARequestID" />
+                                </td>
+                                <td><span data-bind="text :RFARecPageEnd" /></td>
+                                <td><span data-bind="text :PatientClaimNumber" /></td>
+                                <td><a href="#" data-bind="click:$root.EditPatientMedicalRecordSplit,text :DocumentCategoryName"></a></td>
+                                <td><span data-bind="text :DocumentTypeDesc" /></td>
+                                <td><span data-bind='text :RFARecDocumentName'></span></td>
+                                <td><span data-bind="text :AuthorName" /></td>    
+                                <td><span data-bind="text :RFARecDocumentDate" /></td>     
+                                                       
+                            </tr>
+                            <!--/ko-->
+                            <!--/ko-->
+                        </tbody>
+                        <tfoot>
+                            <!--ko if:PatientMedicalRecordSpilt()==null || PatientMedicalRecordSpilt().length==0-->
+                            <tr>
+                                <td colspan="7">
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            &times;
+                                        </button>
+                                        No Result Found.
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tfoot>
+                    </table>
+                    <button class="btn btn-red padding-btn margin-btm-30 pull-right" type="submit">Split And Continue</button>
+                    }
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>

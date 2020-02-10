@@ -1,0 +1,173 @@
+﻿@model Tuple<MMCApp.Domain.Models.IntakeModel.RFAReferral, MMCApp.Domain.Models.IntakeModel.RFAReferralFile>
+@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divIntake">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-5">
+                <div class="dummy float-left" id="divuploadFile">
+                    <iframe width="100%" height="100%" id="objectPDF"></iframe>
+                </div>
+            </div>
+            <!-- col-sm-2 -->
+
+            <div class="col-sm-7 panel-bg">
+                <h4>Intake Processing</h4>
+                <div id="DivAddNotesBtn">
+                    <button class="btn btn-info padding-btn pull-right" id="btnAddNote" data-target="#NoteDiv " data-backdrop="static"
+                            data-bind="click:OpenAddNotes('Intake')" data-keyboard="false" data-toggle="modal" type="button">
+                        Add Notes
+                    </button>
+                    <div id="AddNote">
+                        @Html.Partial("~/Views/Shared/Notes/_NotesPartial.cshtml")
+                    </div>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a id="tabFileUpload" data-toggle="tab" href="#FileUpload">File Upload</a></li>
+                        <li><a id="tabIntakeClaim" data-toggle="tab" class="DivHide hide" href="#claim">Claim</a></li>
+                        <li><a id="tabIntakeRFA" data-toggle="tab" class="DivHide hide" href="#RFA">RFA</a></li>
+                        <li><a id="tabPhysician" class="DivHide hide" data-toggle="tab" href="#Physician">Physician</a></li>
+                        <li><a id="tabrfaRequest" class="DivHide hide" data-toggle="tab" href="#Request">Request</a></li>
+                        <li><a id="tabrfaRecordSplt" class="DivHide hide" data-toggle="tab" href="#RecordSplt">Record split</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="FileUpload" class="tab-pane fade in active">
+                            <br />
+
+                            @{Html.RenderPartial("~/Views/Shared/Intake/_FileUploadPartial.cshtml");}
+                        </div>
+
+
+                        <div id="claim" class="tab-pane fade">
+
+                            @{Html.RenderPartial("~/Views/Shared/Intake/_IntakeClaim.cshtml");}
+                        </div>
+
+
+                        <div id="RFA" class="tab-pane fade">
+                            @{Html.RenderPartial("~/Views/Shared/Intake/_RFAPartial.cshtml");}
+                        </div>
+
+                        <div id="Physician" class="tab-pane fade">
+                            <div id="divPhysician">
+                                @using (Html.BeginForm(GlobalConst.Actions.IntakeController.saveIntakePhysician, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmRFAReqeust",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdatePhysicianSuccess(responseText);},beforeSubmit : IntakePhysicianInfoFormBeforeSubmit}"
+                        }))
+                                {
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group row label-font clearfix">
+                                            <h3 for="inputEmail3" class="col-sm-12 control-label">Selected Physician </h3>
+                                            <input type="hidden" class="form-control" name="PhysicianId" required="required" data-bind="value:PhysicianId,jqBootstrapValidation: {}" />
+                                            <input type="hidden" class="form-control" name="RFAReferralID" data-bind="value:RFAReferralID" />
+
+                                            <div class="col-sm-12 " id="physicianDivSpecialty">
+                                                <table class="table table-bordered table-striped table-condensed home-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Physician Name</th>
+                                                            <th>Physician Specialty </th>
+                                                            <th>Physician E-mail </th>
+                                                            <th>Physician Zip</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <label><span data-bind="text :PhysicianName" /></label>
+
+                                                            </td>
+                                                            <td><span data-bind="text :PhysSpecialtyName" /></td>
+                                                            <td><span data-bind="text :PhysEMail" /> </td>
+                                                            <td><span data-bind="text :PhysZip" /></td>
+                                                        </tr>
+
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @{Html.RenderPartial("~/Views/Shared/Physician/_PhysicianSearchIntakePartial.cshtml");}
+                            <div class="col-sm-12 pull-right">
+
+                                <button class="btn btn-red padding-btn pull-right" type="submit" data-bind="click:$root.SubmitFormInPhysicianTab" id="SubmitFromFARequestID">Save</button>
+                            </div>
+                        </div>
+
+                        <div id="Request" class="tab-pane fade">
+                            @{Html.RenderPartial("~/Views/Shared/Intake/_RFARequestPartial.cshtml");}
+                        </div>
+
+                        <div id="RecordSplt" class="tab-pane fade">
+                            @{Html.RenderPartial("~/Views/Shared/Intake/_RFARecordSplittingPartial.cshtml");}
+                        </div>
+                      
+
+                    </div>
+                </div>
+        <!-- col-sm-2 -->
+
+    </div>
+    <!-- row -->
+</div>
+    </div>
+@section scripts{
+    <script src="~/Scripts/KnockoutViewModel/Intake/IntakeViewModel.js"></script>
+    <script src="~/Scripts/KnockoutViewModel/Physician/SearchViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Intake/IntakePatientClaimViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Notes/SaveDetailViewModel.js")"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript">
+        //$('#RFACETime').timepicker({ timeFormat: 'HH:mm' });
+        //file upload
+        //note:- never change this _intakeFileUploadViewModel name...hp
+        var _intakeFileUploadViewModel = new IntakeFileUploadViewModel();
+        _intakeFileUploadViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.Item2)))
+        ko.applyBindings(_intakeFileUploadViewModel, $("#divFileUplaod").get(0));
+
+        //note:- never change this _intakeViewModel name...hp
+        var _intakeViewModel = new IntakePatientClaimViewModel();
+        ko.applyBindings(_intakeViewModel, $("#InTakePatientClaimDiv").get(0));
+
+        //rfa referral...
+        //note:- never change this _intakeRFAViewModel name...hp
+        var _intakeRFAViewModel = new IntakeRFAViewModel();
+        _intakeRFAViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.Item1)))
+        ko.applyBindings(_intakeRFAViewModel, $("#divRFAIntake").get(0));
+
+        var _intakePhysicianViewModel = new IntakePhysicianViewModel();
+        ko.applyBindings(_intakePhysicianViewModel, $("#divPhysician").get(0));
+
+        var _saveDetailViewModel = new SaveDetailViewModel();
+        _saveDetailViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model.Item1)),"Intake")
+         ko.applyBindings(_saveDetailViewModel, $("#DivAddNotesBtn").get(0));
+        
+         function RichTextEditor_OnExecUICommand(editor, arg) {
+             var a0 = arg.Arguments[1];
+             if (a0 == "FullScreen") {
+                 return false;
+             }
+         }
+
+    </script>
+<link href="~/Content/css/bootstrap-multiselect.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-multiselect.js"></script>
+
+
+}

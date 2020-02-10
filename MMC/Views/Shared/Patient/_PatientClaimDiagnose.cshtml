@@ -1,0 +1,212 @@
+﻿    <div class="row">
+        <input type="hidden" name="Skip" id="hidskipcd" data-bind="value: $root.cdSkip" />
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th width="33%">Diagnosis Number </th>
+                            <th width="33%">Diagnosis Description </th>
+                            <th width="33%">Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:icdResults()!= null-->
+                        <!-- ko foreach:icdResults -->
+                        <tr>
+                            <td width="33%"> <span data-bind="text:icdICDNumber"></span></td>
+                            <td width="33%">
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimDiagnoseDetails['+ $index() + '\].icdICDNumber' },value:icdICDNumber" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimDiagnoseDetails['+ $index() + '\].PatientClaimDiagnosisID' },value:PatientClaimDiagnosisID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimDiagnoseDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimDiagnoseDetails['+ $index() + '\].icdICDTab' },value:icdICDTab" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimDiagnoseDetails['+ $index() + '\].ICDDescription' },value:ICDDescription" />
+                                <span data-bind="text:ICDDescription"></span>
+                            </td>
+                            <td width="33%"> <a href="#" data-bind="click:$root.removeClaimDiagonsis">Delete</a> </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:icdResults()==null || icdResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+           
+                    <!-- ko if:cdPager().cdTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: cdPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:cdFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: cdLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: cdTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:cdCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cdCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cdCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cdHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cdCurrentPage(cdCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cdHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:cdPages -->
+                            <!-- ko if:$data === $parent.cdCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.cdCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.cdCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:cdHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cdCurrentPage(cdCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cdHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cdCurrentPage() === cdLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cdCurrentPage(cdLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cdCurrentPage() === cdLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>
+    <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" data-toggle="modal" data-target="#addicd9" type="button">Add New</button>
+    <!--Model-->
+    <div class="modal fade" id="addicd9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top ">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" id="buttonCloseCD" class="close icdSearchClosePop"  data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Claim Diagnosis</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="divClaim">
+                        <div class="row">
+                            <div class="panel-wrapper">
+                                <div class="panel-body">
+
+                                    <div class="col-md-2">
+                                        <label>Claim Status:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="col-md-6"><input type="text" name="SearchNewDiagnosisTitle" id="SearchDiagnosisTitle" class="form-control" maxlength="255" data-bind="jqBootstrapValidation: {}" placeholder="Search Diagnosis"></div>
+
+                                        <div class="col-md-6"><select id="ICDDrp" name="ICDDrp" class="form-control-widget col-md-5 form-control" data-bind="options:ICDSearchType, optionsValue:'SearchCriteria',optionsText:'SearchCriteriaName'"></select></div>
+                                        
+                                       
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="#" class="btn btn-default text-right" id="NewClaimDiagnosis" data-bind="click:$root.SearchNewDiagnosis">Search</a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+
+                                        <!-- Table -->
+                                        <table class="table table-bordered table-striped table-condensed home-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Diagnosis Number</th>
+                                                    <th>Diagnosis Description</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!--ko if:icdSearchDataResult!= null-->
+                                                <!-- ko foreach:icdSearchDataResult -->
+                                                <tr>
+                                                    <td>
+                                                        <span data-bind="text:icdICDNumber" />
+                                                        <input type="hidden" data-bind="attr: { name: ' objPatientModel.ICDCodeDetails['+ $index() + '\].icdICDNumberID' },value:icdICDNumberID" />
+                                                        <input type="hidden" data-bind="attr: { name: ' objPatientModel.ICDCodeDetails['+ $index() + '\].icdICDNumber' },value:icdICDNumber" />
+                                                        <input type="hidden" data-bind="attr: { name: ' objPatientModel.ICDCodeDetails['+ $index() + '\].icdICDTab' },value:icdICDTab" />
+                                                        <input type="hidden" data-bind="attr: { name: ' objPatientModel.ICDCodeDetails['+ $index() + '\].ICDDescription' },value:ICDDescription" />
+                                                        <input type="hidden" data-bind="attr: { name: ' objPatientModel.ICDCodeDetails['+ $index() + '\].ICDType' },value:ICDType" />
+                                                    </td>
+                                                    <td><span data-bind="text:ICDDescription" /></td>
+                                                    <td><a href="#" class="icdSearchClosePop inner-content-link blue " style="color:#808080;" data-bind="click:$root.AddNewClaimDiagonsis">Select</a></td>
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                            <tfoot>
+                                                <!--ko if:icdSearchDataResult()==null || icdSearchDataResult().length==0-->
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <div class="alert alert-info">
+                                                            <button type="button" class="close" data-dismiss="alert">
+                                                                &times;
+                                                            </button>
+                                                            No Result Found.
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <!-- /ko -->
+                                            </tfoot>
+                                        </table>
+                                        <nav class="margin-left">
+                                            @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

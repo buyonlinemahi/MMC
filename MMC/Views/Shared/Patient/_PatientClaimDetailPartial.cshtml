@@ -1,0 +1,69 @@
+﻿
+<div id="PatientClaimDiv">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-11">                
+            </div><!-- col-sm-2 -->
+            <div class="col-sm-1">
+                <a class="btn btn-default padding-btn pull-right" data-bind="click:  function () { bindClaimDemography(0)}">Add New</a>
+            </div>        
+        
+        </div><!-- row -->
+    </div><!-- row -->
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Claim Number</th>
+                            <th>DOI</th>
+                            @*<th>Claims Admin</th>
+                            <th>Insurer</th>
+                            <th>Employer</th>*@
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:PatientClaimSearchResults()!= null-->
+                        <!-- ko foreach:PatientClaimSearchResults -->
+                        <tr>
+                            <td><span data-bind="text:PatClaimNumber" /></td>
+                            <td><span data-bind="text:PatDOI" /></td>
+                            @*<td><span data-bind="text:PatClaimAdminName" /></td>
+                            <td><span data-bind="text:PatInsName" /></td>
+                            <td><span data-bind="text:PatEmpName" /></td>*@
+                            <td><a href="#" data-bind="click:  function () { bindClaimDemography(PatientClaimID)}">View</a></td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:PatientClaimSearchResults()==null || PatientClaimSearchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    <!-- /ko -->    
+    <input type="hidden" name="Skip" id="chidskip" data-bind="value: $root.cSkip" />
+</div>
+<div id="ClaimDemographyDivMain">
+    <input type="hidden" id="HDPatientClaimID" />
+@{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimDemographyPartial.cshtml");}
+</div>

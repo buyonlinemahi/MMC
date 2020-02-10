@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0BFAF64-BFBC-48EE-9FE5-D5A3CA3B2BC5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMCService</RootNamespace>
+    <AssemblyName>MMCService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\packages\ValueInjecter.3.1\lib\net45\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceInitializer">
+      <HintPath>..\packages\ServiceInitializer\ServiceInitializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BillingService.svc" />
+    <Content Include="ClientService.svc" />
+    <Content Include="CommonService.svc" />
+    <Content Include="CurrentWorkloadService.svc" />
+    <Content Include="EmailRecordAttachmentService.svc" />
+    <Content Include="IMRService.svc" />
+    <Content Include="IntakeService.svc" />
+    <Content Include="LetterService.svc" />
+    <Content Include="NotificationService.svc" />
+    <Content Include="PaticipantService.svc" />
+    <Content Include="PatientService.svc" />
+    <Content Include="PreparationService.svc" />
+    <Content Include="UserService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BillingService.svc.cs">
+      <DependentUpon>BillingService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ClientService.svc.cs">
+      <DependentUpon>ClientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="CommonService.svc.cs">
+      <DependentUpon>CommonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\ICurrentWorkloadService.cs" />
+    <Compile Include="Contracts\IEmailRecordAttachmentService.cs" />
+    <Compile Include="Contracts\IPaticipantService.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
+    <Compile Include="Contracts\IPatientService.cs" />
+    <Compile Include="Contracts\ICommonService.cs" />
+    <Compile Include="Contracts\IIntakeService.cs" />
+    <Compile Include="Contracts\INotificationService.cs" />
+    <Compile Include="Contracts\ILetterService.cs" />
+    <Compile Include="Contracts\IClientService.cs" />
+    <Compile Include="Contracts\IIMRService.cs" />
+    <Compile Include="Contracts\IBillingService.cs" />
+    <Compile Include="CurrentWorkloadService.svc.cs">
+      <DependentUpon>CurrentWorkloadService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="EmailRecordAttachmentService.svc.cs">
+      <DependentUpon>EmailRecordAttachmentService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IMRService.svc.cs">
+      <DependentUpon>IMRService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IntakeService.svc.cs">
+      <DependentUpon>IntakeService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\IPreparationService.cs" />
+    <Compile Include="LetterService.svc.cs">
+      <DependentUpon>LetterService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationService.svc.cs">
+      <DependentUpon>NotificationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PaticipantService.svc.cs">
+      <DependentUpon>PaticipantService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PatientService.svc.cs">
+      <DependentUpon>PatientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PreparationService.svc.cs">
+      <DependentUpon>PreparationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MMC.Core.BL.Model\MMC.Core.BL.Model.csproj">
+      <Project>{f2700b00-8073-43cc-84bd-9fe3800f0c88}</Project>
+      <Name>MMC.Core.BL.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.BLImplementation\MMC.Core.BLImplementation.csproj">
+      <Project>{f8217ac3-67d4-4910-b227-50c6f558f49d}</Project>
+      <Name>MMC.Core.BLImplementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.BL\MMC.Core.BL.csproj">
+      <Project>{a62850d6-71fb-4a31-944a-4f8523ec52c6}</Project>
+      <Name>MMC.Core.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.Data.Model\MMC.Core.Data.Model.csproj">
+      <Project>{32b62e25-36e9-42b4-95df-0c1306172af1}</Project>
+      <Name>MMC.Core.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.Data.SQLServer\MMC.Core.Data.SQLServer.csproj">
+      <Project>{6c976fc8-c4cc-4fb2-91dd-99962c48e6f4}</Project>
+      <Name>MMC.Core.Data.SQLServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMCService.CustomServiceBehaviors\MMCService.CustomServiceBehaviors.csproj">
+      <Project>{f2bfe387-2c5a-4e28-8c8d-1bc9f2edf3a6}</Project>
+      <Name>MMCService.CustomServiceBehaviors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMCService.DTO\MMCService.DTO.csproj">
+      <Project>{7dabf175-b139-4c67-af9a-c43026fe5a8b}</Project>
+      <Name>MMCService.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>33278</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:33278/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

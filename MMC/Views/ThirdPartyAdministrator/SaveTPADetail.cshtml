@@ -1,0 +1,102 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divSaveTPADetail">
+    @{ Html.RenderPartial("~/Views/Shared/ThirdPartyAdministrator/_TPAPartial.cshtml");  }
+    <!--ko if:TPAID() != null-->
+    <button href="#" class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" data-target="#myDivTPABranchPartial" id="TPAPopUp" data-bind="click:$root.OpenBranchPartialPopup" data-backdrop="static" data-keyboard="false" data-toggle="modal">Add TPA Branch</button>
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+                <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Branch Name</th>
+                            <th>Branch Address</th>
+                            <th>Branch City </th>
+                            <th>Branch State </th>
+                            <th>Branch Zip </th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!--ko if:TPABranchResults()!= null-->
+                        <!-- ko foreach:TPABranchResults -->
+
+                        <tr>
+                            <td data-bind="text:TPABranchName"></td>
+                            <td data-bind="text:TPABranchAddress"></td>
+                            <td data-bind="text:TPABranchCity"></td>
+                            <td data-bind="text:StateName"></td>
+                            <td data-bind="text:TPABranchZip"></td>
+                            <td>
+                                <input type="hidden" class="form-control" name="TPAID" id="TPAID" data-bind="value:TPAID">
+                                <input type="hidden" class="form-control" name="TPABranchID" id="TPABranchID" data-bind="value:TPABranchID">
+                                <a href="" data-bind="click:$root.GetTPABranchByID">Edit</a> / <a href="" data-bind="click:$root.DeleteTPABranchByID">Delete</a>
+                            </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if: TPABranchResults()==null || TPABranchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+
+                </table>
+
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    <!--/ko-->
+    <div class="modal fade bs-example-modal-lg margin-top10" id="myDivTPABranchPartial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" data-bind="click:$root.btnclosepop" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Third Party Administrator Branch</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @{ Html.RenderPartial("~/Views/Shared/ThirdPartyAdministrator/_TPABranchPartial.cshtml");  }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/ThirdaPartyAdministrator/SaveDetailViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var tpaModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _saveTPADetailViewModel = new SaveTPADetailViewModel(tpaModel);
+        ko.applyBindings(_saveTPADetailViewModel, $("#divSaveTPADetail").get(0));
+    </script>
+}

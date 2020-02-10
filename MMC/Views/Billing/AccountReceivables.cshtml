@@ -1,0 +1,107 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "AccountReceivables";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Billing/AccountReceivablesViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script>
+        var _billingAccountReceivablesViewModel = new BillingAccountReceivablesViewModel();
+        ko.applyBindings(_billingAccountReceivablesViewModel, $("#BillingAccountReceivablesLanding").get(0));
+    </script>
+}
+
+<div id="BillingAccountReceivablesLanding">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Client Name:</label>
+                    <div class="col-sm-8">
+                        <select id="ClientName" class="form-control" name="ClientName" data-bind="options: ClientDetails, optionsText: 'ClientName', optionsValue: 'ClientID' , optionsCaption: 'Select Any Client', jqBootstrapValidation:{}"></select>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.SearchBillingAccountReceivablesDetails" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+            <!--ko with:BillingAccountReceivablesViewModel-->
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+            <!--/ko-->
+
+
+        </div><!-- row -->
+    </div>
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background" id="BillingDetailDIV">          
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Patient</th>
+                                <th>Claim</th>
+                                <th>Invoice Number</th>
+                                <th>Statement Number</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko if:BillingAccountReceivableDetails()!= null-->
+                            <!-- ko foreach:BillingAccountReceivableDetails -->
+                            <tr>
+                                <td>
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].ClientID' },value:ClientID" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].PatientID' },value:PatientID" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].RFAReferralInvoiceID' },value:RFAReferralInvoiceID" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].ClientStatementID' },value:ClientStatementID" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].ClientName' },value:ClientName" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].PatientName' },value:PatientName" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].PatClaimNumber' },value:PatClaimNumber" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].InvoiceNumber' },value:InvoiceNumber" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].InvoiceFileName' },value:InvoiceFileName" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].ClientStatementNumber' },value:ClientStatementNumber" />
+                                    <input type="hidden" data-bind="attr: { name: 'AccountReceivablesDetails['+ $index() + '\].CreatedDate' },value:CreatedDate" />
+                                    <span data-bind="text:ClientName" />
+                                </td>
+                                <td><span data-bind="text:PatientName" /></td>
+                                <td><span data-bind="text:PatClaimNumber" /></td>
+                                <td><a href="#" data-bind="attr: { href:FullPathInvoiceNumber() +'?a='+ Math.random(),target:'_blank'}"><span data-bind="text:InvoiceNumber" /></a></td>
+                                <td><a href="#" data-bind="attr: { href:FullPathClientStatementNumber() +'?a='+ Math.random(),target:'_blank'}"><span data-bind="text:ClientStatementNumber" /></a></td>
+                                <td><span data-bind="text:CreatedDate" /></td>                                
+                            </tr>
+                            <!-- /ko-->
+                            <!-- /ko-->
+                        </tbody>
+                        <tfoot>
+                            <!--ko if:BillingAccountReceivableDetails()== null || BillingAccountReceivableDetails().length==0-->
+                            <tr>
+                                <td colspan="6">
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            &times;
+                                        </button>
+                                        No Result Found.
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--/ko-->
+                        </tfoot>
+                    </table>
+                    <nav class="margin-left">
+                        @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                    </nav>     
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+
+</div>
+
+
+

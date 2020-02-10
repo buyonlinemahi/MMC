@@ -1,0 +1,18 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+        <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Insurer/SaveDetailViewModel.js")"></script>  
+    <script type="text/javascript">
+        var saveModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _saveDetailResult = new SaveDetailViewModel(saveModel);
+        ko.applyBindings(_saveDetailResult, $("#InsurerSaveDetailDiv").get(0));    
+    </script>
+        
+}
+
+    @{Html.RenderPartial("~/Views/Shared/Insurer/_InsurerPartial.cshtml");}
+

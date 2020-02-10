@@ -1,0 +1,162 @@
+﻿<div>
+    <input type="hidden" name="Skip" id="hidskipcs" data-bind="value: $root.csSkip" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Claim Status Name </th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:ClaimStatusResults()!= null-->
+                        <!-- ko foreach:ClaimStatusResults -->
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimStatusDetails['+ $index() + '\].PatientClaimStatusID' },value:PatientClaimStatusID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimStatusDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimStatusDetails['+ $index() + '\].ClaimStatusID' },value:ClaimStatusID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimStatusDetails['+ $index() + '\].PatClaimStatusName' },value:PatClaimStatusName" />
+                                <span data-bind="text:PatClaimStatusName"></span>
+                            </td>
+                            <td> <a href="#" data-bind="click:$root.removeClaimStatus">Delete</a> </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:ClaimStatusResults()==null || ClaimStatusResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @*<!-- ko ifnot:csPager().csTotalItemCount() > 0 -->
+                        <p>
+                            No Record found
+                        </p>
+                        <!-- /ko -->*@
+                    <!-- ko if:csPager().csTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: csPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:csFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: csLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: csTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:csCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:csCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ csCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:csHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ csCurrentPage(csCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:csHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:csPages -->
+                            <!-- ko if:$data === $parent.csCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.csCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.csCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:csHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ csCurrentPage(csCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:csHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:csCurrentPage() === csLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ csCurrentPage(csLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:csCurrentPage() === csLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" id="OpenPopUpPatientClaimStatus" data-toggle="modal" data-target="#addPatientClaimStatus" type="button">Add New</button>
+    <!--Model-->
+    <div class="modal fade" id="addPatientClaimStatus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Claim Status</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="divClaim">
+
+                        <div class="row">
+
+                            <div class="panel-wrapper">
+                                <div class="panel-body">
+
+                                    <div class="col-md-4">
+                                        <label>Claim Status:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" id="ClaimStatusID" required data-bind="options: PatientStatues, optionsText: 'ClaimStatusName', optionsValue: 'ClaimStatusID', value: selectedItemPatientStatues,jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default ClosePop" data-bind="click:AddNewPatientClaimStatus">Add</button>
+                    <button type="button" class="btn btn-default ClosePop" id="ClosePopUpPatientClaimStatus" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

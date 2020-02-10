@@ -1,0 +1,169 @@
+﻿
+@using MMCApp.Infrastructure.Global;
+<div>
+    <input type="hidden" name="Skip" id="hidskipcMmc" data-bind="value: $root.cMmcSkip" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Company Address</th>
+                            <th>Company City </th>
+                            <th>Company State </th>
+                            <th>Company Zip</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:ClientManagedCareCompanyDetails()!= null-->
+                        <!-- ko foreach:ClientManagedCareCompanyDetails -->
+                        <tr>
+                            <td><span data-bind="text:CompName" /></td>
+                            <td><span data-bind="text:CompAddress" /></td>
+                            <td><span data-bind="text:CompCity" /></td>
+                            <td><span data-bind="text:CompState" /></td>
+                            <td><span data-bind="text:CompZip" /></td>
+                            <td> <a data-bind="click:$root.DeleteClientManagedCareCompanyByID" href="#">Delete</a> </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:ClientManagedCareCompanyDetails()==null || ClientManagedCareCompanyDetails().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    <!-- ko if:cMmcPager().cMmcTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: cMmcPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:cMmcFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: cMmcLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: cMmcTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:cMmcCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a> 
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cMmcCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cMmcCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cMmcHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cMmcCurrentPage(cMmcCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cMmcHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:cMmcPages -->
+                            <!-- ko if:$data === $parent.cMmcCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.cMmcCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.cMmcCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:cMmcHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cMmcCurrentPage(cMmcCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cMmcHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cMmcCurrentPage() === cMmcLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cMmcCurrentPage(cMmcLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cMmcCurrentPage() === cMmcLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" id="OpenPopUpClientManagedCareCompany" data-toggle="modal" data-target="#addClientManagedCareCompany" type="button">Add New</button>
+    <!--Model-->
+    <div class="modal fade" id="addClientManagedCareCompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            @using (Html.BeginForm(GlobalConst.Actions.Client.AddClientManagedCareCompany, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddClientManagedCareCompany",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientManagedCareCompanyDetailSuccess(responseText);},beforeSubmit: ClientManagedCareCompanyFormBeforeSubmit}"
+    }))
+            {
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add Client Managed Care Company</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="divClaim">
+
+                            <div class="row">
+
+                                <div class="panel-wrapper">
+                                    <div class="panel-body">
+
+                                        <div class="col-md-4">
+                                            <label>Managed Care Company:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="ClientID" id="CompanyClientID" />
+                                            <select id="ManagedCareCompany" class="form-control" name="CompanyID" data-bind="options: ManagedCareCompanyList, optionsText: 'CompName', optionsValue: 'CompanyId',value:MmcSelectedValue,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default ClosePop">Add</button>
+                        <button type="button" class="btn btn-default ClosePop" id="ClosePopUpManagedCareCompany" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

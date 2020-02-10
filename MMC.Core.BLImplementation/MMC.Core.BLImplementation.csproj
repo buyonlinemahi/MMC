@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8217AC3-67D4-4910-B227-50C6F558F49D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMC.Core.BLImplementation</RootNamespace>
+    <AssemblyName>MMC.Core.BLImplementation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\packages\valueinjecter.3.1\lib\net45\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdjusterRepository.cs" />
+    <Compile Include="ADRRepository.cs" />
+    <Compile Include="AttorneyRepository.cs" />
+    <Compile Include="BillingRepository.cs" />
+    <Compile Include="CaseManagerRepository.cs" />
+    <Compile Include="ClientRepository.cs" />
+    <Compile Include="CommonRepository.cs" />
+    <Compile Include="CurrentWorkloadRepository.cs" />
+    <Compile Include="EmailRecordRepository.cs" />
+    <Compile Include="EmployerRepository.cs" />
+    <Compile Include="Global\GlobalConst.cs" />
+    <Compile Include="IMRRepository.cs" />
+    <Compile Include="LetterRepository.cs" />
+    <Compile Include="InsurerRepository.cs" />
+    <Compile Include="IntakeRepository.cs" />
+    <Compile Include="ManagedCareCompanyRepository.cs" />
+    <Compile Include="MedicalGroupRepository.cs" />
+    <Compile Include="NotificationRepository.cs" />
+    <Compile Include="PatientRepository.cs" />
+    <Compile Include="PeerReviewRepository.cs" />
+    <Compile Include="PhysicianRepository.cs" />
+    <Compile Include="PreparationRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SPImplementation\SPImpl.cs" />
+    <Compile Include="ThirdPartyAdministratorBranchRepository.cs" />
+    <Compile Include="ThirdPartyAdministratorRepository.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="VendorRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MMC.Core.BL.Model\MMC.Core.BL.Model.csproj">
+      <Project>{f2700b00-8073-43cc-84bd-9fe3800f0c88}</Project>
+      <Name>MMC.Core.BL.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.BL\MMC.Core.BL.csproj">
+      <Project>{a62850d6-71fb-4a31-944a-4f8523ec52c6}</Project>
+      <Name>MMC.Core.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.Data.Model\MMC.Core.Data.Model.csproj">
+      <Project>{32b62e25-36e9-42b4-95df-0c1306172af1}</Project>
+      <Name>MMC.Core.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMC.Core.Data.SQLServer\MMC.Core.Data.SQLServer.csproj">
+      <Project>{6c976fc8-c4cc-4fb2-91dd-99962c48e6f4}</Project>
+      <Name>MMC.Core.Data.SQLServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,13 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMCService.CustomServiceBehaviors.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMCService.CustomServiceBehaviors.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\AutoMapper.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMC.Core.BL.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMC.Core.Data.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMCService.DTO.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMC.Core.BL.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMC.Core.Data.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\MMCService.DTO.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\bin\Debug\AutoMapper.xml
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\obj\Debug\MMCService.CustomServiceBehaviors.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\obj\Debug\MMCService.CustomServiceBehaviors.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.CustomServiceBehaviors\obj\Debug\MMCService.CustomServiceBehaviors.pdb

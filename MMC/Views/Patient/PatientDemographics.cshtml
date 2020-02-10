@@ -1,0 +1,138 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+
+@{
+    ViewBag.Title = "Patient Demographics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/SavePatientDetailViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/SavePatientClaimViewModel.js")"></script>
+<script src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/SavePatientOccupationalViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script src="@Url.Content("~/Scripts/datepicker/bootstrap-datepicker.min.js")"></script>
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet" />
+<link href="~/Content/css/multiple-emails.css" rel="stylesheet" />
+<script src="~/Scripts/multiple-emails.js"></script>
+    @*<script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/SearchPatientClaimViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/PatientDemographyMain.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/PatientMedicalRecordViewModel.js")"></script>
+   <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Notes/SaveDetailViewModel.js")"></script>
+<script src="~/Scripts/KnockoutViewModel/Patient/PatientNoteViewModel.js"></script>
+    <script src="~/Scripts/KnockoutViewModel/Patient/PatientHistoryViewModel.js"></script>
+    <script type="text/javascript">
+        var _PatientModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        //Patient
+        var _saveDetailViewModel = new SavePatientDetailViewModel(_PatientModel);
+        ko.applyBindings(_saveDetailViewModel, $("#PatientDetailDiv").get(0));
+        ko.applyBindings(_saveDetailViewModel, $("#HeaderPatientDetailDiv").get(0));
+
+        _savePatientClaimViewModel = new SavePatientClaimViewModel();
+        ko.applyBindings(_savePatientClaimViewModel, $("#ClaimDemographyDivMain").get(0));
+
+        _PatientMedicalRecordViewModel = new PatientMedicalRecordViewModel();
+        ko.applyBindings(_PatientMedicalRecordViewModel, $("#PatientMedicalRecordDiv").get(0));
+
+        var _patientOccupational;
+        //_patientOccupational= new SavePatientOccupationalViewModel();
+        //ko.applyBindings(_patientOccupational, $("#PatientOccupationalDetailDiv").get(0));
+
+        _patientNoteViewModel = new patientNoteViewModel();
+        ko.applyBindings(_patientNoteViewModel, $("#PatientNoteDiv").get(0));
+        //_patientHistoryViewModel =new PatientHistoryViewModel();
+        //ko.applyBindings(_patientHistoryViewModel, $("#PatientHistoryDiv").get(0));
+        var _patientHistoryViewModel;
+        if(document.getElementById('hidMRecord').value != "")
+        {
+            $('#tabMedical').click();
+        }
+
+        var _saveDetailViewModel = new SaveDetailViewModel();
+     
+        _saveDetailViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model)),"Patient")
+        ko.applyBindings(_saveDetailViewModel, $("#DivAddNotesBtn").get(0));
+        function RichTextEditor_OnExecUICommand(editor, arg) {
+            var a0 = arg.Arguments[1];
+            if (a0 == "FullScreen")
+            {
+                return false;
+            }
+        }
+    </script>
+}
+<div id="DivAddNotesBtn">
+    <button class="btn btn-info padding-btn pull-right" id="btnAddNote" data-target="#NoteDiv " data-backdrop="static"
+            data-bind="click:OpenAddNotes('Patient')" data-keyboard="false" data-toggle="modal" type="button">
+        Add Notes
+    </button>
+    <div id="AddNote">
+        @Html.Partial("~/Views/Shared/Notes/_NotesPartial.cshtml")
+    </div>
+</div>
+<div id="HeaderPatientDetailDiv" class="DivHide hide">
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientHeaderDetailPartial.cshtml");}
+</div>
+
+<br />
+<div class="col-sm-12 panel-bg">
+    @if (ViewBag.MedicalRecord != "")
+    {
+        <input type="hidden" id="hidMRecord" value="@ViewBag.MedicalRecord" />
+    }
+    <ul id="patientTabMenu" class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#PatientDetailDiv">Patient</a></li>
+        <li><a data-toggle="tab" href="#PatientClaimDetailDiv" onclick="bindTab(1)" class="DivHide hide">Claim</a></li>
+        <li><a data-toggle="tab" href="#PatientOccupationalDetailDiv" onclick="bindTab(2)" class="DivHide hide">Occupational</a></li>
+        <li><a data-toggle="tab" id="tabMedical" href="#PatientMedicalRecordDiv" onclick="bindTab(3)" class="DivHide hide">Records</a></li>
+        <li><a data-toggle="tab" href="#PatientHistoryDiv" onclick="bindTab(4)" class="DivHide hide">UR History</a></li>
+        <li><a data-toggle="tab" href="#PatientNoteDiv" onclick="bindTab(5)" class="DivHide hide">Notes</a></li>
+    </ul>
+    <br />
+    <div class="tab-content">
+        <div id="PatientDetailDiv" class="tab-pane fade in active">
+            @{Html.RenderPartial("~/Views/Shared/Patient/_PatientDetailPartial.cshtml");}
+        </div>
+
+        <div id="PatientOccupationalDetailDiv" class="tab-pane fade">            
+            @{Html.RenderPartial("~/Views/Shared/Patient/_PatientOccupationalRecordPartial.cshtml");}
+        </div>
+        <div id="PatientClaimDetailDiv" class="tab-pane fade">
+            <input type="hidden" name="HiddencheckClaimID" id="HiddencheckClaimID" data-bind="value:checkClaimID" />
+            @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimDetailPartial.cshtml");}
+        </div>
+        <div id="PatientMedicalRecordDiv" class="tab-pane fade">
+           
+            <!--Model-->
+            @{Html.RenderPartial("~/Views/Shared/Patient/_PatientFileUploadPartial.cshtml");}
+       
+
+               <div class="col-sm-12 margintop10">
+
+               
+
+                            <div class="form-group row label-font clearfix">
+                               <div class="col-sm-12">
+                                   <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPopMedical " id="OpenPopMedicalButton" tabindex="12" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#PatientSplitting" type="button">Upload</button>
+                                </div>
+                        </div>
+                    </div>
+            
+            
+            
+            
+
+            @{Html.RenderPartial("~/Views/Shared/Patient/_PatientMedicalRecordPartial.cshtml");}
+        </div>
+        <div id="PatientHistoryDiv" class="tab-pane fade">
+            <h3>Patient History</h3>
+              @{Html.RenderPartial("~/Views/Shared/Patient/_PatientHistoryPartial.cshtml");}
+        </div>
+        <div id="PatientNoteDiv" class="tab-pane fade">
+            <h3>Patient Notes</h3>
+            @{Html.RenderPartial("~/Views/Shared/Patient/_PatientNoteDetailPartial.cshtml");}
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Patient Claim Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Patient/SearchPatientClaimViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script>
+        var _searchViewModel = new SearchPatientClaimViewModel(); 
+        ko.applyBindings(_searchViewModel, $("#PatientClaimDiv").get(0));
+     
+    </script>
+}
+
+<div id="PatientClaimDiv">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Patient Claim(s):</label>
+                </div>
+            </div><!-- col-sm-2 -->
+          
+            <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+           
+        </div><!-- row -->
+    </div><!-- row -->
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->    
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Claim Number</th>
+                            <th>DOI</th>
+                            <th>Claims Admin</th>
+                            <th>Insurer</th>
+                            <th>Employer</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:PatientClaimSearchResults()!= null-->                        
+                        <!-- ko foreach:PatientClaimSearchResults -->                        
+                        <tr>
+                            <td><span data-bind="text:PatClaimNumber" /></td>
+                            <td><span data-bind="text:PatDOI"/></td>
+                            <td><span data-bind="text:PatClaimAdminName" /></td>
+                            <td><span data-bind="text:PatInsName" /></td>
+                            <td><span data-bind="text:PatEmpName" /></td>
+                            <td><a data-bind="attr: {'href': '@Url.Action("SavePatientDetail", "Patient")/' + PatientID()}">View</a></td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko--> 
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:PatientClaimSearchResults()==null || PatientClaimSearchResults().length==0-->
+                        <tr>
+                            <td colspan="5">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,68 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+
+<div class="row" id="divOccupational">
+    
+    <div class="col-lg-12 client-accordian">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading11">
+                <h4 class="panel-title">
+                    <a>
+                        Occupational
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse11" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading11">
+                <div class="panel-body row">
+                    <div class="col-sm-6">
+                        <div class="form-group row label-font clearfix">
+                            <label for="ClmNumber" class="col-sm-4 control-label"><span class="required-link">*</span>Job Title :</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" name="PatientID" id="PatientID" />
+                                <input type="hidden" name="PatientOccupationalID" id="PatientOccupationalID" />
+                                <input type="text" class="form-control" id="PatJobtitle" required="required" name="PatJobtitle">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row label-font clearfix">
+                            <label for="PatDOI" class="col-sm-4 control-label"><span class="required-link">*</span>Job Desc :</label>
+                            <div class="col-sm-8">
+                                <textarea type="text" class="form-control resize-none" id="PatJobDesc" name="PatJobDesc" rows="4"></textarea>
+                                @*<input type="text" class="form-control" id="PatJobDesc" required="required" name="PatJobDesc">*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body row">
+                    <div class="col-sm-6">
+                        <div class="form-group row label-font clearfix">
+                            <label for="ClmInjuryType" class="col-sm-4 control-label">Type of Injury :</label>
+                            <div class="col-sm-8">
+                                <textarea type="text" class="form-control resize-none" id="PatInjuryType" name="PatInjuryType" rows="4" ></textarea>
+                                @*<input type="text" class="form-control" id="PatInjuryType" name="PatInjuryType" maxlength="50">*@
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row label-font clearfix">
+                            <label for="ClmDescOfInjury" class="col-sm-4 control-label">Description of Injury :</label>
+                            <div class="col-sm-8">
+                                <textarea type="text" class="form-control resize-none" id="PatInjuryDescription" name="PatInjuryDescription" rows="4"></textarea>
+                                @*<input type="text" class="form-control" id="PatInjuryDescription" maxlength="255" name="PatInjuryDescription">*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body row">
+                    <button class="btn btn-red padding-btn color-black pull-right margin-left-20" type="submit" data-bind="click:$root.AddNewOccupationalClaimStatus">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div><!-- col-lg-12 -->

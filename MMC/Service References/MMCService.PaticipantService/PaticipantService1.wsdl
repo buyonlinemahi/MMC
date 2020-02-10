@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PaticipantService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPaticipantService_addAdjuster_InputMessage">
+    <wsdl:part name="parameters" element="tns:addAdjuster" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addAdjuster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addAdjusterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updateAdjuster_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAdjuster" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updateAdjuster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAdjusterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deleteAdjuster_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAdjuster" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deleteAdjuster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAdjusterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getadjustersAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getadjustersAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getadjustersAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getadjustersAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getAdjusterByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAdjusterByID" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getAdjusterByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAdjusterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getadjustersByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getadjustersByName" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getadjustersByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getadjustersByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addPhysician_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPhysician" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addPhysician_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPhysicianResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updatePhysician_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePhysician" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updatePhysician_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePhysicianResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deletePhysician_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePhysician" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deletePhysician_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePhysicianResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getphysicianAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getphysicianAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getphysicianAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getphysicianAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getPhysicianByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPhysicianByID" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getPhysicianByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPhysicianByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_GetPhysicianByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhysicianByName" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_GetPhysicianByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhysicianByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getStateAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStateAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getStateAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStateAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getVendorsAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVendorsAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getVendorsAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVendorsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getVendorByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVendorByID" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getVendorByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVendorByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:addVendor" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updateVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateVendor" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updateVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deleteVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteVendor" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deleteVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getVendorsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getVendorsByName" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getVendorsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getVendorsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addInsurer_InputMessage">
+    <wsdl:part name="parameters" element="tns:addInsurer" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_addInsurer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addInsurerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updateInsurer_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateInsurer" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_updateInsurer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateInsurerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deleteInsurer_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteInsurer" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_deleteInsurer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteInsurerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getInsurersAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInsurersAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getInsurersAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInsurersAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getInsurerByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInsurerByID" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getInsurerByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInsurerByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getInsurersByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInsurersByName" />
+  </wsdl:message>
+  <wsdl:message name="IPaticipantService_getInsurersByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInsurersByNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPaticipantService">
+    <wsdl:operation name="addAdjuster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/addAdjuster" message="tns:IPaticipantService_addAdjuster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/addAdjusterResponse" message="tns:IPaticipantService_addAdjuster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAdjuster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/updateAdjuster" message="tns:IPaticipantService_updateAdjuster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/updateAdjusterResponse" message="tns:IPaticipantService_updateAdjuster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAdjuster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/deleteAdjuster" message="tns:IPaticipantService_deleteAdjuster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/deleteAdjusterResponse" message="tns:IPaticipantService_deleteAdjuster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getadjustersAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getadjustersAll" message="tns:IPaticipantService_getadjustersAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getadjustersAllResponse" message="tns:IPaticipantService_getadjustersAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdjusterByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getAdjusterByID" message="tns:IPaticipantService_getAdjusterByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getAdjusterByIDResponse" message="tns:IPaticipantService_getAdjusterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getadjustersByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getadjustersByName" message="tns:IPaticipantService_getadjustersByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getadjustersByNameResponse" message="tns:IPaticipantService_getadjustersByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPhysician">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/addPhysician" message="tns:IPaticipantService_addPhysician_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/addPhysicianResponse" message="tns:IPaticipantService_addPhysician_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePhysician">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/updatePhysician" message="tns:IPaticipantService_updatePhysician_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/updatePhysicianResponse" message="tns:IPaticipantService_updatePhysician_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePhysician">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/deletePhysician" message="tns:IPaticipantService_deletePhysician_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/deletePhysicianResponse" message="tns:IPaticipantService_deletePhysician_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getphysicianAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getphysicianAll" message="tns:IPaticipantService_getphysicianAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getphysicianAllResponse" message="tns:IPaticipantService_getphysicianAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPhysicianByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getPhysicianByID" message="tns:IPaticipantService_getPhysicianByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getPhysicianByIDResponse" message="tns:IPaticipantService_getPhysicianByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicianByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/GetPhysicianByName" message="tns:IPaticipantService_GetPhysicianByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/GetPhysicianByNameResponse" message="tns:IPaticipantService_GetPhysicianByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStateAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getStateAll" message="tns:IPaticipantService_getStateAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getStateAllResponse" message="tns:IPaticipantService_getStateAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVendorsAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getVendorsAll" message="tns:IPaticipantService_getVendorsAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getVendorsAllResponse" message="tns:IPaticipantService_getVendorsAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVendorByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getVendorByID" message="tns:IPaticipantService_getVendorByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getVendorByIDResponse" message="tns:IPaticipantService_getVendorByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/addVendor" message="tns:IPaticipantService_addVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/addVendorResponse" message="tns:IPaticipantService_addVendor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/updateVendor" message="tns:IPaticipantService_updateVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/updateVendorResponse" message="tns:IPaticipantService_updateVendor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/deleteVendor" message="tns:IPaticipantService_deleteVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/deleteVendorResponse" message="tns:IPaticipantService_deleteVendor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getVendorsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getVendorsByName" message="tns:IPaticipantService_getVendorsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getVendorsByNameResponse" message="tns:IPaticipantService_getVendorsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addInsurer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/addInsurer" message="tns:IPaticipantService_addInsurer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/addInsurerResponse" message="tns:IPaticipantService_addInsurer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateInsurer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/updateInsurer" message="tns:IPaticipantService_updateInsurer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/updateInsurerResponse" message="tns:IPaticipantService_updateInsurer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteInsurer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/deleteInsurer" message="tns:IPaticipantService_deleteInsurer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/deleteInsurerResponse" message="tns:IPaticipantService_deleteInsurer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInsurersAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getInsurersAll" message="tns:IPaticipantService_getInsurersAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getInsurersAllResponse" message="tns:IPaticipantService_getInsurersAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInsurerByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getInsurerByID" message="tns:IPaticipantService_getInsurerByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getInsurerByIDResponse" message="tns:IPaticipantService_getInsurerByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInsurersByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaticipantService/getInsurersByName" message="tns:IPaticipantService_getInsurersByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaticipantService/getInsurersByNameResponse" message="tns:IPaticipantService_getInsurersByName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPaticipantService" type="tns:IPaticipantService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addAdjuster">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/addAdjuster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAdjuster">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/updateAdjuster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAdjuster">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/deleteAdjuster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getadjustersAll">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getadjustersAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjusterByID">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getAdjusterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getadjustersByName">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getadjustersByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPhysician">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/addPhysician" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePhysician">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/updatePhysician" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePhysician">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/deletePhysician" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getphysicianAll">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getphysicianAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhysicianByID">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getPhysicianByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicianByName">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/GetPhysicianByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStateAll">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getStateAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorsAll">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getVendorsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorByID">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getVendorByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVendor">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/addVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateVendor">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/updateVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteVendor">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/deleteVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorsByName">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getVendorsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addInsurer">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/addInsurer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateInsurer">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/updateInsurer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteInsurer">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/deleteInsurer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInsurersAll">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getInsurersAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInsurerByID">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getInsurerByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInsurersByName">
+      <soap:operation soapAction="http://tempuri.org/IPaticipantService/getInsurersByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaticipantService">
+    <wsdl:port name="BasicHttpBinding_IPaticipantService" binding="tns:BasicHttpBinding_IPaticipantService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

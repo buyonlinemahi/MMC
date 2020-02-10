@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Employer/SaveDetailViewModel.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/jqBootstrapValidation.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script>
+        var saveModel = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var _saveDetailResult = new SaveDetailViewModel(saveModel);
+        ko.applyBindings(_saveDetailResult, $("#EmployerSaveDetailDiv").get(0));
+    </script>
+
+}
+<div id="EmployerSaveDetailDiv">
+    @{Html.RenderPartial("~/Views/Shared/Employer/_EmployerPartial.cshtml");}
+</div>

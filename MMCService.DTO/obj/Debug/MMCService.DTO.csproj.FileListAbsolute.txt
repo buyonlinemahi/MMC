@@ -1,0 +1,9 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\bin\Debug\MMCService.DTO.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\bin\Debug\MMCService.DTO.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\obj\Debug\MMCService.DTO.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\obj\Debug\MMCService.DTO.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\obj\Debug\MMCService.DTO.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\bin\Debug\MMC.Core.BL.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\bin\Debug\MMC.Core.Data.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\bin\Debug\MMC.Core.BL.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCService.DTO\bin\Debug\MMC.Core.Data.Model.pdb

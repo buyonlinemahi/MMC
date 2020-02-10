@@ -1,0 +1,31 @@
+﻿<div id="divFileUplaod">
+    <div id="upload" class="tab-pane fade in active">
+        
+        @using MMCApp.Infrastructure.Global;
+        @using System.Web.Script.Serialization;
+        @using (Html.BeginForm(GlobalConst.Actions.IntakeController.uploadIntakeFile, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+        {
+            id = "frmIntakeUpload",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UploadIntakeFileSuccess(responseText);},beforeSubmit : IntakeFileInfoFormBeforeSubmit}"
+        }))
+        {
+           
+                <div class="col-sm-12">
+                    <div class="form-group row">
+                        <label for="exampleInputFile" class="col-sm-2 control-label ">File input</label>
+                        <div class="col-sm-6 pull-left">
+                            <input type="file" class="fileuploadborder form-control" name="rfaReferralFile" id="uploadFile" required="required"  data-bind="jqBootstrapValidation: {}">
+                        </div>
+                        <button class="btn btn-default padding-btn margin-btm-30 pull-right" type="submit" id="uploadButtonData">Upload</button>
+                    </div>
+                   
+                </div><!-- col-sm-2 -->
+
+            <div class="clearfix"></div>
+                <input type="hidden" class="form-control" name="RFAReferralFileID" data-bind="value:RFAReferralFileID">
+                 <input type="hidden" id="RFAReferralID" class="form-control" name="RFAReferralID" data-bind="value:RFAReferralID">
+                <input type="hidden" class="form-control" name="RFAReferralFileName" data-bind="value:RFAReferralFileName">
+        }
+    </div>
+</div>

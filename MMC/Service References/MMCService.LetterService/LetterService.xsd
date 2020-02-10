@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/LetterService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:element name="getInitialNotificationLetterDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInitialNotificationLetterDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getInitialNotificationLetterDetailsResult" nillable="true" type="q1:InitialNotificationLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRequestDetailsInitialNotificationLetter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRequestDetailsInitialNotificationLetterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRequestDetailsInitialNotificationLetterResult" nillable="true" type="q2:ArrayOfRequestInitialNotificationLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCertifiedRequestDetailsInitialNotificationLetter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCertifiedRequestDetailsInitialNotificationLetterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getCertifiedRequestDetailsInitialNotificationLetterResult" nillable="true" type="q3:ArrayOfRequestInitialNotificationLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeniedRequestDetailsInitialNotificationLetter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeniedRequestDetailsInitialNotificationLetterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getDeniedRequestDetailsInitialNotificationLetterResult" nillable="true" type="q4:ArrayOfRequestInitialNotificationLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

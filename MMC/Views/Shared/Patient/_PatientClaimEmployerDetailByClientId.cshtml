@@ -1,0 +1,118 @@
+﻿<input type="hidden" name="Skip" id="hidskipEmp" data-bind="value: $root.EmpSkip" />
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-background">
+            <table class="table table-bordered table-striped table-condensed home-table">
+                <thead>
+                    <tr>
+                        <th>Employer Name </th>
+                       
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--ko if:ClientEmployerDetails()!= null-->
+                    <!-- ko foreach:ClientEmployerDetails -->
+                    <tr>
+                        <td>
+                            <span data-bind="text:EmpName"></span>
+                        </td>
+                      
+
+                    </tr>
+                    <!--/ko-->
+                    <!--/ko-->
+                </tbody>
+                <tfoot>
+                    <!--ko if:ClientEmployerDetails()==null || ClientEmployerDetails().length==0-->
+                    <tr>
+                        <td colspan="6">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    &times;
+                                </button>
+                                No Result Found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                </tfoot>
+            </table>
+            <nav class="margin-left">
+
+                <!-- ko if:EmpPager().EmpTotalItemCount() > 0 -->
+                <div class="pagination" data-bind="with: EmpPager">
+                    <div class="pagexofx">
+                        <span data-bind="text:EmpFirstItemIndex"></span>
+                        -
+                        <span data-bind="text: EmpLastItemIndex"></span>
+                        of
+                        <strong>
+                            <span data-bind="text: EmpTotalItemCount"></span>
+                        </strong>
+                        total results.
+                    </div>
+                    <ul class="pagination">
+                        <!-- ko if:EmpCurrentPage() === 1 -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:EmpCurrentPage() === 1 -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ EmpCurrentPage(1); }">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:EmpHasPrevPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ EmpCurrentPage(EmpCurrentPage() - 1); }">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:EmpHasPrevPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko foreach:EmpPages -->
+                        <!-- ko if:$data === $parent.EmpCurrentPage() -->
+                        <li class="active">
+                            <span class="currentPage" data-bind="text: $data"></span>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:$data !== $parent.EmpCurrentPage() -->
+                        <li>
+                            <a href="#" data-bind="text: $data, click: function(){ $parent.EmpCurrentPage($data); }"></a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!-- ko if:EmpHasNextPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ EmpCurrentPage(EmpCurrentPage() + 1); }">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:EmpHasNextPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:EmpCurrentPage() === EmpLastPage() -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ EmpCurrentPage(EmpLastPage()); }">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:EmpCurrentPage() === EmpLastPage() -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+
+                </div>
+                <!-- /ko -->
+            </nav>
+        </div><!-- white-background -->
+
+
+    </div><!-- col-sm-12 -->
+</div>
+

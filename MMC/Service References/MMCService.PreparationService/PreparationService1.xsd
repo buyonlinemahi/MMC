@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfClinicalTriage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClinicalTriage" nillable="true" type="tns:ClinicalTriage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClinicalTriage" nillable="true" type="tns:ArrayOfClinicalTriage" />
+  <xs:complexType name="ClinicalTriage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DecisionDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DecisionID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFALatestDueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClinicalTriage" nillable="true" type="tns:ClinicalTriage" />
+  <xs:complexType name="PatientAndRequestModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Patients" nillable="true" type="tns:PatientByReferralID" />
+      <xs:element minOccurs="0" name="RemainingDecision" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestDetail" nillable="true" type="tns:ArrayOfRequestByReferralID" />
+      <xs:element minOccurs="0" name="TimeExtensionPNCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientAndRequestModel" nillable="true" type="tns:PatientAndRequestModel" />
+  <xs:complexType name="PatientByReferralID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientBillingRateTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatDOI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientByReferralID" nillable="true" type="tns:PatientByReferralID" />
+  <xs:complexType name="ArrayOfRequestByReferralID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestByReferralID" nillable="true" type="tns:RequestByReferralID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequestByReferralID" nillable="true" type="tns:ArrayOfRequestByReferralID" />
+  <xs:complexType name="RequestByReferralID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Decision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DecisionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DecisionDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DecisionID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAClinicalReasonforDecision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFADuration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFADurationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAFrequency" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAGuidelinesUtilized" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAHCRGDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFALatestDueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFANotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARelevantPortionUtilized" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestModifyID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestByReferralID" nillable="true" type="tns:RequestByReferralID" />
+  <xs:complexType name="RFAAdditionalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RFAAdditionalInfoID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAAdditionalInfoRecord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAAdditionalInfoRecordDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFAAdditionalInfo" nillable="true" type="tns:RFAAdditionalInfo" />
+  <xs:complexType name="ArrayOfRFAAdditionalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RFAAdditionalInfo" nillable="true" type="tns:RFAAdditionalInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRFAAdditionalInfo" nillable="true" type="tns:ArrayOfRFAAdditionalInfo" />
+  <xs:complexType name="RFARequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DecisionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DecisionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFACPT_NDC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAClinicalReasonforDecision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFADuration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFADurationTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAExpediteReferral" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RFAFrequency" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAGuidelinesUtilized" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFALatestDueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFANotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAQuantity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARelevantPortionUtilized" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReqCertificationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFARequestDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAStrenght" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFARequest" nillable="true" type="tns:RFARequest" />
+  <xs:complexType name="ArrayOfPatientMedicalRecordByPatientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientMedicalRecordByPatientID" nillable="true" type="tns:PatientMedicalRecordByPatientID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientMedicalRecordByPatientID" nillable="true" type="tns:ArrayOfPatientMedicalRecordByPatientID" />
+  <xs:complexType name="PatientMedicalRecordByPatientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatMRDocumentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatMRDocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientMedicalRecordID" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysicianName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientMedicalRecordByPatientID" nillable="true" type="tns:PatientMedicalRecordByPatientID" />
+</xs:schema>

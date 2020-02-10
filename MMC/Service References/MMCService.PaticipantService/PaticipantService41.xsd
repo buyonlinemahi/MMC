@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Adjuster">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdjAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjStateId" type="xs:int" />
+      <xs:element minOccurs="0" name="AdjZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdjusterID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Adjuster" nillable="true" type="tns:Adjuster" />
+  <xs:complexType name="ArrayOfAdjuster">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Adjuster" nillable="true" type="tns:Adjuster" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdjuster" nillable="true" type="tns:ArrayOfAdjuster" />
+  <xs:complexType name="Physician">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PhysEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysNPI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysQualification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysSpecialty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysTIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysicianId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Physician" nillable="true" type="tns:Physician" />
+  <xs:complexType name="ArrayOfPhysician">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Physician" nillable="true" type="tns:Physician" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhysician" nillable="true" type="tns:ArrayOfPhysician" />
+  <xs:complexType name="ArrayOfState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="State" nillable="true" type="tns:State" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfState" nillable="true" type="tns:ArrayOfState" />
+  <xs:complexType name="State">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StateId" type="xs:int" />
+      <xs:element minOccurs="0" name="StateName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="State" nillable="true" type="tns:State" />
+  <xs:complexType name="ArrayOfVendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vendor" nillable="true" type="tns:Vendor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVendor" nillable="true" type="tns:ArrayOfVendor" />
+  <xs:complexType name="Vendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="VendorAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorID" type="xs:int" />
+      <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorStateId" type="xs:int" />
+      <xs:element minOccurs="0" name="VendorTIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorZip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vendor" nillable="true" type="tns:Vendor" />
+  <xs:complexType name="Insurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InsAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsAdminextention" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsStateId" type="xs:int" />
+      <xs:element minOccurs="0" name="InsTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsurerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Insurer" nillable="true" type="tns:Insurer" />
+  <xs:complexType name="ArrayOfInsurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Insurer" nillable="true" type="tns:Insurer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsurer" nillable="true" type="tns:ArrayOfInsurer" />
+</xs:schema>

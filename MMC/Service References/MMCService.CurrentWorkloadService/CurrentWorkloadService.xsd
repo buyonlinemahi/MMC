@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCurrentWorkloadReportParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CurrentWorkloadReportParameter" nillable="true" type="tns:CurrentWorkloadReportParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCurrentWorkloadReportParameter" nillable="true" type="tns:ArrayOfCurrentWorkloadReportParameter" />
+  <xs:complexType name="CurrentWorkloadReportParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentWorkloadReportID" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentWorkloadReportParameterID" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrentWorkloadReportParameter" nillable="true" type="tns:CurrentWorkloadReportParameter" />
+  <xs:complexType name="CurrentWorkloadReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentWorkloadReportID" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentWorkloadReportName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrentWorkloadReport" nillable="true" type="tns:CurrentWorkloadReport" />
+</xs:schema>

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommonService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICommonService_getAttorneyFirmTypeAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAttorneyFirmTypeAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAttorneyFirmTypeAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAttorneyFirmTypeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getLanguageAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLanguageAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getLanguageAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLanguageAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getStateAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStateAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getStateAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStateAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getStatusAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStatusAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getStatusAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStatusAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getSpecialtiesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSpecialtiesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getSpecialtiesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSpecialtiesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getCurrentMedicalConditionsAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCurrentMedicalConditionsAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getCurrentMedicalConditionsAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCurrentMedicalConditionsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getBodyPartsAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBodyPartsAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getBodyPartsAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBodyPartsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD9CodesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getICD9CodesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD9CodesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getICD9CodesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD9CodesByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getICD9CodesByName" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD9CodesByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getICD9CodesByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD9CodesByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:getICD9CodesByCode" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD9CodesByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getICD9CodesByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD10CodesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getICD10CodesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICD10CodesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getICD10CodesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICDCodesByNumberOrDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:getICDCodesByNumberOrDescription" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICDCodesByNumberOrDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getICDCodesByNumberOrDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICDCodesByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getICDCodesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getICDCodesByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getICDCodesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getClaimStatusesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClaimStatusesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getClaimStatusesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClaimStatusesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getBodyPartStatusesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBodyPartStatusesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getBodyPartStatusesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBodyPartStatusesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getFrequencyTypeAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFrequencyTypeAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getFrequencyTypeAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFrequencyTypeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDurationTypesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDurationTypesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDurationTypesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDurationTypesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getRequestTypeAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestTypeAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getRequestTypeAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestTypeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getTreatmentCategoriesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTreatmentCategoriesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getTreatmentCategoriesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTreatmentCategoriesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getTreatmentTypesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTreatmentTypesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getTreatmentTypesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTreatmentTypesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getTreatmentTypesByTreatmentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTreatmentTypesByTreatmentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getTreatmentTypesByTreatmentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTreatmentTypesByTreatmentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDocumentCategoriesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentCategoriesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDocumentCategoriesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentCategoriesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDocumentTypesAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentTypesAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDocumentTypesAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentTypesAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDocumentTypeByDocumentCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentTypeByDocumentCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getDocumentTypeByDocumentCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentTypeByDocumentCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_AddProcessLevelByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcessLevelByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_AddProcessLevelByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcessLevelByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getPreviousProcessLevelsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPreviousProcessLevelsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getPreviousProcessLevelsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPreviousProcessLevelsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getMaxProcessLevelByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxProcessLevelByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getMaxProcessLevelByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxProcessLevelByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getProcessLevelsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProcessLevelsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getProcessLevelsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProcessLevelsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getPatientComorbidConditionsByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientComorbidConditionsByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getPatientComorbidConditionsByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientComorbidConditionsByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetStorageStuctureByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageStuctureByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetStorageStuctureByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageStuctureByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAdditionalDocumentsByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAdditionalDocumentsByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAdditionalDocumentsByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAdditionalDocumentsByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getNoOfReferralCountAccToProcessLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNoOfReferralCountAccToProcessLevel" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getNoOfReferralCountAccToProcessLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNoOfReferralCountAccToProcessLevelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICommonService">
+    <wsdl:operation name="getAttorneyFirmTypeAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAttorneyFirmTypeAll" message="tns:ICommonService_getAttorneyFirmTypeAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAttorneyFirmTypeAllResponse" message="tns:ICommonService_getAttorneyFirmTypeAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLanguageAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getLanguageAll" message="tns:ICommonService_getLanguageAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getLanguageAllResponse" message="tns:ICommonService_getLanguageAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStateAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getStateAll" message="tns:ICommonService_getStateAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getStateAllResponse" message="tns:ICommonService_getStateAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStatusAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getStatusAll" message="tns:ICommonService_getStatusAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getStatusAllResponse" message="tns:ICommonService_getStatusAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpecialtiesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getSpecialtiesAll" message="tns:ICommonService_getSpecialtiesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getSpecialtiesAllResponse" message="tns:ICommonService_getSpecialtiesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentMedicalConditionsAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getCurrentMedicalConditionsAll" message="tns:ICommonService_getCurrentMedicalConditionsAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getCurrentMedicalConditionsAllResponse" message="tns:ICommonService_getCurrentMedicalConditionsAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBodyPartsAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getBodyPartsAll" message="tns:ICommonService_getBodyPartsAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getBodyPartsAllResponse" message="tns:ICommonService_getBodyPartsAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getICD9CodesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getICD9CodesAll" message="tns:ICommonService_getICD9CodesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getICD9CodesAllResponse" message="tns:ICommonService_getICD9CodesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getICD9CodesByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getICD9CodesByName" message="tns:ICommonService_getICD9CodesByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getICD9CodesByNameResponse" message="tns:ICommonService_getICD9CodesByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getICD9CodesByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getICD9CodesByCode" message="tns:ICommonService_getICD9CodesByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getICD9CodesByCodeResponse" message="tns:ICommonService_getICD9CodesByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getICD10CodesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getICD10CodesAll" message="tns:ICommonService_getICD10CodesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getICD10CodesAllResponse" message="tns:ICommonService_getICD10CodesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getICDCodesByNumberOrDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getICDCodesByNumberOrDescription" message="tns:ICommonService_getICDCodesByNumberOrDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getICDCodesByNumberOrDescriptionResponse" message="tns:ICommonService_getICDCodesByNumberOrDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getICDCodesByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getICDCodesByNumber" message="tns:ICommonService_getICDCodesByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getICDCodesByNumberResponse" message="tns:ICommonService_getICDCodesByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClaimStatusesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getClaimStatusesAll" message="tns:ICommonService_getClaimStatusesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getClaimStatusesAllResponse" message="tns:ICommonService_getClaimStatusesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBodyPartStatusesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getBodyPartStatusesAll" message="tns:ICommonService_getBodyPartStatusesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getBodyPartStatusesAllResponse" message="tns:ICommonService_getBodyPartStatusesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFrequencyTypeAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getFrequencyTypeAll" message="tns:ICommonService_getFrequencyTypeAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getFrequencyTypeAllResponse" message="tns:ICommonService_getFrequencyTypeAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDurationTypesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getDurationTypesAll" message="tns:ICommonService_getDurationTypesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getDurationTypesAllResponse" message="tns:ICommonService_getDurationTypesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRequestTypeAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getRequestTypeAll" message="tns:ICommonService_getRequestTypeAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getRequestTypeAllResponse" message="tns:ICommonService_getRequestTypeAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTreatmentCategoriesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getTreatmentCategoriesAll" message="tns:ICommonService_getTreatmentCategoriesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getTreatmentCategoriesAllResponse" message="tns:ICommonService_getTreatmentCategoriesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTreatmentTypesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getTreatmentTypesAll" message="tns:ICommonService_getTreatmentTypesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getTreatmentTypesAllResponse" message="tns:ICommonService_getTreatmentTypesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTreatmentTypesByTreatmentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getTreatmentTypesByTreatmentCategoryID" message="tns:ICommonService_getTreatmentTypesByTreatmentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getTreatmentTypesByTreatmentCategoryIDResponse" message="tns:ICommonService_getTreatmentTypesByTreatmentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentCategoriesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getDocumentCategoriesAll" message="tns:ICommonService_getDocumentCategoriesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getDocumentCategoriesAllResponse" message="tns:ICommonService_getDocumentCategoriesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypesAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getDocumentTypesAll" message="tns:ICommonService_getDocumentTypesAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getDocumentTypesAllResponse" message="tns:ICommonService_getDocumentTypesAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypeByDocumentCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getDocumentTypeByDocumentCategoryID" message="tns:ICommonService_getDocumentTypeByDocumentCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getDocumentTypeByDocumentCategoryIDResponse" message="tns:ICommonService_getDocumentTypeByDocumentCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProcessLevelByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/AddProcessLevelByReferralID" message="tns:ICommonService_AddProcessLevelByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/AddProcessLevelByReferralIDResponse" message="tns:ICommonService_AddProcessLevelByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousProcessLevelsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getPreviousProcessLevelsByReferralID" message="tns:ICommonService_getPreviousProcessLevelsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getPreviousProcessLevelsByReferralIDResponse" message="tns:ICommonService_getPreviousProcessLevelsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaxProcessLevelByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getMaxProcessLevelByReferralID" message="tns:ICommonService_getMaxProcessLevelByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getMaxProcessLevelByReferralIDResponse" message="tns:ICommonService_getMaxProcessLevelByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProcessLevelsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getProcessLevelsByReferralID" message="tns:ICommonService_getProcessLevelsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getProcessLevelsByReferralIDResponse" message="tns:ICommonService_getProcessLevelsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientComorbidConditionsByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getPatientComorbidConditionsByPatientID" message="tns:ICommonService_getPatientComorbidConditionsByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getPatientComorbidConditionsByPatientIDResponse" message="tns:ICommonService_getPatientComorbidConditionsByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageStuctureByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/GetStorageStuctureByID" message="tns:ICommonService_GetStorageStuctureByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/GetStorageStuctureByIDResponse" message="tns:ICommonService_GetStorageStuctureByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdditionalDocumentsByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAdditionalDocumentsByPatientID" message="tns:ICommonService_getAdditionalDocumentsByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAdditionalDocumentsByPatientIDResponse" message="tns:ICommonService_getAdditionalDocumentsByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNoOfReferralCountAccToProcessLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getNoOfReferralCountAccToProcessLevel" message="tns:ICommonService_getNoOfReferralCountAccToProcessLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getNoOfReferralCountAccToProcessLevelResponse" message="tns:ICommonService_getNoOfReferralCountAccToProcessLevel_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICommonService" type="tns:ICommonService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAttorneyFirmTypeAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAttorneyFirmTypeAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLanguageAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getLanguageAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStateAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getStateAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatusAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getStatusAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecialtiesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getSpecialtiesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentMedicalConditionsAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getCurrentMedicalConditionsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBodyPartsAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getBodyPartsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICD9CodesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getICD9CodesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICD9CodesByName">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getICD9CodesByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICD9CodesByCode">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getICD9CodesByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICD10CodesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getICD10CodesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICDCodesByNumberOrDescription">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getICDCodesByNumberOrDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getICDCodesByNumber">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getICDCodesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClaimStatusesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getClaimStatusesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBodyPartStatusesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getBodyPartStatusesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFrequencyTypeAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getFrequencyTypeAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDurationTypesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getDurationTypesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequestTypeAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getRequestTypeAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTreatmentCategoriesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getTreatmentCategoriesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTreatmentTypesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getTreatmentTypesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTreatmentTypesByTreatmentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getTreatmentTypesByTreatmentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentCategoriesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getDocumentCategoriesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypesAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getDocumentTypesAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypeByDocumentCategoryID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getDocumentTypeByDocumentCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProcessLevelByReferralID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/AddProcessLevelByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousProcessLevelsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getPreviousProcessLevelsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxProcessLevelByReferralID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getMaxProcessLevelByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessLevelsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getProcessLevelsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientComorbidConditionsByPatientID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getPatientComorbidConditionsByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageStuctureByID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/GetStorageStuctureByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdditionalDocumentsByPatientID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAdditionalDocumentsByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNoOfReferralCountAccToProcessLevel">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getNoOfReferralCountAccToProcessLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonService">
+    <wsdl:port name="BasicHttpBinding_ICommonService" binding="tns:BasicHttpBinding_ICommonService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/ClientService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/ClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/ClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientService_addClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientByName" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientAll" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClaimAdministratorByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClaimAdministratorByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClaimAdministratorByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClaimAdministratorByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAdjusterByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAdjusterByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAdjusterByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAdjusterByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClaimAdministratorAllByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClaimAdministratorAllByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClaimAdministratorAllByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClaimAdministratorAllByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientInsurer_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientInsurer" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientInsurer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientInsurerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientInsurer_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientInsurer" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientInsurer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientInsurerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientInsurer_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientInsurer" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientInsurer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientInsurerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientInsurerByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientInsurerByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientInsurerByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientInsurerByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClientInsurerByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientInsurerByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClientInsurerByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientInsurerByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientInsuranceBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientInsuranceBranch" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientInsuranceBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientInsuranceBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientInsuranceBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientInsuranceBranch" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientInsuranceBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientInsuranceBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientInsuranceBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientInsuranceBranch" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientInsuranceBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientInsuranceBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientInsuranceBranchByInsurerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientInsuranceBranchByInsurerID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientInsuranceBranchByInsurerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientInsuranceBranchByInsurerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientInsuranceBranchesAllByInsurerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientInsuranceBranchesAllByInsurerID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientInsuranceBranchesAllByInsurerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientInsuranceBranchesAllByInsurerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientEmployer_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientEmployer" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientEmployer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientEmployerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientEmployer_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientEmployer" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientEmployer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientEmployerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientEmployer_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientEmployer" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientEmployer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientEmployerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientEmployerByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientEmployerByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientEmployerByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientEmployerByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClientEmployerByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientEmployerByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClientEmployerByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientEmployerByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientThirdPartyAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientThirdPartyAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientThirdPartyAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientThirdPartyAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientThirdPartyAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientThirdPartyAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientThirdPartyAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientThirdPartyAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientThirdPartyAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientThirdPartyAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientThirdPartyAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientThirdPartyAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientThirdPartyAdministratorByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientThirdPartyAdministratorByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientThirdPartyAdministratorByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientThirdPartyAdministratorByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClientThirdPartyAdministratorByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientThirdPartyAdministratorByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClientThirdPartyAdministratorByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientThirdPartyAdministratorByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientThirdPartyAdministratorBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientThirdPartyAdministratorBranch" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientThirdPartyAdministratorBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientThirdPartyAdministratorBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientThirdPartyAdministratorBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientThirdPartyAdministratorBranch" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientThirdPartyAdministratorBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientThirdPartyAdministratorBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientThirdPartyAdministratorBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientThirdPartyAdministratorBranch" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientThirdPartyAdministratorBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientThirdPartyAdministratorBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientThirdPartyAdministratorBranchByTPAID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientThirdPartyAdministratorBranchByTPAID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientThirdPartyAdministratorBranchByTPAID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientThirdPartyAdministratorBranchByTPAIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientTPABranchesAllByTPAID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientTPABranchesAllByTPAID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientTPABranchesAllByTPAID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientTPABranchesAllByTPAIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientManagedCareCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientManagedCareCompany" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientManagedCareCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientManagedCareCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientManagedCareCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientManagedCareCompany" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientManagedCareCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientManagedCareCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientManagedCareCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientManagedCareCompany" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientManagedCareCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientManagedCareCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientManagedCareCompanyByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientManagedCareCompanyByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientManagedCareCompanyByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientManagedCareCompanyByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClaimAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClaimAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllClaimAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClaimAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientManagedCareCompanyByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientManagedCareCompanyByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientManagedCareCompanyByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientManagedCareCompanyByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientBilling" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientBilling" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientBilling" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingDetailByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingDetailByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingDetailByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingDetailByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientBillingRetailRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientBillingRetailRate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientBillingRetailRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientBillingRetailRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientBillingRetailRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientBillingRetailRate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientBillingRetailRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientBillingRetailRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientBillingRetailRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientBillingRetailRate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientBillingRetailRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientBillingRetailRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingRetailRateByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingRetailRateByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingRetailRateByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingRetailRateByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingRetailRateByClientBillingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingRetailRateByClientBillingID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingRetailRateByClientBillingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingRetailRateByClientBillingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientBillingWholesaleRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientBillingWholesaleRate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientBillingWholesaleRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientBillingWholesaleRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientBillingWholesaleRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientBillingWholesaleRate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientBillingWholesaleRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientBillingWholesaleRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientBillingWholesaleRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientBillingWholesaleRate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientBillingWholesaleRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientBillingWholesaleRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingWholesaleRateByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingWholesaleRateByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingWholesaleRateByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingWholesaleRateByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingWholesaleRateByClientBillingID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingWholesaleRateByClientBillingID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientBillingWholesaleRateByClientBillingID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientBillingWholesaleRateByClientBillingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientPrivateLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:addClientPrivateLabel" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_addClientPrivateLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addClientPrivateLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientPrivateLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientPrivateLabel" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_updateClientPrivateLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientPrivateLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientPrivateLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientPrivateLabel" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientPrivateLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientPrivateLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientPrivateLabelByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientPrivateLabelByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_deleteClientPrivateLabelByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientPrivateLabelByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientPrivateLabelByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientPrivateLabelByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientPrivateLabelByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientPrivateLabelByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientPrivateLabelDetailByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientPrivateLabelDetailByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getClientPrivateLabelDetailByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientPrivateLabelDetailByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClientService">
+    <wsdl:operation name="addClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClient" message="tns:IClientService_addClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientResponse" message="tns:IClientService_addClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClient" message="tns:IClientService_updateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientResponse" message="tns:IClientService_updateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClient" message="tns:IClientService_deleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientResponse" message="tns:IClientService_deleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientByID" message="tns:IClientService_getClientByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientByIDResponse" message="tns:IClientService_getClientByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientByName" message="tns:IClientService_getClientByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientByNameResponse" message="tns:IClientService_getClientByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientAll" message="tns:IClientService_getClientAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientAllResponse" message="tns:IClientService_getClientAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClaimAdministratorByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClaimAdministratorByClientID" message="tns:IClientService_getClaimAdministratorByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClaimAdministratorByClientIDResponse" message="tns:IClientService_getClaimAdministratorByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdjusterByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getAdjusterByClientID" message="tns:IClientService_getAdjusterByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getAdjusterByClientIDResponse" message="tns:IClientService_getAdjusterByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClaimAdministratorAllByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClaimAdministratorAllByClientID" message="tns:IClientService_getClaimAdministratorAllByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClaimAdministratorAllByClientIDResponse" message="tns:IClientService_getClaimAdministratorAllByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientInsurer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientInsurer" message="tns:IClientService_addClientInsurer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientInsurerResponse" message="tns:IClientService_addClientInsurer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientInsurer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientInsurer" message="tns:IClientService_updateClientInsurer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientInsurerResponse" message="tns:IClientService_updateClientInsurer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientInsurer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientInsurer" message="tns:IClientService_deleteClientInsurer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientInsurerResponse" message="tns:IClientService_deleteClientInsurer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientInsurerByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientInsurerByClientID" message="tns:IClientService_getClientInsurerByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientInsurerByClientIDResponse" message="tns:IClientService_getClientInsurerByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientInsurerByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getAllClientInsurerByClientID" message="tns:IClientService_getAllClientInsurerByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getAllClientInsurerByClientIDResponse" message="tns:IClientService_getAllClientInsurerByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientInsuranceBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientInsuranceBranch" message="tns:IClientService_addClientInsuranceBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientInsuranceBranchResponse" message="tns:IClientService_addClientInsuranceBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientInsuranceBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientInsuranceBranch" message="tns:IClientService_updateClientInsuranceBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientInsuranceBranchResponse" message="tns:IClientService_updateClientInsuranceBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientInsuranceBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientInsuranceBranch" message="tns:IClientService_deleteClientInsuranceBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientInsuranceBranchResponse" message="tns:IClientService_deleteClientInsuranceBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientInsuranceBranchByInsurerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientInsuranceBranchByInsurerID" message="tns:IClientService_deleteClientInsuranceBranchByInsurerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientInsuranceBranchByInsurerIDResponse" message="tns:IClientService_deleteClientInsuranceBranchByInsurerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientInsuranceBranchesAllByInsurerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientInsuranceBranchesAllByInsurerID" message="tns:IClientService_getClientInsuranceBranchesAllByInsurerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientInsuranceBranchesAllByInsurerIDResponse" message="tns:IClientService_getClientInsuranceBranchesAllByInsurerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientEmployer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientEmployer" message="tns:IClientService_addClientEmployer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientEmployerResponse" message="tns:IClientService_addClientEmployer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientEmployer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientEmployer" message="tns:IClientService_updateClientEmployer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientEmployerResponse" message="tns:IClientService_updateClientEmployer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientEmployer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientEmployer" message="tns:IClientService_deleteClientEmployer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientEmployerResponse" message="tns:IClientService_deleteClientEmployer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientEmployerByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientEmployerByClientID" message="tns:IClientService_getClientEmployerByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientEmployerByClientIDResponse" message="tns:IClientService_getClientEmployerByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientEmployerByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getAllClientEmployerByClientID" message="tns:IClientService_getAllClientEmployerByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getAllClientEmployerByClientIDResponse" message="tns:IClientService_getAllClientEmployerByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientThirdPartyAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientThirdPartyAdministrator" message="tns:IClientService_addClientThirdPartyAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientThirdPartyAdministratorResponse" message="tns:IClientService_addClientThirdPartyAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientThirdPartyAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientThirdPartyAdministrator" message="tns:IClientService_updateClientThirdPartyAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientThirdPartyAdministratorResponse" message="tns:IClientService_updateClientThirdPartyAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientThirdPartyAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientThirdPartyAdministrator" message="tns:IClientService_deleteClientThirdPartyAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorResponse" message="tns:IClientService_deleteClientThirdPartyAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientThirdPartyAdministratorByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientThirdPartyAdministratorByClientID" message="tns:IClientService_getClientThirdPartyAdministratorByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientThirdPartyAdministratorByClientIDResponse" message="tns:IClientService_getClientThirdPartyAdministratorByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientThirdPartyAdministratorByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getAllClientThirdPartyAdministratorByClientID" message="tns:IClientService_getAllClientThirdPartyAdministratorByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getAllClientThirdPartyAdministratorByClientIDResponse" message="tns:IClientService_getAllClientThirdPartyAdministratorByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientThirdPartyAdministratorBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientThirdPartyAdministratorBranch" message="tns:IClientService_addClientThirdPartyAdministratorBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientThirdPartyAdministratorBranchResponse" message="tns:IClientService_addClientThirdPartyAdministratorBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientThirdPartyAdministratorBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientThirdPartyAdministratorBranch" message="tns:IClientService_updateClientThirdPartyAdministratorBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientThirdPartyAdministratorBranchResponse" message="tns:IClientService_updateClientThirdPartyAdministratorBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientThirdPartyAdministratorBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorBranch" message="tns:IClientService_deleteClientThirdPartyAdministratorBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorBranchResponse" message="tns:IClientService_deleteClientThirdPartyAdministratorBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientThirdPartyAdministratorBranchByTPAID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorBranchByTPAID" message="tns:IClientService_deleteClientThirdPartyAdministratorBranchByTPAID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorBranchByTPAIDResponse" message="tns:IClientService_deleteClientThirdPartyAdministratorBranchByTPAID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientTPABranchesAllByTPAID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientTPABranchesAllByTPAID" message="tns:IClientService_getClientTPABranchesAllByTPAID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientTPABranchesAllByTPAIDResponse" message="tns:IClientService_getClientTPABranchesAllByTPAID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientManagedCareCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientManagedCareCompany" message="tns:IClientService_addClientManagedCareCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientManagedCareCompanyResponse" message="tns:IClientService_addClientManagedCareCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientManagedCareCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientManagedCareCompany" message="tns:IClientService_updateClientManagedCareCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientManagedCareCompanyResponse" message="tns:IClientService_updateClientManagedCareCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientManagedCareCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientManagedCareCompany" message="tns:IClientService_deleteClientManagedCareCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientManagedCareCompanyResponse" message="tns:IClientService_deleteClientManagedCareCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientManagedCareCompanyByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientManagedCareCompanyByClientID" message="tns:IClientService_getClientManagedCareCompanyByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientManagedCareCompanyByClientIDResponse" message="tns:IClientService_getClientManagedCareCompanyByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllClaimAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getAllClaimAdministrator" message="tns:IClientService_getAllClaimAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getAllClaimAdministratorResponse" message="tns:IClientService_getAllClaimAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientManagedCareCompanyByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientManagedCareCompanyByClientID" message="tns:IClientService_updateClientManagedCareCompanyByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientManagedCareCompanyByClientIDResponse" message="tns:IClientService_updateClientManagedCareCompanyByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientBilling" message="tns:IClientService_addClientBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientBillingResponse" message="tns:IClientService_addClientBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientBilling" message="tns:IClientService_updateClientBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientBillingResponse" message="tns:IClientService_updateClientBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientBilling" message="tns:IClientService_deleteClientBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientBillingResponse" message="tns:IClientService_deleteClientBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientBillingByID" message="tns:IClientService_getClientBillingByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientBillingByIDResponse" message="tns:IClientService_getClientBillingByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingDetailByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientBillingDetailByClientID" message="tns:IClientService_getClientBillingDetailByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientBillingDetailByClientIDResponse" message="tns:IClientService_getClientBillingDetailByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientBillingRetailRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientBillingRetailRate" message="tns:IClientService_addClientBillingRetailRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientBillingRetailRateResponse" message="tns:IClientService_addClientBillingRetailRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientBillingRetailRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientBillingRetailRate" message="tns:IClientService_updateClientBillingRetailRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientBillingRetailRateResponse" message="tns:IClientService_updateClientBillingRetailRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientBillingRetailRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientBillingRetailRate" message="tns:IClientService_deleteClientBillingRetailRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientBillingRetailRateResponse" message="tns:IClientService_deleteClientBillingRetailRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingRetailRateByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientBillingRetailRateByID" message="tns:IClientService_getClientBillingRetailRateByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientBillingRetailRateByIDResponse" message="tns:IClientService_getClientBillingRetailRateByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingRetailRateByClientBillingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientBillingRetailRateByClientBillingID" message="tns:IClientService_getClientBillingRetailRateByClientBillingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientBillingRetailRateByClientBillingIDResponse" message="tns:IClientService_getClientBillingRetailRateByClientBillingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientBillingWholesaleRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientBillingWholesaleRate" message="tns:IClientService_addClientBillingWholesaleRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientBillingWholesaleRateResponse" message="tns:IClientService_addClientBillingWholesaleRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientBillingWholesaleRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientBillingWholesaleRate" message="tns:IClientService_updateClientBillingWholesaleRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientBillingWholesaleRateResponse" message="tns:IClientService_updateClientBillingWholesaleRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientBillingWholesaleRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientBillingWholesaleRate" message="tns:IClientService_deleteClientBillingWholesaleRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientBillingWholesaleRateResponse" message="tns:IClientService_deleteClientBillingWholesaleRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingWholesaleRateByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientBillingWholesaleRateByID" message="tns:IClientService_getClientBillingWholesaleRateByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientBillingWholesaleRateByIDResponse" message="tns:IClientService_getClientBillingWholesaleRateByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingWholesaleRateByClientBillingID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientBillingWholesaleRateByClientBillingID" message="tns:IClientService_getClientBillingWholesaleRateByClientBillingID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientBillingWholesaleRateByClientBillingIDResponse" message="tns:IClientService_getClientBillingWholesaleRateByClientBillingID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addClientPrivateLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/addClientPrivateLabel" message="tns:IClientService_addClientPrivateLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/addClientPrivateLabelResponse" message="tns:IClientService_addClientPrivateLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClientPrivateLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/updateClientPrivateLabel" message="tns:IClientService_updateClientPrivateLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/updateClientPrivateLabelResponse" message="tns:IClientService_updateClientPrivateLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientPrivateLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientPrivateLabel" message="tns:IClientService_deleteClientPrivateLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientPrivateLabelResponse" message="tns:IClientService_deleteClientPrivateLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientPrivateLabelByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/deleteClientPrivateLabelByClientID" message="tns:IClientService_deleteClientPrivateLabelByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/deleteClientPrivateLabelByClientIDResponse" message="tns:IClientService_deleteClientPrivateLabelByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientPrivateLabelByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientPrivateLabelByID" message="tns:IClientService_getClientPrivateLabelByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientPrivateLabelByIDResponse" message="tns:IClientService_getClientPrivateLabelByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientPrivateLabelDetailByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getClientPrivateLabelDetailByClientID" message="tns:IClientService_getClientPrivateLabelDetailByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getClientPrivateLabelDetailByClientIDResponse" message="tns:IClientService_getClientPrivateLabelDetailByClientID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClientService" type="tns:IClientService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addClient">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClient">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClient">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientByName">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientAll">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClaimAdministratorByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClaimAdministratorByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjusterByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getAdjusterByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClaimAdministratorAllByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClaimAdministratorAllByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientInsurer">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientInsurer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientInsurer">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientInsurer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientInsurer">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientInsurer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientInsurerByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientInsurerByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientInsurerByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getAllClientInsurerByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientInsuranceBranch">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientInsuranceBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientInsuranceBranch">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientInsuranceBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientInsuranceBranch">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientInsuranceBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientInsuranceBranchByInsurerID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientInsuranceBranchByInsurerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientInsuranceBranchesAllByInsurerID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientInsuranceBranchesAllByInsurerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientEmployer">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientEmployer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientEmployer">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientEmployer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientEmployer">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientEmployer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientEmployerByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientEmployerByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientEmployerByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getAllClientEmployerByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientThirdPartyAdministrator">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientThirdPartyAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientThirdPartyAdministrator">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientThirdPartyAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientThirdPartyAdministrator">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientThirdPartyAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientThirdPartyAdministratorByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientThirdPartyAdministratorByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientThirdPartyAdministratorByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getAllClientThirdPartyAdministratorByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientThirdPartyAdministratorBranch">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientThirdPartyAdministratorBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientThirdPartyAdministratorBranch">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientThirdPartyAdministratorBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientThirdPartyAdministratorBranch">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientThirdPartyAdministratorBranchByTPAID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientThirdPartyAdministratorBranchByTPAID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientTPABranchesAllByTPAID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientTPABranchesAllByTPAID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientManagedCareCompany">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientManagedCareCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientManagedCareCompany">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientManagedCareCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientManagedCareCompany">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientManagedCareCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientManagedCareCompanyByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientManagedCareCompanyByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClaimAdministrator">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getAllClaimAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientManagedCareCompanyByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientManagedCareCompanyByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientBilling">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientBilling">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientBilling">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientBillingByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingDetailByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientBillingDetailByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientBillingRetailRate">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientBillingRetailRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientBillingRetailRate">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientBillingRetailRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientBillingRetailRate">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientBillingRetailRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingRetailRateByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientBillingRetailRateByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingRetailRateByClientBillingID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientBillingRetailRateByClientBillingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientBillingWholesaleRate">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientBillingWholesaleRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientBillingWholesaleRate">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientBillingWholesaleRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientBillingWholesaleRate">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientBillingWholesaleRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingWholesaleRateByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientBillingWholesaleRateByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientBillingWholesaleRateByClientBillingID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientBillingWholesaleRateByClientBillingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addClientPrivateLabel">
+      <soap:operation soapAction="http://tempuri.org/IClientService/addClientPrivateLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClientPrivateLabel">
+      <soap:operation soapAction="http://tempuri.org/IClientService/updateClientPrivateLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientPrivateLabel">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientPrivateLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientPrivateLabelByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/deleteClientPrivateLabelByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientPrivateLabelByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientPrivateLabelByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientPrivateLabelDetailByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getClientPrivateLabelDetailByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientService">
+    <wsdl:port name="BasicHttpBinding_IClientService" binding="tns:BasicHttpBinding_IClientService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/ClientService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

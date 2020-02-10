@@ -1,0 +1,205 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Billing/BillingLandingViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script>
+        var _detailsForBilling = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _billingLandingViewModel = new BillingLandingViewModel(_detailsForBilling);
+        ko.applyBindings(_billingLandingViewModel, $("#BillingLanding").get(0));
+    </script>
+}
+
+<div id="BillingLanding">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Client Name:</label>
+                    <div class="col-sm-8">
+                        <select id="ClientName" class="form-control" name="ClientName" data-bind="options: ClientDetails, optionsText: 'ClientName', optionsValue: 'ClientID' , optionsCaption: 'Select Any Client', jqBootstrapValidation:{}"></select>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.SearchBillingDetailByCLientName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->                  
+                </div>
+
+            </div><!-- col-sm-2 -->
+            <!--ko with:BillingLandingViewModel-->
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+            <!--/ko-->
+
+
+        </div><!-- row -->
+    </div>
+  
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background" id="BillingDetailDIV">
+             @using (Html.BeginForm(GlobalConst.Actions.BillingController.CreateInvoice, GlobalConst.Controllers.Billing, System.Web.Mvc.FormMethod.Post, new
+             {
+                 id = "formInvoiceTemplateBilling",
+                 enctype = "multipart/form-data"  ,
+                 data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ CreateInvoiceSuccess(responseText);}}"              
+             }))
+             {
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Patient</th>
+                            <th>Referral</th>
+                            <th>Request</th>
+                            <th>Billing Total</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:BillingLandingDetails()!= null-->
+                        <!-- ko foreach:BillingLandingDetails -->
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].ClientName' },value:ClientName" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].PatientName' },value:PatientName" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFAReferralID' },value:RFAReferralID" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestID' },value:RFARequestID" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].PatClientID' },value:PatClientID" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestedTreatment' },value:RFARequestedTreatment" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestBillingID' },value:RFARequestBillingID" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestBillingRN' },value:RFARequestBillingRN" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestBillingMD' },value:RFARequestBillingMD" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestBillingSpeciality' },value:RFARequestBillingSpeciality" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].RFARequestBillingAdmin' },value:RFARequestBillingAdmin" />                                                            
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].BillingTotal' },value:BillingTotal" />
+                                <input type="hidden" data-bind="attr: { name: 'BillingDetails['+ $index() + '\].IsChecked' },value:IsChecked" />
+                                <span data-bind="text:ClientName" />
+                            </td>
+                            <td><span data-bind="text:PatientName" /></td>
+                            <td><span data-bind="text:RFAReferralID" /></td>
+                            <td><span data-bind="text:RFARequestedTreatment" /></td>
+                            <td>
+                                <span data-bind="text:'$'+ BillingTotal()" />
+                            </td>
+                            <td>
+                                <a href="#" class="" id="btnAddNote" data-bind="click: function(){ $root.OpenRequestBillingPopUp(RFARequestID(),RFARequestBillingID(), RFARequestBillingRN(), RFARequestBillingMD(), RFARequestBillingSpeciality(),RFARequestBillingAdmin(),RFARequestBillingDeferral(), DecisionID(), ClientBillingRateTypeID())}"
+                                   data-target="#EditBilling " data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Edit</a>
+                            </td>
+                            <td>
+                                <input id="IsChecked" name="BillingDetails[]" type="checkbox" data-bind="checked: IsChecked" />
+                            </td>
+                        </tr>
+                        <!-- /ko-->
+                        <!-- /ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:BillingLandingDetails()== null || BillingLandingDetails().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!--/ko-->
+                    </tfoot>
+                </table>
+
+                 <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-info padding-btn pull-right disabled  margin-btm-30 disabled" id="btnCreate">Create Invoice</button>
+                </div>
+             }
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    @using (Html.BeginForm(GlobalConst.Actions.BillingController.UpdateRequestBillings, GlobalConst.Controllers.Billing, System.Web.Mvc.FormMethod.Post, new
+    {
+        id = "formRequestBilling",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm :{success : function(responseText, statusText, xhr,$form){updateRequestBillingsSuccess(responseText);}, beforeSubmit: RFARequestBillingsBeforeSubmit}"
+    }))
+    {
+        <div class="modal fade bs-example-modal-lg" id="EditBilling" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog position-center modal-lg">
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close" onclick="btnPopUpClose()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Request Billing(s)</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12 margintop30">
+                                    <div class="white-background">
+                                        <!--ko foreach:BillingDetailsByBillingID-->
+                                        <table class="table table-bordered table-striped table-condensed home-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>RN</th>
+                                                    <th>MD</th>
+                                                    <th>SR</th>
+                                                    <th>Admin</th>
+                                                    <th>Deferral</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <td class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <input type="hidden" id="hfRFARequestBillingID" name="RFARequestBillingID" />
+                                                            <input type="hidden" id="hfRFARequestID" name="RFARequestID" />
+                                                            <input id="txtRFARequestBillingRN" name="RFARequestBillingRN" required class="form-control billingrange non-deferral" data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" data-bind="jqBootstrapValidation: {sniffHtml:(DecisionID() == 9 ? false : true)}" />
+                                                        </div>
+                                                    <td class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <input id="txtRFARequestBillingMD" name="RFARequestBillingMD" required class="form-control billingrange non-deferral" data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" data-bind="jqBootstrapValidation: {sniffHtml: (DecisionID() == 9 ? false : true)}" />
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <input id="txtRFARequestBillingSpeciality" name="RFARequestBillingSpeciality" required class="form-control billingrange non-deferral" data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" data-bind="jqBootstrapValidation: {sniffHtml: (DecisionID() == 9 ? false : true)}" />
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <input id="txtRFARequestBillingAdmin" name="RFARequestBillingAdmin" required class="form-control billingrange non-deferral" data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" data-bind="jqBootstrapValidation: {sniffHtml: (DecisionID() == 9 ? false : true)}" />
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <input id="txtRFARequestBillingDeferral" name="RFARequestBillingDeferral" required class="form-control billingrange deferral" data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" data-bind="jqBootstrapValidation: {sniffHtml: (DecisionID() == 9 ? true : false)}" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- /ko -->
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-default padding-btn color-black pull-right margin-btm-30" id="btnRequestBillingSave">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>

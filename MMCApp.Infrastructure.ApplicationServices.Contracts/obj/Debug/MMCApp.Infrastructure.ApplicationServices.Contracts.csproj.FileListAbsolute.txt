@@ -1,0 +1,7 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\MMCApp.Domain.Models.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\MMCApp.Domain.Models.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.csprojResolveAssemblyReference.cache

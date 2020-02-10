@@ -1,0 +1,283 @@
+﻿<div id="reqDiv">
+    <!--Model-->
+    <div class="modal fade" id="RequestHistory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close ClosePop" id="requestHistoryClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">UR History Details</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("PrintURHistoryDocumnent", "PatientMedicalRecord", System.Web.Mvc.FormMethod.Post, new
+                {
+                    id = "URHistoryDetailByRFARequestID",
+                    enctype = "multipart/form-data"
+                }))
+                    {
+                        <input type="hidden" name="Skip" id="hidreqSkip" data-bind="value: $root.reqSkip" />
+                        <input type="hidden" name="RFAReferralID" id="RFAReferralID" data-bind="value: RFAReferralID" />
+                        <input type="hidden" name="RFARequestID" id="RequestID" data-bind="value: RFARequestID" />
+                        <input type="hidden" name="NotificationProcessLevelCheck" id="NotificationProcessLevelCheck" data-bind="value: NotificationProcessLevelCheck" />
+                        <input type="hidden" name="CliniclAuditProcessLevelCheck" id="CliniclAuditProcessLevelCheck" data-bind="value: CliniclAuditProcessLevelCheck" />
+                        
+                        <table id="myTable" class="table table-fixedheader myTable table-bordered table-striped table-condensed home-table">
+                            <thead class="hide_thead"> 
+                                <tr>
+                                    <th style="width:49%;">Document Name </th>
+                                    <th style="width:23%;">Document Date </th>
+                                    <th style="width:15%;">User</th>
+                                    <th style="width:10%;">
+                                        Action
+                                        <input type="checkbox" id="selectItemAll" style="display:none !important;" data-bind="checked: SelectAll" />
+
+
+                                    </th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody  class="hide_tbody" style="height: 240px" data-bind="event: { scroll: patientURHistoryscrolled }">
+                                <!--ko if:RequestHistoryDetails()!= null-->
+                                <!-- ko foreach:RequestHistoryDetails-->
+                                <tr>
+                                    <!--ko if:(FileTypeId()!=0 && FileTypeId()!=-1)-->
+                                    <td class="myTable" style="width:50%;"><a href="#" data-bind="attr: { href:FileFullPath()+'?a='+ Math.random(), id: 'lnkFile'+$index(),target:'_blank'}"><span data-bind="text:filename"></span></a></td>
+                                    <!-- /ko -->
+                                    <!--ko if:(FileTypeId()==0 && FileTypeId()!=-1)-->
+                                    <td class="myTable" style="width:50%;"><span data-bind="text:filename"></span></td>
+                                    <!-- /ko -->
+                                    <!--ko if:FileTypeId()==-1-->
+                                    <td class="myTable" style="width:50%;"><a href="#"><span data-bind="text:filename,click:$root.OpenEmailMultiplePopUp"></span></a></td>
+                                    <!-- /ko -->
+                                    <td class="myTable" style="width:23%;"><span data-bind="text:UploadDate"></span></td>
+                                    <td class="myTable" style="width:15%;"><span data-bind="text:UserName"></span>
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].filename' },value:filename" />
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].UserName' },value:UserName" />
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].FileTypeId' },value:FileTypeId" />
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].RFARequestID' },value:RFARequestID" />
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].FileFullPath', id: 'hdnFileFullPath' + $index()}, value:FileFullPath" />
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].RFAReferralID' },value:RFAReferralID" />
+
+                                    </td>
+                                    <!--ko if:(FileTypeId()!=0 && FileTypeId()!=-1)-->
+                                    <td class="myTable" style="width:10%;">
+                                        <input type="hidden" data-bind="attr: { name: 'RequestHistory['+ $index() + '\].IsChecked' },value:IsChecked" />
+                                        <input type="checkbox" id="isCheckedItem" class="selectItem" name="RequestHistory[]" data-bind="checked: IsChecked" />
+                                        <input type="file" data-bind="attr: {id : 'fileUploadURReqHistory' + $index()}, event: {change: function(){fileUploadChange($index())}}" style="display:none;" />
+                                        <a href="#" data-bind="click: function(){ openFileUpload($index())}" class="margin-left">Replace</a>
+                                    </td>
+                                    <!-- /ko -->
+                                    <!--ko if:(FileTypeId()==0 || FileTypeId()==-1)-->
+                                    <td class="myTable" style="width:10%;">
+                                        <input type="checkbox" disabled="disabled" />
+                                        <a href="#" class="margin-left">Replace</a>
+                                    </td>
+                                    <!-- /ko -->
+                                    
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                            <tfoot>
+                                <!--ko if:RequestHistoryDetails()==null || RequestHistoryDetails().length==0-->
+                                <tr>
+                                    <td colspan="6"  >
+                                        <div class="alert alert-info" style="width:1056px !Important;">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                &times;
+                                            </button>
+                                            No Result Found.
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                            </tfoot>
+                        </table>
+                     
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <button class="btn btn-default padding-btn color-black margin-left-5 margin-btm-5 pull-right hide_btn" data-bind="click:URHistoryDetailRFARequestID" type="submit">Print</button>
+                                <button class="btn btn-default padding-btn color-black margin-left-5 margin-btm-5 pull-left hide_btn urhistoryIntakebtn" type="button"  data-bind="click:OpenIntakePage">Intake</button> 
+                                <button class="btn btn-default padding-btn color-black margin-btm-5 pull-left hide_btn marginleft10 urhistoryPerparationbtn" type="button"  data-bind="click:OpenPreparationPage">Preparation</button> 
+                                
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-default padding-btn hidden color-black" id="btnEmailMahiPopUp" data-target="#SendEmailMahiPopUp " data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Send Multiple Email </button>
+
+    <div class="modal fade bs-example-modal-lg" id="SendEmailMahiPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+
+                <div class="panel-heading">
+
+                    <button type="button" id="closeEmailMahiPopUp" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Send Email</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm(MMCApp.Infrastructure.Global.GlobalConst.Actions.CommonController.EmailSendMultipleAttachment, MMCApp.Infrastructure.Global.GlobalConst.Controllers.Common, System.Web.Mvc.FormMethod.Post, new
+                                            {
+                                                id = "frmMulitpleEmails",
+                                                enctype = "multipart/form-data",
+                                                data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){CommonMultipleEmailSuccess(responseText);},beforeSubmit : CommonMultipleEmailInfoFormBeforeSubmit}"
+                                            }))
+                        {
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>To :</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" onkeydown="if (event.keyCode == 13) alert('enter')" required id="SendEMailTo" name="SendEMailTo" data-bind="jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>CC :</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="SendEMailCc" name="SendEMailCc">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>Attachment :</label>
+                                    <div class="col-sm-9">
+                                        <!--ko if:AttachmentForEmailArray()!= null-->
+                                        <!-- ko foreach:AttachmentForEmailArray -->
+                                        <div class="col-sm-3" style="background:#eee; border:2px solid #fff;">
+                                            @*<button type="button" class="glyphicon glyphicon-remove btn" style="float: left;"></button>*@
+                                            <a data-bind="attr:{href:AttachmentDownload,target:'_blank'}" style="float: left;padding:10px; width:90%;">
+                                                <div data-toggle="tooltip" style="overflow: hidden; height: 20px" data-bind="text: AttachmentShortName,attr:{title:AttachmentName}"></div>
+                                            </a>
+                                            <input type="hidden" data-bind="attr: { name: 'AttachmentForEmailArray['+ $index() + '\].AttachmentLink' },value:AttachmentLink" />
+                                            <a href="#" data-bind="click: function(){removeMultipleAttachment()}" class="glyphicon glyphicon-remove margintop10">
+                                            </a>
+                                        </div>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Subject :</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" maxlength="256" id="Sendsubject" required name="Sendsubject" data-bind="jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Content :</label>
+                                    <div class="col-sm-9">
+                                        <textarea rows="5" class="form-control" id="SendEmailText" required name="SendEmailText" data-bind="jqBootstrapValidation: {}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <button id="emailSendMultiple" class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Send</button>
+
+
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    /*
+    Force table width to 100%
+    */
+    table.table-fixedheader {
+        width: 100%;
+    }
+        /*
+    Set table elements to block mode.  (Normally they are inline).
+    This allows a responsive table, such as one where columns can be stacked
+    if the display is narrow.
+    */
+        table.table-fixedheader, table.table-fixedheader > thead, table.table-fixedheader > tbody, table.table-fixedheader > thead > tr, table.table-fixedheader > tbody > tr, table.table-fixedheader > thead > tr > th, table.table-fixedheader > tbody > td {
+            display: block;
+            border: 0 none;
+        }
+
+    .btncolor {
+        background-color: #C0C0C0 !important;
+        color: black !important;
+    }
+
+    table.table-fixedheader > thead > tr:after, table.table-fixedheader > tbody > tr:after {
+        content: ' ';
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }
+
+    #myTable > thead > tr > th, #myTable > thead > tr > td {
+        border: 0 none !important;
+    }
+
+    .myTable {
+        border: 0 none !important;
+    }
+    /*
+    When scrolling the table, actually it is only the tbody portion of the
+    table that scrolls (not the entire table: we want the thead to remain
+    fixed).  We must specify an explicit height for the tbody.  We include
+    100px as a default, but it can be overridden elsewhere.
+    Also, we force the scrollbar to always be displayed so that the usable
+    width for the table contents doesn't change (such as becoming narrower
+    when a scrollbar is visible and wider when it is not).
+    */
+    table.table-fixedheader > tbody {
+        overflow-y: scroll;
+        height: 700px;
+    }
+    /*
+    We really don't want to scroll the thead contents, but we want to force
+    a scrollbar to be displayed anyway so that the usable width of the thead
+    will exactly match the tbody.
+    */
+    /*
+    For browsers that support it (webkit), we set the background color of
+    the unneeded scrollbar in the thead to make it invisible.  (Setting
+    visiblity: hidden defeats the purpose, as this alters the usable width
+    of the thead.)
+    */
+    table.table-fixedheader > thead::-webkit-scrollbar {
+        background-color: inherit;
+    }
+
+    table.table-fixedheader > thead > tr > th:after, table.table-fixedheader > tbody > tr > td:after {
+        content: ' ';
+        display: table-cell;
+        visibility: hidden;
+        clear: both;
+    }
+    /*
+    We want to set <th> and <td> elements to float left.
+    We also must explicitly set the width for each column (both for the <th>
+    and the <td>).  We set to 20% here a default placeholder, but it can be
+    overridden elsewhere.
+    */
+    table.table-fixedheader > thead tr th, table.table-fixedheader > tbody tr td {
+        float: left;
+        word-wrap: break-word;
+    }
+</style>

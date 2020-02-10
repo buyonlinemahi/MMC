@@ -1,0 +1,90 @@
+﻿ <div id="PatientMedicalRecord">
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+    
+     @{
+         var model = (MMCApp.Domain.Models.UserModel.User)Session[MMCApp.Infrastructure.Global.GlobalConst.SessionKeys.USER];
+          bool IsAllowDelete =     Convert.ToBoolean(model.UserDeletePermission);
+         
+         }
+     <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Claim')}">Claim Number<span id="spanOrderIconClaim" class="orderIcon glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Name')}">Name<span id="spanOrderIconName" class="orderIcon glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () {SortByHeader('Category')}">Category<span id="spanOrderIconCategory" class="orderIcon glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () { SortByHeader('Date')}">Date<span id="spanOrderIconDate" class="orderIcon glyphicon glyphicon-chevron-up fright"></span></div></th>
+                            <th><div class="cpointer" href="#" data-bind="click: function () { SortByHeader('Physician')}">Physician<span id="spanOrderIconPhysician" class="orderIcon glyphicon glyphicon-chevron-up fright"></span></div></th>
+                              <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!--ko if:PatientMedicalRecordSearchResults()!= null-->
+                        <!-- ko foreach:PatientMedicalRecordSearchResults -->
+                        <tr>
+                            <td><span data-bind="text:PatClaimNumber" /></td>
+                            <td><a target="_blank" data-bind='attr:{href:DocumentURL},text:PatMRDocumentName'></a></td>
+                            <td><span data-bind="text:DocumentCategoryName" /></td>
+                            <td><span data-bind="text:PatMRDocumentDate" /></td>
+                            <td><span data-bind="text:Author" /></td>
+                            @{
+                                if(IsAllowDelete)
+                                {
+                                    <td><a href="#" data-bind="click:$root.deleteRFARecordSplitting">Delete</a></td>
+                                }
+                                else
+                                {
+                                    <td><a href="#"  data-bind="click:$root.deleteInActive">Delete</a></td>
+                                }
+                                 
+                            }
+                            
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:PatientMedicalRecordSearchResults()==null || PatientMedicalRecordSearchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    <!-- /ko -->
+    <input type="hidden" name="Skip" id="chidskip" data-bind="value: $root.Skip" />
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+@using (Html.BeginForm("GeneratePatientMedRecordTemplateByPatientID", "PatientmedicalRecord", System.Web.Mvc.FormMethod.Post, new
+        {
+            id = "dsfasdfas",
+            enctype = "multipart/form-data"
+        }))
+        {
+        
+            <button id="PatientMedicalRecordID"  class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Print</button>
+            <input type="hidden" id="PMRPatientID" name="_patientID"/>
+            <input type="hidden" id="PMRPatientCliamID" name="_patientClaimID" />
+
+        }
+    </div>
+</div>

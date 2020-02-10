@@ -1,0 +1,334 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+@using (Html.BeginForm(GlobalConst.Actions.PatientController.SavePatientClaimDetail, GlobalConst.Controllers.Patient, FormMethod.Post, new
+{
+    id = "ClaimDetails",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddPatientClaimSuccess(responseText);},beforeSubmit : AddPatientClaimFormBeforeSubmit}"
+}))
+{
+ 
+    <div class="row">
+            <div class="col-sm-2">
+                <button id="btnpatientClaims" class="btn btn-default padding-btn color-black pull-left margin-btm-30" type="button">Patient's Claims</button>
+            </div>
+        <div class="col-sm-10">
+            <a class="btn btn-default padding-btn pull-right" id="AddNewBTNClaim" type="button" data-bind="click:  function () { bindClaimDemography(0)}">Add New</a>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 client-accordian">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="heading11">
+                        <h4 class="panel-title">
+                            <a>
+                                Claim Demography
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse11" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading11">
+                        <div class="panel-body row">
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmNumber" class="col-sm-4 control-label"><span class="required-link">*</span>Claim Number :</label>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" name="objPatientModel.PatientClaimID" id="PatientClaimID" data-bind="value:PatientClaimID" />
+                                        <input type="hidden" name="objPatientModel.PatientID" id="ClaimPatientID" data-bind="value:PatientID" />
+                                        <input type="text" class="form-control" id="PatClaimNumber" required="required" name="objPatientModel.PatClaimNumber" maxlength="50" data-bind="value:PatClaimNumber,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="PatDOI" class="col-sm-4 control-label"><span class="required-link">*</span>DOI :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control datepicker" id="PatDOI" required="required" maxlength="10" name="objPatientModel.PatDOI" data-bind="value:PatDOI,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmPolicyYear" class="col-sm-4 control-label">Policy Year :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control number" id="PatPolicyYear" min="0" maxlength="4" name="objPatientModel.PatPolicyYear" data-bind="value:PatPolicyYear,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmJurisdiction" class="col-sm-4 control-label"><span class="required-link">*</span>Claim Jurisdiction :</label>
+                                    <div class="col-sm-8">
+                                        <select id="PatClaimJurisdictionId" class="form-control" name="objPatientModel.PatClaimJurisdictionId" required data-bind="options: States, optionsText: 'StateName', optionsValue: 'StateId', value: selectedItemState,jqBootstrapValidation: {}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmAdj" class="col-sm-4 control-label">Adjudication/State Case # (ADJ) :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="PatAdjudicationStateCaseNumber" name="objPatientModel.PatAdjudicationStateCaseNumber" maxlength="50" data-bind="value:PatAdjudicationStateCaseNumber,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmWCIS" class="col-sm-4 control-label">EDI Exchange Tracking # (WCIS):</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="PatEDIExchangeTrackingNumber" name="objPatientModel.PatEDIExchangeTrackingNumber" maxlength="50" data-bind="value:PatEDIExchangeTrackingNumber,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="PatInjuryReportedDate" class="col-sm-4 control-label">Date Injury Reported :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control datepicker" id="PatInjuryReportedDate" maxlength="10" name="objPatientModel.PatInjuryReportedDate" data-bind="value:PatInjuryReportedDate,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmInsurance" class="col-sm-4 control-label">Case Manager :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmCaseManager" class="form-control" name="objPatientModel.PatCaseManagerID" data-bind="options:CaseManagerList, optionsText: 'CaseManagerName', optionsValue: 'CaseManagerID', value: selectedItemCaseManagerList,optionsCaption:'Select Any Case Manager',jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmInsurance" class="col-sm-4 control-label">Applicant Attorney :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmappAttony" class="form-control" name="objPatientModel.PatApplicantAttorneyID" data-bind="options:ApplicantAttorneyList, optionsText: 'AttorneyName', optionsValue: 'AttorneyID', value: selectedItemApplicantAttorneyList,optionsCaption:'Select Any Applicant Attorney',jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmInsurance" class="col-sm-4 control-label">Defense  Attorney :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmDefenseAttony" class="form-control" name="objPatientModel.PatDefenseAttorneyID" data-bind="options:DefenseAttorneyList, optionsText: 'AttorneyName', optionsValue: 'AttorneyID', value: selectedItemDefenceAttorneyList,optionsCaption:'Select Any Defense Attorney',jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmEmployer" class="col-sm-4 control-label"><span class="required-link">*</span>Client :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmClient" class="form-control" required name="objPatientModel.PatClientID" data-bind="options: ClientList, optionsText: 'ClientName', optionsValue: 'ClientID', value: selectedItem,jqBootstrapValidation:{},event: { change: selectionChanged },optionsCaption:'Select Any Client'"></select>
+                                    
+                                    </div>
+
+                                    @*<div class="col-sm-2">
+                                     
+                                        <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" data-toggle="modal" data-target="#addClaimDetail" type="button">View</button>
+
+                                    </div>*@
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="Clmemp" class="col-sm-4 control-label"><span class="required-link">*</span>Insurer :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmClientIns" required class="form-control" name="objPatientModel.PatInsValue" data-bind="options: ClientInsurerDetails, optionsText: 'InsName', optionsValue: 'InsValue',value: selectedItemIns,jqBootstrapValidation:{},optionsCaption:'Select Any Insurer'"></select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="Clmemp" class="col-sm-4 control-label"><span class="required-link">*</span>Employer :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmClientEmp" required class="form-control" name="objPatientModel.PatEmployerID" data-bind="options: ClientEmployerDetails, optionsText: 'EmpName', optionsValue: 'EmployerID',value: selectedItemEmp,jqBootstrapValidation:{},optionsCaption:'Select Any Employer',event: { change: selectionChangedByEmployer }"></select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                          
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="Clmemp" class="col-sm-4 control-label">Employer Subsidiary :</label>
+                                    <div class="col-sm-8">                                       
+                                        <select id="employerSubsidiary"  class="form-control" name="objPatientModel.PatEmpSubsidiaryID" data-bind="options: EmployerSubsidiaries, optionsText: 'EMPSubsidiaryName', optionsValue: 'EMPSubsidiaryID',value: selectedItemEmployerSubsidiaries,optionsCaption:'Select Any Employer Subsidiaries',jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                         
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="PatInjuryReportedDate" class="col-sm-4 control-label"><span class="required-link">*</span>MCC :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" disabled  class="form-control" id="PatMCC"   data-bind="value:ClientMCCName,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmAdjuster" class="col-sm-4 control-label"><span class="required-link">*</span>Adjuster :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmClientAdj" required class="form-control" name="objPatientModel.PatAdjusterID" data-bind="options: AdjusterList, optionsText: 'AdjusterName', optionsValue: 'AdjusterID', value: selectedItemAdjusterList,jqBootstrapValidation:{},optionsCaption:'Select Any Adjuster'"></select>
+                                 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="Clmemp" class="col-sm-4 control-label"><span class="required-link">*</span>TPA :</label>
+                                    <div class="col-sm-8">
+                                        <select id="ClmClientTPA" required="required" class="form-control" name="objPatientModel.PatTPAValue" data-bind="options: ClientTPADetails, optionsText: 'TPAName', optionsValue: 'TPAValue',value: selectedItemTpa,jqBootstrapValidation:{},optionsCaption:'Select Any TPA'"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmAdjuster" class="col-sm-4 control-label">ADR:</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="PatADRID" name="objPatientModel.PatADRID" data-bind="options: ADRDetails, optionsText: 'ADRName', optionsValue: 'ADRID', value: selectedItemADR,jqBootstrapValidation:{},optionsCaption:'Select Any ADR'"></select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmAdjuster" class="col-sm-4 control-label"><span class="required-link">*</span>Claim Status:</label>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" class="form-control" id="PatientClaimStatusID" name="objPatientModel.PatientClaimStatusID" data-bind="value:PatientClaimStatusID,jqBootstrapValidation: {}">
+                                        <input type="hidden" class="form-control" id="ClaimStatusIDVal" data-bind="value:ClaimStatusIDVal,jqBootstrapValidation: {}">
+                                        <select class="form-control" required id="ClaimStatusID" name="objPatientModel.ClaimStatusID" data-bind="options: PatientStatues, optionsText: 'ClaimStatusName', optionsValue: 'ClaimStatusID', value: selectedItemPatientStatues,jqBootstrapValidation:{},optionsCaption:'Select Any Status'"></select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="DeniedRationale" class="col-sm-4 control-label"><span class="required-link">*</span>Denied Rationale :</label>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" class="form-control" id="DeniedRationaleVal" data-bind="value:DeniedRationaleVal,jqBootstrapValidation: {}">
+                                        @*<input type="text" class="form-control" id="DeniedRationale" name="objPatientModel.DeniedRationale" data-bind="value:DeniedRationale,jqBootstrapValidation: {}">*@
+                                        <textarea type="text" class="form-control resize-none" id="DeniedRationale" name="objPatientModel.DeniedRationale" rows="4" data-bind="value:DeniedRationale,jqBootstrapValidation: {}"></textarea>
+                                        <input type="hidden" class="form-control" id="PatPhysicianID" name="objPatientModel.PatPhysicianID" data-bind="value:PatPhysicianID,jqBootstrapValidation: {}">
+                                        @*value:DeniedRationale,*@
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="panel-wrapper">
+                                <div class="panel-body">
+
+                                    <div class="col-md-4">
+                                        <label>Claim Status:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                    
+                                    </div>
+                                </div>
+                            </div>*@
+                            @*<div class="col-sm-6">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="ClmAdministrator" class="col-sm-4 control-label"><span class="required-link">*</span>Claims Administrator :</label>
+                                    <div class="col-sm-8">
+                                        <select id="PatClaimAdministratorID" class="form-control" disabled name="PatClaimAdministratorID"></select>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-sm-12">                                
+                                <button class="btn btn-red padding-btn color-black pull-right margin-left-20" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                </div><!-- col-lg-12 -->
+        </div><!-- row -->
+    @*<div class="row panel-body">
+        @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimDetailByClientId.cshtml");}
+    </div>*@
+}
+
+@*<div class="row panel-body ClaimHideDiv">
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimStatus.cshtml");}
+</div>*@
+<div class="row panel-body ClaimHideDiv">
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimPleadBodyPart.cshtml");}
+</div>
+<div class="row panel-body ClaimHideDiv">
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimAddOnBodyPart.cshtml");}
+</div>
+
+<div class="row panel-body ClaimHideDiv">    
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <input type="hidden" class="form-control" name="objPatientModel.PatPhysicianID" required="required" data-bind="value:PatPhysicianID,jqBootstrapValidation: {}" />
+                    <input type="hidden" class="form-control" name="objPatientModel.PatientClaimID" data-bind="value:PatientClaimID" />
+
+                    <div class="col-sm-12 " id="physicianDivSpecialty">
+                        <table class="table table-bordered table-striped table-condensed home-table">
+                            <thead>
+                                <tr>
+                                    <th>Physician Name</th>
+                                    <th>Physician Address </th>
+                                    <th>Physician City </th>
+                                    <th>Physician State </th>
+                                    <th>Physician Zip</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><label><span data-bind="text : PhysicianName" /></label></td>
+                                    <td><span data-bind="text :PhysicianAddress" /></td>
+                                    <td><span data-bind="text :PhysCity" /> </td>
+                                    <td><span data-bind="text :PhysStateName" /> </td>
+                                    <td><span data-bind="text :PhysZip" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPopPatientPhysician" tabindex="12" data-backdrop="static" data-toggle="modal" data-target="#addPatPhysician" type="button">Add New</button>
+    <!--Model-->
+    <div class="modal fade" id="addPatPhysician" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top ">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" id="buttonClosePatPhysician" class="close patPhysicianSearchClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Patient Physician </h4>
+                </div>
+                <div class="panel-body">
+                    <div class="divClaim">
+                        <div class="row">
+                            <div class="panel-wrapper">
+                                <div class="panel-body">
+                                    @{Html.RenderPartial("~/Views/Shared/Physician/_PhysicianSearchPatientClaimPartial.cshtml");}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="row panel-body ClaimHideDiv">
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimDiagnose.cshtml");}
+</div>

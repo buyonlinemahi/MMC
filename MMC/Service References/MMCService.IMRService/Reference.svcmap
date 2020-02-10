@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="763cac00-b31b-4e1c-ac82-2b042c2e2c3e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/MMC/IMRService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IMRService.wsdl" MetadataType="Wsdl" ID="d6dc4b64-f496-429d-9686-2342ba1417ab" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?wsdl" />
+    <MetadataFile FileName="IMRService.xsd" MetadataType="Schema" ID="f5ac4c29-40ce-482d-925a-a270ed8e29ac" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd3" />
+    <MetadataFile FileName="IMRService4.xsd" MetadataType="Schema" ID="4331507c-2bcc-4b94-ad02-1f2b44f2f652" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd4" />
+    <MetadataFile FileName="IMRService1.xsd" MetadataType="Schema" ID="9b368c67-3dc4-4070-a10a-31433299afe4" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd2" />
+    <MetadataFile FileName="IMRService2.xsd" MetadataType="Schema" ID="532be184-0734-4a09-826b-65f729eb87f5" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd1" />
+    <MetadataFile FileName="IMRService.disco" MetadataType="Disco" ID="72ba340b-ac8d-4bba-80c8-d0cd8636afed" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?disco" />
+    <MetadataFile FileName="IMRService3.xsd" MetadataType="Schema" ID="92b5a821-2489-44d2-9095-230bb4a877ba" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

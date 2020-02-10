@@ -1,0 +1,23 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "SavePhysicianDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Physician/SaveDetailViewModel.js")"></script>  
+    <script type="text/javascript">
+        var saveModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _saveDetailResult = new SaveDetailViewModel(saveModel);
+        ko.applyBindings(_saveDetailResult, $("#PhysicanSaveDetailDiv").get(0));
+    </script>
+
+}
+<div id="PhysicanSaveDetailDiv">
+    @{Html.RenderPartial("~/Views/Shared/Physician/_PhysicianPartial.cshtml");}
+</div>
+<style type="text/css">
+    #alertify-cancel {
+        display: none !important;
+    }
+</style>

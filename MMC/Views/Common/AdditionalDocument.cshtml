@@ -1,0 +1,287 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+<link href="~/Content/css/multiple-emails.css" rel="stylesheet" />
+<script src="~/Scripts/multiple-emails.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Common/AdditionalViewModel.js")"></script>        
+    <script type="text/javascript">
+        var _additionalModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _additionalViewModel = new AdditionalViewModel(_additionalModel);
+        ko.applyBindings(_additionalViewModel, $("#AdditionalDocumentDiv").get(0));
+    </script>
+}
+<div id="AdditionalDocumentDiv">
+    <input type="hidden" name="Skip" id="hidreqSkip" data-bind="value: $root.reqSkip" />
+    <input type="hidden" name="PatientID" id="PatientID" data-bind="value: $root.PatientID" />
+    <input type="hidden" name="PatientClaimID" id="PatientClaimID" data-bind="value: $root.PatientClaimID" />
+    <input type="hidden" name="PatientFullName" id="PatientFullName" data-bind="value: $root.PatientFullName" />
+    <input type="hidden" name="PatClaimNumber" id="PatClaimNumber" data-bind="value: $root.PatClaimNumber" />
+    <input type="hidden" name="RFAReferralID" id="RFAReferralID" data-bind="value: $root.RFAReferralID" /> 
+    <input type="hidden" name="emailPopupName" id="emailPopupName" data-bind="value: $root.emailPopupName" />    
+   
+  
+
+    <!--Model-->
+    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientFileUploadPartial.cshtml");}
+
+
+    
+
+        <div class="form-group row label-font clearfix marginbottom10">
+            <div class="col-sm-12">
+                <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPopMedical marginbottom20" id="OpenPopMedicalButton" tabindex="12" data-backdrop="static" data-toggle="modal" data-target="#PatientSplitting" type="button">Upload</button>
+            </div>
+        </div>
+    
+    @using (Html.BeginForm(GlobalConst.Actions.CommonController.AddLinkForSendingEmail, GlobalConst.Controllers.Common, FormMethod.Post, new
+    {
+        id = "frmAddLinkFor",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddLinkForEmailAttachment(responseText);},beforeSubmit : AddLinkForEmailFormBeforeSubmit}"
+
+    }))
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <!--ko if:PreviousAttachmentArrayLinks()!= null-->
+                <!-- ko foreach:PreviousAttachmentArrayLinks -->
+                <input type="hidden" data-bind="attr: { name: 'PreviousAttachmentLinks['+ $index() + '\].AttachmentLink' },value:AttachmentLink" />
+                <!--/ko-->
+                <!--/ko-->
+            </div>
+        </div>
+
+         <table id="myTable" class="table table-fixedheader myTable table-bordered table-striped table-condensed home-table">
+        <thead class="hide_thead">
+            <tr>
+                <th style="width:29.5%;">Type</th>
+                <th style="width:30%;">Document Name</th>
+                <th style="width:29.5%;">Document Date</th>
+                <th style="width:10%;">Select</th>
+            </tr>
+        </thead>
+        <tbody class="hide_tbody" style="height: 400px" data-bind="event: { scroll: additionalscrolled }">
+            <!--ko if:AdditionalDocumentResults()!= null-->
+            <!-- ko foreach:AdditionalDocumentResults -->
+            <tr>
+                <td class="myTable" style="width:30%;"><span data-bind="text:TypeName"></span></td>
+                <td class="myTable" style="width:30%;">
+                    <span data-bind="text:DocumentName"></span>
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].TypeName' },value:TypeName" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].FileID' },value:FileID" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].RFAReferralID' },value:RFAReferralID" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].RFAFileName' },value:RFAFileName" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].DocumentName' },value:DocumentName" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].DocumentDate' },value:DocumentDate" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                    <input type="hidden" data-bind="attr: { name: 'AdditionalDocumentDetails['+ $index() + '\].IsChecked' },value:IsChecked" />
+                </td>
+                <td class="myTable" style="width:30%;"><span data-bind="text:DocumentDate"></span></td>
+                <td class="myTable" style="width:10%;">                   
+                    <input type="checkbox" id="isCheckedItem" name="AdditionalDocumentDetails[]" data-bind="checked: IsChecked" />
+                </td>
+            </tr>
+            <!--/ko-->
+            <!--/ko-->
+        </tbody>
+        <tfoot>
+            <!--ko if:AdditionalDocumentResults()==null || AdditionalDocumentResults().length==0-->
+            <tr>
+                <td colspan="4">
+                    <div class="alert alert-info" style="width:1056px !Important;">
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+                        No Result Found.
+                    </div>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tfoot>
+        </table>
+         <div class="form-group row label-font clearfix">
+            <div class="col-sm-12">
+                <button class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Attach</button>
+                </div>
+            </div>
+    }
+                <style>
+                            /*
+                    Force table width to 100%
+                    */
+                            table.table-fixedheader {
+                                width: 100%;
+                            }
+                                /*
+                    Set table elements to block mode.  (Normally they are inline).
+                    This allows a responsive table, such as one where columns can be stacked
+                    if the display is narrow.
+                    */
+                                table.table-fixedheader, table.table-fixedheader > thead, table.table-fixedheader > tbody, table.table-fixedheader > thead > tr, table.table-fixedheader > tbody > tr, table.table-fixedheader > thead > tr > th, table.table-fixedheader > tbody > td {
+                                    display: block;
+                                    border: 0 none;
+                                }
+
+                            .btncolor {
+                                background-color: #C0C0C0 !important;
+                                color: black !important;
+                            }
+
+                            table.table-fixedheader > thead > tr:after, table.table-fixedheader > tbody > tr:after {
+                                content: ' ';
+                                display: block;
+                                visibility: hidden;
+                                clear: both;
+                            }
+
+                            #myTable > thead > tr > th, #myTable > thead > tr > td {
+                                border: 0 none !important;
+                            }
+
+                            .myTable {
+                                border: 0 none !important;
+                            }
+                            /*
+                    When scrolling the table, actually it is only the tbody portion of the
+                    table that scrolls (not the entire table: we want the thead to remain
+                    fixed).  We must specify an explicit height for the tbody.  We include
+                    100px as a default, but it can be overridden elsewhere.
+                    Also, we force the scrollbar to always be displayed so that the usable
+                    width for the table contents doesn't change (such as becoming narrower
+                    when a scrollbar is visible and wider when it is not).
+                    */
+                            table.table-fixedheader > tbody {
+                                overflow-y: scroll;
+                                height: 700px;
+                            }
+                            /*
+                    We really don't want to scroll the thead contents, but we want to force
+                    a scrollbar to be displayed anyway so that the usable width of the thead
+                    will exactly match the tbody.
+                    */
+                            /*
+                    For browsers that support it (webkit), we set the background color of
+                    the unneeded scrollbar in the thead to make it invisible.  (Setting
+                    visiblity: hidden defeats the purpose, as this alters the usable width
+                    of the thead.)
+                    */
+                            table.table-fixedheader > thead::-webkit-scrollbar {
+                                background-color: inherit;
+                            }
+
+                            table.table-fixedheader > thead > tr > th:after, table.table-fixedheader > tbody > tr > td:after {
+                                content: ' ';
+                                display: table-cell;
+                                visibility: hidden;
+                                clear: both;
+                            }
+                            /*
+                    We want to set <th> and <td> elements to float left.
+                    We also must explicitly set the width for each column (both for the <th>
+                    and the <td>).  We set to 20% here a default placeholder, but it can be
+                    overridden elsewhere.
+                    */
+                            table.table-fixedheader > thead tr th, table.table-fixedheader > tbody tr td {
+                                float: left;
+                                word-wrap: break-word;
+                            }
+                </style>
+
+
+    <button class="btn btn-default padding-btn hidden color-black" id="btnEmailMahiPopUp" data-target="#SendEmailMahiPopUp " data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button">Send Multiple Email </button>
+
+    <div class="modal fade bs-example-modal-lg" id="SendEmailMahiPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+
+                <div class="panel-heading">
+
+                    <button type="button" id="closeEmailMahiPopUp" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Send Email</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        @using (Html.BeginForm(GlobalConst.Actions.CommonController.EmailSendMultipleDoc, GlobalConst.Controllers.Common, System.Web.Mvc.FormMethod.Post, new
+                                            {
+                                                id = "frmMulitpleEmails",
+                                                enctype = "multipart/form-data",
+                                                data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){CommonMultipleEmailSuccess(responseText);},beforeSubmit : CommonMultipleEmailInfoFormBeforeSubmit}"
+                                            }))
+                        {
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>To :</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" onkeydown="if (event.keyCode == 13) alert('enter')" required id="SendEMailTo" name="SendEMailTo" data-bind="jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>CC :</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="SendEMailCc" name="SendEMailCc">
+                                        <input type="hidden" class="form-control" id="popName" name="popUpName">
+                                        <input type="hidden" class="form-control" id="refflID" name="rflID">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail13" class="col-sm-3 control-label"><span class="required-link">*</span>Attachment :</label>
+                                    <div class="col-sm-9">
+                                        <!--ko if:AttachmentForEmailArray()!= null-->
+                                        <!-- ko foreach:AttachmentForEmailArray -->
+                                        <div data-bind="attr: {id: 'divEmailAttach' + $index()}" class="col-sm-3" style="background:#eee; border:2px solid #fff;">  
+                                            @*<button type="button" class="glyphicon glyphicon-remove btn" style="float: left;"></button>*@
+                                             <a data-bind="attr:{href:AttachmentDownload,target:'_blank'}" style="float: left;padding:10px; width:90%">
+                                                 <div data-toggle="tooltip" style="overflow: hidden; height: 20px" data-bind="text: AttachmentShortName,attr:{title:AttachmentName}"></div></a>                                            
+                                            <input type="hidden"  data-bind="attr: { name: 'AttachmentForEmailArray['+ $index() + '\].AttachmentLink' },value:AttachmentLink" />
+                                            <a href="#" data-bind="click: function(){removeMultipleAttachment($index())}" class="glyphicon glyphicon-remove margintop10">
+                                            </a>
+                                        </div>
+                                        <!--/ko-->
+                                       <!--/ko-->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Subject :</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" maxlength="256" id="Sendsubject" required name="Sendsubject" data-bind="jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group row label-font clearfix">
+                                    <label for="inputEmail3" class="col-sm-3 control-label"><span class="required-link">*</span>Content :</label>
+                                    <div class="col-sm-9">
+                                        <textarea rows="5" class="form-control" id="SendEmailText" required name="SendEmailText" data-bind="jqBootstrapValidation: {}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <button id="emailSendMultiple" class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Send</button>
+
+
+                                </div>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+

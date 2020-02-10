@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/CommonService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="getAttorneyFirmTypeAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyFirmTypeAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAttorneyFirmTypeAllResult" nillable="true" type="q1:ArrayOfAttorneyFirmType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLanguageAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLanguageAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getLanguageAllResult" nillable="true" type="q2:ArrayOfLanguage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStateAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStateAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getStateAllResult" nillable="true" type="q3:ArrayOfState" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStatusAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStatusAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getStatusAllResult" nillable="true" type="q4:ArrayOfStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSpecialtiesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSpecialtiesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getSpecialtiesAllResult" nillable="true" type="q5:ArrayOfSpecialty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCurrentMedicalConditionsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCurrentMedicalConditionsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getCurrentMedicalConditionsAllResult" nillable="true" type="q6:ArrayOfCurrentMedicalCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBodyPartsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBodyPartsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getBodyPartsAllResult" nillable="true" type="q7:ArrayOfBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD9CodesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD9CodesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getICD9CodesAllResult" nillable="true" type="q8:ArrayOfICD9Code" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD9CodesByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchtext" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD9CodesByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getICD9CodesByNameResult" nillable="true" type="q9:PagedICD9Code" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD9CodesByCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchtext" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD9CodesByCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getICD9CodesByCodeResult" nillable="true" type="q10:ArrayOfICD9Code" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD10CodesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICD10CodesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getICD10CodesAllResult" nillable="true" type="q11:ArrayOfICD10Code" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICDCodesByNumberOrDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchtext" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ICDTab" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICDCodesByNumberOrDescriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getICDCodesByNumberOrDescriptionResult" nillable="true" type="q12:PagedICDCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICDCodesByNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ICDNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_ICDTab" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getICDCodesByNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getICDCodesByNumberResult" nillable="true" type="q13:ArrayOfICDCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getClaimStatusesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getClaimStatusesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getClaimStatusesAllResult" nillable="true" type="q14:ArrayOfClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBodyPartStatusesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBodyPartStatusesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getBodyPartStatusesAllResult" nillable="true" type="q15:ArrayOfBodyPartStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFrequencyTypeAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFrequencyTypeAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getFrequencyTypeAllResult" nillable="true" type="q16:ArrayOfFrequencyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDurationTypesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDurationTypesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getDurationTypesAllResult" nillable="true" type="q17:ArrayOfDurationType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRequestTypeAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRequestTypeAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRequestTypeAllResult" nillable="true" type="q18:ArrayOfRequestType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTreatmentCategoriesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTreatmentCategoriesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getTreatmentCategoriesAllResult" nillable="true" type="q19:ArrayOfTreatmentCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTreatmentTypesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTreatmentTypesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getTreatmentTypesAllResult" nillable="true" type="q20:ArrayOfTreatmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTreatmentTypesByTreatmentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_treatmentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTreatmentTypesByTreatmentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getTreatmentTypesByTreatmentCategoryIDResult" nillable="true" type="q21:ArrayOfTreatmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocumentCategoriesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocumentCategoriesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getDocumentCategoriesAllResult" nillable="true" type="q22:ArrayOfDocumentCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocumentTypesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocumentTypesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getDocumentTypesAllResult" nillable="true" type="q23:ArrayOfDocumentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocumentTypeByDocumentCategoryID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_documentCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDocumentTypeByDocumentCategoryIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getDocumentTypeByDocumentCategoryIDResult" nillable="true" type="q24:ArrayOfDocumentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProcessLevelByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+        <xs:element minOccurs="0" name="_processLevel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProcessLevelByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProcessLevelByReferralIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPreviousProcessLevelsByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPreviousProcessLevelsByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPreviousProcessLevelsByReferralIDResult" nillable="true" type="q25:RFAProcessLevels" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMaxProcessLevelByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMaxProcessLevelByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getMaxProcessLevelByReferralIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProcessLevelsByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProcessLevelsByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getProcessLevelsByReferralIDResult" nillable="true" type="q26:ArrayOfRFAProcessLevels" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientComorbidConditionsByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientComorbidConditionsByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getPatientComorbidConditionsByPatientIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageStuctureByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_by" type="q27:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageStuctureByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="GetStorageStuctureByIDResult" nillable="true" type="q28:StorageModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdditionalDocumentsByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdditionalDocumentsByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAdditionalDocumentsByPatientIDResult" nillable="true" type="q29:PagedAdditionalDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNoOfReferralCountAccToProcessLevel">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNoOfReferralCountAccToProcessLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getNoOfReferralCountAccToProcessLevelResult" nillable="true" type="q30:ArrayOfNoOfReferralCount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

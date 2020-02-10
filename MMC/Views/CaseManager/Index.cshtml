@@ -1,0 +1,99 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/CaseManager/SearchViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _searchViewModel = new SearchViewModel();
+        ko.applyBindings(_searchViewModel, $("#CaseManagerSearchDiv").get(0));
+    </script>
+
+}
+<div id="CaseManagerSearchDiv">
+
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Search Case Manager :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="_SearchTextByName" placeholder="Enter the Keywords Here">
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.CaseManagerSearchName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                    <div class="col-sm-1">
+                        <a class="btn btn-default padding-btn pull-right" type="button" data-bind="attr: {'href': '@Url.Action("SaveCaseManagerDetail", "CaseManager")'}">Add New</a>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+            <!--ko with:SearchViewModel-->
+            <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+            <!--/ko-->
+
+
+        </div><!-- row -->
+    </div><!-- row -->
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Case Manager Name</th>
+                            <th>Case Manager Address</th>
+                            <th>Case Manager City </th>
+                            <th>Case Manager State </th>
+                            <th>Case Manager Zip</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:CaseManagerSearchResults()!= null-->
+                        <!-- ko foreach:CaseManagerSearchResults -->
+                        <tr>
+                            <td><span data-bind="text:CMFirstName() + ' ' + CMLastName()  " /></td>
+                            <td><span data-bind="text:CMAddress1" /></td>
+                            <td><span data-bind="text:CMCity" /></td>
+                            <td><span data-bind="text:StateName" /></td>
+                            <td><span data-bind="text:CMZip" /></td>
+                            <td> <a data-bind="attr: {'href': '@Url.Action("SaveCaseManagerDetail", "CaseManager")/' + CaseManagerID()}">Edit</a> / <a data-bind="click:$root.DeleteCaseManagerByID" href="#">Delete</a> </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:CaseManagerSearchResults()==null || CaseManagerSearchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    <!-- /ko -->
+</div>
+

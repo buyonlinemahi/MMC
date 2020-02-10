@@ -1,0 +1,154 @@
+﻿
+@using MMCApp.Infrastructure.Global;
+<div id="PhysicianSearchDiv">
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">             
+                    <div class="col-sm-12 margintop20">
+                        <div class="form-group row label-font clearfix">
+                            <label class="col-sm-1 control-label"><span class="required-link">*</span>Search:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control marginright15" id="SearchTextByName" maxlength="50" required="required" placeholder="Enter the Keywords Here" data-bind="jqBootstrapValidation: {}" />
+                            </div>
+                            <div class="col-sm-2 pull-right">
+                                <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.PhysicianSearchName" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+
+            <input type="hidden" name="pSkip" id="hidPhysicianskip" data-bind="value: $root.pSkip" />
+        </div><!-- row -->
+    </div><!-- row -->
+  
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Physician Name</th>
+                            <th>Physician Specialty </th>
+                            <th>Physician Address </th>
+                            <th>Physician City </th>
+                            <th>Physician State </th>
+                            <th>Physician Zip</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:PhysicianSearchResults()!= null-->
+                        <!-- ko foreach:PhysicianSearchResults -->
+                        <tr>
+                            <td><span data-bind="text:(PhysFirstName() + ' ' + PhysLastName())" />
+                                <input type="hidden" name="PhysicianId" id="PhysicianId" data-bind="value:PhysicianId()" />
+                            </td>
+                            <td><span data-bind="text :PhysSpecialtyName" /> </td>
+                            <td><span data-bind="text :(PhysAddress1() + ' ' + PhysAddress2())" /></td>
+                            <td><span data-bind="text :PhysCity" /> </td>
+                            <td><span data-bind="text :PhysStateName" /> </td>
+                            <td><span data-bind="text :PhysZip" /></td>
+                            <td> <a href="#" data-bind="click:$root.selectPhysician">Select</a></td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:PhysicianSearchResults()==null || PhysicianSearchResults().length==0-->
+                        <tr>
+                            <td colspan="7">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    <!-- ko if:pPager().pTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: pPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:pFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: pLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: pTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:pCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:pHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pCurrentPage(pCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:pPages -->
+                            <!-- ko if:$data === $parent.pCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.pCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.pCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:pHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pCurrentPage(pCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pCurrentPage() === pLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pCurrentPage(pLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:pCurrentPage() === pLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    
+</div>

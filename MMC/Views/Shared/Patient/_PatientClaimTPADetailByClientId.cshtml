@@ -1,0 +1,120 @@
+﻿<input type="hidden" name="Skip" id="hidskipTPA" data-bind="value: $root.TPASkip" />
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-background">
+            <table class="table table-bordered table-striped table-condensed home-table">
+                <thead>
+                    <tr>
+                        <th>Third Party Administrator  Name </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--ko if:ClientTPADetails()!= null-->
+                    <!-- ko foreach:ClientTPADetails -->
+                    <tr>
+                        <td>
+                            <span data-bind="text:TPAName"></span>
+                        </td>
+
+
+                    </tr>
+                    <!--/ko-->
+                    <!--/ko-->
+                </tbody>
+                <tfoot>
+                    <!--ko if:ClientTPADetails()==null || ClientTPADetails().length==0-->
+                    <tr>
+                        <td colspan="6">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    &times;
+                                </button>
+                                No Result Found.
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                </tfoot>
+            </table>
+            <nav class="margin-left">
+
+                <!-- ko if:TPAPager().TPATotalItemCount() > 0 -->
+                <div class="pagination" data-bind="with: TPAPager">
+                    <div class="pagexofx">
+                        <span data-bind="text:TPAFirstItemIndex"></span>
+                        -
+                        <span data-bind="text: TPALastItemIndex"></span>
+                        of
+                        <strong>
+                            <span data-bind="text: TPATotalItemCount"></span>
+                        </strong>
+                        total results.
+                    </div>
+                    <ul class="pagination">
+                        <!-- ko if:TPACurrentPage() === 1 -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:TPACurrentPage() === 1 -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ TPACurrentPage(1); }">&laquo;&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:TPAHasPrevPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ TPACurrentPage(TPACurrentPage() - 1); }">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:TPAHasPrevPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&laquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko foreach:TPAPages -->
+                        <!-- ko if:$data === $parent.TPACurrentPage() -->
+                        <li class="active">
+                            <span class="currentPage" data-bind="text: $data"></span>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:$data !== $parent.TPACurrentPage() -->
+                        <li>
+                            <a href="#" data-bind="text: $data, click: function(){ $parent.TPACurrentPage($data); }"></a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!-- ko if:TPAHasNextPage -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ TPACurrentPage(TPACurrentPage() + 1); }">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:TPAHasNextPage -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko ifnot:TPACurrentPage() === TPALastPage() -->
+                        <li>
+                            <a href="#" data-bind="click: function(){ TPACurrentPage(TPALastPage()); }">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko if:TPACurrentPage() === TPALastPage() -->
+                        <li class="disabled">
+                            <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+
+                </div>
+                <!-- /ko -->
+            </nav>
+        </div><!-- white-background -->
+
+
+    </div><!-- col-sm-12 -->
+</div>
+
+
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="679a8396-6658-4e24-8808-73bc67694338" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/mmc/CurrentWorkloadService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CurrentWorkloadService.xsd" MetadataType="Schema" ID="d1670abb-1951-4c53-935e-71b9f551bac4" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/CurrentWorkloadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CurrentWorkloadService.wsdl" MetadataType="Wsdl" ID="280ce5e6-b7e6-4846-8e38-daf978a52ea2" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/CurrentWorkloadService.svc?wsdl" />
+    <MetadataFile FileName="CurrentWorkloadService1.xsd" MetadataType="Schema" ID="116933ca-37d4-4ae6-928a-d13623dcd636" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/CurrentWorkloadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CurrentWorkloadService2.xsd" MetadataType="Schema" ID="d6b0850a-8b00-48a5-91fb-51b2ad2a765f" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/CurrentWorkloadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CurrentWorkloadService.disco" MetadataType="Disco" ID="d2f4184d-87bd-4701-b3b9-74937a14a279" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/CurrentWorkloadService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

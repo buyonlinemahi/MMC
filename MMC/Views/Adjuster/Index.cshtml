@@ -1,0 +1,96 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Adjuster/SearchViewModel.js")"></script>
+   <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _searchViewModel = new SearchViewModel();
+        ko.applyBindings(_searchViewModel, $("#AdjusterSearchDiv").get(0));
+    </script>
+
+}
+<div id="AdjusterSearchDiv">
+
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Search Adjuster :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" maxlength="101" id="_SearchTextByName" placeholder="Enter the Keywords Here" required>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.AdjusterSearchName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                    <div class="col-sm-1">
+                        <a class="btn btn-default padding-btn pull-right" type="button" data-bind="attr: {'href': '@Url.Action("SaveAdjusterDetail", "Adjuster")'}">Add New</a>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+         <!--ko with:SearchViewModel-->
+         <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+         <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+         <!--/ko-->
+
+
+            </div><!-- row -->
+        </div><!-- row -->
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+        <div class="row">
+            <div class="col-sm-12 margintop30">
+                <div class="white-background">
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>Adjuster Name</th>
+                                <th>Adjuster Address</th>
+                                <th>Adjuster City </th>
+                                <th>Adjuster State </th>
+                                <th>Adjuster Zip</th>
+                                <th>Action </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko if:AdjusterSearchResults()!= null-->
+                            <!-- ko foreach:AdjusterSearchResults -->
+                            <tr>
+                                 <td><span data-bind="text:(AdjFirstName() + ' ' + AdjLastName())" /></td>
+                            <td><span data-bind="text:AdjAddress1" /></td>
+                            <td><span data-bind="text:AdjCity" /></td>
+                            <td><span data-bind="text:AdjStateName" /></td>
+                            <td><span data-bind="text:AdjZip" /></td>
+                            <td> <a data-bind="attr: {'href': '@Url.Action("SaveAdjusterDetail", "Adjuster")/' + AdjusterID()}">Edit</a> / <a data-bind="click:$root.DeleteAdjusterByID" href="">Delete</a> </td>
+
+                            </tr>
+                            <!--/ko-->
+                            <!--/ko-->
+
+                        </tbody>
+                        <tfoot>
+                            <!--ko if:AdjusterSearchResults()==null || AdjusterSearchResults().length==0-->
+                            <tr>
+                                <td colspan="6">
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            &times;
+                                        </button>
+                                        No Result Found.
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tfoot>
+                    </table>
+                    <nav class="margin-left">
+                        @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                    </nav>
+                </div><!-- white-background -->
+            </div><!-- col-sm-12 -->
+        </div>
+    <!-- /ko -->
+    </div>

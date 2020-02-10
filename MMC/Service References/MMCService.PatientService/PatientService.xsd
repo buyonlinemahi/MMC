@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:complexType name="PagedPatient">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientDetails" nillable="true" type="q1:ArrayOfPatient" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatient" nillable="true" type="tns:PagedPatient" />
+  <xs:complexType name="PagedPatientCurrentMedicalCondition">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientCurrentMedicalConditionDetails" nillable="true" type="q2:ArrayOfPatientCurrentMedicalCondition" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientCurrentMedicalCondition" nillable="true" type="tns:PagedPatientCurrentMedicalCondition" />
+  <xs:complexType name="PagedPatientClaim">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientClaimDetails" nillable="true" type="q3:ArrayOfPatientClaim" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientClaim" nillable="true" type="tns:PagedPatientClaim" />
+  <xs:complexType name="PagedPatientClaimBodyPartByBPStatusID">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientClaimBodyPartByBPStatusIDDetails" nillable="true" type="q4:ArrayOfPatientClaimBodyPartByBPStatusID" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientClaimBodyPartByBPStatusID" nillable="true" type="tns:PagedPatientClaimBodyPartByBPStatusID" />
+  <xs:complexType name="PagedPatientClaimAddOnBodyPart">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientClaimAddOnBodyPartDetails" nillable="true" type="q5:ArrayOfPatientClaimAddOnBodyPart" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientClaimAddOnBodyPart" nillable="true" type="tns:PagedPatientClaimAddOnBodyPart" />
+  <xs:complexType name="PagedPatientClaimPleadBodyPart">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientClaimPleadBodyPartDetails" nillable="true" type="q6:ArrayOfPatientClaimPleadBodyPart" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientClaimPleadBodyPart" nillable="true" type="tns:PagedPatientClaimPleadBodyPart" />
+  <xs:complexType name="PagedPatientClaimDiagnose">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientClaimDiagnoseDetails" nillable="true" type="q7:ArrayOfPatientClaimDiagnose" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientClaimDiagnose" nillable="true" type="tns:PagedPatientClaimDiagnose" />
+  <xs:complexType name="PagedPatientClaimStatus">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientClaimStatustDetails" nillable="true" type="q8:ArrayOfPatientClaimStatus" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientClaimStatus" nillable="true" type="tns:PagedPatientClaimStatus" />
+  <xs:complexType name="PagedPatientMedicalRecordByPatientID">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientMedicalRecordByPatientIDDetails" nillable="true" type="q9:ArrayOfPatientMedicalRecordByPatientID" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientMedicalRecordByPatientID" nillable="true" type="tns:PagedPatientMedicalRecordByPatientID" />
+  <xs:complexType name="PagedBodyPartDetail">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="BodyPartDetails" nillable="true" type="q10:ArrayOfBodyPartDetail" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedBodyPartDetail" nillable="true" type="tns:PagedBodyPartDetail" />
+  <xs:complexType name="PagedNotesDetail">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="NotesDetails" nillable="true" type="q11:ArrayOfNotesDetail" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedNotesDetail" nillable="true" type="tns:PagedNotesDetail" />
+</xs:schema>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap>
+
+  <mvcSiteMapNode title="Home" controller="User" action="Home">
+    <mvcSiteMapNode title="Details > User" controller="User" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveUserDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Patient" controller="Patient" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="PatientDemographics" preservedRouteParameters="id,id2"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Physician" controller="Physician" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SavePhysicianDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Vendor" controller="Vendor" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveVendorDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Case Manager" controller="CaseManager" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveCaseManagerDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Adjuster" controller="Adjuster" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveAdjusterDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Insurer" controller="Insurer" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveInsurerDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Attorney" controller="Attorney" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveAttorneyFirmDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Details > Employer" controller="Employer" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveEmployerDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Managed Care Company" controller="ManagedCareCompany" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveCompanyDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > Third Party Administrator" controller="ThirdPartyAdministrator" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveTPADetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Details > MedicalGroup" controller="MedicalGroup" action="Index">
+      <mvcSiteMapNode title="Data Entry" action="SaveMedicalGroupDetail" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Processing > Preparation" controller="Preparation" action="Index">
+      <mvcSiteMapNode title="Preparation Action" action="PreparationAction" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Processing > Clinical Triage" controller="Preparation" action="ClinicalTriage">
+      <mvcSiteMapNode title="Clinical Triage Action" route="ClinicalTriageAction" action="ClinicalTriageAction" preservedRouteParameters="id,ProcessLevel"/>   
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Processing > Clinical Audit" controller="Preparation" action="ClinicalAudit">
+    <mvcSiteMapNode title="Clinical Audit Action"  controller="Preparation" route="ClinicalAuditAction" action="ClinicalTriageAction" preservedRouteParameters="id,ProcessLevel"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Processing > Intake" controller="Intake" action="Index">
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Processing > Notification" controller="Notification" action="Index">
+      <mvcSiteMapNode title="Notification Action" controller="Notification" action="NotificationAction" preservedRouteParameters="id" />
+    </mvcSiteMapNode>
+  
+    <mvcSiteMapNode title="Management > Client Setup" controller="Client" action="Index">
+    <mvcSiteMapNode title="Client Detail" controller="Client" action="SaveClientDetail" preservedRouteParameters="id" />  
+    </mvcSiteMapNode>
+    
+    
+    <mvcSiteMapNode title="PeerReview > PeerReviewLanding" controller="PeerReview" action="PeerReviewLanding">
+      <mvcSiteMapNode title="PeerReview Action" action="PeerReviewAction" preservedRouteParameters="id"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Processing > IMR" controller="IMR" action="Index">
+      <mvcSiteMapNode title="IMR Search" controller="IMR" action="SearchRequestIMRDetail" preservedRouteParameters="id" />
+      <mvcSiteMapNode title="IMR Response" controller="IMR" action="IMRAction" preservedRouteParameters="id" />
+      <mvcSiteMapNode title="IMR Decision" controller="IMR" action="IMRDecision" preservedRouteParameters="id" />
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Processing > Billing" controller="Billing" action="Index">
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Management > Accounts Receivables" controller="Billing" action="AccountReceivables">
+    </mvcSiteMapNode>
+
+
+    <mvcSiteMapNode title="Additional Documents > Email" controller="Common" action="GetAdditionalDocuments">
+    </mvcSiteMapNode>
+    
+  </mvcSiteMapNode>
+</mvcSiteMap>

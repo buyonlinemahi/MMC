@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MMCService.IMRService" CodeBehind="IMRService.svc.cs" Factory="ServiceInitializer.WcfSvcServiceHostFactory" %>

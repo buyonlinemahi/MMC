@@ -1,0 +1,5 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.Global\bin\Debug\MMCApp.Infrastructure.Global.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.Global\bin\Debug\MMCApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.Global\obj\Debug\MMCApp.Infrastructure.Global.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.Global\obj\Debug\MMCApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.Global\obj\Debug\MMCApp.Infrastructure.Global.csprojResolveAssemblyReference.cache

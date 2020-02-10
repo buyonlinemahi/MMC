@@ -1,0 +1,158 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+<div id="divRFAIntake">
+    <div class="panel-body row">
+        @using (Html.BeginForm(GlobalConst.Actions.IntakeController.SaveRFAIntake, GlobalConst.Controllers.Intake, System.Web.Mvc.FormMethod.Post, new
+        {
+            id = "frmRFAIntake",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UpdateRFAIntakeSuccess(responseText);},beforeSubmit : RFAIntakeInfoFormBeforeSubmit}"
+        }))
+        {
+          
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>RFA Date :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker" name="RFAReferralDate" required="required" data-bind="value:RFAReferralDate,jqBootstrapValidation: {}" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                        <input type="hidden" class="form-control" name="RFAReferralID" data-bind="value:RFAReferralID,jqBootstrapValidation: {}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>CE Date :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker" id="RFACEDate" name="RFACEDate" required="required" data-bind="value:RFACEDate,jqBootstrapValidation: {}" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                    </div>
+                </div>
+            </div>
+    <div class="col-sm-12">
+        <div class="form-group row label-font clearfix">
+            <label for="inputEmail3" class="col-sm-4 control-label">CE Time :</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control time" id="RFACETime" name="RFACETime"  data-bind="value:RFACETime,jqBootstrapValidation: {}" data-validation-regex-regex="^(0[1-9]|1[0-2]):[0-5][0-9]" data-validation-regex-message="Invalid Time" placeholder="HH:MM" />
+          
+               </div>
+            <div class="col-sm-3">
+                <select id="dllampm" name="RFATimeValue" class="form-control" data-bind="options:$root.TimeValue, optionsText:'TimeVal',optionsValue:'Time',value: TimeSel"></select>
+                @*<select class="form-control"  name="RFATimeValue" id="dllampm">
+
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+
+                </select>*@
+            </div>
+        </div>
+    </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label "><span class="required-link">*</span>HCRG Date :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker diableInput" id="RFAHCRGDate" name="RFAHCRGDate" required="required" data-bind="value:RFAHCRGDate,jqBootstrapValidation: {}" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                        <input type="hidden" id="HFRFAHCRGDate" name="RFAHCRGDate" data-bind="value:RFAHCRGDate">
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label "><span class="required-link">*</span>Evaluation Date :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker" id="EvaluationDate" name="EvaluationDate" required="required" data-bind="value:EvaluationDate,jqBootstrapValidation: {}" data-validation-regex-regex="^\d{2}\/\d{2}\/\d{4}$" data-validation-regex-message="Invalid Date">
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>Evaluated By:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control resize-none" id="EvaluatedBy"  name="EvaluatedBy" required="required" data-bind="value:EvaluatedBy,jqBootstrapValidation: {}"/>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>Credentials :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control resize-none" id="Credentials"  name="Credentials" required="required" data-bind="value:Credentials,jqBootstrapValidation: {}"/>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Internal Appeal:</label>
+                    <div class="col-sm-2">
+                        <button class="btn btn-default padding-btn pull-right marginbottom10 diableBtn" id="btnSearch" data-bind="click:$root.SearchRequestByPatientClaim" data-target="#divRequestIMRRecordSearch" type="button" data-backdrop="static" data-keyboard="false" data-toggle="modal">IA Pop Up </button>
+                      
+                    </div>
+                    
+                </div>
+            </div>
+           <div class="col-sm-12">
+        <div class="form-group row label-font clearfix">
+            <label for="inputEmail3" class="col-sm-4 control-label">Modification After Appeal:</label>
+            <div class="col-sm-1">
+                <input type="checkbox" class="form-control checkboxsize" id="InternalAppeal" name="InternalAppeal" value="True" data-bind="checked:InternalAppeal">
+            </div>
+
+        </div>
+    </div>
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>RFA Signed by Physician :</label>
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="form-control checkboxsize diableInput" id="RFASignedByPhysician" name="RFASignedByPhysician" value="True" data-bind="checked:RFASignedByPhysician">
+                        <input type="hidden" id="HFRFASignedByPhysician" name="RFASignedByPhysician" data-bind="value:RFASignedByPhysician">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>Treatment Request Clear :</label>
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="form-control checkboxsize diableInput" id="RFATreatmentRequestClear" name="RFATreatmentRequestClear" value="True" data-bind="checked:RFATreatmentRequestClear">
+                        <input type="hidden" id="HFRFATreatmentRequestClear" name="RFATreatmentRequestClear" data-bind="value:RFATreatmentRequestClear">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label for="inputEmail3" class="col-sm-4 control-label"><span class="required-link">*</span>Any Discrepancies on RFA :</label>
+                    <div class="col-sm-8">
+                        <textarea type="text" class="form-control resize-none" id="RFADiscrepancies" rows="3" name="RFADiscrepancies"  data-bind="value:RFADiscrepancies,jqBootstrapValidation: {}"></textarea>
+                    </div>
+                </div>
+            </div>
+             
+           
+
+    <button class="btn btn-default padding-btn margin-btm-30 pull-right " type="submit" id="uploadButtonData">Submit</button>
+    <div class="modal fade" id="divRequestIMRRecordSearch" tabindex="-1" style="z-index :99" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top padding-5">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" id="btnRequestIMRRecordSearchClose" data-bind="click:ClosePopup" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Request Record(s) </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                      
+                        <div class="row panel-body">
+                            @{Html.RenderPartial("~/Views/Shared/IMR/_RequestIMRRecordResultByPatientClaimPartial.cshtml");}
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        }
+    </div>
+</div>

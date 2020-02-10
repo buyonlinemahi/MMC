@@ -1,0 +1,20 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "SaveVendorDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divSaveADRDetail">
+    @{ Html.RenderPartial("~/Views/Shared/ADR/_ADRPartial.cshtml");  }
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/ADR/SaveDetailViewModel.js")"></script>
+    <script type="text/javascript">
+        var ADRModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _saveDetailViewModel = new SaveDetailViewModel(ADRModel);
+        ko.applyBindings(_saveDetailViewModel, $("#divSaveADRDetail").get(0));
+    </script>
+
+}

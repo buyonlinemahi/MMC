@@ -1,0 +1,16 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Infrastructure.ApplicationServices.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\BCrypt.Net.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\DevOne.Security.Cryptography.BCrypt.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\Interop.Word.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\itextsharp.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Domain.Models.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Infrastructure.Global.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Domain.Models.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\MMCApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\bin\Debug\BCrypt.Net.xml
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\obj\Debug\MMCApp.Infrastructure.ApplicationServices.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\obj\Debug\MMCApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.ApplicationServices\obj\Debug\MMCApp.Infrastructure.ApplicationServices.pdb

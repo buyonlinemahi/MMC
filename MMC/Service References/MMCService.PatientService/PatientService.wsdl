@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PatientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPatientService_addPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientsAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientsAll" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientsAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientsByName" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientCurrentMedicalCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientCurrentMedicalCondition" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientCurrentMedicalCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientCurrentMedicalConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientCurrentMedicalCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientCurrentMedicalCondition" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientCurrentMedicalCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientCurrentMedicalConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientCurrentMedicalCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientCurrentMedicalCondition" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientCurrentMedicalCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientCurrentMedicalConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientCurrentMedicalConditionByPatientId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientCurrentMedicalConditionByPatientId" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientCurrentMedicalConditionByPatientId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientCurrentMedicalConditionByPatientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientCurrentMedicalConditionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientCurrentMedicalConditionByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientCurrentMedicalConditionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientCurrentMedicalConditionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientCurrentMedicalConditionByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientCurrentMedicalConditionByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientCurrentMedicalConditionByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientCurrentMedicalConditionByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientCurrentMedicalConditionByPatientAndCMCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientCurrentMedicalConditionByPatientAndCMCID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientCurrentMedicalConditionByPatientAndCMCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientCurrentMedicalConditionByPatientAndCMCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_UpdatePatientMedicareEligibleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientMedicareEligibleByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_UpdatePatientMedicareEligibleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientMedicareEligibleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaim" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaim" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaim" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientClaimsByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientClaimsByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientClaimsByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientClaimsByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getAllpatientClaimsByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllpatientClaimsByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getAllpatientClaimsByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllpatientClaimsByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientClaimsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientClaimsByName" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientClaimsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientClaimsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimBodyPartByBPStatusID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimBodyPartByBPStatusID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimBodyPartByBPStatusID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimBodyPartByBPStatusIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimAddOnBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimAddOnBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimAddOnBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimAddOnBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimAddOnBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimAddOnBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimAddOnBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimAddOnBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimAddOnBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimAddOnBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimAddOnBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimAddOnBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimAddOnBodyPartByPatientClaimId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimAddOnBodyPartByPatientClaimId" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimAddOnBodyPartByPatientClaimId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimAddOnBodyPartByPatientClaimIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimAddOnBodyPartByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimAddOnBodyPartByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimAddOnBodyPartByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimAddOnBodyPartByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimAddOnBodyPartByPatientClaimID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimAddOnBodyPartByPatientClaimID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimAddOnBodyPartByPatientClaimID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimAddOnBodyPartByPatientClaimIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimPleadBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimPleadBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimPleadBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimPleadBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimPleadBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimPleadBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimPleadBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimPleadBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimPleadBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimPleadBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimPleadBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimPleadBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimPleadBodyPartByPatientClaimId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimPleadBodyPartByPatientClaimId" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimPleadBodyPartByPatientClaimId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimPleadBodyPartByPatientClaimIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimPleadBodyPartByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimPleadBodyPartByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimPleadBodyPartByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimPleadBodyPartByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimPleadBodyPartByPatientClaimID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimPleadBodyPartByPatientClaimID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimPleadBodyPartByPatientClaimID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimPleadBodyPartByPatientClaimIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimPleadBodyPartByPatientClaimID_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimPleadBodyPartByPatientClaimID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimPleadBodyPartByPatientClaimID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimPleadBodyPartByPatientClaimIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimDiagnose_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimDiagnose" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimDiagnose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimDiagnoseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimDiagnose_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimDiagnose" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimDiagnose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimDiagnoseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimDiagnose_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimDiagnose" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimDiagnose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimDiagnoseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimDiagnoseByPatientClaimId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimDiagnoseByPatientClaimId" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimDiagnoseByPatientClaimId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimDiagnoseByPatientClaimIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimDiagnoseByPatientClaimIdAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimDiagnoseByPatientClaimIdAll" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimDiagnoseByPatientClaimIdAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimDiagnoseByPatientClaimIdAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimDiagnoseByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimDiagnoseByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimDiagnoseByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimDiagnoseByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimDiagnosePatientClaimID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimDiagnosePatientClaimID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimDiagnosePatientClaimID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimDiagnosePatientClaimIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientClaimStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientClaimStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientClaimStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientClaimStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updateDeniedRationale_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateDeniedRationale" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updateDeniedRationale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateDeniedRationaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimStatusByPatientClaimId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimStatusByPatientClaimId" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimStatusByPatientClaimId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimStatusByPatientClaimIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimStatusByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimStatusByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimStatusByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimStatusByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimStatusByRefferalID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimStatusByRefferalID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientClaimStatusByRefferalID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientClaimStatusByRefferalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimStatusPatientClaimID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimStatusPatientClaimID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_deletePatientClaimStatusPatientClaimID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletePatientClaimStatusPatientClaimIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientMedicalRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientMedicalRecords" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientMedicalRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientMedicalRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientMedicalRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientMedicalRecords" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientMedicalRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientMedicalRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientMedicalRecordsForMedicalRec_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientMedicalRecordsForMedicalRec" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientMedicalRecordsForMedicalRec_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientMedicalRecordsForMedicalRecResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientsMedicalRecordAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientsMedicalRecordAll" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getpatientsMedicalRecordAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpatientsMedicalRecordAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientMedicalRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientMedicalRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientMedicalRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientMedicalRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getMedicalRecordSplittingByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMedicalRecordSplittingByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getMedicalRecordSplittingByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMedicalRecordSplittingByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientMedicalRecordByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientMedicalRecordByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientMedicalRecordByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientMedicalRecordByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientMedicalRecordTemplateByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientMedicalRecordTemplateByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientMedicalRecordTemplateByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientMedicalRecordTemplateByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetPatientMedicalRecordMultipleTemplateByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientMedicalRecordMultipleTemplateByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetPatientMedicalRecordMultipleTemplateByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientMedicalRecordMultipleTemplateByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getRFARequestRecordsByPatientClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestRecordsByPatientClaim" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getRFARequestRecordsByPatientClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestRecordsByPatientClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientPhysician_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientPhysician" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientPhysician_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientPhysicianResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getAllBodyPartsByClaimId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllBodyPartsByClaimId" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getAllBodyPartsByClaimId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllBodyPartsByClaimIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getNotesByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNotesByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getNotesByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNotesByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientOccupational_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientOccupational" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_addPatientOccupational_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPatientOccupationalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientOccupational_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientOccupational" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_updatePatientOccupational_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePatientOccupationalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientOccupationalByPatientClaimID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientOccupationalByPatientClaimID" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatientOccupationalByPatientClaimID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientOccupationalByPatientClaimIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPatientService">
+    <wsdl:operation name="addPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatient" message="tns:IPatientService_addPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientResponse" message="tns:IPatientService_addPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatient" message="tns:IPatientService_updatePatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientResponse" message="tns:IPatientService_updatePatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatient" message="tns:IPatientService_deletePatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientResponse" message="tns:IPatientService_deletePatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpatientsAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getpatientsAll" message="tns:IPatientService_getpatientsAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getpatientsAllResponse" message="tns:IPatientService_getpatientsAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientByID" message="tns:IPatientService_getPatientByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientByIDResponse" message="tns:IPatientService_getPatientByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientsByName" message="tns:IPatientService_getPatientsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientsByNameResponse" message="tns:IPatientService_getPatientsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientCurrentMedicalCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientCurrentMedicalCondition" message="tns:IPatientService_addPatientCurrentMedicalCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientCurrentMedicalConditionResponse" message="tns:IPatientService_addPatientCurrentMedicalCondition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientCurrentMedicalCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientCurrentMedicalCondition" message="tns:IPatientService_updatePatientCurrentMedicalCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientCurrentMedicalConditionResponse" message="tns:IPatientService_updatePatientCurrentMedicalCondition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientCurrentMedicalCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientCurrentMedicalCondition" message="tns:IPatientService_deletePatientCurrentMedicalCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientCurrentMedicalConditionResponse" message="tns:IPatientService_deletePatientCurrentMedicalCondition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpatientCurrentMedicalConditionByPatientId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getpatientCurrentMedicalConditionByPatientId" message="tns:IPatientService_getpatientCurrentMedicalConditionByPatientId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getpatientCurrentMedicalConditionByPatientIdResponse" message="tns:IPatientService_getpatientCurrentMedicalConditionByPatientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpatientCurrentMedicalConditionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getpatientCurrentMedicalConditionByID" message="tns:IPatientService_getpatientCurrentMedicalConditionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getpatientCurrentMedicalConditionByIDResponse" message="tns:IPatientService_getpatientCurrentMedicalConditionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientCurrentMedicalConditionByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientCurrentMedicalConditionByPatientID" message="tns:IPatientService_deletePatientCurrentMedicalConditionByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientCurrentMedicalConditionByPatientIDResponse" message="tns:IPatientService_deletePatientCurrentMedicalConditionByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientCurrentMedicalConditionByPatientAndCMCID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientCurrentMedicalConditionByPatientAndCMCID" message="tns:IPatientService_getPatientCurrentMedicalConditionByPatientAndCMCID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientCurrentMedicalConditionByPatientAndCMCIDResponse" message="tns:IPatientService_getPatientCurrentMedicalConditionByPatientAndCMCID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientMedicareEligibleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/UpdatePatientMedicareEligibleByID" message="tns:IPatientService_UpdatePatientMedicareEligibleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/UpdatePatientMedicareEligibleByIDResponse" message="tns:IPatientService_UpdatePatientMedicareEligibleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientClaim" message="tns:IPatientService_addPatientClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimResponse" message="tns:IPatientService_addPatientClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaim" message="tns:IPatientService_updatePatientClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimResponse" message="tns:IPatientService_updatePatientClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaim" message="tns:IPatientService_deletePatientClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimResponse" message="tns:IPatientService_deletePatientClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpatientClaimsByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getpatientClaimsByPatientID" message="tns:IPatientService_getpatientClaimsByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getpatientClaimsByPatientIDResponse" message="tns:IPatientService_getpatientClaimsByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllpatientClaimsByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getAllpatientClaimsByPatientID" message="tns:IPatientService_getAllpatientClaimsByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getAllpatientClaimsByPatientIDResponse" message="tns:IPatientService_getAllpatientClaimsByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimByID" message="tns:IPatientService_getPatientClaimByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimByIDResponse" message="tns:IPatientService_getPatientClaimByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpatientClaimsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getpatientClaimsByName" message="tns:IPatientService_getpatientClaimsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getpatientClaimsByNameResponse" message="tns:IPatientService_getpatientClaimsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimBodyPartByBPStatusID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimBodyPartByBPStatusID" message="tns:IPatientService_getPatientClaimBodyPartByBPStatusID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimBodyPartByBPStatusIDResponse" message="tns:IPatientService_getPatientClaimBodyPartByBPStatusID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimAddOnBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimAddOnBodyPart" message="tns:IPatientService_addPatientClaimAddOnBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimAddOnBodyPartResponse" message="tns:IPatientService_addPatientClaimAddOnBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimAddOnBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimAddOnBodyPart" message="tns:IPatientService_updatePatientClaimAddOnBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimAddOnBodyPartResponse" message="tns:IPatientService_updatePatientClaimAddOnBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimAddOnBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimAddOnBodyPart" message="tns:IPatientService_deletePatientClaimAddOnBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimAddOnBodyPartResponse" message="tns:IPatientService_deletePatientClaimAddOnBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimAddOnBodyPartByPatientClaimId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimAddOnBodyPartByPatientClaimId" message="tns:IPatientService_getPatientClaimAddOnBodyPartByPatientClaimId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimAddOnBodyPartByPatientClaimIdResponse" message="tns:IPatientService_getPatientClaimAddOnBodyPartByPatientClaimId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimAddOnBodyPartByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimAddOnBodyPartByID" message="tns:IPatientService_getPatientClaimAddOnBodyPartByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimAddOnBodyPartByIDResponse" message="tns:IPatientService_getPatientClaimAddOnBodyPartByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimAddOnBodyPartByPatientClaimID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimAddOnBodyPartByPatientClaimID" message="tns:IPatientService_deletePatientClaimAddOnBodyPartByPatientClaimID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimAddOnBodyPartByPatientClaimIDResponse" message="tns:IPatientService_deletePatientClaimAddOnBodyPartByPatientClaimID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimPleadBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimPleadBodyPart" message="tns:IPatientService_addPatientClaimPleadBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimPleadBodyPartResponse" message="tns:IPatientService_addPatientClaimPleadBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimPleadBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimPleadBodyPart" message="tns:IPatientService_updatePatientClaimPleadBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimPleadBodyPartResponse" message="tns:IPatientService_updatePatientClaimPleadBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimPleadBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimPleadBodyPart" message="tns:IPatientService_deletePatientClaimPleadBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimPleadBodyPartResponse" message="tns:IPatientService_deletePatientClaimPleadBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimPleadBodyPartByPatientClaimId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimPleadBodyPartByPatientClaimId" message="tns:IPatientService_getPatientClaimPleadBodyPartByPatientClaimId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimPleadBodyPartByPatientClaimIdResponse" message="tns:IPatientService_getPatientClaimPleadBodyPartByPatientClaimId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimPleadBodyPartByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimPleadBodyPartByID" message="tns:IPatientService_getPatientClaimPleadBodyPartByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimPleadBodyPartByIDResponse" message="tns:IPatientService_getPatientClaimPleadBodyPartByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimPleadBodyPartByPatientClaimID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimPleadBodyPartByPatientClaimID" message="tns:IPatientService_deletePatientClaimPleadBodyPartByPatientClaimID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimPleadBodyPartByPatientClaimIDResponse" message="tns:IPatientService_deletePatientClaimPleadBodyPartByPatientClaimID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimPleadBodyPartByPatientClaimID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimPleadBodyPartByPatientClaimID" message="tns:IPatientService_updatePatientClaimPleadBodyPartByPatientClaimID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimPleadBodyPartByPatientClaimIDResponse" message="tns:IPatientService_updatePatientClaimPleadBodyPartByPatientClaimID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimDiagnose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimDiagnose" message="tns:IPatientService_addPatientClaimDiagnose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimDiagnoseResponse" message="tns:IPatientService_addPatientClaimDiagnose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimDiagnose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimDiagnose" message="tns:IPatientService_updatePatientClaimDiagnose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimDiagnoseResponse" message="tns:IPatientService_updatePatientClaimDiagnose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimDiagnose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimDiagnose" message="tns:IPatientService_deletePatientClaimDiagnose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimDiagnoseResponse" message="tns:IPatientService_deletePatientClaimDiagnose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimDiagnoseByPatientClaimId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByPatientClaimId" message="tns:IPatientService_getPatientClaimDiagnoseByPatientClaimId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByPatientClaimIdResponse" message="tns:IPatientService_getPatientClaimDiagnoseByPatientClaimId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimDiagnoseByPatientClaimIdAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByPatientClaimIdAll" message="tns:IPatientService_getPatientClaimDiagnoseByPatientClaimIdAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByPatientClaimIdAllResponse" message="tns:IPatientService_getPatientClaimDiagnoseByPatientClaimIdAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimDiagnoseByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByID" message="tns:IPatientService_getPatientClaimDiagnoseByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByIDResponse" message="tns:IPatientService_getPatientClaimDiagnoseByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimDiagnosePatientClaimID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimDiagnosePatientClaimID" message="tns:IPatientService_deletePatientClaimDiagnosePatientClaimID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimDiagnosePatientClaimIDResponse" message="tns:IPatientService_deletePatientClaimDiagnosePatientClaimID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimStatus" message="tns:IPatientService_addPatientClaimStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientClaimStatusResponse" message="tns:IPatientService_addPatientClaimStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimStatus" message="tns:IPatientService_updatePatientClaimStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientClaimStatusResponse" message="tns:IPatientService_updatePatientClaimStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDeniedRationale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updateDeniedRationale" message="tns:IPatientService_updateDeniedRationale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updateDeniedRationaleResponse" message="tns:IPatientService_updateDeniedRationale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimStatus" message="tns:IPatientService_deletePatientClaimStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimStatusResponse" message="tns:IPatientService_deletePatientClaimStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimStatusByPatientClaimId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimStatusByPatientClaimId" message="tns:IPatientService_getPatientClaimStatusByPatientClaimId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimStatusByPatientClaimIdResponse" message="tns:IPatientService_getPatientClaimStatusByPatientClaimId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimStatusByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimStatusByID" message="tns:IPatientService_getPatientClaimStatusByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimStatusByIDResponse" message="tns:IPatientService_getPatientClaimStatusByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimStatusByRefferalID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimStatusByRefferalID" message="tns:IPatientService_getPatientClaimStatusByRefferalID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientClaimStatusByRefferalIDResponse" message="tns:IPatientService_getPatientClaimStatusByRefferalID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimStatusPatientClaimID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimStatusPatientClaimID" message="tns:IPatientService_deletePatientClaimStatusPatientClaimID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/deletePatientClaimStatusPatientClaimIDResponse" message="tns:IPatientService_deletePatientClaimStatusPatientClaimID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientMedicalRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientMedicalRecords" message="tns:IPatientService_addPatientMedicalRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientMedicalRecordsResponse" message="tns:IPatientService_addPatientMedicalRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientMedicalRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientMedicalRecords" message="tns:IPatientService_updatePatientMedicalRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientMedicalRecordsResponse" message="tns:IPatientService_updatePatientMedicalRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientMedicalRecordsForMedicalRec">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientMedicalRecordsForMedicalRec" message="tns:IPatientService_updatePatientMedicalRecordsForMedicalRec_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientMedicalRecordsForMedicalRecResponse" message="tns:IPatientService_updatePatientMedicalRecordsForMedicalRec_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpatientsMedicalRecordAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getpatientsMedicalRecordAll" message="tns:IPatientService_getpatientsMedicalRecordAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getpatientsMedicalRecordAllResponse" message="tns:IPatientService_getpatientsMedicalRecordAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientMedicalRecordByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientMedicalRecordByID" message="tns:IPatientService_getPatientMedicalRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientMedicalRecordByIDResponse" message="tns:IPatientService_getPatientMedicalRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMedicalRecordSplittingByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getMedicalRecordSplittingByPatientID" message="tns:IPatientService_getMedicalRecordSplittingByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getMedicalRecordSplittingByPatientIDResponse" message="tns:IPatientService_getMedicalRecordSplittingByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientMedicalRecordByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientMedicalRecordByPatientID" message="tns:IPatientService_getPatientMedicalRecordByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientMedicalRecordByPatientIDResponse" message="tns:IPatientService_getPatientMedicalRecordByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientMedicalRecordTemplateByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientMedicalRecordTemplateByPatientID" message="tns:IPatientService_getPatientMedicalRecordTemplateByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientMedicalRecordTemplateByPatientIDResponse" message="tns:IPatientService_getPatientMedicalRecordTemplateByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientMedicalRecordMultipleTemplateByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetPatientMedicalRecordMultipleTemplateByPatientID" message="tns:IPatientService_GetPatientMedicalRecordMultipleTemplateByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetPatientMedicalRecordMultipleTemplateByPatientIDResponse" message="tns:IPatientService_GetPatientMedicalRecordMultipleTemplateByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestRecordsByPatientClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getRFARequestRecordsByPatientClaim" message="tns:IPatientService_getRFARequestRecordsByPatientClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getRFARequestRecordsByPatientClaimResponse" message="tns:IPatientService_getRFARequestRecordsByPatientClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientPhysician">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientPhysician" message="tns:IPatientService_updatePatientPhysician_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientPhysicianResponse" message="tns:IPatientService_updatePatientPhysician_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBodyPartsByClaimId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getAllBodyPartsByClaimId" message="tns:IPatientService_getAllBodyPartsByClaimId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getAllBodyPartsByClaimIdResponse" message="tns:IPatientService_getAllBodyPartsByClaimId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNotesByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getNotesByPatientID" message="tns:IPatientService_getNotesByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getNotesByPatientIDResponse" message="tns:IPatientService_getNotesByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatientOccupational">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/addPatientOccupational" message="tns:IPatientService_addPatientOccupational_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/addPatientOccupationalResponse" message="tns:IPatientService_addPatientOccupational_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientOccupational">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/updatePatientOccupational" message="tns:IPatientService_updatePatientOccupational_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/updatePatientOccupationalResponse" message="tns:IPatientService_updatePatientOccupational_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientOccupationalByPatientClaimID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatientOccupationalByPatientClaimID" message="tns:IPatientService_getPatientOccupationalByPatientClaimID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientOccupationalByPatientClaimIDResponse" message="tns:IPatientService_getPatientOccupationalByPatientClaimID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPatientService" type="tns:IPatientService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addPatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpatientsAll">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getpatientsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientsByName">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientCurrentMedicalCondition">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientCurrentMedicalCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientCurrentMedicalCondition">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientCurrentMedicalCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientCurrentMedicalCondition">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientCurrentMedicalCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpatientCurrentMedicalConditionByPatientId">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getpatientCurrentMedicalConditionByPatientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpatientCurrentMedicalConditionByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getpatientCurrentMedicalConditionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientCurrentMedicalConditionByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientCurrentMedicalConditionByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientCurrentMedicalConditionByPatientAndCMCID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientCurrentMedicalConditionByPatientAndCMCID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientMedicareEligibleByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/UpdatePatientMedicareEligibleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaim">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaim">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaim">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpatientClaimsByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getpatientClaimsByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllpatientClaimsByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getAllpatientClaimsByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpatientClaimsByName">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getpatientClaimsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimBodyPartByBPStatusID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimBodyPartByBPStatusID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimAddOnBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientClaimAddOnBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimAddOnBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientClaimAddOnBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimAddOnBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimAddOnBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimAddOnBodyPartByPatientClaimId">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimAddOnBodyPartByPatientClaimId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimAddOnBodyPartByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimAddOnBodyPartByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimAddOnBodyPartByPatientClaimID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimAddOnBodyPartByPatientClaimID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimPleadBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientClaimPleadBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimPleadBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientClaimPleadBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimPleadBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimPleadBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimPleadBodyPartByPatientClaimId">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimPleadBodyPartByPatientClaimId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimPleadBodyPartByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimPleadBodyPartByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimPleadBodyPartByPatientClaimID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimPleadBodyPartByPatientClaimID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimPleadBodyPartByPatientClaimID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientClaimPleadBodyPartByPatientClaimID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimDiagnose">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientClaimDiagnose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimDiagnose">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientClaimDiagnose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimDiagnose">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimDiagnose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimDiagnoseByPatientClaimId">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByPatientClaimId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimDiagnoseByPatientClaimIdAll">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByPatientClaimIdAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimDiagnoseByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimDiagnoseByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimDiagnosePatientClaimID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimDiagnosePatientClaimID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientClaimStatus">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientClaimStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientClaimStatus">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientClaimStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDeniedRationale">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updateDeniedRationale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimStatus">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimStatusByPatientClaimId">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimStatusByPatientClaimId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimStatusByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimStatusByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientClaimStatusByRefferalID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientClaimStatusByRefferalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePatientClaimStatusPatientClaimID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/deletePatientClaimStatusPatientClaimID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientMedicalRecords">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientMedicalRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientMedicalRecords">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientMedicalRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientMedicalRecordsForMedicalRec">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientMedicalRecordsForMedicalRec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpatientsMedicalRecordAll">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getpatientsMedicalRecordAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientMedicalRecordByID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientMedicalRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMedicalRecordSplittingByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getMedicalRecordSplittingByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientMedicalRecordByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientMedicalRecordByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientMedicalRecordTemplateByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientMedicalRecordTemplateByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientMedicalRecordMultipleTemplateByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/GetPatientMedicalRecordMultipleTemplateByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestRecordsByPatientClaim">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getRFARequestRecordsByPatientClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientPhysician">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientPhysician" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBodyPartsByClaimId">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getAllBodyPartsByClaimId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotesByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getNotesByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPatientOccupational">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/addPatientOccupational" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientOccupational">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/updatePatientOccupational" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientOccupationalByPatientClaimID">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatientOccupationalByPatientClaimID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatientService">
+    <wsdl:port name="BasicHttpBinding_IPatientService" binding="tns:BasicHttpBinding_IPatientService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

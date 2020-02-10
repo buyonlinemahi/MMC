@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatAge" type="xs:int" />
+      <xs:element minOccurs="0" name="PatCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatDOB" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatDOI" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatEthnicBackground" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatFax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatGender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatMaritalStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatMedicareEligible" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatPrimaryLanguageId" type="xs:int" />
+      <xs:element minOccurs="0" name="PatSSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatSecondaryLanguageId" type="xs:int" />
+      <xs:element minOccurs="0" name="PatStateId" type="xs:int" />
+      <xs:element minOccurs="0" name="PatStateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Patient" nillable="true" type="tns:Patient" />
+  <xs:complexType name="ArrayOfPatient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatient" nillable="true" type="tns:ArrayOfPatient" />
+  <xs:complexType name="PatientCurrentMedicalCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentMedicalConditionId" type="xs:int" />
+      <xs:element minOccurs="0" name="PatCurrentMedicalConditionId" type="xs:int" />
+      <xs:element minOccurs="0" name="PatCurrentMedicalConditionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientCurrentMedicalCondition" nillable="true" type="tns:PatientCurrentMedicalCondition" />
+  <xs:complexType name="ArrayOfPatientCurrentMedicalCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientCurrentMedicalCondition" nillable="true" type="tns:PatientCurrentMedicalCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientCurrentMedicalCondition" nillable="true" type="tns:ArrayOfPatientCurrentMedicalCondition" />
+  <xs:complexType name="PatientClaim">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClaimAdministratorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaimStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeniedRationale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatADRID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatAdjudicationStateCaseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatAdjusterID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatApplicantAttorneyID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatCaseManagerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatClaimJurisdictionId" type="xs:int" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatDOI" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatDefenseAttorneyID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatEDIExchangeTrackingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatEmpSubsidiaryID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatEmployerID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatInjuryReportedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatInsValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatInsuranceBranchID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatInsurerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatPhysicianID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatPolicyYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatTPABranchID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatTPAID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PatTPAValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientClaim" nillable="true" type="tns:PatientClaim" />
+  <xs:complexType name="ArrayOfPatientClaim">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientClaim" nillable="true" type="tns:PatientClaim" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientClaim" nillable="true" type="tns:ArrayOfPatientClaim" />
+  <xs:complexType name="ArrayOfPatientClaimBodyPartByBPStatusID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientClaimBodyPartByBPStatusID" nillable="true" type="tns:PatientClaimBodyPartByBPStatusID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientClaimBodyPartByBPStatusID" nillable="true" type="tns:ArrayOfPatientClaimBodyPartByBPStatusID" />
+  <xs:complexType name="PatientClaimBodyPartByBPStatusID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BodyPartStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimBodtPartStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimBodyPartID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientClaimBodyPartByBPStatusID" nillable="true" type="tns:PatientClaimBodyPartByBPStatusID" />
+  <xs:complexType name="PatientClaimAddOnBodyPart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcceptedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AddOnBodyPartCondition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddOnBodyPartID" type="xs:int" />
+      <xs:element minOccurs="0" name="BodyPartStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatAddOnBodyPartCondition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatAddOnBodyPartName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatBodyPartStatusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimAddOnBodyPartID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientClaimAddOnBodyPart" nillable="true" type="tns:PatientClaimAddOnBodyPart" />
+  <xs:complexType name="ArrayOfPatientClaimAddOnBodyPart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientClaimAddOnBodyPart" nillable="true" type="tns:PatientClaimAddOnBodyPart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientClaimAddOnBodyPart" nillable="true" type="tns:ArrayOfPatientClaimAddOnBodyPart" />
+  <xs:complexType name="PatientClaimPleadBodyPart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcceptedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BodyPartStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatBodyPartStatusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatPleadBodyPartCondition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatPleadBodyPartName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimPleadBodyPartID" type="xs:int" />
+      <xs:element minOccurs="0" name="PleadBodyPartCondition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PleadBodyPartID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientClaimPleadBodyPart" nillable="true" type="tns:PatientClaimPleadBodyPart" />
+  <xs:complexType name="ArrayOfPatientClaimPleadBodyPart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientClaimPleadBodyPart" nillable="true" type="tns:PatientClaimPleadBodyPart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientClaimPleadBodyPart" nillable="true" type="tns:ArrayOfPatientClaimPleadBodyPart" />
+  <xs:complexType name="PatientClaimDiagnose">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ICDDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimDiagnosisID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="icdICDNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="icdICDNumberID" type="xs:int" />
+      <xs:element minOccurs="0" name="icdICDTab" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientClaimDiagnose" nillable="true" type="tns:PatientClaimDiagnose" />
+  <xs:complexType name="ArrayOfPatientClaimDiagnose">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientClaimDiagnose" nillable="true" type="tns:PatientClaimDiagnose" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientClaimDiagnose" nillable="true" type="tns:ArrayOfPatientClaimDiagnose" />
+  <xs:complexType name="PatientClaimStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClaimStatusID" type="xs:int" />
+      <xs:element minOccurs="0" name="DeniedRationale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClaimStatusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientClaimStatusID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientClaimStatus" nillable="true" type="tns:PatientClaimStatus" />
+  <xs:complexType name="ArrayOfPatientClaimStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientClaimStatus" nillable="true" type="tns:PatientClaimStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientClaimStatus" nillable="true" type="tns:ArrayOfPatientClaimStatus" />
+  <xs:complexType name="PatientMedicalRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentCategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatMRDocumentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatMRDocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatMRPageEnd" type="xs:int" />
+      <xs:element minOccurs="0" name="PatMRPageStart" type="xs:int" />
+      <xs:element minOccurs="0" name="PatMRSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientMedicalRecordID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientMedicalRecord" nillable="true" type="tns:PatientMedicalRecord" />
+  <xs:complexType name="ArrayOfPatientMedicalRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientMedicalRecord" nillable="true" type="tns:PatientMedicalRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientMedicalRecord" nillable="true" type="tns:ArrayOfPatientMedicalRecord" />
+  <xs:complexType name="ArrayOfPatientMedicalRecordByPatientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientMedicalRecordByPatientID" nillable="true" type="tns:PatientMedicalRecordByPatientID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientMedicalRecordByPatientID" nillable="true" type="tns:ArrayOfPatientMedicalRecordByPatientID" />
+  <xs:complexType name="PatientMedicalRecordByPatientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatMRDocumentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatMRDocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientMedicalRecordID" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysicianName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReferralID" type="xs:int" />
+      <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientMedicalRecordByPatientID" nillable="true" type="tns:PatientMedicalRecordByPatientID" />
+  <xs:complexType name="PatientMedicalRecordTemplateByPatientID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcceptedBodyParts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Claims" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeniedBodyParts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiscoveryBodyParts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientMedicalRecordTemplateByPatientID" nillable="true" type="tns:PatientMedicalRecordTemplateByPatientID" />
+  <xs:complexType name="ArrayOfRFARequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RFARequest" nillable="true" type="tns:RFARequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRFARequest" nillable="true" type="tns:ArrayOfRFARequest" />
+  <xs:complexType name="RFARequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DecisionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DecisionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFACPT_NDC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAClinicalReasonforDecision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFADuration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFADurationTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAExpediteReferral" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RFAFrequency" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAGuidelinesUtilized" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFALatestDueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFANotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAQuantity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFAReferralID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARelevantPortionUtilized" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAReqCertificationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFARequestDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RFARequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFAStrenght" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentCategoryID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TreatmentTypeID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RFARequest" nillable="true" type="tns:RFARequest" />
+  <xs:complexType name="ArrayOfBodyPartDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BodyPartDetail" nillable="true" type="tns:BodyPartDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBodyPartDetail" nillable="true" type="tns:ArrayOfBodyPartDetail" />
+  <xs:complexType name="BodyPartDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BodyPartID" type="xs:int" />
+      <xs:element minOccurs="0" name="BodyPartName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BodyPartStatusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BodyPartDetail" nillable="true" type="tns:BodyPartDetail" />
+  <xs:complexType name="ArrayOfNotesDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotesDetail" nillable="true" type="tns:NotesDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotesDetail" nillable="true" type="tns:ArrayOfNotesDetail" />
+  <xs:complexType name="NotesDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NoteID" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotesDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotesTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientClaimID" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RFARequestedTreatment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotesDetail" nillable="true" type="tns:NotesDetail" />
+  <xs:complexType name="PatientOccupational">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatOptInjuryDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatOptInjuryType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatOptJobDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatOptJobTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatientOccupationalID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientOccupational" nillable="true" type="tns:PatientOccupational" />
+</xs:schema>

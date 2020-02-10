@@ -1,0 +1,72 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/ClinicalTriage/ClinicalTriageViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _clinicalTriageViewModel = new ClinicalTriageViewModel(model);
+        ko.applyBindings(_clinicalTriageViewModel, $("#ClinicalTriageDiv").get(0));
+    </script>
+
+}
+<div id="ClinicalTriageDiv">
+     <div class="row">
+                        <div class="col-sm-12 margintop30">
+                            <div class="white-background">
+                                <table class="table table-bordered table-striped table-condensed home-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Patient Name</th>
+                                            <th>ReferralID</th>
+                                            <th>RequestID </th>
+                                            <th>Request Name</th>
+                                            <th>Decision</th>
+                                             <th>Due Date</th>
+                                            <th>Action </th>
+                                        </tr>
+                                    </thead>
+                    <tbody>
+                        <!--ko if:ClinicalTriages()!= null-->
+                        <!-- ko foreach:ClinicalTriages -->
+                        <tr>
+                            <td><span data-bind="text:PatFirstName() + ' ' + PatLastName()" /></td>
+                            <td><span data-bind="text:RFAReferralID" /></td>
+                               <td><span data-bind="text:RFARequestID" /></td>
+                            <td><span data-bind="text:RFARequestedTreatment" /></td>
+                            <td><span data-bind="text:DecisionDesc" /></td>
+                             <td><span data-bind="text: RFALatestDueDate" /></td>
+                            <td>
+                                <a data-bind="attr: {'href': '@Url.Action("ClinicalTriageAction", "Preparation")/' + RFAReferralID() + '/' + $root.ProcessLevel() }">Make Decision</a>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:ClinicalTriages()==null || ClinicalTriages().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+ 
+</div>
+

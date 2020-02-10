@@ -1,0 +1,118 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "PeerReviewAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/PeerReview/PeerReviewActionViewModel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Notes/SaveDetailViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">    
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _peerReviewActionViewModel = new PeerReviewActionViewModel(model);
+        ko.applyBindings(_peerReviewActionViewModel, $("#PeerReviewActionDiv").get(0));
+
+        var _saveDetailViewModel = new SaveDetailViewModel();
+     
+        _saveDetailViewModel.Init(@MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model)),"PeerReview")
+         ko.applyBindings(_saveDetailViewModel, $("#DivAddNotesBtn").get(0));
+         function RichTextEditor_OnExecUICommand(editor, arg) {
+             var a0 = arg.Arguments[1];
+             if (a0 == "FullScreen")
+             {
+                 return false;
+             }
+         }
+    </script>
+}
+    <div id="DivAddNotesBtn">
+        <button class="btn btn-info padding-btn pull-right" id="btnAddNote" data-target="#NoteDiv " data-backdrop="static"
+                data-bind="click:OpenAddNotes('Notification')" data-keyboard="false" data-toggle="modal" type="button">
+            Add Notes
+        </button>
+        <div id="AddNote">
+            @Html.Partial("~/Views/Shared/Notes/_NotesPartial.cshtml")
+        </div>
+    </div>
+<div id="PeerReviewActionDiv">
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Claim</th>
+                            <th>DOI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span data-bind="text: PatFirstName" /></td>
+                            <td><span data-bind="text: PatClaimNumber" /></td>
+                            <td><span data-bind="text: PatDOI" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- white-background -->
+        </div>
+        <!-- col-sm-12 -->
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Request</th>
+                             <th>Due Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:RequestDetail()!= null-->
+                        <!-- ko foreach:RequestDetail -->
+                        <tr>
+                            <td><span data-bind="text: RFARequestedTreatment" /></td>
+                              <td><span data-bind="text: RFALatestDueDate" /></td>
+                            <td>
+                                
+                                <input type="hidden" data-bind="attr: {'id': 'ClinicalReason_' + RFARequestID()},value: RFAClinicalReasonforDecision" />
+                                <input type="hidden" data-bind="value: RFARequestID" />
+                                <button class="btn btn-default padding-btn btncolor color-black" id="btnRFAClinicalReasonforDecision" data-target="#myClinicalReasonforDecision" data-backdrop="static" data-keyboard="false" data-toggle="modal" type="button" data-bind="click:$root.OpenrichtextPopUp1">Add Clinical Reason</button>
+                                </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                </table>
+                <button id="btnContinue" class="btn btn-info padding-btn color-black pull-right margintop10" data-dismiss="modal" data-toggle="modal" type="button" data-bind="click: $root.btnUpdateProcessLevel">Continue</button>
+            </div>
+            <!-- white-background -->
+        </div>        
+        <!-- col-sm-12 -->
+        <div class="modal fade bs-example-modal-lg" id="myClinicalReasonforDecision" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog position-center modal-lg">
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-bind="click:$root.closeClinicalReasonforDecision" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Clinical Reason for Decision </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div id="divEditor">
+                                    @Html.Raw(ViewBag.Editor1)
+                                </div>
+                                <button class="btn btn-red padding-btn color-black pull-right margintop10" data-dismiss="modal" data-toggle="modal" type="button" data-bind="click: $root.btnRFAClinicalReasonforDecision">Save </button>
+                            </div>
+                            <!-- row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

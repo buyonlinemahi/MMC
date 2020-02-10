@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PreparationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPreparationService_getReferralByProcessLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralByProcessLevel" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getReferralByProcessLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralByProcessLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getPatientAndRequestByReferralId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientAndRequestByReferralId" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getPatientAndRequestByReferralId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientAndRequestByReferralIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getAllRequestByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRequestByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getAllRequestByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRequestByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getPatientAndRequestForNotificationByReferralId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientAndRequestForNotificationByReferralId" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getPatientAndRequestForNotificationByReferralId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientAndRequestForNotificationByReferralIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_updateProcessLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateProcessLevel" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_updateProcessLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateProcessLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getRFANewReferralIDFromRFAOldReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFANewReferralIDFromRFAOldReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getRFANewReferralIDFromRFAOldReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFANewReferralIDFromRFAOldReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_DeleteRFAReferralIDFromReferralFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRFAReferralIDFromReferralFiles" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_DeleteRFAReferralIDFromReferralFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRFAReferralIDFromReferralFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_addRFAAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_addRFAAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_updateRFAAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFAAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_updateRFAAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFAAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getAllRFAAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRFAAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getAllRFAAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRFAAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getRFAAdditionalInfoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAAdditionalInfoById" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getRFAAdditionalInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAAdditionalInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getRemainingRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRemainingRequest" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getRemainingRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRemainingRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_UpdateRFAAdditionalInfoDetailByRequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAAdditionalInfoDetailByRequestID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_UpdateRFAAdditionalInfoDetailByRequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAAdditionalInfoDetailByRequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_updateDecisionByRequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateDecisionByRequestID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_updateDecisionByRequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateDecisionByRequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_AddRFITemplateRecordByRFARequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFITemplateRecordByRFARequestID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_AddRFITemplateRecordByRFARequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFITemplateRecordByRFARequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_AddRFARequestTimeExtensionRecordByRFARequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFARequestTimeExtensionRecordByRFARequestID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_AddRFARequestTimeExtensionRecordByRFARequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFARequestTimeExtensionRecordByRFARequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getAcceptedBodyPartsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAcceptedBodyPartsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getAcceptedBodyPartsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAcceptedBodyPartsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getDeniedBodyPartsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDeniedBodyPartsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getDeniedBodyPartsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDeniedBodyPartsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getDignosisByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDignosisByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getDignosisByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDignosisByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getDelayedBodyPartByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDelayedBodyPartByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getDelayedBodyPartByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDelayedBodyPartByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getReferralMedicalRecordByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralMedicalRecordByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IPreparationService_getReferralMedicalRecordByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralMedicalRecordByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPreparationService">
+    <wsdl:operation name="getReferralByProcessLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getReferralByProcessLevel" message="tns:IPreparationService_getReferralByProcessLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getReferralByProcessLevelResponse" message="tns:IPreparationService_getReferralByProcessLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientAndRequestByReferralId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getPatientAndRequestByReferralId" message="tns:IPreparationService_getPatientAndRequestByReferralId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getPatientAndRequestByReferralIdResponse" message="tns:IPreparationService_getPatientAndRequestByReferralId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRequestByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getAllRequestByReferralID" message="tns:IPreparationService_getAllRequestByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getAllRequestByReferralIDResponse" message="tns:IPreparationService_getAllRequestByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientAndRequestForNotificationByReferralId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getPatientAndRequestForNotificationByReferralId" message="tns:IPreparationService_getPatientAndRequestForNotificationByReferralId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getPatientAndRequestForNotificationByReferralIdResponse" message="tns:IPreparationService_getPatientAndRequestForNotificationByReferralId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateProcessLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/updateProcessLevel" message="tns:IPreparationService_updateProcessLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/updateProcessLevelResponse" message="tns:IPreparationService_updateProcessLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFANewReferralIDFromRFAOldReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getRFANewReferralIDFromRFAOldReferralID" message="tns:IPreparationService_getRFANewReferralIDFromRFAOldReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getRFANewReferralIDFromRFAOldReferralIDResponse" message="tns:IPreparationService_getRFANewReferralIDFromRFAOldReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRFAReferralIDFromReferralFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/DeleteRFAReferralIDFromReferralFiles" message="tns:IPreparationService_DeleteRFAReferralIDFromReferralFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/DeleteRFAReferralIDFromReferralFilesResponse" message="tns:IPreparationService_DeleteRFAReferralIDFromReferralFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFAAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/addRFAAdditionalInfo" message="tns:IPreparationService_addRFAAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/addRFAAdditionalInfoResponse" message="tns:IPreparationService_addRFAAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFAAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/updateRFAAdditionalInfo" message="tns:IPreparationService_updateRFAAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/updateRFAAdditionalInfoResponse" message="tns:IPreparationService_updateRFAAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRFAAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getAllRFAAdditionalInfo" message="tns:IPreparationService_getAllRFAAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getAllRFAAdditionalInfoResponse" message="tns:IPreparationService_getAllRFAAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFAAdditionalInfoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getRFAAdditionalInfoById" message="tns:IPreparationService_getRFAAdditionalInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getRFAAdditionalInfoByIdResponse" message="tns:IPreparationService_getRFAAdditionalInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRemainingRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getRemainingRequest" message="tns:IPreparationService_getRemainingRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getRemainingRequestResponse" message="tns:IPreparationService_getRemainingRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAAdditionalInfoDetailByRequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/UpdateRFAAdditionalInfoDetailByRequestID" message="tns:IPreparationService_UpdateRFAAdditionalInfoDetailByRequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/UpdateRFAAdditionalInfoDetailByRequestIDResponse" message="tns:IPreparationService_UpdateRFAAdditionalInfoDetailByRequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDecisionByRequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/updateDecisionByRequestID" message="tns:IPreparationService_updateDecisionByRequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/updateDecisionByRequestIDResponse" message="tns:IPreparationService_updateDecisionByRequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRFITemplateRecordByRFARequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/AddRFITemplateRecordByRFARequestID" message="tns:IPreparationService_AddRFITemplateRecordByRFARequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/AddRFITemplateRecordByRFARequestIDResponse" message="tns:IPreparationService_AddRFITemplateRecordByRFARequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRFARequestTimeExtensionRecordByRFARequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/AddRFARequestTimeExtensionRecordByRFARequestID" message="tns:IPreparationService_AddRFARequestTimeExtensionRecordByRFARequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/AddRFARequestTimeExtensionRecordByRFARequestIDResponse" message="tns:IPreparationService_AddRFARequestTimeExtensionRecordByRFARequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAcceptedBodyPartsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getAcceptedBodyPartsByReferralID" message="tns:IPreparationService_getAcceptedBodyPartsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getAcceptedBodyPartsByReferralIDResponse" message="tns:IPreparationService_getAcceptedBodyPartsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeniedBodyPartsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getDeniedBodyPartsByReferralID" message="tns:IPreparationService_getDeniedBodyPartsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getDeniedBodyPartsByReferralIDResponse" message="tns:IPreparationService_getDeniedBodyPartsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDignosisByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getDignosisByReferralID" message="tns:IPreparationService_getDignosisByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getDignosisByReferralIDResponse" message="tns:IPreparationService_getDignosisByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDelayedBodyPartByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getDelayedBodyPartByReferralID" message="tns:IPreparationService_getDelayedBodyPartByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getDelayedBodyPartByReferralIDResponse" message="tns:IPreparationService_getDelayedBodyPartByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralMedicalRecordByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPreparationService/getReferralMedicalRecordByPatientID" message="tns:IPreparationService_getReferralMedicalRecordByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPreparationService/getReferralMedicalRecordByPatientIDResponse" message="tns:IPreparationService_getReferralMedicalRecordByPatientID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPreparationService" type="tns:IPreparationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getReferralByProcessLevel">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getReferralByProcessLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientAndRequestByReferralId">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getPatientAndRequestByReferralId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRequestByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getAllRequestByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientAndRequestForNotificationByReferralId">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getPatientAndRequestForNotificationByReferralId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateProcessLevel">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/updateProcessLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFANewReferralIDFromRFAOldReferralID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getRFANewReferralIDFromRFAOldReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRFAReferralIDFromReferralFiles">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/DeleteRFAReferralIDFromReferralFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFAAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/addRFAAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFAAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/updateRFAAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRFAAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getAllRFAAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFAAdditionalInfoById">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getRFAAdditionalInfoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRemainingRequest">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getRemainingRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAAdditionalInfoDetailByRequestID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/UpdateRFAAdditionalInfoDetailByRequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDecisionByRequestID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/updateDecisionByRequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRFITemplateRecordByRFARequestID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/AddRFITemplateRecordByRFARequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRFARequestTimeExtensionRecordByRFARequestID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/AddRFARequestTimeExtensionRecordByRFARequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAcceptedBodyPartsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getAcceptedBodyPartsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeniedBodyPartsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getDeniedBodyPartsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDignosisByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getDignosisByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDelayedBodyPartByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getDelayedBodyPartByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralMedicalRecordByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IPreparationService/getReferralMedicalRecordByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PreparationService">
+    <wsdl:port name="BasicHttpBinding_IPreparationService" binding="tns:BasicHttpBinding_IPreparationService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

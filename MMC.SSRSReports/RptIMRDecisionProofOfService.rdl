@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>RE:</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.37042cm</Top>
+        <Left>0.65137cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>0.99187cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!PatientName.Value, "dsGetProofOfServiceDetails")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.3175cm</Top>
+        <Left>6.52537cm</Left>
+        <Height>0.56472cm</Height>
+        <Width>3.77cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>CLAIM NO.</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.99864cm</Top>
+        <Left>0.65137cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>2.20895cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!PatClaimNumber.Value, "dsGetProofOfServiceDetails")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.96336cm</Top>
+        <Left>6.52537cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>3.77cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>PROOF OF SERVICE</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>3.81138cm</Top>
+        <Left>5.92743cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.43145cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>I am employed in the County of Orange, State of California. I am over the age of 18 and not a party to this action. My business address is 6571 Altura Blvd., Buena Park, CA 90620.
+</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox12</rd:DefaultName>
+        <Top>4.77188cm</Top>
+        <Left>0.13623cm</Left>
+        <Height>1.02333cm</Height>
+        <Width>16.30807cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox14">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="On "+formatdatetime(today)+", I served the following document(s), as indicated below."</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <Format>MM-d-yyy</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox14</rd:DefaultName>
+        <Top>5.90104cm</Top>
+        <Left>0.17151cm</Left>
+        <Height>0.52944cm</Height>
+        <Width>16.27281cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="Textbox28">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>1)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Calibri</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=chr(0168)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Wingdings</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>Utilization Review Determination Letter(s) </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>calibri</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve">  </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve">    </Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox28</rd:DefaultName>
+            <Left>0.04571cm</Left>
+            <Height>0.67937cm</Height>
+            <Width>16.30807cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>#eeece1</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line2">
+            <Top>0.71465cm</Top>
+            <Left>0.04568cm</Left>
+            <Height>0cm</Height>
+            <Width>16.2977cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line3">
+            <Top>2.1693cm</Top>
+            <Height>0cm</Height>
+            <Width>16.35378cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line5">
+            <Top>2.20458cm</Top>
+            <Left>11.20634cm</Left>
+            <Height>1.9491cm</Height>
+            <Width>0cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line8">
+            <Top>2.20458cm</Top>
+            <Left>5.75592cm</Left>
+            <Height>1.9491cm</Height>
+            <Width>0cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox9">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PatientName.Value, "dsGetProofOfServiceDetails")+Environment.NewLine+First(Fields!PatientAddress.Value, "dsGetProofOfServiceDetails")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve">  </Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>2.20458cm</Top>
+            <Left>0.04568cm</Left>
+            <Height>1.9491cm</Height>
+            <Width>5.66459cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PhysicianName.Value, "dsGetProofOfServiceDetails")+Environment.NewLine+First(Fields!PhysicianAddress.Value, "dsGetProofOfServiceDetails")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>2.20458cm</Top>
+            <Left>5.8161cm</Left>
+            <Height>1.9491cm</Height>
+            <Width>5.28441cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!ApplicantAttorneyName.Value, "dsGetProofOfServiceDetails")+Environment.NewLine+First(Fields!ApplicantAttorneyAddress.Value, "dsGetProofOfServiceDetails")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>2.20458cm</Top>
+            <Left>11.24162cm</Left>
+            <Height>1.9491cm</Height>
+            <Width>5.06645cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox29">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>I put one copy of the document(s) identified in (1) in an envelope addressed to each person listed, sealed the envelope, and put first-class postage on the envelope.  The envelope was addressed as follows</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>calibri</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>:</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox29</rd:DefaultName>
+            <Top>0.71465cm</Top>
+            <Left>0.04568cm</Left>
+            <Height>1.48993cm</Height>
+            <Width>16.2977cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>6.65055cm</Top>
+        <Left>0.16353cm</Left>
+        <Height>4.15368cm</Height>
+        <Width>16.39949cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Textbox Name="Textbox34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>  X  </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>By Mail</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>: </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>I am readily familiar of my offices practice of collection and processing </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>         Correspondence for mailing with the United States Postal Service.  Under that practice it   </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>         would be deposited with the United States Postal Service on the same day this declaration  </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>         was executed in the ordinary course of business.  I know that the envelope was sealed and </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>         with postage thereon fully prepaid, placed for collection and mailing on this date, following </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>         ordinary business, in the United States mail in Buena Park, California</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>.</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox34</rd:DefaultName>
+        <Top>12.29347cm</Top>
+        <Left>0.18856cm</Left>
+        <Height>2.90188cm</Height>
+        <Width>16.3434cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox35">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>I declare under penalty of perjury that the foregoing is true and correct.</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <Format>MM-d-yyy</Format>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox35</rd:DefaultName>
+        <Top>15.37174cm</Top>
+        <Left>0.20921cm</Left>
+        <Height>0.6cm</Height>
+        <Width>16.3081cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox40">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="HealthCare Resource Group"</Value>
+                <MarkupType>HTML</MarkupType>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox39</rd:DefaultName>
+        <Top>19.0598cm</Top>
+        <Left>10.1279cm</Left>
+        <Height>0.67937cm</Height>
+        <Width>5.51625cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox41">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Jennifer Soliz"</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox39</rd:DefaultName>
+        <Top>18.49508cm</Top>
+        <Left>10.1279cm</Left>
+        <Height>0.6cm</Height>
+        <Width>5.51625cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line1">
+        <Top>18.42452cm</Top>
+        <Left>9.17541cm</Left>
+        <Height>0cm</Height>
+        <Width>7.05084cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Executed on "+formatdatetime(today)+" at Buena Park, California."</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox14</rd:DefaultName>
+        <Top>16.11285cm</Top>
+        <Left>0.19881cm</Left>
+        <Height>0.6cm</Height>
+        <Width>16.3185cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="ImgUserSignature">
+        <Source>Embedded</Source>
+        <Value>possign</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>16.88924cm</Top>
+        <Left>10.1279cm</Left>
+        <Height>1.42945cm</Height>
+        <Width>5.51625cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>REQUEST(S) FOR AUTHORIZATION OF</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.59505cm</Top>
+        <Left>0.65313cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>5.75748cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox67">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!RequestTreatmentNames.Value, "dsGetProofOfServiceDetails")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox66</rd:DefaultName>
+        <Top>1.59505cm</Top>
+        <Left>6.51644cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>10.09701cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox16">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DATE OF RECEIPT</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>:                                 </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=First(Fields!RFAHCRGDate.Value, "dsGetProofOfServiceDetails")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <Format>MM/d/yyy</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox16</rd:DefaultName>
+        <Top>2.37496cm</Top>
+        <Left>0.60094cm</Left>
+        <Height>0.6cm</Height>
+        <Width>15.96208cm</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!DefenseAttorneyName.Value, "dsGetProofOfServiceDetails")+Environment.NewLine+First(Fields!DefenseAttorneyAddress.Value, "dsGetProofOfServiceDetails")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox5</rd:DefaultName>
+        <Top>10.80776cm</Top>
+        <Left>0.16353cm</Left>
+        <Height>1.38341cm</Height>
+        <Width>16.39949cm</Width>
+        <ZIndex>18</ZIndex>
+        <Visibility>
+          <Hidden>=iif(First(Fields!DefenseAttorneyName.Value, "dsGetProofOfServiceDetails") = "" ,iif(First(Fields!DefenseAttorneyAddress.Value, "dsGetProofOfServiceDetails") = "" ,true,false),false)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <LeftBorder>
+            <Style>Solid</Style>
+          </LeftBorder>
+          <RightBorder>
+            <Style>Solid</Style>
+          </RightBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>7.89633in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
+  </Body>
+  <Width>6.55115in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>MMCDataSource</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>a6f6c3fd-4ff9-486f-be1d-bd190de1373c</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dsGetProofOfServiceDetails">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@referralID">
+            <Value>=Parameters!referralID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>Rpt_GetProofOfServiceDetails</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="RequestTreatmentNames">
+          <DataField>RequestTreatmentNames</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PatientName">
+          <DataField>PatientName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PatClaimNumber">
+          <DataField>PatClaimNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RFAHCRGDate">
+          <DataField>RFAHCRGDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="PatientAddress">
+          <DataField>PatientAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhysicianName">
+          <DataField>PhysicianName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhysicianAddress">
+          <DataField>PhysicianAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ApplicantAttorneyName">
+          <DataField>ApplicantAttorneyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ApplicantAttorneyAddress">
+          <DataField>ApplicantAttorneyAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DefenseAttorneyName">
+          <DataField>DefenseAttorneyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DefenseAttorneyAddress">
+          <DataField>DefenseAttorneyAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactName">
+          <DataField>ContactName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ADRAddress">
+          <DataField>ADRAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClientPrivateLabelName">
+          <DataField>ClientPrivateLabelName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="referralID">
+      <DataType>Integer</DataType>
+      <Prompt>referral ID</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <EmbeddedImages>
+    <EmbeddedImage Name="possign">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAQAAAACVCAYAAAC3riQiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAABYktHRACIBR1IAAAABGdJRmcCAAAANoXMxgAAAAxjbVBQSkNtcDA3MTIAAAADSABzvAAAHOxJREFUeF7t3Xe4HUUZBvDQlBYhICEBFQUJSBGIDYQEEBClV+kGpShBEWmBhF4EBATkARXpnSChl9CbikpRBFSQYkVDIKGDSVjnvfeZMOfbd2bb7J69nO+P3wOZ/WZ2zr1n926Z+WZQkiRKqR5FC5VSvYEWKqV6Ay1USvUGWqiU6g20UCnVG2ihUqo30EKlVG+ghUqp3kALlVK9gRYqpXoDLVRK9QZaqJTqDbRQKdUbaKFSqjfQQqVUb6CFSqneQAuVUvE8/vjjyaOPPmr+l2/vJlqolMpvxowZyUUXXZT88Ic/NEfUoGTOOeecbe655+4rA/y/uw1Qfuihhya/+MUvkssvvzy54IILkn//+9+mWb6v2GihUirs5ZdfTm677bZk2LBhsw/kmBZaaKFk8ODBff8/ceLE5LHHHjO75X2pghYqpbhXXnkl2WeffToO1qbgZLPGGmsk999/v+kK719RtFAplfb222+nDspuWWSRRZJPf/rTyZNPPmm6xvubBy1USnWaOnVq6iBsi5VXXjk55phjEjyLkP3OQguVUp3WW2+91IHXNh/84Af7TgQzZ840XeafQ6KFSqn3HH/88amDre3+9a9/ma7zz+OihUqp98w111ypAywET+/nn3/+ZI455kj22GOP5Oabb06uueYa6vrrr09+/vOf99VDnQUXXDDVXln777+/6T7/TBYtVEr1O/roo1MHls+SSy6Z3H333aYabyuvp556Krn00kuTHXfcke6niH333dc0yfcDtFAp1W/DDTdMHVTSRz/60eTee+814byNqjDm4Mwzz0y+973v0f1n+c53vmOa4W3TQqVUMuitt95K
+hgwZkjqgXIsuuqgJ5fXr8qMf/SgZOnQo7Y/Pnnvuaaqm20oVKKX6PfPMM6kDybX00kubMF63CTfddFPfMGLWN+aFF14w1Trb6PiHUm129tlnJ4ccckih11xVPP/886mDyLX11lubMF63aYsvvjjto+uBBx4woZ31Ov6hVNvg3nf77bdPfZl33nnnBMNyZXxM+Isp9+uS8d2211570X5aeDsh63T8Q6m2eOmll1JfYGmeeeYxobx+DKeffjrdL+y+++4mhNfrpgcffJD2F/A6c9q0aSbsvfiOykq1AabGsi8wc9lll5kqvJ2qHnnkEbpPuOSSS0wIr9dtP/3pT2mfQf68Oioq1W3yC5sFg2lkG7HgFoPtE2Rsm5x33nm0z3D11VebkPdiOyoq1S3ImDPffPOlvrBZMCtOthWT70GgjGuTc845h/YZkFvAje2oqFQ3/O9//0t9UYuYNGmSaYa3XRWbArzVVluZTTy+DUInAPkmoKOiUt2wxRZbpL6oIausskrymc98Jvnwhz/c92+8Gvzzn/9smuLtV4X23f3jhCVj2sR3AsCrQhnb8Y+BCOOmn3vuueSvf/1r8s4775giHqfaaeONN059UX0wWWby5MmmWn9dTH91t59//vmzt8WG9seNG5e8+eab5p88pi3wc3B/Lta8885rNnfGdvxjIJg1a1aC951f+tKXknXXXbfjA+IvwpprrklHPKn2QU499/cXgt+rWxeJM2XMD37wg46YXnXKKaekfjaApKUytuMfbYbJFptttlnqQ/msvfbajWZXVcWwA9gHGXdlfTZIR8b0Kvlzse68806zWcTKgjb6/Oc/n/oweX3/+983TfB2VffgQRr7fUl/+tOfTHi6vp4A/OTPxcIVVypWFrTJww8/nPoQZSCLq2xbdQ/e3bPfk4RnO7KuNX369FS8jOlFv/nNb1I/FxgxYoTZnI5PFbRF2bnPIXIYpGre3//+d/q7kY466igTztsAdp8rY7oJ
+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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>d75199c7-b565-40ec-a778-01d90d03f193</rd:ReportID>
+</Report>

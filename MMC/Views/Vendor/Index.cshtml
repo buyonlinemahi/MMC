@@ -1,0 +1,91 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Vendor/SearchViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _searchViewModel = new SearchViewModel();
+        ko.applyBindings(_searchViewModel, $("#VendorSearchDiv").get(0));
+    </script>
+}
+<div id="VendorSearchDiv">
+
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Search Vendor :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="_SearchTextByName" placeholder="Enter the Keywords Here">
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.VendorSearchName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                    <div class="col-sm-1">
+                        <a href="/Vendor/SaveVendorDetail" class="btn btn-default padding-btn pull-right">Add New</a>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+            <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+        </div><!-- row -->
+    </div><!-- row -->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Vendor Name</th>
+                            <th>Vendor City</th>
+                            <th>Vendor Tax ID </th>
+                            <th>Vendor Phone </th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!--ko if:VendorSearchResults()!= null-->
+                        <!-- ko foreach:VendorSearchResults -->
+
+                        <tr>
+                            <td data-bind="text:VendorName"></td>
+                            <td data-bind="text:VendorCity"></td>
+                            <td data-bind="text:VendorTAX"></td>
+                            <td data-bind="text:VendorPhone"></td>
+                            <td> <a data-bind="attr:{href:'/Vendor/SaveVendorDetail/' + VendorID() }">Edit</a> / <a href="" data-bind="click:$root.DeleteVendorByID">Delete</a> </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if: VendorSearchResults()==null || VendorSearchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+
+                </table>
+
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+</div>

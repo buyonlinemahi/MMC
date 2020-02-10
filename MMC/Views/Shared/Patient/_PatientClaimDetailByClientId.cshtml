@@ -1,0 +1,65 @@
+﻿<div id="ClaimbyClientIdDetailDiv">
+    <!--Model-->
+    <div class="modal fade" id="addClaimDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Client Detail</h4>
+                </div>
+                <div class="modal-body" style="height:800px;overflow:scroll;">
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>Client Managed Care Company </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <span data-bind="text:ClientMCCName () "></span>
+                                </td>
+
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>Client Claim Adminstrator</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr>
+                                <td>
+                                    <span data-bind="text:ClaimAdministratorName() "></span>
+                                </td>
+
+
+                            </tr>
+                         
+                        </tbody>
+                      
+                    </table>
+                    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimEmployerDetailByClientId.cshtml");}
+                    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimInsurerDetailByClientId.cshtml");}
+                    @{Html.RenderPartial("~/Views/Shared/Patient/_PatientClaimTPADetailByClientId.cshtml");}
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+  
+</div>

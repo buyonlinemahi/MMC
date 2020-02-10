@@ -1,0 +1,98 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/ManagedCareCompany/SearchViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _searchViewModel = new SearchViewModel();
+        ko.applyBindings(_searchViewModel, $("#ManagedCareCompanySearchDiv").get(0));
+    </script>
+
+}
+<div id="ManagedCareCompanySearchDiv">
+
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Search Company :</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" name="SearchTextHidden" id="SearchTextHidden" data-bind="value:SearchTextHidden" />
+                        <input type="text" class="form-control" id="_SearchTextByName" maxlength="50" required="required" placeholder="Enter the Keywords Here" data-bind="jqBootstrapValidation: {}">
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.CompanySearchName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                    <div class="col-sm-1">
+                        <a class="btn btn-default padding-btn pull-right" data-bind="attr: {'href': '@Url.Action("SaveCompanyDetail", "ManagedCareCompany")'}">Add New</a>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+            <!--ko with:SearchViewModel-->
+            <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+            <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+            <!--/ko-->
+
+
+        </div><!-- row -->
+    </div><!-- row -->
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+    <div class="row">
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Company City </th>
+                            <th>Company State </th>
+                            <th>Company Zip</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:CompanySearchResults()!= null-->
+                        <!-- ko foreach:CompanySearchResults -->
+                        <tr>
+                            <td>
+                                <span data-bind="text:CompName" />
+                                <input type="hidden" name="CompanyId" id="CompanyId" data-bind="value:CompanyId()" />
+                            </td>
+                            <td><span data-bind="text :CompCity" /></td>
+                            <td> <span data-bind="text :CompStateName" /> </td>
+                            <td><span data-bind="text :CompZip" /></td>
+                            <td> <a data-bind="attr: {'href': '@Url.Action("SaveCompanyDetail", "ManagedCareCompany")/' + CompanyId()}">Edit</a> / <a href="#" data-bind="click:$root.DeletedManagedCareCompanyByID">Delete</a> </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:CompanySearchResults()==null || CompanySearchResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div><!-- white-background -->
+        </div><!-- col-sm-12 -->
+    </div>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,94 @@
+﻿@using MMCApp.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.PreparationController.SaveRFARequestBilling, GlobalConst.Controllers.Preparation, FormMethod.Post, new
+    {
+        id = "frmaddClientBilling",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddRequestBillingDetailSuccess(responseText);},beforeSubmit:RequestBillingFormBeforeSubmit}"
+    }))
+{
+    <div>
+        <div class="col-sm-12 margintop30">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Request Name</th>
+                            <th>RN</th>
+                            <th>MD</th>
+                            <th>Speciality</th>
+                            <th>Admin</th>
+                            <th>Deferral</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="with:patientAndRequestModel">
+                        <!--ko if:RequestDetail!= null-->
+                        <!-- ko foreach:RequestDetail -->
+                        <!--ko if:(RFAStatus() != "SendToPreparation" && $root.ProcessLevel() != 120 && DecisionID() != 13) || (DecisionID() == 9 && $root.ProcessLevel() == 120) -->
+                        <tr>
+                            <td class="col-lg-2">
+                                <span data-bind="text : RFARequestedTreatment" />
+                            </td>
+                            <td class="col-lg-2">
+                                <div class="form-group">
+                                    <!--ko if:(DecisionID() != 9) -->
+                                    <input required class="form-control billingrange" data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" data-bind="jqBootstrapValidation:{}, enable:(DecisionID() == 9?false:true),attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data) + '\].RFARequestBillingRN' }" />
+                                    <input type="hidden" data-bind="jqBootstrapValidation: {},attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestID' },value:RFARequestID()" />
+                                    <!--/ko-->
+                                    <!--ko if:(DecisionID() == 9) -->
+                                    <input disabled="disabled" class="form-control" />
+                                    <!--/ko-->
+                                </div>
+                            </td>
+                            <td class="col-lg-2">
+                                <div class="form-group">
+                                    <!--ko if:(DecisionID() != 9) -->
+                                    <input data-validation-regex-message="Billing between 0.0 to 5.0"  data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" required class="form-control billingrange" name="ClientBillingRetailRateRN" data-bind="jqBootstrapValidation:{}, enable:(DecisionID() == 9?false:true),attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestBillingMD' }" />
+                                    <!--/ko-->
+                                    <!--ko if:(DecisionID() == 9) -->
+                                    <input disabled="disabled" class="form-control" />
+                                    <!--/ko-->
+                                </div>
+                            </td>
+                            <td class="col-lg-2">
+                                <div class="form-group">
+                                    <!--ko if:(DecisionID() != 9) -->
+                                    <input data-validation-regex-message="Billing between 0.0 to 5.0"  data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" required class="form-control billingrange" data-bind="jqBootstrapValidation:{}, enable:(DecisionID() == 9?false:true),attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestBillingSpeciality' }" />
+                                    <!--/ko-->
+                                    <!--ko if:(DecisionID() == 9) -->
+                                    <input disabled="disabled" class="form-control" />
+                                    <!--/ko-->
+                                </div>
+                            </td>
+                            <td class="col-lg-2">
+                                <div class="form-group">
+                                    <!--ko if:(DecisionID() != 9) -->
+                                    <input data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" required class="form-control billingrange" data-bind="jqBootstrapValidation:{}, enable:(DecisionID() == 9?false:true),attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestBillingAdmin' }" />
+                                    <!--/ko-->
+                                    <!--ko if:(DecisionID() == 9) -->
+                                    <input disabled="disabled" class="form-control" />
+                                    <!--/ko-->
+                                </div>
+                            </td>
+                            <td class="col-lg-2">
+                                <div class="form-group">
+                                    <!--ko if:(DecisionID() == 9) -->
+                                    <input data-validation-regex-message="Billing between 0.0 to 5.0" data-validation-regex-regex="^(([0-4]\.[0-9]{1})|([0-5])|(\.[0-9]{1})|(5\.0))$" required class="form-control billingrange" data-bind="jqBootstrapValidation:{}, value: (DecisionID() == 9 ?  $root.DeferralDefault() : ''),  enable:(DecisionID() == 9?true:false),attr: { name: 'RFARequestBilling['+ $root.getIndexForBilling($data)  + '\].RFARequestBillingDeferral' }" />
+                                    <!--/ko-->
+                                    <!--ko if:(DecisionID() != 9) -->
+                                    <input disabled="disabled" class="form-control" />
+                                    <!--/ko-->
+                                </div>
+                            </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-red padding-btn color-black pull-right margin-btm-30" id="btnRequestBillingSave">Save</button>
+    </div>
+}

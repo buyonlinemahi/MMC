@@ -1,0 +1,7 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\bin\Debug\MMCApp.Domain.ViewModels.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\bin\Debug\MMCApp.Domain.ViewModels.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\bin\Debug\MMCApp.Domain.Models.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\bin\Debug\MMCApp.Domain.Models.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\obj\Debug\MMCApp.Domain.ViewModels.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\obj\Debug\MMCApp.Domain.ViewModels.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Domain.ViewModels\obj\Debug\MMCApp.Domain.ViewModels.csprojResolveAssemblyReference.cache

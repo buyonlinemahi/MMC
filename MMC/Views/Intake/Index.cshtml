@@ -1,0 +1,74 @@
+﻿@model MMCApp.Domain.ViewModels.IntakeViewModel.IncompleteReferralsViewModel
+@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Intake/IntakeLandingViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var referralModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _intakeViewModel = new IntakeLandingViewModel(referralModel);
+        ko.applyBindings(_intakeViewModel, $("#IntakeDiv").get(0));
+    </script>
+}
+<div id="IntakeDiv">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="btn btn-default padding-btn pull-right" type="button" data-bind="attr: {'href': '@Url.Action("AddIntake", "Intake")    '}">Add New</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 margintop30"> 
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Referral</th>
+                            <th>Patient</th>
+                            <th>Claim</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:IncompleteReferralDetailsResults()!= null-->
+                        <!-- ko foreach:IncompleteReferralDetailsResults -->
+                        <tr>
+                            <td><span data-bind="text:RFAReferralID" /></td>
+                            <td><span data-bind="text:(PatFirstName() + ' ' + PatLastName())" /></td>
+                            <td><span data-bind="text:PatClaimNumber" /></td>
+                            <td><span /></td>
+                            <td><a data-bind="attr: {'href' : '@Url.Action("updateintake","Intake")/'+RFAReferralID()}">View</a></td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:IncompleteReferralDetailsResults()==null || IncompleteReferralDetailsResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div>
+            <!-- white-background -->
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+</div>

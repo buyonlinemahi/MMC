@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BC941EB-753E-42CE-B7DA-D0A8DE495502}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMCApp.Domain.ViewModels</RootNamespace>
+    <AssemblyName>MMCApp.Domain.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MMCApp.Domain.Models">
+      <HintPath>..\MMCApp.Domain.Models\bin\Debug\MMCApp.Domain.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdditionalDocumentViewModel\AdditionalDocumentViewModel.cs" />
+    <Compile Include="AdjusterViewModel\AdjusterSearchViewModel.cs" />
+    <Compile Include="ADRViewModel\ADRViewModel.cs" />
+    <Compile Include="AttorneyViewModel\AttorneyFirmSearchViewModel.cs" />
+    <Compile Include="AttorneyViewModel\AttorneyFirmTypeViewModel.cs" />
+    <Compile Include="AttorneyViewModel\AttorneyFirmViewModel.cs" />
+    <Compile Include="AttorneyViewModel\AttorneyViewModel.cs" />
+    <Compile Include="Billing\BillingAccountReceivablesViewModel.cs" />
+    <Compile Include="Billing\BillingViewModel.cs" />
+    <Compile Include="Billing\RFAReferralInvoiceViewModel.cs" />
+    <Compile Include="BodyPartViewModel\BodyPartDetailViewModel.cs" />
+    <Compile Include="BodyPartViewModel\BodyPartStatusViewModel.cs" />
+    <Compile Include="BodyPartViewModel\BodyPartViewModel.cs" />
+    <Compile Include="CaseManagerViewModel\CaseManagerSearchViewModel.cs" />
+    <Compile Include="ClaimStatusViewModel\ClaimStatusViewModel.cs" />
+    <Compile Include="ClientBillingViewModel\ClientBillingDetailViewModel.cs" />
+    <Compile Include="ClientBillingViewModel\ClientBillingRetailRateViewModel.cs" />
+    <Compile Include="ClientBillingViewModel\ClientBillingWholesaleRateViewModel.cs" />
+    <Compile Include="ClientModelViewModel\ClientEmployerViewModel.cs" />
+    <Compile Include="ClientModelViewModel\ClientInsurerViewModel.cs" />
+    <Compile Include="ClientModelViewModel\ClientManagedCareCompanyViewModel.cs" />
+    <Compile Include="ClientModelViewModel\ClientThirdPartyAdministratorViewModel.cs" />
+    <Compile Include="ClientModelViewModel\ClientViewModel.cs" />
+    <Compile Include="ClientModelViewModel\PatientClientDetailViewModel.cs" />
+    <Compile Include="ClinicalTriageViewModel\ClinicalTriageActionViewModel.cs" />
+    <Compile Include="ClinicalTriageViewModel\ClinicalTriageViewModel.cs" />
+    <Compile Include="ClinicalTriageViewModel\PatientAndRequestModel.cs" />
+    <Compile Include="ClinicalTriageViewModel\PreviousReferralFromCurrentReferral.cs" />
+    <Compile Include="ClinicalTriageViewModel\RFAAdditionalInfoViewModel.cs" />
+    <Compile Include="CurrentMedicalConditionViewModel\CurrentMedicalConditionAllViewModel.cs" />
+    <Compile Include="DocumentCategoriesViewModel\DocumentCategoriesAllViewModel.cs" />
+    <Compile Include="DocumentTypeViewModel\DocumentTypeViewModel.cs" />
+    <Compile Include="EmailRecordViewModel\EmailRecordAttachmentViewModel.cs" />
+    <Compile Include="EmployerViewModel\EmployerSearchViewModel.cs" />
+    <Compile Include="EmployerViewModel\EmployerSubsidiarySearchViewModel.cs" />
+    <Compile Include="ICD10CodeViewModel\ICD10CodeViewModel.cs" />
+    <Compile Include="ICD9CodeViewModel\ICD9CodeViewModel.cs" />
+    <Compile Include="ICDCodeViewModel\ICDCodeViewModel.cs" />
+    <Compile Include="IMRViewModel\RequestIMRDecisionViewModel.cs" />
+    <Compile Include="IMRViewModel\RequestIMRActionViewModel.cs" />
+    <Compile Include="IMRViewModel\RequestIMRRecordViewModel.cs" />
+    <Compile Include="InsurerViewModel\InsuranceBranchSearchViewModel.cs" />
+    <Compile Include="InsurerViewModel\InsurerSearchViewModel.cs" />
+    <Compile Include="IntakeViewModel\IncompleteReferralsViewModel.cs" />
+    <Compile Include="IntakeViewModel\IntakePatientClaimDiagnoseViewModel.cs" />
+    <Compile Include="IntakeViewModel\PatientClaimBodyPartByBPStatusIDViewModel.cs" />
+    <Compile Include="IntakeViewModel\PatientHistoryViewModel.cs" />
+    <Compile Include="IntakeViewModel\RequestHistoryViewModel.cs" />
+    <Compile Include="IntakeViewModel\RFARecordSplittingViewModel.cs" />
+    <Compile Include="IntakeViewModel\RFARequestViewModel.cs" />
+    <Compile Include="LanguageViewModel\LanguageAllViewModel.cs" />
+    <Compile Include="ManagedCareCompanyViewModel\ManagedCareCompanySearchViewModel.cs" />
+    <Compile Include="MedicalGroupViewModel\MedicalGroupSearchViewModel.cs" />
+    <Compile Include="MedicalRecordReviewViewModel\RFAPatMedicalRecordReviewViewModel.cs" />
+    <Compile Include="NoteViewModel\NoteDetailViewModel.cs" />
+    <Compile Include="NotificationViewModel\NotificationViewModel.cs" />
+    <Compile Include="PatientViewModel\PatientClaimAddUpdateDetails.cs" />
+    <Compile Include="PatientViewModel\PatientClaimSearchViewModel.cs" />
+    <Compile Include="PatientViewModel\PatientAddUpdateDetailsViewModel.cs" />
+    <Compile Include="PatientViewModel\PatientMedicalRecordSplitViewModel.cs" />
+    <Compile Include="PatientViewModel\PatientMedicalRecordViewModel.cs" />
+    <Compile Include="PatientViewModel\PatientOccupationalAddUpdateDetails.cs" />
+    <Compile Include="PatientViewModel\PatientSearchViewModel.cs" />
+    <Compile Include="PeerReviewViewModel\PeerReviewSearchViewModel.cs" />
+    <Compile Include="PhysicianViewModel\PhysicianSearchViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RFADiagnosisViewModel\RFADiagnosisViewModel.cs" />
+    <Compile Include="SpecialtyViewModel\SpecialtyAllViewModel.cs" />
+    <Compile Include="StateViewModel\StateAllViewModel.cs" />
+    <Compile Include="ThirdPartyAdministratorBranchViewModel\ThirdPartyAdministratorBranchViewModel.cs" />
+    <Compile Include="ThirdPartyAdministratorViewModel\ThirdPartyAdministratorViewModel.cs" />
+    <Compile Include="UserViewModel\UserSearchViewModel.cs" />
+    <Compile Include="VendorViewModel\VendorSearchViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

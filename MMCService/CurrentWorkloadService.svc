@@ -1,0 +1,2 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MMCService.CurrentWorkloadService" CodeBehind="CurrentWorkloadService.svc.cs" Factory="ServiceInitializer.WcfSvcServiceHostFactory" %>
+

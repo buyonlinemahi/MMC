@@ -1,0 +1,197 @@
+﻿<div>   
+    <input type="hidden" name="Skip" id="hidskippb" data-bind="value: $root.pbSkip" /> 
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr style="width:100%;">
+                            <th style="width:25%;">Plead Body Part(s) </th>
+                            <th style="width:25%;">Body Part Status </th>
+                            <th width="25%">Body Part Condition </th>
+                            <th style="width:25%;">Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:PleadBodyPartResults()!= null-->
+                        <!-- ko foreach:PleadBodyPartResults -->
+                        <tr style="width:100%;">
+                            <td style="width:25%;">
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].PatientClaimPleadBodyPartID' },value:PatientClaimPleadBodyPartID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].PleadBodyPartID' },value:PleadBodyPartID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].PatPleadBodyPartName' },value:PatPleadBodyPartName" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].BodyPartStatusID' },value:BodyPartStatusID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].PatBodyPartStatusName' },value:PatBodyPartStatusName" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].AcceptedDate' },value:AcceptedDate" />
+
+                                <span data-bind="text:PatPleadBodyPartName"></span>
+                            </td>
+                            <td style="width:25%;"><span data-bind="text:PatBodyPartStatusName"></span></td>
+                            <td style="width:25%;"><span data-bind="text:PatPleadBodyPartCondition"></span></td>
+                            <td style="width:25%;"><a href="#" id="updatePBP" data-bind="click:$root.updatePleadBodyPart,visible: $root.ShowUpdatebtn">Update</a> &nbsp;&nbsp;&nbsp; <a href="#" data-bind="click:$root.removePleadBodyPart">Delete</a> </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:PleadBodyPartResults()==null || PleadBodyPartResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    @*<!-- ko ifnot:pbPager().pbTotalItemCount() > 0 -->
+            <p>
+                No Record found
+            </p>
+            <!-- /ko -->*@
+                    <!-- ko if:pbPager().pbTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: pbPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:pbFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: pbLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: pbTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:pbCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pbCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pbCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:pbHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pbCurrentPage(pbCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pbHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:pbPages -->
+                            <!-- ko if:$data === $parent.pbCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.pbCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.pbCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:pbHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pbCurrentPage(pbCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pbHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:pbCurrentPage() === pbLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ pbCurrentPage(pbLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:pbCurrentPage() === pbLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" data-toggle="modal" data-bind="click:$root.addPleadBodyPart" data-target="#addPleadBodyPart" type="button">Add New</button>
+    @*<button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-toggle="modal" data-backdrop="static" data-bind="click:$root.addPleadBodyPart" data-target="#addPleadBodyPart" type="button">Add New</button>*@
+    <!--Model-->
+    <div class="modal fade" id="addPleadBodyPart" tabindex="-1" role="dialog" style="z-index:9" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" id="ClosePleadBodyPartPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Plead Body Part</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="divClaim">
+
+                        <div class="row">
+
+                            <div class="panel-wrapper">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4">
+                                            <label>Plead Body Part :</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="hidden" id="PatientClaimPleadBodyPartID" />
+                                            <select class="form-control" id="PleadBodyPartID" required data-bind="options: PatientPleadBodys, optionsText: 'BodyPartName', optionsValue: 'BodyPartID', value: selectedItemPatientPleadBodys,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-12 margintop10">
+                                            <div class="col-md-4">
+                                                <label>Body Part Status:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select class="form-control" id="PleadBodyPartStatuesID" required data-bind="options: BodyPartStatues, optionsText: 'BodyPartStatusName', optionsValue: 'BodyPartStatusID', value: selectedItemPleadBodyPartStatues,jqBootstrapValidation:{}"></select>
+                                            </div>
+                                        </div>
+                                    <div class="col-md-12 margintop10">
+                                        <div class="col-md-4">
+                                            <label>Accepted Date:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control datepicker"  id="AcceptedDate" maxlength="15" name="AcceptedDate" data-bind="value:AcceptedDate,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                      <div class="col-md-12 margintop10">
+                                        <div class="col-md-4">
+                                            <label> Condition :</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"  id="Condition" maxlength="50" name="PleadBodyPartCondition" data-bind="value:PleadBodyPartCondition,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-red ClosePop" data-bind="click:AddNewPatientPleadBodyPart">Save</button>
+                    <button type="button" class="btn btn-default closeDiagnosis ClosePop" id="ClosePopUpPatientPleadBodyPart" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

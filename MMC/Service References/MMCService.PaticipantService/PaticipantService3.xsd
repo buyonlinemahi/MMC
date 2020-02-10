@@ -1,0 +1,1407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PaticipantService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:element name="addAdjuster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_adjuster" nillable="true" type="q1:Adjuster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addAdjusterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addAdjusterResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAdjuster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_adjuster" nillable="true" type="q2:Adjuster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAdjusterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateAdjusterResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteAdjuster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_adjusterId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteAdjusterResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getadjustersAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getadjustersAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getadjustersAllResult" nillable="true" type="q3:ArrayOfAdjuster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdjusterByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_adjusterId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdjusterByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAdjusterByIDResult" nillable="true" type="q4:Adjuster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getadjustersByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getadjustersByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getadjustersByNameResult" nillable="true" type="q5:PagedAdjuster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPhysician">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_physician" nillable="true" type="q6:Physician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPhysicianResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPhysicianResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePhysician">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_physician" nillable="true" type="q7:Physician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePhysicianResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePhysicianResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePhysician">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_physicianID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePhysicianResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getphysicianAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getphysicianAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getphysicianAllResult" nillable="true" type="q8:ArrayOfPhysician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPhysicianByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_physicianID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPhysicianByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPhysicianByIDResult" nillable="true" type="q9:Physician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicianByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicianByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="GetPhysicianByNameResult" nillable="true" type="q10:PagedPhysician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicianByNPI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicianByNPIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="GetPhysicianByNPIResult" nillable="true" type="q11:PagedPhysician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicianBySpeciality">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicianBySpecialityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="GetPhysicianBySpecialityResult" nillable="true" type="q12:PagedPhysician" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getVendorsAllResult" nillable="true" type="q13:ArrayOfVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getVendorByIDResult" nillable="true" type="q14:Vendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_vendor" nillable="true" type="q15:Vendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addVendorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_vendor" nillable="true" type="q16:Vendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateVendorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteVendorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchtext" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getVendorsByNameResult" nillable="true" type="q17:PagedVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInsurer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_Insurer" nillable="true" type="q18:Insurer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInsurerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addInsurerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateInsurer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_Insurer" nillable="true" type="q19:Insurer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateInsurerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateInsurerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteInsurer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_InsurerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteInsurerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsurersAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsurersAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getInsurersAllResult" nillable="true" type="q20:ArrayOfInsurer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsurerByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_InsurerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsurerByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getInsurerByIDResult" nillable="true" type="q21:Insurer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsurersByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsurersByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getInsurersByNameResult" nillable="true" type="q22:PagedInsurer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInsuranceBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_insuranceBranch" nillable="true" type="q23:InsuranceBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInsuranceBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addInsuranceBranchResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateInsuranceBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_insuranceBranch" nillable="true" type="q24:InsuranceBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateInsuranceBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateInsuranceBranchResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteInsuranceBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_insuranceBranchID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteInsuranceBranchResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsuranceBranchesByInsurerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_insurerID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsuranceBranchesByInsurerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getInsuranceBranchesByInsurerIDResult" nillable="true" type="q25:PagedInsuranceBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsuranceBranchesAllByInsurerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_insurerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsuranceBranchesAllByInsurerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getInsuranceBranchesAllByInsurerIDResult" nillable="true" type="q26:ArrayOfInsuranceBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsuranceBranchByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_insuranceBranchID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInsuranceBranchByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getInsuranceBranchByIDResult" nillable="true" type="q27:InsuranceBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addEmployer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_employer" nillable="true" type="q28:Employer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addEmployerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addEmployerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateEmployer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_employer" nillable="true" type="q29:Employer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateEmployerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateEmployerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteEmployer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employerid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteEmployerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployersAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployersAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getEmployersAllResult" nillable="true" type="q30:ArrayOfEmployer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employerid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getEmployerByIDResult" nillable="true" type="q31:Employer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployersByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployersByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getEmployersByNameResult" nillable="true" type="q32:PagedEmployer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addEmployerSubsidiaries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_employerSubsidiaries" nillable="true" type="q33:EmployerSubsidiary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addEmployerSubsidiariesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addEmployerSubsidiariesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateEmployerSubsidiaries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_employerSubsidiaries" nillable="true" type="q34:EmployerSubsidiary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateEmployerSubsidiariesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateEmployerSubsidiariesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteEmployerSubsidiaries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employerid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteEmployerSubsidiariesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerSubsidiariesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerSubsidiariesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getEmployerSubsidiariesAllResult" nillable="true" type="q35:ArrayOfEmployerSubsidiary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerSubsidiariesByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employerid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerSubsidiariesByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getEmployerSubsidiariesByIDResult" nillable="true" type="q36:EmployerSubsidiary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerSubsidiariesByEmployerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employerID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployerSubsidiariesByEmployerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getEmployerSubsidiariesByEmployerIDResult" nillable="true" type="q37:PagedEmployerSubsidiary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllEmployerSubsidiariesByEmployerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllEmployerSubsidiariesByEmployerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAllEmployerSubsidiariesByEmployerIDResult" nillable="true" type="q38:ArrayOfEmployerSubsidiary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addCaseManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_caseManager" nillable="true" type="q39:CaseManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addCaseManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addCaseManagerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateCaseManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_caseManager" nillable="true" type="q40:CaseManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateCaseManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateCaseManagerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteCaseManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_caseManagerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteCaseManagerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCaseManagerAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCaseManagerAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getCaseManagerAllResult" nillable="true" type="q41:ArrayOfCaseManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCaseManagerByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_caseManager" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCaseManagerByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getCaseManagerByIDResult" nillable="true" type="q42:CaseManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCaseManagerByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCaseManagerByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getCaseManagerByNameResult" nillable="true" type="q43:PagedCaseManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addThirdPartyAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_thirdPartyAdministrator" nillable="true" type="q44:ThirdPartyAdministrator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addThirdPartyAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addThirdPartyAdministratorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateThirdPartyAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_thirdPartyAdministrator" nillable="true" type="q45:ThirdPartyAdministrator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateThirdPartyAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateThirdPartyAdministratorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteThirdPartyAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_thirdPartyAdministratorId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteThirdPartyAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getThirdPartyAdministratorsAllResult" nillable="true" type="q46:ArrayOfThirdPartyAdministrator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_thirdPartyAdministratorId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getThirdPartyAdministratorByIDResult" nillable="true" type="q47:ThirdPartyAdministrator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getThirdPartyAdministratorsByNameResult" nillable="true" type="q48:PagedThirdPartyAdministrator" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addThirdPartyAdministratorBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_thirdPartyAdministratorBranch" nillable="true" type="q49:ThirdPartyAdministratorBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addThirdPartyAdministratorBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addThirdPartyAdministratorBranchResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateThirdPartyAdministratorBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_thirdPartyAdministratorBranch" nillable="true" type="q50:ThirdPartyAdministratorBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateThirdPartyAdministratorBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateThirdPartyAdministratorBranchResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteThirdPartyAdministratorBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_thirdPartyAdministratorBranchId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteThirdPartyAdministratorBranchResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchesAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchesAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getThirdPartyAdministratorBranchesAllResult" nillable="true" type="q51:ArrayOfThirdPartyAdministratorBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_thirdPartyAdministratorBranchId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getThirdPartyAdministratorBranchByIDResult" nillable="true" type="q52:ThirdPartyAdministratorBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchesByTPAID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_thirdPartyAdministratorId" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchesByTPAIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getThirdPartyAdministratorBranchesByTPAIDResult" nillable="true" type="q53:PagedThirdPartyAdministratorBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchesAllByTPAID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_tpaID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThirdPartyAdministratorBranchesAllByTPAIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getThirdPartyAdministratorBranchesAllByTPAIDResult" nillable="true" type="q54:ArrayOfThirdPartyAdministratorBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addManagedCareCompany">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_company" nillable="true" type="q55:ManagedCareCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addManagedCareCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addManagedCareCompanyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateManagedCareCompany">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_company" nillable="true" type="q56:ManagedCareCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateManagedCareCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateManagedCareCompanyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteManagedCareCompany">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_companyid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteManagedCareCompanyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getManagedCareCompanyAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getManagedCareCompanyAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getManagedCareCompanyAllResult" nillable="true" type="q57:ArrayOfManagedCareCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getManagedCareCompanyByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_companyid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getManagedCareCompanyByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getManagedCareCompanyByIDResult" nillable="true" type="q58:ManagedCareCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getManagedCareCompanyByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getManagedCareCompanyByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getManagedCareCompanyByNameResult" nillable="true" type="q59:PagedManagedCareCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addMedicalGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_medicalGroup" nillable="true" type="q60:MedicalGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addMedicalGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addMedicalGroupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateMedicalGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_medicalGroup" nillable="true" type="q61:MedicalGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateMedicalGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateMedicalGroupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteMedicalGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_medicalGroupId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteMedicalGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalGroupsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalGroupsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getMedicalGroupsAllResult" nillable="true" type="q62:ArrayOfMedicalGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalGroupByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_medicalGroupId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalGroupByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getMedicalGroupByIDResult" nillable="true" type="q63:MedicalGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalGroupsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalGroupsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getMedicalGroupsByNameResult" nillable="true" type="q64:PagedMedicalGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addAttorney">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_attorney" nillable="true" type="q65:Attorney" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addAttorneyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addAttorneyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAttorney">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_attorney" nillable="true" type="q66:Attorney" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAttorneyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateAttorneyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteAttorney">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_attorneyId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteAttorneyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAttorneyAllResult" nillable="true" type="q67:ArrayOfAttorney" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAttorneyByIDResult" nillable="true" type="q68:Attorney" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyByAttorneyFirmID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_attorneyFirmID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyByAttorneyFirmIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAttorneyByAttorneyFirmIDResult" nillable="true" type="q69:PagedAttorney" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyRecordsByFirmTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_attorneyFirmTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyRecordsByFirmTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAttorneyRecordsByFirmTypeIDResult" nillable="true" type="q70:PagedAttorney" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addAttorneyFirm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_attorneyFirm" nillable="true" type="q71:AttorneyFirm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addAttorneyFirmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addAttorneyFirmResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAttorneyFirm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_attorneyFirm" nillable="true" type="q72:AttorneyFirm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAttorneyFirmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateAttorneyFirmResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteAttorneyFirm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_attorneyFirmID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteAttorneyFirmResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyFirmAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyFirmAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAttorneyFirmAllResult" nillable="true" type="q73:ArrayOfAttorneyFirm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyFirmByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyFirmByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAttorneyFirmByIDResult" nillable="true" type="q74:AttorneyFirm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyAndAttorneyFirmByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAttorneyAndAttorneyFirmByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAttorneyAndAttorneyFirmByNameResult" nillable="true" type="q75:PagedAttorneyFirm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPeerReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_peerReview" nillable="true" type="q76:PeerReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPeerReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPeerReviewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePeerReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_peerReview" nillable="true" type="q77:PeerReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePeerReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePeerReviewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePeerReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_peerReviewId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePeerReviewResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPeerReviewsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPeerReviewsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPeerReviewsAllResult" nillable="true" type="q78:ArrayOfPeerReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPeerReviewByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_peerReviewId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPeerReviewByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPeerReviewByIDResult" nillable="true" type="q79:PeerReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPeerReviewsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPeerReviewsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPeerReviewsByNameResult" nillable="true" type="q80:PagedPeerReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientAndPeerReviewRequestByReferralId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientAndPeerReviewRequestByReferralIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientAndPeerReviewRequestByReferralIdResult" nillable="true" type="q81:PatientAndRequestModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addADR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_ADR" nillable="true" type="q82:ADR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addADRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addADRResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateADR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_ADR" nillable="true" type="q83:ADR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateADRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateADRResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteADR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ADRId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteADRResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getADRsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getADRsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getADRsAllResult" nillable="true" type="q84:ArrayOfADR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getADRByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getADRByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getADRByIDResult" nillable="true" type="q85:ADR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getADRsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getADRsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getADRsByNameResult" nillable="true" type="q86:PagedADR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

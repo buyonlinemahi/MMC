@@ -1,0 +1,7 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\bin\Debug\MMCApp.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\bin\Debug\MMCApp.Infrastructure.DependencyResolution.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\obj\Debug\MMCApp.Infrastructure.DependencyResolution.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\obj\Debug\MMCApp.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMCApp.Infrastructure.DependencyResolution\obj\Debug\MMCApp.Infrastructure.DependencyResolution.pdb

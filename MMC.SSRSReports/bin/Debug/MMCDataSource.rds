@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MMCDataSource">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=CORPSRVR\Sql2008;Initial Catalog=MMC;Persist Security Info=True;User ID=uttam;password=uttam;
+
+</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>88ee2786-1edd-4dbb-a327-bf6cb58faa14</DataSourceID>
+</RptDataSource>

@@ -1,0 +1,272 @@
+﻿@using MMCApp.Infrastructure.Global;
+
+@using (Html.BeginForm(GlobalConst.Actions.Client.AddClientBilling, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddClientBilling",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientBillingDetailSuccess(responseText);},beforeSubmit: ClientBillingFormBeforeSubmit}"
+    }))
+{
+
+    <div>
+        <h3>Rate Type</h3>
+        <div class="row">
+            <div class="col-sm-2 marginleft30">
+                <div class="radio">
+                    <label>
+                        <input type="hidden" name="ClientBillingID" id="ClientBillingID" data-bind="value:ClientBillingDetail.ClientBillingID" />
+                        <input type="hidden" name="ClientID" id="ClientBillingClientID" data-bind="value:ClientBillingDetail.ClientID" />
+                        <input type="radio" value="1" id="RadioHourly" name="ClientBillingRateTypeID" data-bind="checked:enableRadio">
+                        Hourly
+                    </label>
+                </div>
+
+            </div>
+            <div class="col-sm-2 ">
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="2" id="RadioFlat" name="ClientBillingRateTypeID" data-bind="checked:enableRadio">
+                        Flat
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2 marginleft30">
+                <div class="radio">
+                    <label class="padding-0">
+                        <input type="checkbox" id="checkboxPrivateLabel" data-bind="checked:enableinput,click:ClearWholesaleInput">
+                        <input type="hidden" data-bind="value:enableinput" name="ClientIsPrivateLabel">
+                        Private Label
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" id="btnAddViewPrivateLabel" class="btn btn-info btn-default padding-btn color-black pull-left margin-left-15 margin-btm-30" data-target="#divPrivateLabelPopUp" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-bind="enable:enableinput,click:ShowClientPrivateLabel">Add / View</button>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-3 control-label" for="inputEmail3"><span class="required-link">*</span>Invoice Number :</label>
+                    <div class="col-sm-9 input-group">
+                        <input type="text" id="ClientInvoiceNumber" maxlength="50" pattern="^[a-zA-Z0-9-]*$" title="" required class="form-control" name="ClientInvoiceNumber" data-bind="value:ClientBillingDetail.ClientInvoiceNumber,jqBootstrapValidation: {}">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-3 control-label marginbottom20" for="inputEmail3"><span class="required-link">*</span>Attention To :</label>
+                    <div class="col-sm-9 input-group">
+                        <select id="ClientAttentionTo" class="form-control required_removebdr testq" name="ClientAttentionToID" required data-bind="options: ClientAttentionTos, optionsText: 'ClientAttentionTo', optionsValue: 'ClientAttentionToID', value: ClientAttentionToSelectedItem ,optionsCaption:'Select Any value',jqBootstrapValidation: {},event:{ change: SelectClientAttentionTo }"></select>
+                    </div>
+                </div>
+            </div>
+            <div id="divClientAttentionToFreeText" class="col-sm-12 marginbottom20">
+                <div class="form-group row label-font clearfix">
+                    <label class="col-sm-3 control-label marginbottom20" for="inputEmail3"></label>
+                    <div class="col-sm-9 input-group">
+                        <textarea id="ClientAttentionToFreeText" rows="3" class="form-control resize-none" name="ClientAttentionToFreeText" data-bind="value:ClientBillingDetail.ClientAttentionToFreeText"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-3">
+                <h4>Rate(s)</h4>
+            </div>
+            <div class="col-sm-6">
+                <h4>Retail</h4>
+            </div>
+            <div class="col-sm-3" id="divWholesale">
+                <h4>Wholesale</h4>
+            </div>
+        </div>
+        <div class="panel-body row">
+            <div class="col-sm-6">
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="required-link">*</span>RN :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+
+                            <input type="hidden" id="ClientBillingRetailRateID" class="form-control" name="ClientBillingRetailRateID" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateID">
+                            <input type="text" id="ClientBillingRetailRateRN" pattern="\d+(\.\d{1,2})?" title="$##.##" required class="form-control " name="ClientBillingRetailRateRN" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateRN,jqBootstrapValidation: {}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="required-link">*</span>MD:</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateMD" pattern="\d+(\.\d{1,2})?" title="$##.##" required class="form-control" name="ClientBillingRetailRateMD" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateMD,jqBootstrapValidation: {}">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="required-link">*</span>Speciality Review :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateSpecialityReview" pattern="\d+(\.\d{1,2})?" title="$##.##" required class="form-control" name="ClientBillingRetailRateSpecialityReview" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateSpecialityReview,jqBootstrapValidation: {}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="required-link">*</span>Admin Fee :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateAdminFee" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" required name="ClientBillingRetailRateAdminFee" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateAdminFee,jqBootstrapValidation: {}">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">IMR Preparation :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateIMRPrep" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" name="ClientBillingRetailRateIMRPrep" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateIMRPrep">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">IMR MD :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateIMRMD" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" name="ClientBillingRetailRateIMRMD" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateIMRMD">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">IMR Rush :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateIMRRush" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" name="ClientBillingRetailRateIMRRush" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateIMRRush">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">Deferral :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingRetailRateDeferral" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" name="ClientBillingRetailRateDeferral" data-bind="value:ClientBillingRetailRateDetail.ClientBillingRetailRateDeferral">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" id="divWholesaleRate">
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3"><span class="required-link required-link-hide">*</span>RN :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="hidden" id="ClientBillingWholesaleRateID" class="form-control" name="ClientBillingWholesaleRateID" data-bind="value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateID">
+                            <input type="text" id="ClientBillingWholesaleRateRN" required pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control required_removebdr clearWholesaleInput" name="ClientBillingWholesaleRateRN" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateRN">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3"><span class="required-link required-link-hide">*</span>MN :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateMD" pattern="\d+(\.\d{1,2})?" title="$##.##" required class="form-control required_removebdr clearWholesaleInput" name="ClientBillingWholesaleRateMD" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateMD">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3"><span class="required-link required-link-hide">*</span>Speciality Review :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateSpecialityReview" pattern="\d+(\.\d{1,2})?" title="$##.##" required class="form-control required_removebdr clearWholesaleInput" name="ClientBillingWholesaleRateSpecialityReview" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateSpecialityReview">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3"><span class="required-link required-link-hide">*</span>Admin Fee :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateAdminFee" pattern="\d+(\.\d{1,2})?" title="$##.##" required class="form-control required_removebdr clearWholesaleInput" name="ClientBillingWholesaleRateAdminFee" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateAdminFee">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">IMR Preparation :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateIMRPrep" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control clearWholesaleInput" name="ClientBillingWholesaleRateIMRPrep" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateIMRPrep">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">IMR MD :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateIMRMD" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control clearWholesaleInput" name="ClientBillingWholesaleRateIMRMD" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateIMRMD">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">IMR Rush :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateIMRRush" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control clearWholesaleInput" name="ClientBillingWholesaleRateIMRRush" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateIMRRush">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group row label-font clearfix">
+                        <label class="col-sm-3 control-label marginbottom20" for="inputEmail3">Deferral :</label>
+                        <div class="col-sm-9 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" id="ClientBillingWholesaleRateDeferral" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control clearWholesaleInput" name="ClientBillingWholesaleRateDeferral" data-bind="enable:enableinput,value:ClientBillingWholesaleRateDetail.ClientBillingWholesaleRateDeferral">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-red padding-btn color-black pull-right margin-btm-30" id="btnClientBillingSave">Save</button>
+    </div>
+}
+<div class="row panel-body divPrivateLabelPopUp">
+    @{Html.RenderPartial("~/Views/Shared/ClientBilling/_ClientIsPrivateLabelPartial.cshtml");}
+</div>

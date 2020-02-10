@@ -1,0 +1,1409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IntakeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MMC.Core.Data.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIntakeService_addRFAReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateClaimInReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClaimInReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateClaimInReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClaimInReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFAInReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFAInReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFAInReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFAInReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updatePhysicianInReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePhysicianInReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updatePhysicianInReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePhysicianInReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getAllIncompleteReferrals_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllIncompleteReferrals" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getAllIncompleteReferrals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllIncompleteReferralsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFASplittedReferralHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFASplittedReferralHistory" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFASplittedReferralHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFASplittedReferralHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAMergedReferralHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAMergedReferralHistory" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAMergedReferralHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAMergedReferralHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UploadSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSignature" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UploadSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_SaveSignatureDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSignatureDescription" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_SaveSignatureDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSignatureDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addReferralFileIntake_InputMessage">
+    <wsdl:part name="parameters" element="tns:addReferralFileIntake" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addReferralFileIntake_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addReferralFileIntakeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addReferralFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:addReferralFile" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addReferralFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addReferralFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateReferralFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateReferralFile" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateReferralFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateReferralFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByIntake_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByIntake" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByIntake_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByIntakeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByRFAReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByRFAReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByRFAReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByRFAReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByRFAReferralIDandFileType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByRFAReferralIDandFileType" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByRFAReferralIDandFileType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByRFAReferralIDandFileTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByRFAReferralIDAndFileTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByRFAReferralIDAndFileTypeID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getReferralFileByRFAReferralIDAndFileTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReferralFileByRFAReferralIDAndFileTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_GetSignaturePathAndDescriptionByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignaturePathAndDescriptionByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_GetSignaturePathAndDescriptionByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignaturePathAndDescriptionByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddRFIReportAdditionalRecordByRFAReferralFileID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFIReportAdditionalRecordByRFAReferralFileID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddRFIReportAdditionalRecordByRFAReferralFileID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFIReportAdditionalRecordByRFAReferralFileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddRFIReportAdditionalRecordByRFARequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFIReportAdditionalRecordByRFARequestID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddRFIReportAdditionalRecordByRFARequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRFIReportAdditionalRecordByRFARequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getPreviousReferralIDFromCurrentReferralInDuplicate_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPreviousReferralIDFromCurrentReferralInDuplicate" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getPreviousReferralIDFromCurrentReferralInDuplicate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPreviousReferralIDFromCurrentReferralInDuplicateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFAReferralFilesAccToReferralIDInPreparationCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAReferralFilesAccToReferralIDInPreparationCase" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFAReferralFilesAccToReferralIDInPreparationCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAReferralFilesAccToReferralIDInPreparationCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequest" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AssignNewReferralToRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignNewReferralToRequest" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AssignNewReferralToRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignNewReferralToRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequestAndDecision_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestAndDecision" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequestAndDecision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestAndDecisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequest" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFARequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFARequest" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFARequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFARequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFADelatedRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFADelatedRequest" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFADelatedRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFADelatedRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequestAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequestAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAReferralAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAReferralAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_GetRFARequestAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRFARequestAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_GetRFARequestAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRFARequestAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_SaveRFARequestAdditionalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRFARequestAdditionalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_SaveRFARequestAdditionalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRFARequestAdditionalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFAReqCertificationNumberByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAReqCertificationNumberByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFAReqCertificationNumberByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAReqCertificationNumberByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFAReferralRequestDecisionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAReferralRequestDecisionByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFAReferralRequestDecisionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAReferralRequestDecisionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFARequestDecisionAndRFAStatusByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFARequestDecisionAndRFAStatusByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFARequestDecisionAndRFAStatusByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFARequestDecisionAndRFAStatusByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFARequestLatestDueDateByRefferalID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFARequestLatestDueDateByRefferalID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_UpdateRFARequestLatestDueDateByRefferalID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFARequestLatestDueDateByRefferalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAReferralCPTCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralCPTCodes" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAReferralCPTCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAReferralCPTCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFAReferralCPTCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFAReferralCPTCodes" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFAReferralCPTCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFAReferralCPTCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFAReferralCPTCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFAReferralCPTCodes" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFAReferralCPTCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFAReferralCPTCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFAReferralCPTCodesByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAReferralCPTCodesByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFAReferralCPTCodesByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAReferralCPTCodesByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARecordSplitting_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARecordSplitting" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARecordSplitting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARecordSplittingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateRFARecordSplitting_InputMessage">
+    <wsdl:part name="parameters" element="tns:udateRFARecordSplitting" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateRFARecordSplitting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:udateRFARecordSplittingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateRFARecordSplittingClaimIDByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:udateRFARecordSplittingClaimIDByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateRFARecordSplittingClaimIDByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:udateRFARecordSplittingClaimIDByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateRFARecordSplittingRecordForMedicalRec_InputMessage">
+    <wsdl:part name="parameters" element="tns:udateRFARecordSplittingRecordForMedicalRec" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateRFARecordSplittingRecordForMedicalRec_OutputMessage">
+    <wsdl:part name="parameters" element="tns:udateRFARecordSplittingRecordForMedicalRecResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFARecordSplitting_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFARecordSplitting" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFARecordSplitting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFARecordSplittingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARecordSplittingByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARecordSplittingByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARecordSplittingByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARecordSplittingByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARecordSplittingByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARecordSplittingByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARecordSplittingByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARecordSplittingByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateReferralIntakePatientClaimByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:udateReferralIntakePatientClaimByID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_udateReferralIntakePatientClaimByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:udateReferralIntakePatientClaimByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getPatientDetailsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientDetailsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getPatientDetailsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientDetailsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFADiagnosisByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFADiagnosisByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFADiagnosisByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFADiagnosisByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAPatMedicalRecordReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAPatMedicalRecordReview" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFAPatMedicalRecordReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFAPatMedicalRecordReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFAPatMedicalRecordReviewByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAPatMedicalRecordReviewByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFAPatMedicalRecordReviewByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFAPatMedicalRecordReviewByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getPatientHistoryByPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientHistoryByPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getPatientHistoryByPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientHistoryByPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRequestHistoryByRFARequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestHistoryByRFARequestID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRequestHistoryByRFARequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestHistoryByRFARequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_saveRFARequestModify_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveRFARequestModify" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_saveRFARequestModify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:saveRFARequestModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestModify_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestModify" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestModify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_GetRequestForDuplicateDecision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestForDuplicateDecision" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_GetRequestForDuplicateDecision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestForDuplicateDecisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:addNotes" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateNotes" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestBilling" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getDeterminationLetterDecisionDesc_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDeterminationLetterDecisionDesc" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getDeterminationLetterDecisionDesc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDeterminationLetterDecisionDescResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestTimeExtensionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestTimeExtensionInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestTimeExtensionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestTimeExtensionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_DeleteRFARequestTimeExtensionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRFARequestTimeExtensionInfo" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_DeleteRFARequestTimeExtensionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRFARequestTimeExtensionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateRFAReferralAdditionalLinkStatementIDbyRefIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_addRFARequestBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRFARequestBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequestBodyPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestBodyPart" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_updateRFARequestBodyPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRFARequestBodyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestBodyPartByRequestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestBodyPartByRequestID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_getRFARequestBodyPartByRequestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRFARequestBodyPartByRequestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFARequestBodyPartByReqID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFARequestBodyPartByReqID" />
+  </wsdl:message>
+  <wsdl:message name="IIntakeService_deleteRFARequestBodyPartByReqID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRFARequestBodyPartByReqIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIntakeService">
+    <wsdl:operation name="addRFAReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFAReferral" message="tns:IIntakeService_addRFAReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFAReferralResponse" message="tns:IIntakeService_addRFAReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClaimInReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateClaimInReferral" message="tns:IIntakeService_updateClaimInReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateClaimInReferralResponse" message="tns:IIntakeService_updateClaimInReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFAInReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateRFAInReferral" message="tns:IIntakeService_updateRFAInReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateRFAInReferralResponse" message="tns:IIntakeService_updateRFAInReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePhysicianInReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updatePhysicianInReferral" message="tns:IIntakeService_updatePhysicianInReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updatePhysicianInReferralResponse" message="tns:IIntakeService_updatePhysicianInReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getReferralByID" message="tns:IIntakeService_getReferralByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getReferralByIDResponse" message="tns:IIntakeService_getReferralByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllIncompleteReferrals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getAllIncompleteReferrals" message="tns:IIntakeService_getAllIncompleteReferrals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getAllIncompleteReferralsResponse" message="tns:IIntakeService_getAllIncompleteReferrals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFASplittedReferralHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFASplittedReferralHistory" message="tns:IIntakeService_addRFASplittedReferralHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFASplittedReferralHistoryResponse" message="tns:IIntakeService_addRFASplittedReferralHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFAMergedReferralHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFAMergedReferralHistory" message="tns:IIntakeService_addRFAMergedReferralHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFAMergedReferralHistoryResponse" message="tns:IIntakeService_addRFAMergedReferralHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/UploadSignature" message="tns:IIntakeService_UploadSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/UploadSignatureResponse" message="tns:IIntakeService_UploadSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSignatureDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/SaveSignatureDescription" message="tns:IIntakeService_SaveSignatureDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/SaveSignatureDescriptionResponse" message="tns:IIntakeService_SaveSignatureDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addReferralFileIntake">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addReferralFileIntake" message="tns:IIntakeService_addReferralFileIntake_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addReferralFileIntakeResponse" message="tns:IIntakeService_addReferralFileIntake_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addReferralFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addReferralFile" message="tns:IIntakeService_addReferralFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addReferralFileResponse" message="tns:IIntakeService_addReferralFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateReferralFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateReferralFile" message="tns:IIntakeService_updateReferralFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateReferralFileResponse" message="tns:IIntakeService_updateReferralFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByID" message="tns:IIntakeService_getReferralFileByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByIDResponse" message="tns:IIntakeService_getReferralFileByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByIntake">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByIntake" message="tns:IIntakeService_getReferralFileByIntake_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByIntakeResponse" message="tns:IIntakeService_getReferralFileByIntake_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByRFAReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralID" message="tns:IIntakeService_getReferralFileByRFAReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDResponse" message="tns:IIntakeService_getReferralFileByRFAReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByRFAReferralIDandFileType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDandFileType" message="tns:IIntakeService_getReferralFileByRFAReferralIDandFileType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDandFileTypeResponse" message="tns:IIntakeService_getReferralFileByRFAReferralIDandFileType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByRFAReferralIDAndFileTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDAndFileTypeID" message="tns:IIntakeService_getReferralFileByRFAReferralIDAndFileTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDAndFileTypeIDResponse" message="tns:IIntakeService_getReferralFileByRFAReferralIDAndFileTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignaturePathAndDescriptionByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/GetSignaturePathAndDescriptionByReferralID" message="tns:IIntakeService_GetSignaturePathAndDescriptionByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/GetSignaturePathAndDescriptionByReferralIDResponse" message="tns:IIntakeService_GetSignaturePathAndDescriptionByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRFIReportAdditionalRecordByRFAReferralFileID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/AddRFIReportAdditionalRecordByRFAReferralFileID" message="tns:IIntakeService_AddRFIReportAdditionalRecordByRFAReferralFileID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/AddRFIReportAdditionalRecordByRFAReferralFileIDResponse" message="tns:IIntakeService_AddRFIReportAdditionalRecordByRFAReferralFileID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRFIReportAdditionalRecordByRFARequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/AddRFIReportAdditionalRecordByRFARequestID" message="tns:IIntakeService_AddRFIReportAdditionalRecordByRFARequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/AddRFIReportAdditionalRecordByRFARequestIDResponse" message="tns:IIntakeService_AddRFIReportAdditionalRecordByRFARequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousReferralIDFromCurrentReferralInDuplicate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getPreviousReferralIDFromCurrentReferralInDuplicate" message="tns:IIntakeService_getPreviousReferralIDFromCurrentReferralInDuplicate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getPreviousReferralIDFromCurrentReferralInDuplicateResponse" message="tns:IIntakeService_getPreviousReferralIDFromCurrentReferralInDuplicate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFAReferralFilesAccToReferralIDInPreparationCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFAReferralFilesAccToReferralIDInPreparationCase" message="tns:IIntakeService_getRFAReferralFilesAccToReferralIDInPreparationCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFAReferralFilesAccToReferralIDInPreparationCaseResponse" message="tns:IIntakeService_getRFAReferralFilesAccToReferralIDInPreparationCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFARequest" message="tns:IIntakeService_addRFARequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestResponse" message="tns:IIntakeService_addRFARequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignNewReferralToRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/AssignNewReferralToRequest" message="tns:IIntakeService_AssignNewReferralToRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/AssignNewReferralToRequestResponse" message="tns:IIntakeService_AssignNewReferralToRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestAndDecision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestAndDecision" message="tns:IIntakeService_updateRFARequestAndDecision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestAndDecisionResponse" message="tns:IIntakeService_updateRFARequestAndDecision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequest" message="tns:IIntakeService_updateRFARequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestResponse" message="tns:IIntakeService_updateRFARequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFARequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/deleteRFARequest" message="tns:IIntakeService_deleteRFARequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/deleteRFARequestResponse" message="tns:IIntakeService_deleteRFARequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFADelatedRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/deleteRFADelatedRequest" message="tns:IIntakeService_deleteRFADelatedRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/deleteRFADelatedRequestResponse" message="tns:IIntakeService_deleteRFADelatedRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestByID" message="tns:IIntakeService_getRFARequestByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestByIDResponse" message="tns:IIntakeService_getRFARequestByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestByReferralID" message="tns:IIntakeService_getRFARequestByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestByReferralIDResponse" message="tns:IIntakeService_getRFARequestByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestAdditionalInfo" message="tns:IIntakeService_addRFARequestAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestAdditionalInfoResponse" message="tns:IIntakeService_addRFARequestAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestAdditionalInfo" message="tns:IIntakeService_updateRFARequestAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestAdditionalInfoResponse" message="tns:IIntakeService_updateRFARequestAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFAReferralAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFAReferralAdditionalInfo" message="tns:IIntakeService_addRFAReferralAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFAReferralAdditionalInfoResponse" message="tns:IIntakeService_addRFAReferralAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRFARequestAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/GetRFARequestAdditionalInfo" message="tns:IIntakeService_GetRFARequestAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/GetRFARequestAdditionalInfoResponse" message="tns:IIntakeService_GetRFARequestAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRFARequestAdditionalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/SaveRFARequestAdditionalInfo" message="tns:IIntakeService_SaveRFARequestAdditionalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/SaveRFARequestAdditionalInfoResponse" message="tns:IIntakeService_SaveRFARequestAdditionalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAReqCertificationNumberByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFAReqCertificationNumberByID" message="tns:IIntakeService_UpdateRFAReqCertificationNumberByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFAReqCertificationNumberByIDResponse" message="tns:IIntakeService_UpdateRFAReqCertificationNumberByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAReferralRequestDecisionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFAReferralRequestDecisionByID" message="tns:IIntakeService_UpdateRFAReferralRequestDecisionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFAReferralRequestDecisionByIDResponse" message="tns:IIntakeService_UpdateRFAReferralRequestDecisionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFARequestDecisionAndRFAStatusByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFARequestDecisionAndRFAStatusByReferralID" message="tns:IIntakeService_UpdateRFARequestDecisionAndRFAStatusByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFARequestDecisionAndRFAStatusByReferralIDResponse" message="tns:IIntakeService_UpdateRFARequestDecisionAndRFAStatusByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFARequestLatestDueDateByRefferalID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFARequestLatestDueDateByRefferalID" message="tns:IIntakeService_UpdateRFARequestLatestDueDateByRefferalID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/UpdateRFARequestLatestDueDateByRefferalIDResponse" message="tns:IIntakeService_UpdateRFARequestLatestDueDateByRefferalID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFAReferralCPTCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFAReferralCPTCodes" message="tns:IIntakeService_addRFAReferralCPTCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFAReferralCPTCodesResponse" message="tns:IIntakeService_addRFAReferralCPTCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFAReferralCPTCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateRFAReferralCPTCodes" message="tns:IIntakeService_updateRFAReferralCPTCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateRFAReferralCPTCodesResponse" message="tns:IIntakeService_updateRFAReferralCPTCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFAReferralCPTCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/deleteRFAReferralCPTCodes" message="tns:IIntakeService_deleteRFAReferralCPTCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/deleteRFAReferralCPTCodesResponse" message="tns:IIntakeService_deleteRFAReferralCPTCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFAReferralCPTCodesByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFAReferralCPTCodesByID" message="tns:IIntakeService_getRFAReferralCPTCodesByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFAReferralCPTCodesByIDResponse" message="tns:IIntakeService_getRFAReferralCPTCodesByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARecordSplitting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFARecordSplitting" message="tns:IIntakeService_addRFARecordSplitting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFARecordSplittingResponse" message="tns:IIntakeService_addRFARecordSplitting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="udateRFARecordSplitting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/udateRFARecordSplitting" message="tns:IIntakeService_udateRFARecordSplitting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/udateRFARecordSplittingResponse" message="tns:IIntakeService_udateRFARecordSplitting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="udateRFARecordSplittingClaimIDByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/udateRFARecordSplittingClaimIDByReferralID" message="tns:IIntakeService_udateRFARecordSplittingClaimIDByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/udateRFARecordSplittingClaimIDByReferralIDResponse" message="tns:IIntakeService_udateRFARecordSplittingClaimIDByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="udateRFARecordSplittingRecordForMedicalRec">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/udateRFARecordSplittingRecordForMedicalRec" message="tns:IIntakeService_udateRFARecordSplittingRecordForMedicalRec_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/udateRFARecordSplittingRecordForMedicalRecResponse" message="tns:IIntakeService_udateRFARecordSplittingRecordForMedicalRec_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFARecordSplitting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/deleteRFARecordSplitting" message="tns:IIntakeService_deleteRFARecordSplitting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/deleteRFARecordSplittingResponse" message="tns:IIntakeService_deleteRFARecordSplitting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARecordSplittingByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFARecordSplittingByID" message="tns:IIntakeService_getRFARecordSplittingByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFARecordSplittingByIDResponse" message="tns:IIntakeService_getRFARecordSplittingByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARecordSplittingByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFARecordSplittingByReferralID" message="tns:IIntakeService_getRFARecordSplittingByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFARecordSplittingByReferralIDResponse" message="tns:IIntakeService_getRFARecordSplittingByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="udateReferralIntakePatientClaimByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/udateReferralIntakePatientClaimByID" message="tns:IIntakeService_udateReferralIntakePatientClaimByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/udateReferralIntakePatientClaimByIDResponse" message="tns:IIntakeService_udateReferralIntakePatientClaimByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientDetailsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getPatientDetailsByReferralID" message="tns:IIntakeService_getPatientDetailsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getPatientDetailsByReferralIDResponse" message="tns:IIntakeService_getPatientDetailsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFADiagnosisByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFADiagnosisByReferralID" message="tns:IIntakeService_getRFADiagnosisByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFADiagnosisByReferralIDResponse" message="tns:IIntakeService_getRFADiagnosisByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFAPatMedicalRecordReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFAPatMedicalRecordReview" message="tns:IIntakeService_addRFAPatMedicalRecordReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFAPatMedicalRecordReviewResponse" message="tns:IIntakeService_addRFAPatMedicalRecordReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFAPatMedicalRecordReviewByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFAPatMedicalRecordReviewByPatientID" message="tns:IIntakeService_getRFAPatMedicalRecordReviewByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFAPatMedicalRecordReviewByPatientIDResponse" message="tns:IIntakeService_getRFAPatMedicalRecordReviewByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientHistoryByPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getPatientHistoryByPatientID" message="tns:IIntakeService_getPatientHistoryByPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getPatientHistoryByPatientIDResponse" message="tns:IIntakeService_getPatientHistoryByPatientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRequestHistoryByRFARequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRequestHistoryByRFARequestID" message="tns:IIntakeService_getRequestHistoryByRFARequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRequestHistoryByRFARequestIDResponse" message="tns:IIntakeService_getRequestHistoryByRFARequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveRFARequestModify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/saveRFARequestModify" message="tns:IIntakeService_saveRFARequestModify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/saveRFARequestModifyResponse" message="tns:IIntakeService_saveRFARequestModify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestModify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestModify" message="tns:IIntakeService_getRFARequestModify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestModifyResponse" message="tns:IIntakeService_getRFARequestModify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestForDuplicateDecision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/GetRequestForDuplicateDecision" message="tns:IIntakeService_GetRequestForDuplicateDecision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/GetRequestForDuplicateDecisionResponse" message="tns:IIntakeService_GetRequestForDuplicateDecision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addNotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addNotes" message="tns:IIntakeService_addNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addNotesResponse" message="tns:IIntakeService_addNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateNotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateNotes" message="tns:IIntakeService_updateNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateNotesResponse" message="tns:IIntakeService_updateNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestBilling" message="tns:IIntakeService_addRFARequestBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestBillingResponse" message="tns:IIntakeService_addRFARequestBilling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeterminationLetterDecisionDesc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getDeterminationLetterDecisionDesc" message="tns:IIntakeService_getDeterminationLetterDecisionDesc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getDeterminationLetterDecisionDescResponse" message="tns:IIntakeService_getDeterminationLetterDecisionDesc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestTimeExtensionInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestTimeExtensionInfo" message="tns:IIntakeService_addRFARequestTimeExtensionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestTimeExtensionInfoResponse" message="tns:IIntakeService_addRFARequestTimeExtensionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRFARequestTimeExtensionInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/DeleteRFARequestTimeExtensionInfo" message="tns:IIntakeService_DeleteRFARequestTimeExtensionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/DeleteRFARequestTimeExtensionInfoResponse" message="tns:IIntakeService_DeleteRFARequestTimeExtensionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID" message="tns:IIntakeService_AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/AddUpdateRFAReferralAdditionalLinkStatementIDbyRefIDResponse" message="tns:IIntakeService_AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID" message="tns:IIntakeService_AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefIDResponse" message="tns:IIntakeService_AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestBodyPart" message="tns:IIntakeService_addRFARequestBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/addRFARequestBodyPartResponse" message="tns:IIntakeService_addRFARequestBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestBodyPart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestBodyPart" message="tns:IIntakeService_updateRFARequestBodyPart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/updateRFARequestBodyPartResponse" message="tns:IIntakeService_updateRFARequestBodyPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestBodyPartByRequestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestBodyPartByRequestID" message="tns:IIntakeService_getRFARequestBodyPartByRequestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/getRFARequestBodyPartByRequestIDResponse" message="tns:IIntakeService_getRFARequestBodyPartByRequestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFARequestBodyPartByReqID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntakeService/deleteRFARequestBodyPartByReqID" message="tns:IIntakeService_deleteRFARequestBodyPartByReqID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntakeService/deleteRFARequestBodyPartByReqIDResponse" message="tns:IIntakeService_deleteRFARequestBodyPartByReqID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIntakeService" type="tns:IIntakeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addRFAReferral">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFAReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClaimInReferral">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateClaimInReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFAInReferral">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateRFAInReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePhysicianInReferral">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updatePhysicianInReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getReferralByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllIncompleteReferrals">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getAllIncompleteReferrals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFASplittedReferralHistory">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFASplittedReferralHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFAMergedReferralHistory">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFAMergedReferralHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSignature">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/UploadSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSignatureDescription">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/SaveSignatureDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addReferralFileIntake">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addReferralFileIntake" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addReferralFile">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addReferralFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateReferralFile">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateReferralFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getReferralFileByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByIntake">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getReferralFileByIntake" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByRFAReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByRFAReferralIDandFileType">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDandFileType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReferralFileByRFAReferralIDAndFileTypeID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getReferralFileByRFAReferralIDAndFileTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignaturePathAndDescriptionByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/GetSignaturePathAndDescriptionByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRFIReportAdditionalRecordByRFAReferralFileID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/AddRFIReportAdditionalRecordByRFAReferralFileID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRFIReportAdditionalRecordByRFARequestID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/AddRFIReportAdditionalRecordByRFARequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousReferralIDFromCurrentReferralInDuplicate">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getPreviousReferralIDFromCurrentReferralInDuplicate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFAReferralFilesAccToReferralIDInPreparationCase">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFAReferralFilesAccToReferralIDInPreparationCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequest">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFARequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignNewReferralToRequest">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/AssignNewReferralToRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestAndDecision">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateRFARequestAndDecision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequest">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateRFARequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFARequest">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/deleteRFARequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFADelatedRequest">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/deleteRFADelatedRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFARequestByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFARequestByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFARequestAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateRFARequestAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFAReferralAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFAReferralAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRFARequestAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/GetRFARequestAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRFARequestAdditionalInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/SaveRFARequestAdditionalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAReqCertificationNumberByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/UpdateRFAReqCertificationNumberByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAReferralRequestDecisionByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/UpdateRFAReferralRequestDecisionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFARequestDecisionAndRFAStatusByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/UpdateRFARequestDecisionAndRFAStatusByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFARequestLatestDueDateByRefferalID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/UpdateRFARequestLatestDueDateByRefferalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFAReferralCPTCodes">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFAReferralCPTCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFAReferralCPTCodes">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateRFAReferralCPTCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFAReferralCPTCodes">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/deleteRFAReferralCPTCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFAReferralCPTCodesByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFAReferralCPTCodesByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARecordSplitting">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFARecordSplitting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="udateRFARecordSplitting">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/udateRFARecordSplitting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="udateRFARecordSplittingClaimIDByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/udateRFARecordSplittingClaimIDByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="udateRFARecordSplittingRecordForMedicalRec">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/udateRFARecordSplittingRecordForMedicalRec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFARecordSplitting">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/deleteRFARecordSplitting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARecordSplittingByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFARecordSplittingByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARecordSplittingByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFARecordSplittingByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="udateReferralIntakePatientClaimByID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/udateReferralIntakePatientClaimByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientDetailsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getPatientDetailsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFADiagnosisByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFADiagnosisByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFAPatMedicalRecordReview">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFAPatMedicalRecordReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFAPatMedicalRecordReviewByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFAPatMedicalRecordReviewByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientHistoryByPatientID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getPatientHistoryByPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequestHistoryByRFARequestID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRequestHistoryByRFARequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveRFARequestModify">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/saveRFARequestModify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestModify">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFARequestModify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestForDuplicateDecision">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/GetRequestForDuplicateDecision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNotes">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateNotes">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestBilling">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFARequestBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeterminationLetterDecisionDesc">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getDeterminationLetterDecisionDesc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestTimeExtensionInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFARequestTimeExtensionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRFARequestTimeExtensionInfo">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/DeleteRFARequestTimeExtensionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/AddUpdateRFAReferralAdditionalLinkStatementIDbyRefID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/AddUpdateRFAReferralAdditionalLinkInvoiceIDbyRefID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRFARequestBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/addRFARequestBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRFARequestBodyPart">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/updateRFARequestBodyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRFARequestBodyPartByRequestID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/getRFARequestBodyPartByRequestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRFARequestBodyPartByReqID">
+      <soap:operation soapAction="http://tempuri.org/IIntakeService/deleteRFARequestBodyPartByReqID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IntakeService">
+    <wsdl:port name="BasicHttpBinding_IIntakeService" binding="tns:BasicHttpBinding_IIntakeService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/IntakeService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PatientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:element name="addPatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patient" nillable="true" type="q1:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patient" nillable="true" type="q2:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientsAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientsAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getpatientsAllResult" nillable="true" type="q3:ArrayOfPatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientByIDResult" nillable="true" type="q4:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientsByNameResult" nillable="true" type="q5:PagedPatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientCurrentMedicalCondition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientCurrentMedicalCondition" nillable="true" type="q6:PatientCurrentMedicalCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientCurrentMedicalConditionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientCurrentMedicalConditionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientCurrentMedicalCondition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientCurrentMedicalCondition" nillable="true" type="q7:PatientCurrentMedicalCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientCurrentMedicalConditionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientCurrentMedicalConditionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientCurrentMedicalCondition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientCurrentMedicalConditionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientCurrentMedicalConditionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientCurrentMedicalConditionByPatientId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientCurrentMedicalConditionByPatientIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getpatientCurrentMedicalConditionByPatientIdResult" nillable="true" type="q8:PagedPatientCurrentMedicalCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientCurrentMedicalConditionByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientCurrentMedicalConditionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientCurrentMedicalConditionByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getpatientCurrentMedicalConditionByIDResult" nillable="true" type="q9:PatientCurrentMedicalCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientCurrentMedicalConditionByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientCurrentMedicalConditionByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientCurrentMedicalConditionByPatientAndCMCID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientid" type="xs:int" />
+        <xs:element minOccurs="0" name="_currentMedicalConditionId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientCurrentMedicalConditionByPatientAndCMCIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getPatientCurrentMedicalConditionByPatientAndCMCIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePatientMedicareEligibleByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientid" type="xs:int" />
+        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_currentMedicalConditionId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePatientMedicareEligibleByIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaim" nillable="true" type="q10:PatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientClaimResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaim" nillable="true" type="q11:PatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientClaimResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientClaimsByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientClaimsByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getpatientClaimsByPatientIDResult" nillable="true" type="q12:PagedPatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllpatientClaimsByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllpatientClaimsByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAllpatientClaimsByPatientIDResult" nillable="true" type="q13:ArrayOfPatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimByIDResult" nillable="true" type="q14:PatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientClaimsByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientClaimsByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getpatientClaimsByNameResult" nillable="true" type="q15:PagedPatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimBodyPartByBPStatusID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_bodyPartStatusID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimBodyPartByBPStatusIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientClaimBodyPartByBPStatusIDResult" nillable="true" type="q16:PagedPatientClaimBodyPartByBPStatusID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimAddOnBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimAddOnBodyPart" nillable="true" type="q17:PatientClaimAddOnBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimAddOnBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientClaimAddOnBodyPartResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimAddOnBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimAddOnBodyPart" nillable="true" type="q18:PatientClaimAddOnBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimAddOnBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientClaimAddOnBodyPartResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimAddOnBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientAddOnBodyPartID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimAddOnBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimAddOnBodyPartByPatientClaimId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientclaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimAddOnBodyPartByPatientClaimIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientClaimAddOnBodyPartByPatientClaimIdResult" nillable="true" type="q19:PagedPatientClaimAddOnBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimAddOnBodyPartByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientAddOnBodyPartID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimAddOnBodyPartByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimAddOnBodyPartByIDResult" nillable="true" type="q20:PatientClaimAddOnBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimAddOnBodyPartByPatientClaimID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimAddOnBodyPartByPatientClaimIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimPleadBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimPleadBodyPart" nillable="true" type="q21:PatientClaimPleadBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimPleadBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientClaimPleadBodyPartResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimPleadBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimPleadBodyPart" nillable="true" type="q22:PatientClaimPleadBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimPleadBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientClaimPleadBodyPartResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimPleadBodyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimPleadBodyPartID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimPleadBodyPartResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimPleadBodyPartByPatientClaimId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientclaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimPleadBodyPartByPatientClaimIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientClaimPleadBodyPartByPatientClaimIdResult" nillable="true" type="q23:PagedPatientClaimPleadBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimPleadBodyPartByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimPleadBodyPartID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimPleadBodyPartByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimPleadBodyPartByIDResult" nillable="true" type="q24:PatientClaimPleadBodyPart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimPleadBodyPartByPatientClaimID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimPleadBodyPartByPatientClaimIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimPleadBodyPartByPatientClaimID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_bodyPartStatusID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimPleadBodyPartByPatientClaimIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimDiagnose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimDiagnose" nillable="true" type="q25:PatientClaimDiagnose" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimDiagnoseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientClaimDiagnoseResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimDiagnose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimDiagnose" nillable="true" type="q26:PatientClaimDiagnose" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimDiagnoseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientClaimDiagnoseResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimDiagnose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimDiagnoseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimDiagnoseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimDiagnoseByPatientClaimId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientclaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimDiagnoseByPatientClaimIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientClaimDiagnoseByPatientClaimIdResult" nillable="true" type="q27:PagedPatientClaimDiagnose" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimDiagnoseByPatientClaimIdAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimDiagnoseByPatientClaimIdAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimDiagnoseByPatientClaimIdAllResult" nillable="true" type="q28:ArrayOfPatientClaimDiagnose" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimDiagnoseByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimDiagnoseID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimDiagnoseByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimDiagnoseByIDResult" nillable="true" type="q29:PatientClaimDiagnose" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimDiagnosePatientClaimID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimDiagnosePatientClaimIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimStatus" nillable="true" type="q30:PatientClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientClaimStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientClaimStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimStatus" nillable="true" type="q31:PatientClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientClaimStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientClaimStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateDeniedRationale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaimStatus" nillable="true" type="q32:PatientClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateDeniedRationaleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateDeniedRationaleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimStatusID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimStatusByPatientClaimId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimStatusByPatientClaimIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientClaimStatusByPatientClaimIdResult" nillable="true" type="q33:PagedPatientClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimStatusByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimStatusID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimStatusByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimStatusByIDResult" nillable="true" type="q34:PatientClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimStatusByRefferalID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_rfaRefferalID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientClaimStatusByRefferalIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientClaimStatusByRefferalIDResult" nillable="true" type="q35:PatientClaimStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimStatusPatientClaimID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deletePatientClaimStatusPatientClaimIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientMedicalRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientMedicalRecord" nillable="true" type="q36:PatientMedicalRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientMedicalRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientMedicalRecordsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientMedicalRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_medicalRecord" nillable="true" type="q37:PatientMedicalRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientMedicalRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientMedicalRecordsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientMedicalRecordsForMedicalRec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_medicalRecord" nillable="true" type="q38:PatientMedicalRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientMedicalRecordsForMedicalRecResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientMedicalRecordsForMedicalRecResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientsMedicalRecordAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpatientsMedicalRecordAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getpatientsMedicalRecordAllResult" nillable="true" type="q39:ArrayOfPatientMedicalRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientMedicalRecordByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientMedicalRecordByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientMedicalRecordByIDResult" nillable="true" type="q40:PatientMedicalRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalRecordSplittingByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMedicalRecordSplittingByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getMedicalRecordSplittingByPatientIDResult" nillable="true" type="q41:ArrayOfPatientMedicalRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientMedicalRecordByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+        <xs:element minOccurs="0" name="_sortBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_order" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientMedicalRecordByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getPatientMedicalRecordByPatientIDResult" nillable="true" type="q42:PagedPatientMedicalRecordByPatientID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientMedicalRecordTemplateByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientMedicalRecordTemplateByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientMedicalRecordTemplateByPatientIDResult" nillable="true" type="q43:PatientMedicalRecordTemplateByPatientID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientMedicalRecordMultipleTemplateByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientMedicalRecordMultipleTemplateByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="GetPatientMedicalRecordMultipleTemplateByPatientIDResult" nillable="true" type="q44:ArrayOfPatientMedicalRecordByPatientID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestRecordsByPatientClaim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaim" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRFARequestRecordsByPatientClaimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getRFARequestRecordsByPatientClaimResult" nillable="true" type="q45:ArrayOfRFARequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientPhysician">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientClaim" nillable="true" type="q46:PatientClaim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientPhysicianResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientPhysicianResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllBodyPartsByClaimId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_claimID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllBodyPartsByClaimIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAllBodyPartsByClaimIdResult" nillable="true" type="q47:PagedBodyPartDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNotesByPatientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientID" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNotesByPatientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getNotesByPatientIDResult" nillable="true" type="q48:PagedNotesDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientOccupational">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientOccupational" nillable="true" type="q49:PatientOccupational" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPatientOccupationalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPatientOccupationalResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientOccupational">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="_patientOccupational" nillable="true" type="q50:PatientOccupational" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePatientOccupationalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePatientOccupationalResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientOccupationalByPatientClaimID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_patientClaimID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientOccupationalByPatientClaimIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getPatientOccupationalByPatientClaimIDResult" nillable="true" type="q51:PatientOccupational" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

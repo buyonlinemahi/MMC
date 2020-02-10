@@ -1,0 +1,7 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\bin\Debug\MMC.Core.BL.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\bin\Debug\MMC.Core.BL.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\bin\Debug\MMC.Core.Data.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\bin\Debug\MMC.Core.Data.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\obj\Debug\MMC.Core.BL.Model.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\obj\Debug\MMC.Core.BL.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.BL.Model\obj\Debug\MMC.Core.BL.Model.pdb

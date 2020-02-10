@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/NotificationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/NotificationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:element name="getAllNotifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_processlevel" type="xs:int" />
+        <xs:element minOccurs="0" name="_skip" type="xs:int" />
+        <xs:element minOccurs="0" name="_take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" minOccurs="0" name="getAllNotificationsResult" nillable="true" type="q1:PagedNotification" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdjandPhyEmailByReferralID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_referralID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdjandPhyEmailByReferralIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="getAdjandPhyEmailByReferralIDResult" nillable="true" type="q2:ArrayOfNotificationEmailSend" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

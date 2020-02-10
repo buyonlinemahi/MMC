@@ -1,0 +1,64 @@
+﻿<div class="modal fade" data-backdrop="static" data-keyboard="false" id="divClaimSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="panel-heading">
+                <button type="button" id="btnRequestIMRRecordSearchClose" data-bind="click:ClosePopup" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Request IMR Record(s) </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="panel-wrapper">
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <input type="hidden" name="Skip" id="hidClaimskip" data-bind="value: $root.Skip" />
+                                <table class="table table-bordered table-striped table-condensed home-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Patient Name</th>
+                                            <th>Claim</th>
+                                            <th>DOI</th>
+                                          @*  <th>Client</th>
+                                            <th>Claim Admin</th>*@
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <!--ko if:PatientClaimDetails() != null-->
+                                        <!--ko foreach:PatientClaimDetails-->
+                                        <tr>
+                                            <td><span data-bind="text:PatientName"></span></td>
+                                            <td><a href="" data-bind="click:$root.SelectClaimNumber"><span data-bind="text:PatClaimNumber"></span></a></td>
+                                            <td><span data-bind="text:PatDOI"></span></td>
+                                            @*<td><span data-bind="text:ClientName"></span></td>
+                                            <td><span data-bind="text:ClaimAdministratorName"></span></td>*@
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+                                    <tfoot>
+                                        <!--ko if: PatientClaimDetails()==null || PatientClaimDetails().length==0-->
+                                        <tr>
+                                            <td colspan="6">
+                                                <div class="alert alert-info">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        &times;
+                                                    </button>
+                                                    No Result Found.
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- /ko -->
+                                    </tfoot>
+                                </table>
+                                <nav class="margin-left">
+                                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

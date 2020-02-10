@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IMRService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIMRService_getRequestIMRRecordAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestIMRRecordAll" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getRequestIMRRecordAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestIMRRecordAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getRequestIMRRecordByPatientClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestIMRRecordByPatientClaim" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getRequestIMRRecordByPatientClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRequestIMRRecordByPatientClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_SaveRequestIMRRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRequestIMRRecord" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_SaveRequestIMRRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRequestIMRRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getMedicalAndLegalDocsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMedicalAndLegalDocsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getMedicalAndLegalDocsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMedicalAndLegalDocsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_UpdateRFAIMRReferenceNumberByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAIMRReferenceNumberByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_UpdateRFAIMRReferenceNumberByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAIMRReferenceNumberByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_UpdateRFAIMRHistoryRationaleByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAIMRHistoryRationaleByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_UpdateRFAIMRHistoryRationaleByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRFAIMRHistoryRationaleByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_addIMRRFAReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:addIMRRFAReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_addIMRRFAReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addIMRRFAReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_updateIMRRFAReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateIMRRFAReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_updateIMRRFAReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateIMRRFAReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_deleteIMRRFAReferral_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteIMRRFAReferral" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_deleteIMRRFAReferral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteIMRRFAReferralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRRFAReferralByRefID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRRFAReferralByRefID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRRFAReferralByRefID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRRFAReferralByRefIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getPhysicianByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPhysicianByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getPhysicianByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPhysicianByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_GetIMRLetters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIMRLetters" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_GetIMRLetters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIMRLettersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRDecisionPageDetailsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRDecisionPageDetailsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRDecisionPageDetailsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRDecisionPageDetailsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRDecisionPageRequestDetailsByReferralID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRDecisionPageRequestDetailsByReferralID" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRDecisionPageRequestDetailsByReferralID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRDecisionPageRequestDetailsByReferralIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_updateIMRRFAReferralByValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateIMRRFAReferralByValues" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_updateIMRRFAReferralByValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateIMRRFAReferralByValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_addIMRDecisionRequestDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:addIMRDecisionRequestDetail" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_addIMRDecisionRequestDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addIMRDecisionRequestDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_updateIMRDecisionRequestDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateIMRDecisionRequestDetail" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_updateIMRDecisionRequestDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateIMRDecisionRequestDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRDecisionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRDecisionList" />
+  </wsdl:message>
+  <wsdl:message name="IIMRService_getIMRDecisionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getIMRDecisionListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIMRService">
+    <wsdl:operation name="getRequestIMRRecordAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getRequestIMRRecordAll" message="tns:IIMRService_getRequestIMRRecordAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getRequestIMRRecordAllResponse" message="tns:IIMRService_getRequestIMRRecordAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRequestIMRRecordByPatientClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getRequestIMRRecordByPatientClaim" message="tns:IIMRService_getRequestIMRRecordByPatientClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getRequestIMRRecordByPatientClaimResponse" message="tns:IIMRService_getRequestIMRRecordByPatientClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRequestIMRRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/SaveRequestIMRRecord" message="tns:IIMRService_SaveRequestIMRRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/SaveRequestIMRRecordResponse" message="tns:IIMRService_SaveRequestIMRRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMedicalAndLegalDocsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getMedicalAndLegalDocsByReferralID" message="tns:IIMRService_getMedicalAndLegalDocsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getMedicalAndLegalDocsByReferralIDResponse" message="tns:IIMRService_getMedicalAndLegalDocsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAIMRReferenceNumberByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/UpdateRFAIMRReferenceNumberByReferralID" message="tns:IIMRService_UpdateRFAIMRReferenceNumberByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/UpdateRFAIMRReferenceNumberByReferralIDResponse" message="tns:IIMRService_UpdateRFAIMRReferenceNumberByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAIMRHistoryRationaleByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/UpdateRFAIMRHistoryRationaleByReferralID" message="tns:IIMRService_UpdateRFAIMRHistoryRationaleByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/UpdateRFAIMRHistoryRationaleByReferralIDResponse" message="tns:IIMRService_UpdateRFAIMRHistoryRationaleByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addIMRRFAReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/addIMRRFAReferral" message="tns:IIMRService_addIMRRFAReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/addIMRRFAReferralResponse" message="tns:IIMRService_addIMRRFAReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateIMRRFAReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/updateIMRRFAReferral" message="tns:IIMRService_updateIMRRFAReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/updateIMRRFAReferralResponse" message="tns:IIMRService_updateIMRRFAReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteIMRRFAReferral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/deleteIMRRFAReferral" message="tns:IIMRService_deleteIMRRFAReferral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/deleteIMRRFAReferralResponse" message="tns:IIMRService_deleteIMRRFAReferral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getIMRRFAReferralByRefID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getIMRRFAReferralByRefID" message="tns:IIMRService_getIMRRFAReferralByRefID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getIMRRFAReferralByRefIDResponse" message="tns:IIMRService_getIMRRFAReferralByRefID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPhysicianByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getPhysicianByReferralID" message="tns:IIMRService_getPhysicianByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getPhysicianByReferralIDResponse" message="tns:IIMRService_getPhysicianByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIMRLetters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/GetIMRLetters" message="tns:IIMRService_GetIMRLetters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/GetIMRLettersResponse" message="tns:IIMRService_GetIMRLetters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getIMRDecisionPageDetailsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getIMRDecisionPageDetailsByReferralID" message="tns:IIMRService_getIMRDecisionPageDetailsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getIMRDecisionPageDetailsByReferralIDResponse" message="tns:IIMRService_getIMRDecisionPageDetailsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getIMRDecisionPageRequestDetailsByReferralID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getIMRDecisionPageRequestDetailsByReferralID" message="tns:IIMRService_getIMRDecisionPageRequestDetailsByReferralID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getIMRDecisionPageRequestDetailsByReferralIDResponse" message="tns:IIMRService_getIMRDecisionPageRequestDetailsByReferralID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateIMRRFAReferralByValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/updateIMRRFAReferralByValues" message="tns:IIMRService_updateIMRRFAReferralByValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/updateIMRRFAReferralByValuesResponse" message="tns:IIMRService_updateIMRRFAReferralByValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addIMRDecisionRequestDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/addIMRDecisionRequestDetail" message="tns:IIMRService_addIMRDecisionRequestDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/addIMRDecisionRequestDetailResponse" message="tns:IIMRService_addIMRDecisionRequestDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateIMRDecisionRequestDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/updateIMRDecisionRequestDetail" message="tns:IIMRService_updateIMRDecisionRequestDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/updateIMRDecisionRequestDetailResponse" message="tns:IIMRService_updateIMRDecisionRequestDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getIMRDecisionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMRService/getIMRDecisionList" message="tns:IIMRService_getIMRDecisionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMRService/getIMRDecisionListResponse" message="tns:IIMRService_getIMRDecisionList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIMRService" type="tns:IIMRService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRequestIMRRecordAll">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getRequestIMRRecordAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRequestIMRRecordByPatientClaim">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getRequestIMRRecordByPatientClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRequestIMRRecord">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/SaveRequestIMRRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMedicalAndLegalDocsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getMedicalAndLegalDocsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAIMRReferenceNumberByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/UpdateRFAIMRReferenceNumberByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRFAIMRHistoryRationaleByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/UpdateRFAIMRHistoryRationaleByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addIMRRFAReferral">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/addIMRRFAReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateIMRRFAReferral">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/updateIMRRFAReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteIMRRFAReferral">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/deleteIMRRFAReferral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIMRRFAReferralByRefID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getIMRRFAReferralByRefID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhysicianByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getPhysicianByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIMRLetters">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/GetIMRLetters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIMRDecisionPageDetailsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getIMRDecisionPageDetailsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIMRDecisionPageRequestDetailsByReferralID">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getIMRDecisionPageRequestDetailsByReferralID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateIMRRFAReferralByValues">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/updateIMRRFAReferralByValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addIMRDecisionRequestDetail">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/addIMRDecisionRequestDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateIMRDecisionRequestDetail">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/updateIMRDecisionRequestDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIMRDecisionList">
+      <soap:operation soapAction="http://tempuri.org/IIMRService/getIMRDecisionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IMRService">
+    <wsdl:port name="BasicHttpBinding_IIMRService" binding="tns:BasicHttpBinding_IIMRService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/mmc/IMRService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

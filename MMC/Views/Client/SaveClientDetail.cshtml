@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MMCApp.Domain.Models.ClientModel.PatientClientDetailViewModel
+@using MMCApp.Infrastructure.Global;
+@using System.Web.Script.Serialization
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/Client/ClientViewModel.js")"></script>
+    
+    
+    <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script>
+
+        var saveModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _ClientViewModel = new ClientViewModel(saveModel);
+        ko.applyBindings(_ClientViewModel, $("#divClient").get(0));
+
+     
+
+    </script>
+}
+
+<div class="col-sm-12 panel-bg">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#divClient">Client Setup</a></li>
+        <li><a data-toggle="tab" id="tabClientBilling" class="DivHide hide" href="#divClientBilling">Client Billing</a></li>
+
+    </ul> 
+
+
+    <div class="tab-content">
+        <div id="divClient" class="tab-pane fade in active">
+
+            @using (Html.BeginForm(GlobalConst.Actions.Client.AddClient, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddClient",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientDetailSuccess(responseText);},beforeSubmit: ClientFormBeforeSubmit}"
+    }))
+            {
+                <div class="panel-body row">
+                    <div class="col-sm-12">
+                        <div class="form-group row label-font clearfix">
+                            <label for="ClmNumber" class="col-sm-2 control-label"><span class="required-link">*</span>Client Name :</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" name="ClientDetail.ClientID" id="ClientID" data-bind="value:ClientDetail.ClientID" />
+                                <input type="text" class="form-control" id="ClientName" required="required" name="ClientName" maxlength="50" data-bind="value:ClientDetail.ClientName,jqBootstrapValidation: {}">
+                            </div>
+                            <div class="col-sm-2">
+                                <button id="btnAddClient" class="btn btn-default padding-btn color-black pull-left margin-left-20" type="submit">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+
+            <div id="DivShowAllGrid">
+                <div class="row panel-body ClaimHideDiv">
+                    @{Html.RenderPartial("~/Views/Shared/Client/_ClientInsurerPartial.cshtml");}
+                </div>
+
+                <div class="row panel-body ClaimHideDiv">
+                    @{Html.RenderPartial("~/Views/Shared/Client/_ClientEmployerPartial.cshtml");}
+                </div>
+
+                <div class="row panel-body ClaimHideDiv">
+                    @{Html.RenderPartial("~/Views/Shared/Client/_ClientThirdPartyAdministratorPartial.cshtml");}
+                </div>
+
+                @*<div class="row panel-body ClaimHideDiv">
+                            @{Html.RenderPartial("~/Views/Shared/Client/_ClientManagedCareCompanyPartial.cshtml");}
+                            <select id="ManagedCareCompany" class="form-control" name="CompanyID" data-bind="options: ManagedCareCompanyList, optionsText: 'CompName', optionsValue: 'CompanyId',value:MmcSelectedValue,jqBootstrapValidation:{}"></select>
+                        </div>*@
+                <div class="white-background">
+
+                    <div class="panel-body row">
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="ClmNumber" class="col-sm-2 control-label">Managed Care Company :</label>
+                                <div class="col-sm-8">
+                                    <select id="ddlManagedCareCompany" class="form-control" name="CompanyID" data-bind="options: ManagedCareCompanyList, optionsText: 'CompName', optionsValue: 'CompanyId',value:MmcSelectedValue"></select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button id="btnAddClientMMC" class="btn btn-red padding-btn color-black pull-right" type="submit">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body row">
+                        <div class="col-sm-12">
+                            <div class="form-group row label-font clearfix">
+                                <label for="ClmNumber" class="col-sm-2 control-label"><span class="required-link">*</span>Claim Administrator :</label>
+                                <div class="col-sm-8">
+                                    <select id="ClaimAdministrator" class="form-control" name="Id" data-bind="options: ClaimAdministratorAllByClientIDDetails, optionsText: 'Name', optionsValue: 'Ids',  optionsCaption: 'Select Any Claim Administrator',value:ClmAdSelectedValue ,jqBootstrapValidation:{}"></select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button id="btnUpdateClient" class="btn btn-default padding-btn color-black pull-right" type="submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="divClientBilling" class="tab-pane fade">
+            @{Html.RenderPartial("~/Views/Shared/ClientBilling/_ClientBillingPartial.cshtml");}
+        </div>
+    </div>
+</div>

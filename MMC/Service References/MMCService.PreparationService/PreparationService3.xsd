@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MMCService.DTO.Paged" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MMCService.DTO" />
+  <xs:complexType name="PagedClinicalTriage">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="ClinicalTriages" nillable="true" type="q1:ArrayOfClinicalTriage" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedClinicalTriage" nillable="true" type="tns:PagedClinicalTriage" />
+  <xs:complexType name="PagedRFAAdditionalInfo">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="RFAAdditionalInfoDetails" nillable="true" type="q2:ArrayOfRFAAdditionalInfo" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedRFAAdditionalInfo" nillable="true" type="tns:PagedRFAAdditionalInfo" />
+  <xs:complexType name="PagedPatientMedicalRecordByPatientID">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MMCService.DTO" minOccurs="0" name="PatientMedicalRecordByPatientIDDetails" nillable="true" type="q3:ArrayOfPatientMedicalRecordByPatientID" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPatientMedicalRecordByPatientID" nillable="true" type="tns:PagedPatientMedicalRecordByPatientID" />
+</xs:schema>

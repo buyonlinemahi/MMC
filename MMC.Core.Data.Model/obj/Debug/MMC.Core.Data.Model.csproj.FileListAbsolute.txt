@@ -1,0 +1,5 @@
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.Model\bin\Debug\MMC.Core.Data.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.Model\bin\Debug\MMC.Core.Data.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.Model\obj\Debug\MMC.Core.Data.Model.dll
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.Model\obj\Debug\MMC.Core.Data.Model.pdb
+D:\Mahi_TFS\UR\MMC\MMC\MMC.Core.Data.Model\obj\Debug\MMC.Core.Data.Model.csprojResolveAssemblyReference.cache

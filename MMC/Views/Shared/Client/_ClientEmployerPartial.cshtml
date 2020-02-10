@@ -1,0 +1,168 @@
+﻿@using MMCApp.Infrastructure.Global;
+<div>
+    <input type="hidden" name="Skip" id="hidskipcEmp" data-bind="value: $root.cEmpSkip" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Employer Name</th>
+                            <th>Employer Address</th>
+                            <th>Employer City </th>
+                            <th>Employer State </th>
+                            <th>Employer Zip</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:ClientEmployerDetails()!= null-->
+                        <!-- ko foreach:ClientEmployerDetails -->
+                        <tr>
+                            <td><span data-bind="text:EmpName" /></td>
+                            <td><span data-bind="text:EmpAddress1" /></td>
+                            <td><span data-bind="text:EmpCity" /></td>
+                            <td><span data-bind="text:EmpState" /></td>
+                            <td><span data-bind="text:EmpZip" /></td>
+                            <td> <a data-bind="click:$root.DeleteClientEmployerByID" href="#">Delete</a> </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:ClientEmployerDetails()==null || ClientEmployerDetails().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                    <!-- ko if:cEmpPager().cEmpTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: cEmpPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:cEmpFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: cEmpLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: cEmpTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:cEmpCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cEmpCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cEmpCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cEmpHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cEmpCurrentPage(cEmpCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cEmpHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:cEmpPages -->
+                            <!-- ko if:$data === $parent.cEmpCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.cEmpCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.cEmpCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:cEmpHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cEmpCurrentPage(cEmpCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cEmpHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:cEmpCurrentPage() === cEmpLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ cEmpCurrentPage(cEmpLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:cEmpCurrentPage() === cEmpLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-backdrop="static" id="OpenPopUpClientEmployer" data-toggle="modal" data-target="#addClientEmployer" type="button">Add New</button>
+    <!--Model-->
+    <div class="modal fade" id="addClientEmployer" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg popup-top">
+            @using (Html.BeginForm(GlobalConst.Actions.Client.AddClientEmployer, GlobalConst.Controllers.Client, FormMethod.Post, new
+    {
+        id = "frmaddClientEmployer",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddClientEmployerDetailSuccess(responseText);},beforeSubmit: ClientEmployerFormBeforeSubmit}"
+    }))
+            {
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <button type="button" class="close ClosePop" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add Client Employer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="divClaim">
+
+                            <div class="row">
+
+                                <div class="panel-wrapper">
+                                    <div class="panel-body">
+
+                                        <div class="col-md-4">
+                                            <label>Employer:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="ClientID" id="EmployerClientID" />
+                                            <select id="Employer" class="form-control" name="EmployerID" data-bind="options: EmployerList, optionsText: 'EmpName', optionsValue: 'EmployerID',value:EmpSelectedValue,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-red ClosePop">Save</button>
+                        <button type="button" class="btn btn-default ClosePop" id="ClosePopUpEmployer" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

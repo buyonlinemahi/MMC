@@ -1,0 +1,154 @@
+﻿@using System.Web.Script.Serialization
+@using MMCApp.Infrastructure.Global;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/KnockoutViewModel/User/SearchViewModel.js")"></script>
+   <script src="@Url.Content("~/Scripts/ko.pager.js")"></script>
+    <script type="text/javascript">
+        var _searchViewModel = new SearchViewModel();
+        ko.applyBindings(_searchViewModel, $("#UserSearchDiv").get(0));
+    </script>
+
+}
+
+
+<div id="UserSearchDiv">
+
+    <div class="col-sm-12">
+        <div class="row label-font">
+            <div class="col-sm-12">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Search User :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="_SearchTextByName" placeholder="Enter the Keywords Here">
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default padding-btn pull-right" data-bind="click:$root.UserSearchName" type="submit"> Search</button>
+                    </div><!-- col-sm-2 -->
+                    <div class="col-sm-1">
+                        <a class="btn btn-default padding-btn pull-right" type="button" data-bind="attr: {'href': '@Url.Action("SaveUserDetail", "User")'}">Add New</a>
+                    </div><!-- col-sm-2 -->
+                </div>
+
+            </div><!-- col-sm-2 -->
+         <!--ko with:SearchViewModel-->
+         <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+         <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+         <!--/ko-->
+
+
+            </div><!-- row -->
+        </div><!-- row -->
+    <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+        <div class="row">
+            <div class="col-sm-12 margintop30">
+                <div class="white-background">
+                    <table class="table table-bordered table-striped table-condensed home-table">
+                        <thead>
+                            <tr>
+                                <th>User Fullname</th>
+                                 <th>UserName </th>                                                        
+                                <th>User Email </th>                              
+                                <th>Action </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--ko if:UserSearchResults()!= null-->
+                            <!-- ko foreach:UserSearchResults -->
+                            <tr>
+                                 <td><span data-bind="text:(UserFirstName() + ' ' + UserLastName())" /></td>
+                            <td><span data-bind="text:UserName" /></td>                           
+                            <td><span data-bind="text:UserEmail" /></td>                           
+                            <td> <a data-bind="attr: {'href': '@Url.Action("SaveUserDetail", "User")/' + UserId()}">Edit</a> / <a data-bind="click:$root.DeleteUserByID" href="#" >Delete</a> / <a data-target="#changepassword" data-bind="click:$root.OpenPopUserByID" data-backdrop="static" data-keyboard="false" data-toggle="modal"  href="#" >Change Password</a> </td>
+
+                            </tr>
+                            <!--/ko-->
+                            <!--/ko-->
+
+                        </tbody>
+                        <tfoot>
+                            <!--ko if:UserSearchResults()==null || UserSearchResults().length==0-->
+                            <tr>
+                                <td colspan="6">
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            &times;
+                                        </button>
+                                        No Result Found.
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tfoot>
+                    </table>
+                    <nav class="margin-left">
+                        @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                    </nav>
+                </div><!-- white-background -->
+            </div><!-- col-sm-12 -->
+        </div>
+    <!-- /ko -->
+
+
+      <div class="modal fade bs-example-modal-lg margin-top10" id="changepassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div>
+        <div class="modal-dialog position-center modal-lg">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" data-bind="click:$root.btnclosepop" class="close" id="sectPayment" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <h4 class="modal-title">Change Password</h4>
+                </div>
+
+                <div class="modal-body">
+          @using (Html.BeginForm(GlobalConst.Actions.UserController.ChangePassword, GlobalConst.Controllers.User, FormMethod.Post, new
+    {
+        id = "frmUserChangePassword",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ ChangePasswordSuccess(responseText);},beforeSubmit: ChangePasswordBeforeSubmit, clearForm: true}"
+    }))
+          {
+
+                          <div class="panel-body row">
+                     
+                          <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-3 control-label required-link">*<span style="color:#4A535E;">Password</span> :</label>
+                                <div class="col-sm-9">
+                                    <input type="password" data-validation-regex-regex="^(?=.*\d)(?=.*[a-zA-Z]).{8,}$" data-validation-regex-message="Must contain atleast 8 Characters with atleast one Number" class="form-control" id="UserPassword" required name="UserPassword" maxlength="50" data-bind="jqBootstrapValidation: {}">
+                                     <input type="hidden" class="form-control" id="UserId" required name="UserId" maxlength="50" data-bind="jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row label-font clearfix">
+                                <label for="inputEmail3" class="col-sm-5 control-label"><span class="required-link">*</span>Confirm Password :</label>
+                                <div class="col-sm-7">
+                                    <input type="password" data-validation-match-match="UserPassword"  class="form-control" id="UserConfirmPassword"  name="UserConfirmPassword" maxlength="50" data-bind="jqBootstrapValidation: {}">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                          
+        <div class="col-sm-12">
+
+            @*<button class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="button">Cancel</button>*@
+            <button  class="btn btn-default padding-btn color-black pull-right margin-left-20 margin-btm-30" type="submit">Change Password</button>
+
+        </div>
+  
+                      
+                    </div>
+                  }
+                </div>
+            </div>
+        </div>
+   </div>
+    </div>
+    </div>
+  

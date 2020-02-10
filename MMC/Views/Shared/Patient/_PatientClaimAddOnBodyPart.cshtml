@@ -1,0 +1,195 @@
+﻿<div>  
+    <input type="hidden" name="Skip" id="hidskipbp" data-bind="value: $root.bpSkip" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th style="width:25%;">Add On Body Part(s) </th>
+                            <th style="width:25%;">Body Part Status </th>
+                            <th style="width:25%;">Body Part Condition </th>
+                            <th style="width:25%;">Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:AddOnBodyPartResults()!= null-->
+                        <!-- ko foreach:AddOnBodyPartResults -->
+                        <tr>
+                            <td style="width:25%;">
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimAddOnBodyPartDetails['+ $index() + '\].PatientClaimAddOnBodyPartID' },value:PatientClaimAddOnBodyPartID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimAddOnBodyPartDetails['+ $index() + '\].PatientClaimID' },value:PatientClaimID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimAddOnBodyPartDetails['+ $index() + '\].AddOnBodyPartID' },value:AddOnBodyPartID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimAddOnBodyPartDetails['+ $index() + '\].PatAddOnBodyPartName' },value:PatAddOnBodyPartName" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimAddOnBodyPartDetails['+ $index() + '\].BodyPartStatusID' },value:BodyPartStatusID" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimAddOnBodyPartDetails['+ $index() + '\].PatBodyPartStatusName' },value:PatBodyPartStatusName" />
+                                <input type="hidden" data-bind="attr: { name: 'objPatientModel.PatientClaimPleadBodyPartDetails['+ $index() + '\].AcceptedDate' },value:AcceptedDate" />
+                                <span data-bind="text:PatAddOnBodyPartName"></span>
+                            </td>
+                            <td style="width:25%;"><span data-bind="text:PatBodyPartStatusName"></span></td>
+                            <td style="width:25%;"><span data-bind="text:PatAddOnBodyPartCondition"></span></td>
+                            <td style="width:25%;"><a href="#" id="updateABP" data-bind="click:$root.updateAddOnBodyPart">Update</a> &nbsp;&nbsp;&nbsp;  <a href="#" data-bind="click:$root.removeAddOnBodyPart">Delete</a> </td>
+
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:AddOnBodyPartResults()==null || AddOnBodyPartResults().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <nav class="margin-left">
+                  
+                    <!-- ko if:bpPager().bpTotalItemCount() > 0 -->
+                    <div class="pagination" data-bind="with: bpPager">
+                        <div class="pagexofx">
+                            <span data-bind="text:bpFirstItemIndex"></span>
+                            -
+                            <span data-bind="text: bpLastItemIndex"></span>
+                            of
+                            <strong>
+                                <span data-bind="text: bpTotalItemCount"></span>
+                            </strong>
+                            total results.
+                        </div>
+                        <ul class="pagination">
+                            <!-- ko if:bpCurrentPage() === 1 -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:bpCurrentPage() === 1 -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ bpCurrentPage(1); }">&laquo;&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:bpHasPrevPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ bpCurrentPage(bpCurrentPage() - 1); }">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:bpHasPrevPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&laquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko foreach:bpPages -->
+                            <!-- ko if:$data === $parent.bpCurrentPage() -->
+                            <li class="active">
+                                <span class="currentPage" data-bind="text: $data"></span>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:$data !== $parent.bpCurrentPage() -->
+                            <li>
+                                <a href="#" data-bind="text: $data, click: function(){ $parent.bpCurrentPage($data); }"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if:bpHasNextPage -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ bpCurrentPage(bpCurrentPage() + 1); }">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:bpHasNextPage -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot:bpCurrentPage() === bpLastPage() -->
+                            <li>
+                                <a href="#" data-bind="click: function(){ bpCurrentPage(bpLastPage()); }">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko if:bpCurrentPage() === bpLastPage() -->
+                            <li class="disabled">
+                                <a href="#" class="disabledPage">&raquo;&raquo;</a>
+                            </li>
+                            <!-- /ko -->
+                        </ul>
+
+                    </div>
+                    <!-- /ko -->
+                </nav>
+            </div><!-- white-background -->
+
+
+        </div><!-- col-sm-12 -->
+    </div>
+    <button class="btn btn-default padding-btn color-black pull-right margin-left-20 OpenPop" tabindex="12" data-bind="click:$root.addBodyPart" data-backdrop="static" data-toggle="modal" data-target="#addAddOnBodyPart" type="button">Add New</button>
+
+    <!--Model-->
+    <div class="modal fade" id="addAddOnBodyPart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index:9">
+        <div class="modal-dialog modal-lg popup-top">
+            <div class="modal-content">
+                <div class="panel-heading">
+                    <button type="button" class="close" id="CloseAddOnBodyPartConditionPopup" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Body Part</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="divClaim">
+
+                        <div class="row">
+
+                            <div class="panel-wrapper">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+
+                                        <div class="col-md-4">
+                                            <label>Add On Body Part :</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                             <input type="hidden" id="PatientClaimAddOnBodyPartID" />
+                                            <select class="form-control" id="AddOnBodyPartID" required data-bind="options: PatientAddONBodys, optionsText: 'BodyPartName', optionsValue: 'BodyPartID', value: selectedItemPatientAddONBodys,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                       
+                                    <div class="col-md-12 margintop10">
+
+                                        <div class="col-md-4 clearfix">
+                                            <label>Body Part Status:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="AddOnBodyPartStatuesID" required data-bind="options: BodyPartStatues, optionsText: 'BodyPartStatusName', optionsValue: 'BodyPartStatusID', value: selectedItemAddBodyPartStatues,jqBootstrapValidation:{}"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 margintop10">
+                                        <div class="col-md-4">
+                                            <label>Accepted Date:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control datepicker" id="AddBodyPartsAcceptedDate" maxlength="15" name="AcceptedDate" data-bind="value:AcceptedDate,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                      <div class="col-md-12 margintop10">
+                                        <div class="col-md-4">
+                                            <label> Condition :</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"  id="AddOnBodyPartCondition" maxlength="50" name="AddOnBodyPartCondition" data-bind="value:AddOnBodyPartCondition,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-red ClosePop" data-bind="click:AddNewPatientClaimAddOnBodyPart">Save   </button>
+                    <button type="button" class="btn btn-default" id="ClosePopUpPatientClaimAddOnBodyPart" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

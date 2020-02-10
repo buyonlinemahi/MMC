@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00aa0453-88a3-439c-84e9-0e52ba275cf5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PreparationService.wsdl" MetadataType="Wsdl" ID="bbb5be02-86e4-410b-8ac4-a0bffac5df10" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?wsdl" />
+    <MetadataFile FileName="PreparationService.xsd" MetadataType="Schema" ID="ce4f05e9-3a91-4009-a863-4e915d281ff7" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PreparationService.disco" MetadataType="Disco" ID="aaa9f854-8e70-445a-8832-d51d13e447da" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?disco" />
+    <MetadataFile FileName="PreparationService1.xsd" MetadataType="Schema" ID="3fe34603-76f9-49fe-a1e8-8bcb7d7c947e" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PreparationService2.xsd" MetadataType="Schema" ID="cdcec9e9-a0de-4c3d-b877-4648144fbb2b" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PreparationService3.xsd" MetadataType="Schema" ID="f23dd5a4-4751-486c-a643-e6969f47b211" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/mmc/PreparationService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,3 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MMCService.EmailRecordAttachmentService" CodeBehind="EmailRecordAttachmentService.svc.cs" Factory="ServiceInitializer.WcfSvcServiceHostFactory" %>
+
+
